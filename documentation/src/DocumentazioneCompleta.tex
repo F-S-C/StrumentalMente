@@ -1,0 +1,25 @@
+\documentclass[12pt]{book}
+\usepackage{import}
+
+\input{include/documentHeader.tex}
+\input{include/defaultValues.tex}
+
+\newcommand{\tipoDocumento}{Progettazione}
+
+\begin{document}
+	\input{include/titlePage.tex}
+	
+	\tableofcontents
+	\cleardoublepage
+	
+	\part{Pianificazione}
+	\subimport*{Pianificazione/}{content.tex}
+	\part{Progettazione}
+	\subimport*{Pianificazione/}{content.tex}
+	
+	\part{Ringraziamenti e riferimenti}
+	\newpage
+	\bibliographystyle{plain}
+	\bibliography{biblist}
+	
+\end{document}

@@ -1,0 +1,135 @@
+%\input{setup/includes.tex}
+
+\usepackage[italian]{babel}
+\frenchspacing
+\usepackage{natbib}
+\usepackage{url}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{lipsum}
+\usepackage{cancel}
+\usepackage{longtable}
+\usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
+\usepackage{vmargin}
+\usepackage{hyperref}
+\usepackage{bold-extra}
+
+\usepackage{listings}
+\usepackage{color}
+
+\usepackage{titlesec}
+
+\usepackage{caption}
+\usepackage[framed,amsmath,thmmarks]{ntheorem}
+
+% ------
+
+%\input{setup/setup.tex}
+
+% DECOMMENT FOR EQUAL MARGINS
+%\setmarginsrb{3 cm}{2.5 cm}{3 cm}{2.5 cm}{1 cm}{1.5 cm}{1 cm}{1.5 cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% An example environment
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\captionsetup{%
+	font=footnotesize,% set font size to footnotesize
+	labelfont=bf % bold label (e.g., Figure 3.2) font
+}
+
+\theoremheaderfont{\normalfont\bfseries}
+\theorembodyfont{\normalfont}
+\theoremstyle{break}
+\def\theoremframecommand{{\color{gray!50}\vrule width 5pt \hspace{5pt}}}
+\newshadedtheorem{exa}{\iflanguage{italian}{Esempio}{Example}}[chapter]
+\newenvironment{example}[1]{%
+	\begin{exa}[#1]
+	}{%
+	\end{exa}
+}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{
+	language=C,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=none,
+	numberstyle=\tiny\color{gray},
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=3
+}
+
+
+\titleformat{\chapter}[hang] 
+{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{} 
+\makeatletter
+\renewcommand{\@chapapp}{}% Not necessary...
+\newenvironment{chapquote}[2][2em]
+{
+	\setlength{\@tempdima}{#1}%
+	\def\chapquote@author{#2}%
+	\parshape 1 \@tempdima \dimexpr\textwidth-2\@tempdima\relax%
+	\itshape
+}
+{
+	\par\normalfont\hfill--\ \chapquote@author\hspace*{\@tempdima}\par\bigskip
+}
+\makeatother
+
+\titlespacing*{\chapter} {0pt}{-15pt}{2.3ex plus .2ex}
+
+
+\renewcommand\tabularxcolumn[1]{m{#1}}
+\renewcommand{\arraystretch}{2}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+
+% ------
+
+
+\makeatletter
+\let\thetitle\@title
+\let\theauthor\@author
+\let\thedate\@date
+\makeatother
+
+%\input{setup/setHeaderFooter.tex}
+
+%Decommenta se usi \leftmark
+%\renewcommand{\chaptermark}[1]{\markboth{{#1}}{}}
+
+\fancypagestyle{plain}
+{
+	\fancyhead{}
+	\fancyfoot{}
+	\renewcommand{\headrulewidth}{1pt}
+	\renewcommand{\footrulewidth}{1pt}
+	\fancyfoot[RO,LE]{\thepage}
+	%	\fancyhead[RO,LE]{\theteam}
+	\fancyhead[LO,RE]{\textbf{\ProjectTitle}} %Oppure \textbf{\leftmark}
+}
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+\fancyfoot[RO,LE]{\thepage}
+%\fancyhead[RO,LE]{\theteam}
+\fancyhead[LO,RE]{\textbf{\ProjectTitle}} %Oppure \textbf{\leftmark}
+
+% ------

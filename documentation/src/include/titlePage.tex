@@ -1,0 +1,45 @@
+\makeatletter
+\let\thetitle\@title
+\let\theauthor\@author
+\let\thedate\@date
+\makeatother
+
+\begin{titlepage}
+		\centering
+		
+		\vspace*{0.5 cm}
+		% Course Code:
+		\textsc{\large \tipoDocumento}\\[0.5 cm]
+		% Course Name:
+		\textsc{\Large Il team \theteam{} presenta:}\\[1 cm]
+		% University or Project Logo:
+		\includegraphics[scale = 0.5]{example-image}\\[0.5 cm]
+		
+		\rule{\linewidth}{0.2 mm}\\[0.4 cm]
+		% Document Title:
+		{ \huge \bfseries \textsc{\ProjectTitle}}\\
+		\rule{\linewidth}{0.2 mm}\\[1.5 cm]
+		
+		\begin{minipage}{0.4\textwidth}
+			\begin{center} \large %originally flushleft
+				\textbf{\underline{Il team:}}\\
+				\theauthor
+			\end{center}
+		\end{minipage}~
+%		\begin{minipage}{0.4\textwidth}
+%			\begin{flushright} \large % Your Student Number
+%				\textbf{\underline{Matricole:}} \\
+%				675888\\
+%				676502\\
+%				676964\\
+%				677021\\
+%				677909
+%			\end{flushright}
+%		\end{minipage}
+\\[2 cm]
+		% Date or Degree Course:
+		{\large \thedate}\\[2 cm]
+		
+		\cleardoublepage
+		
+	\end{titlepage}

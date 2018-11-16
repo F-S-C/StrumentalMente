@@ -1,0 +1,20 @@
+\documentclass[12pt]{book}
+\usepackage{import}
+
+\input{../include/documentHeader.tex}
+\input{../include/defaultValues.tex}
+
+\newcommand{\tipoDocumento}{Progettazione}
+
+\begin{document}
+	\input{../include/titlePage.tex}
+	
+	\tableofcontents
+	\cleardoublepage
+	
+	\input{content.tex}
+	
+	\newpage
+	\bibliographystyle{plain}
+	\bibliography{biblist}
+\end{document}
