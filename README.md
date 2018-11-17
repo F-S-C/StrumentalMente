@@ -1,12 +1,12 @@
 # StrumentalMente
 
-_Strumentalmente_ è un sistema multimediale di e-learning progettato seguendo il modello di Alessi & Trollip.
+_StrumentalMente_ è un sistema multimediale di e-learning progettato seguendo il modello di Alessi & Trollip.
 
 ## Informazioni preliminari
 
 ### Autori
 
-_Strumentalmente_ è stato creato come progetto d'esame dal gruppo **_F.S.C._**, che è composto da:
+_StrumentalMente_ è stato creato come progetto d'esame dal gruppo **_F.S.C._**, che è composto da:
 
 - [Alessandro **Annese**](https://github.com/Ax3lFernus)
 - [Davide **De Salvo**](https://github.com/Davidedes)
@@ -34,9 +34,9 @@ All'interno della _repository_ sono presenti:
 
 Ci si riferisca alla sottosezione ['la struttura della repository'](#la-struttura-della-repository) per maggiori informazioni sull'organizzaione della repository e dei file in essa presenti.
 
-Una versione utilizzabile del sistema è disponibile online grazie a GitHub Pages. L'indirizzo in cui è disponibile è [F-S-C.github.io/Strumentalmente](https://F-S-C.github.io/StrumentalMente).
+Una versione utilizzabile del sistema è disponibile online grazie a GitHub Pages. L'indirizzo in cui è disponibile è [F-S-C.github.io/StrumentalMente](https://F-S-C.github.io/StrumentalMente).
 
-I sorgenti della documentazione sono in formato [LaTeX](https://www.latex-project.org/) (estensione `.tex`). Non sono presenti all'interno della repository i file intermedi che sono automaticamente generati durante la compilazione da [MiKTeX](https://miktex.org/), il compilatore LaTeX utilizzato per generare i file PDF presenti all'interno della directory `docs`.
+I sorgenti della documentazione sono in formato [LaTeX](https://www.latex-project.org/) (estensione `.tex`). Non sono presenti all'interno della repository i file intermedi che sono automaticamente generati durante la compilazione da [MiKTeX](https://miktex.org/), il compilatore LaTeX utilizzato per generare i file PDF presenti all'interno della directory `documentation`.
 
 #### La struttura della repository
 
