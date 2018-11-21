@@ -9,4 +9,5 @@ for /R %%G in (*.PDF) do (
 	move %%G "../"
 )
 echo Done.
+cd ..
 pause

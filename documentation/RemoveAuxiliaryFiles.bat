@@ -11,4 +11,5 @@ for /R %%G in (.) do (
 )
 
 echo Done.
+cd ..
 pause
