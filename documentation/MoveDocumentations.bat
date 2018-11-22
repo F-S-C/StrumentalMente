@@ -10,4 +10,3 @@ for /R %%G in (*.PDF) do (
 )
 echo Done.
 cd ..
-pause

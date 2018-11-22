@@ -15,7 +15,9 @@ pdflatex DocumentazioneCompleta.tex
 
 cd ..
 echo Done.
-
+cls
 call RemoveAuxiliaryFiles.bat
+cls
 call MoveDocumentations.bat
+cls
 pause
