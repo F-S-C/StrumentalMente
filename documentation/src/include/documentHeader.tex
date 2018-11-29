@@ -115,7 +115,7 @@
 %\input{setup/setHeaderFooter.tex}
 
 %Decommenta se usi \leftmark
-%\renewcommand{\chaptermark}[1]{\markboth{{#1}}{}}
+\renewcommand{\chaptermark}[1]{\markboth{{#1}}{}}
 
 \fancypagestyle{plain}
 {
@@ -126,7 +126,7 @@
 	\fancyfoot[RO,LE]{\thepage}
 	%	\fancyhead[RO,LE]{\theteam}
 	\fancyhead[LO,RE]{\textbf{\ProjectTitle}} %Oppure 
-	\fancyhead[LE,RO]{\leftmark}
+	\fancyhead[LE,RO]{\nouppercase{\leftmark}}
 }
 
 \pagestyle{fancy}
@@ -137,6 +137,6 @@
 \fancyfoot[RO,LE]{\thepage}
 %\fancyhead[RO,LE]{\theteam}
 \fancyhead[LO,RE]{\textbf{\ProjectTitle}} %Oppure 
-\fancyhead[LE,RO]{\leftmark}
+\fancyhead[LE,RO]{\nouppercase{\leftmark}}
 
 % ------
