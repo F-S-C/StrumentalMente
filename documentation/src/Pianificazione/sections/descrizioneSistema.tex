@@ -7,6 +7,20 @@ Il titolo ``\ProjectTitle{}'', scelto in quanto ritenuto accattivante, deriva da
 
 L'applicazione sarà sviluppata in modo da esser rilasciata come sito web liberamente fruibile \emph{online}.
 
+\section{Definizione dello scopo}
+L’applicazione multimediale \ProjectTitle{} ha l’obiettivo di:
+\begin{itemize}
+	\item Avvicinare gli utenti alla musica
+	\item Dare la possibilità agli utenti di imparare a suonare uno o più strumenti
+	\item Acquisire la capacità di riconoscere la natura degli accordi più comuni
+	\item Fornire degli esercizi per valutare in autonomia l’apprendimento o per migliorare l’utilizzo dello strumento
+\end{itemize}
+
+\section{Il committente}
+Il committente dell’applicazione è il docente del corso di Progettazione e Produzione Multimediale dell’anno 2018/19 dell’Università di Bari (CdL\footnote{CdL: abbreviazione dii ``Corso di Laurea''.}: Informatica e Comunicazione Digitale), la Prof.ssa \emph{Rosa Lanzilotti}.
+
+La consegna del sistema multimediale è stimata per il bimestre gennaio/febbraio 2019.
+
 \section{Caratteristiche degli utenti}
 Da una attenta fase di studio delle possibili tipologie di utente a cui l'applicazione è rivolta, si sono potute individuare tre classi fondamentali di utenti. Tali classi sono, tuttavia, flessibili: essendo basate sulla quantità di conoscenze nel campo musicale degli utenti, non è possibili determinare nette linee di separazione, bensì solo delle linee guida.
 
@@ -18,11 +32,15 @@ Le categorie di utenti individuate sono le seguenti:
 \end{itemize}
 
 Le classi di utenti sopra elencate sono descritte in tutte le loro caratteristiche nella seguente tabella. Si noti che le età che sono state associate a ogni categoria di utente sono frutto di una stima empirica e sono puramente indicative: le conoscenze in campo musicale non sono facilmente associabili a un'età media.
-
-\begin{table}[H]
-	\centering
-	\begin{tabularx}{\textwidth}{|>{\columncolor{mainColorDark}}X|X|X|X|}
+	\begin{longtabu}to \textwidth {|>{\columncolor{mainColorDark}}X[1,L,m]|X[1,L,m]|X[1,L,m]|X[1,L,m]|}
+		\caption{Caratteristiche degli utenti}
+		\label{tab:utenti}\\
+		\hline
 		{\color[HTML]{FFFFFF} \textbf{}}                                    & \cellcolor{mainColorDark}{\color[HTML]{FFFFFF} \textbf{Neofita}}              & \cellcolor{mainColorDark}{\color[HTML]{FFFFFF} \textbf{Intermedio}}                & \cellcolor{mainColorDark}{\color[HTML]{FFFFFF} \textbf{Avanzato}}                                                          \\ \hline
+		\endfirsthead
+		\multicolumn{4}{c}{{\footnotesize\textbf{Tabella \thetable{}:} continuazione della pagina precedente}}                                                                                                                                                                                                                                                                                      \\ \hline
+		{\color[HTML]{FFFFFF} \textbf{}}                                    & \cellcolor{mainColorDark}{\color[HTML]{FFFFFF} \textbf{Neofita}}              & \cellcolor{mainColorDark}{\color[HTML]{FFFFFF} \textbf{Intermedio}}                & \cellcolor{mainColorDark}{\color[HTML]{FFFFFF} \textbf{Avanzato}}                                                          \\ \hline
+		\endhead
 		{\color[HTML]{FFFFFF} \textbf{Età}}                                 & Dai 13 anni in su                                                            & Dai 18 anni in su                                                                 & Dai 22 anni in su                                                                                                         \\ \hline
 		{\color[HTML]{FFFFFF} \textbf{Livello di istruzione}}               & Intermedio                                                                   & Buono                                                                             & Ottimo                                                                                                                    \\ \hline
 		{\color[HTML]{FFFFFF} \textbf{Capacità di lettura}}                 & Buona                                                                        & Buona                                                                             & Buona                                                                                                                     \\ \hline
@@ -36,25 +54,10 @@ Le classi di utenti sopra elencate sono descritte in tutte le loro caratteristic
 		{\color[HTML]{FFFFFF} \textbf{Accesso a internet}}                  & Necessario                                                                   & Necessario                                                                        & Necessario                                                                                                                \\ \hline
 		{\color[HTML]{FFFFFF} \textbf{Disponibilità (in tempo)}}            & Almeno tre ore consecutive al giorno                                         & Almeno due ore consecutive al giorno                                              & Disponibilità saltuaria                                                                                                   \\ \hline
 		{\color[HTML]{FFFFFF} \textbf{Obiettivo dell'applicazione}}         & Insegnare le basi della musica, avvicinare l'utente all'uso di uno strumento & Migliorare le conoscenze dell'utente, fornirgli un supporto in caso di difficoltà & Assistere l'utente nell'ampliare le proprie conoscenze, fornirgli un supporto per trasporre le stesse su altri strumenti. \\ \hline
-	\end{tabularx}
-\end{table}
+	\end{longtabu}
 
 Come già anticipato precedentemente, il criterio con cui si sono individuate le seguenti classi di utenti si basa sulla classificazione dei livelli di conoscenza e competenza nel campo musicale degli stessi. Non è prevista alcuna classificazione basata sulle competenze di campo informatico, in quanto, come già specificato nella precedente tabella, non è richiesta alcuna abilità particolare in tale campo. Si noti, inoltre, che è necessario l'accesso a internet a prescindere dalla categoria d'utente: infatti, come già detto in precedenza, l'applicazione \ProjectTitle{} sarà sviluppata e sarà rilasciata come sito web e sarà quindi fruibile solo in presenza di una connessione alla rete.
 
 \paragraph{Competenze informatiche necessarie} Come già anticipato, non sono necessarie delle competenze informatiche particolari per utilizzare l'applicazione: il sistema sarà progettato in modo da essere fruibile da qualsiasi utente che sappia interfacciarsi con un computer tramite \emph{browser} web. L'applicazione sarà quindi progettata per essere intuitiva e semplice da utilizzare. Saranno tuttavia fornite, eventualmente, delle scorciatoie da tastiera per i più esperti per velocizzare la loro navigazione all'interno dell'ipermedia.
-
-\section{Definizione dello scopo}
-L’applicazione multimediale \ProjectTitle{} ha l’obiettivo di:
-\begin{itemize}
-	\item Avvicinare gli utenti alla musica
-	\item Dare la possibilità agli utenti di imparare a suonare uno o più strumenti
-	\item Acquisire la capacità di riconoscere la natura degli accordi più comuni
-	\item Fornire degli esercizi per valutare in autonomia l’apprendimento o per migliorare l’utilizzo dello strumento
-\end{itemize}
-
-\section{Il committente}
-Il committente dell’applicazione è il docente del corso di Progettazione e Produzione Multimediale dell’anno 2018/19 dell’Università di Bari (CdL\footnote{Corso di Laurea} Informatica e Comunicazione Digitale), la Dott.ssa \emph{Rosa Lanzilotti}.
-\newline
-La consegna del sistema multimediale è stata stimata per il bimestre gennaio/febbraio 2019.
 
 \section{I vincoli}
