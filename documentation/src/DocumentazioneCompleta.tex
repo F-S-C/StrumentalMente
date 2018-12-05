@@ -4,7 +4,7 @@
 \input{include/documentHeader.tex}
 \input{include/defaultValues.tex}
 
-\newcommand{\tipoDocumento}{Progettazione}
+\newcommand{\tipoDocumento}{}
 
 \begin{document}
 	\subimport*{include/}{titlePage.tex}
@@ -20,7 +20,8 @@
 	\subimport*{Pianificazione/}{content.tex}
 	
 	\part{Ringraziamenti e riferimenti}
-	\newpage
+	\input{sections/Ringraziamenti.tex}
+	\nocite{*}
 	\bibliographystyle{plain}
 	\bibliography{biblist}
 	
