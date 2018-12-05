@@ -32,17 +32,26 @@ cd src
 
 cd Pianificazione
 echo Genero la pianificazione...
-pdflatex Pianificazione.tex -interaction=nonstopmode
+pdflatex.exe -synctex=1 -interaction=nonstopmode --shell-escape Pianificazione.tex
+bibtex.exe "Pianificazione"
+pdflatex.exe -synctex=1 -interaction=nonstopmode --shell-escape Pianificazione.tex
+pdflatex.exe -synctex=1 -interaction=nonstopmode --shell-escape Pianificazione.tex
 cls
 
 cd ../Progettazione
 echo Genero la progettazione...
-pdflatex Progettazione.tex -interaction=nonstopmode
+pdflatex.exe -synctex=1 -interaction=nonstopmode --shell-escape Progettazione.tex
+bibtex.exe "Progettazione"
+pdflatex.exe -synctex=1 -interaction=nonstopmode --shell-escape Progettazione.tex
+pdflatex.exe -synctex=1 -interaction=nonstopmode --shell-escape Progettazione.tex
 cls
 
 cd ..
 echo Genero la documentazione completa...
-pdflatex DocumentazioneCompleta.tex -interaction=nonstopmode
+pdflatex.exe -synctex=1 -interaction=nonstopmode --shell-escape DocumentazioneCompleta.tex
+bibtex.exe "DocumentazioneCompleta"
+pdflatex.exe -synctex=1 -interaction=nonstopmode --shell-escape DocumentazioneCompleta.tex
+pdflatex.exe -synctex=1 -interaction=nonstopmode --shell-escape DocumentazioneCompleta.tex
 cls
 
 cd ..
