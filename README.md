@@ -34,7 +34,7 @@ All'interno della _repository_ sono presenti:
 
 Ci si riferisca alla sottosezione ['la struttura della repository'](#la-struttura-della-repository) per maggiori informazioni sull'organizzaione della repository e dei file in essa presenti.
 
-Una versione utilizzabile del sistema è disponibile online grazie a GitHub Pages. L'indirizzo in cui è disponibile è [F-S-C.github.io/StrumentalMente](https://F-S-C.github.io/StrumentalMente).
+Una versione utilizzabile del sistema è disponibile online grazie a GitHub Pages. L'indirizzo in cui è disponibile è [F-S-C.github.io/StrumentalMente/source](https://F-S-C.github.io/StrumentalMente/source/).
 
 I sorgenti della documentazione sono in formato [LaTeX](https://www.latex-project.org/) (estensione `.tex`). Non sono presenti all'interno della repository i file intermedi che sono automaticamente generati durante la compilazione da [MiKTeX](https://miktex.org/), il compilatore LaTeX utilizzato per generare i file PDF presenti all'interno della directory `documentation`.
 
