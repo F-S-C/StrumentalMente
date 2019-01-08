@@ -10,6 +10,8 @@ _StrumentalMente_ è un sistema multimediale di e-learning progettato seguendo i
 - [Informazioni sul sistema](#informazioni-sul-sistema)
   - [La repository](#la-repository)
     - [La struttura della repository](#la-struttura-della-repository)
+- [Copyright e licenze](#copyright-e-licenze)
+  - [I tools e le librerie utilizate](#i-tools-e-le-librerie-utilizate)
 
 ## Prefazione
 
@@ -68,3 +70,11 @@ StrumentalMente
         │   └── videos (contiene tutti i video dell'applicazione)
         └── js (contiene tutti i file JavaScript dell'applicazione)
 ```
+
+## Copyright e licenze
+
+Il progetto è rilasciato sotto la licenza [**Apache 2.0**](https://github.com/F-S-C/StrumentalMente/blob/master/LICENSE) (si veda il file [`LICENSE`](https://github.com/F-S-C/StrumentalMente/blob/master/LICENSE) per maggiori informazioni). Qualsiasi utilizzo del codice sorgente richiede, quindi, una nota di copyright in cui si specifica la provenienza del codice e i loro autori. È preferibile utilizzare, per indicare gli autori, la seguente notazione: `F.S.C. (Alessandro Annese, Davide De Salvo, Andrea Esposito, Graziano Montanaro, Regina Zaccaria)` o una notazione simile (in cui viene presentato il nome del gruppo _e_ i nomi dei suoi componenti).
+
+### I tools e le librerie utilizate
+
+Non è stato utilizzato alcun _tool_ e alcuna libreria esterna. 
