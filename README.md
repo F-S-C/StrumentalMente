@@ -1,10 +1,11 @@
 <h1>StrumentalMente</h1>
 
+_StrumentalMente_ è un sistema multimediale di e-learning progettato seguendo il modello di Alessi & Trollip.
+
 <h2>Indice</h2>
 
 - [Prefazione](#prefazione)
-- [Informazioni preliminari](#informazioni-preliminari)
-  - [Autori](#autori)
+  - [Gli autori](#gli-autori)
   - [L'esame](#lesame)
 - [Informazioni sul sistema](#informazioni-sul-sistema)
   - [La repository](#la-repository)
@@ -12,13 +13,13 @@
 
 ## Prefazione
 
-_StrumentalMente_ è un sistema multimediale di e-learning progettato seguendo il modello di Alessi & Trollip.
+Il progetto rappresenta un'applicazione del modello di Alessi & Trollip (come già anticipato).
 
-## Informazioni preliminari
+L'obiettivo del sistema è quello di aiutare gli utenti nel conoscere la dolce arte della musica. Quindi, l'applicazione contiene delle funzionalità utili a conoscere le basi della teoria musicale, nonché le basi delle tecniche di utilizzo di diversi strumenti musicali. Nel raggiungere tali obiettivi, il sistema fornisce agli utenti la possibilità di autovalutare i propri livelli di preparazione senza intaccare la propria esperienza d'uso. 
 
-### Autori
+### Gli autori
 
-_StrumentalMente_ è stato creato come progetto d'esame dal gruppo [**_F.S.C. -- Five Students of Computer Science_**](https://github.com/F-S-C), che è composto da:
+_StrumentalMente_ è stato creato come progetto d'esame dal gruppo [**_F.S.C. &mdash; Five Students of Computer Science_**](https://github.com/F-S-C), che è composto da:
 
 - [Alessandro **Annese**](https://github.com/Ax3lFernus)
 - [Davide **De Salvo**](https://github.com/Davidedes)
