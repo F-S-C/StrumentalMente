@@ -4,7 +4,7 @@
 [![Not yet released](https://img.shields.io/badge/release-non%20yet%20released-orange.svg?style=for-the-badge)](https://github.com/F-S-C/StrumentalMente/releases)
 <!--[![Latest release](https://img.shields.io/github/release/F-S-C/StrumentalMente.svg?style=for-the-badge)](https://github.com/F-S-C/StrumentalMente/releases)-->
 
-_Leggi questo file in altre lingue: [English :gb:](https://github.com/F-S-C/StrumentalMente/blob/master/README.md)_
+_Leggi questo file in altre lingue: [English](https://github.com/F-S-C/StrumentalMente/blob/master/README.md)_
 
 _StrumentalMente_ è un sistema multimediale di e-learning progettato seguendo il modello di Alessi & Trollip.
 
