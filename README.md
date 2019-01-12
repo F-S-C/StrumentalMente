@@ -1,31 +1,35 @@
 <h1>StrumentalMente</h1>
 
 [![License](https://img.shields.io/github/license/F-S-C/StrumentalMente.svg?style=for-the-badge)](https://github.com/F-S-C/StrumentalMente/blob/master/LICENSE)
-[![Not yet released](https://img.shields.io/badge/release-not%20yet%20released-orange.svg?style=for-the-badge)](https://github.com/F-S-C/StrumentalMente/releases)
+[![Not yet released](https://img.shields.io/badge/release-non%20yet%20released-orange.svg?style=for-the-badge)](https://github.com/F-S-C/StrumentalMente/releases)
 <!--[![Latest release](https://img.shields.io/github/release/F-S-C/StrumentalMente.svg?style=for-the-badge)](https://github.com/F-S-C/StrumentalMente/releases)-->
 
-_StrumentalMente_ è un sistema multimediale di e-learning progettato seguendo il modello di Alessi & Trollip.
+_Read this in other languages: [Italian :it:](https://github.com/F-S-C/StrumentalMente/blob/master/README.md)_
 
-<h2>Indice</h2>
+_StrumentalMente_ is an e-learning multimedia system planned and designed following the Alessi & Trollip model.
 
-- [Prefazione](#prefazione)
-  - [Gli autori](#gli-autori)
-  - [L'esame](#lesame)
-- [Informazioni sul sistema](#informazioni-sul-sistema)
-  - [La repository](#la-repository)
-    - [La struttura della repository](#la-struttura-della-repository)
-- [Copyright e licenze](#copyright-e-licenze)
-  - [I tools e le librerie utilizate](#i-tools-e-le-librerie-utilizate)
+**:warning: WARNING:** This project was created as part of a university exam, so (except for this file) it's documented only in *Italian*.
 
-## Prefazione
+<h2>Table of Contents</h2>
 
-Il progetto rappresenta un'applicazione del modello di Alessi & Trollip (come già anticipato).
+- [Preface](#preface)
+  - [The Authors](#the-authors)
+  - [The Exam](#the-exam)
+- [Information About the System](#information-about-the-system)
+  - [The Repository](#the-repository)
+    - [The Structure of this Repository](#the-structure-of-this-repository)
+- [Copyright and Licenses](#copyright-and-licenses)
+  - [Used Tools Libraries](#used-tools-libraries)
 
-L'obiettivo del sistema è quello di aiutare gli utenti nel conoscere la dolce arte della musica. Quindi, l'applicazione contiene delle funzionalità utili a conoscere le basi della teoria musicale, nonché le basi delle tecniche di utilizzo di diversi strumenti musicali. Nel raggiungere tali obiettivi, il sistema fornisce agli utenti la possibilità di autovalutare i propri livelli di preparazione senza intaccare la propria esperienza d'uso. 
+## Preface
 
-### Gli autori
+This project represent an application of the Alessi & Trollip model (as already stated).
 
-_StrumentalMente_ è stato creato come progetto d'esame dal gruppo [**_F.S.C. &mdash; Five Students of Computer Science_**](https://github.com/F-S-C), che è composto da:
+The goal of the system is to help the user knowing the sweet art of music. Therefore, the application contains some functions that can be used to learn the basics of the theory behind music, alongside with the basic use techniques of various musical instruments. While reaching its goals, the system gives the user the means to self-evaluate his knowledge, without ruining their use experience.
+
+### The Authors
+
+_StrumentalMente_ was created as an exam's project by the group [**_F.S.C. &mdash; Five Students of Computer Science_**](https://github.com/F-S-C), made of:
 
 - [Alessandro **Annese**](https://github.com/Ax3lFernus)
 - [Davide **De Salvo**](https://github.com/Davidedes)
@@ -33,52 +37,52 @@ _StrumentalMente_ è stato creato come progetto d'esame dal gruppo [**_F.S.C. &m
 - [Graziano **Montanaro**](https://github.com/prewarning)
 - [Regina **Zaccaria**](https://github.com/ReginaZaccaria)
 
-Il referente del gruppo è Andrea **Esposito**.
+The referent of the group for this project is Andrea **Esposito**.
 
-### L'esame
+### The Exam
 
-L'esame per cui questo progetto è stato creato è quello di **_Progettazione e Produzione Multimediale_** (_P.P.M._) del secondo anno del Corso di Laurea in _Informatica e Comunicazione Digitale_ dell'Università degli Studi di Bari "Aldo Moro".
+The exam for which this project was created is one of **Multimedia Design and Production** (in Italian: *"Progettazione e Produzione Multimediale", P.P.M.*) of the second year of the Degree Course in _Computer Science and Digital Communication_ of the University of Bari "Aldo Moro".
 
-## Informazioni sul sistema
+## Information About the System
 
-Il sistema multimediale è stato realizzato seguendo il modello di **Alessi & Trollip** partendo dalla fase di progettazione fino alla vera e propria realizzazione, che è avvenuta utilizzando **HTML5**, **CSS3** e **JavaScript**.
+This multimedia system was created following the Alessi & Trollip Model starting from the planning phase to the proper realization, for which were used **HTML5**, **CSS3** and **JavaScript**.
 
-### La repository
+### The Repository
 
-All'interno della _repository_ sono presenti:
+In this repository there are:
 
-- I sorgenti del sistema
-- La documentazione
-- I sorgenti della documentazione
+- The system source code
+- The documentation
+- The documentation source code
 
-Ci si riferisca alla sottosezione ['la struttura della repository'](#la-struttura-della-repository) per maggiori informazioni sull'organizzaione della repository e dei file in essa presenti.
+Visit the subsection ['the structure of this repository'](#the-structure-of-this-repository) to get more information on the organization of this repository and on the files that are in it.
 
-Una versione utilizzabile del sistema è disponibile online grazie a GitHub Pages. L'indirizzo in cui è disponibile è [F-S-C.github.io/StrumentalMente/source](https://F-S-C.github.io/StrumentalMente/source/).
+A usable version of this system is available online thanks to GitHub Pages. The address where it's available is [F-S-C.github.io/StrumentalMente/source](https://F-S-C.github.io/StrumentalMente/source/).
 
-I sorgenti della documentazione sono in formato [LaTeX](https://www.latex-project.org/) (estensione `.tex`). Non sono presenti all'interno della repository i file intermedi che sono automaticamente generati durante la compilazione da [MiKTeX](https://miktex.org/), il compilatore LaTeX utilizzato per generare i file PDF presenti all'interno della directory `documentation`.
+The documentation source files are in [LaTeX](https://www.latex-project.org/) format (`.tex` extension). The files automatically generated by [MiKTeX](https://miktex.org/), the TeX compiler used to generate the PDF files in the `documentation` directory, during the compilation are not included in this repository.
 
-#### La struttura della repository
+#### The Structure of this Repository
 
-La repository è strutturata nel seguente modo.
+This is the structure of the repository.
 
 ```
 StrumentalMente
-├── documentation (contiene tutta la documentazione dell'applicazione)
-│   └── src (contiene i sorgenti della documentazione)
+├── documentation (the documentation of the system)
+│   └── src (the documentation source code)
 └── source
     └── assets
-        ├── css (contiene i file CSS dell'applicazione)
-        ├── media (contiene tutti i media dell'applicazione)
-        │   ├── audios (contiene tutti gli audio dell'applicazione)
-        │   ├── images (contiene tutte le immagini dell'applicazione)
-        │   └── videos (contiene tutti i video dell'applicazione)
-        └── js (contiene tutti i file JavaScript dell'applicazione)
+        ├── css (all the CSS used in the application)
+        ├── media (all medias used in the application)
+        │   ├── audios (all audios used in the application)
+        │   ├── images (all images used in the application)
+        │   └── videos (all videos used in the application)
+        └── js (all javascript files used in the application)
 ```
 
-## Copyright e licenze
+## Copyright and Licenses
 
-Il progetto è rilasciato sotto la licenza [**Apache 2.0**](https://github.com/F-S-C/StrumentalMente/blob/master/LICENSE) (si veda il file [`LICENSE`](https://github.com/F-S-C/StrumentalMente/blob/master/LICENSE) per maggiori informazioni). Qualsiasi utilizzo del codice sorgente richiede, quindi, una nota di copyright in cui si specifica la provenienza del codice e i loro autori. È preferibile utilizzare, per indicare gli autori, la seguente notazione: `F.S.C. (Alessandro Annese, Davide De Salvo, Andrea Esposito, Graziano Montanaro, Regina Zaccaria)` o una notazione simile (in cui viene presentato il nome del gruppo _e_ i nomi dei suoi componenti).
+This project is released under the [**Apache 2.0 License**](https://github.com/F-S-C/StrumentalMente/blob/master/LICENSE) (see the [`LICENSE`](https://github.com/F-S-C/StrumentalMente/blob/master/LICENSE) file for more information). So, any use of the source code requires a copyright notice containing the source of the code and its original authors. To show the original authors of the code a notation like `F.S.C. (Alessandro Annese, Davide De Salvo, Andrea Esposito, Graziano Montanaro, Regina Zaccaria)` is preferred (it can be used another notation where are shown _both_ the group name _and_ its components).
 
-### I tools e le librerie utilizate
+### Used Tools Libraries
 
-Non è stato utilizzato alcun _tool_ e alcuna libreria esterna. 
+No external tool or library was used.
