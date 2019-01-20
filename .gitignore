@@ -30,3 +30,14 @@
 *.synctex.gz
 *.synctex(busy)
 *.thm
+
+## ELECTRON
+
+#directories
+bower_components/
+node_modules/
+dist/
+
+#files
+*.tgz
+*.log
