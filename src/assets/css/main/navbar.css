@@ -1,0 +1,124 @@
+nav.main-navigation {
+    z-index: 1;
+}
+
+nav.main-navigation ul {
+    font-family: var(--font-title);
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    line-height: 1.5;
+}
+
+nav.main-navigation li {
+    float: left;
+}
+
+nav.main-navigation li.to-right {
+    float: right;
+}
+
+nav.main-navigation li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav.main-navigation li:not(.active):not(.logo) a:hover {
+    background-color: #111;
+}
+
+nav.main-navigation .active {
+    background-color: var(--main-color);
+}
+
+nav.main-navigation .dropdown ul {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    top: initial;
+    left: initial;
+    width: initial;
+}
+
+nav.main-navigation .dropdown li {
+    float: none;
+}
+
+nav.main-navigation .dropdown li a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+nav.main-navigation .dropdown li a:hover {
+    color: white;
+}
+
+nav.main-navigation .dropdown:hover ul {
+    display: block;
+}
+
+nav.main-navigation .logo a {
+    text-decoration: none;
+    background-color: transparent;
+    display: inline-block;
+    margin-right: 1rem;
+    white-space: nowrap;
+    /* fixing navbar height */
+    margin-bottom: -1px;
+}
+
+nav.main-navigation .logo img {
+    border-style: none;
+    display: inline-block!important;
+    vertical-align: top!important;
+}
+
+nav.main-navigation .icon {
+    display: none;
+}
+
+/* Mobile navigation bar */
+
+@media only screen and (max-width: 768px) {
+    nav.main-navigation li:not(:first-child) {
+        display: none;
+    }
+    nav.main-navigation li.icon {
+        float: right;
+        display: block;
+    }
+    nav.main-navigation.responsive {
+        position: relative;
+    }
+    nav.main-navigation.responsive li.icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    nav.main-navigation.responsive li {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+    nav.main-navigation .dropdown ul {
+        position: relative;
+        box-shadow: none;
+    }
+    nav.main-navigation .dropdown li a {
+        text-align: center;
+    }
+}

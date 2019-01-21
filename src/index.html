@@ -1,0 +1,115 @@
+<!--
+	NOTA:
+	Tutto il CSS presente in questo file è stato aggiunto per
+	meri motivi di testing. Tali regole di stile vanno spostate
+	in un file CSS esterno.
+-->
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>StrumentalMente</title>
+    <link rel="icon" href="./assets/icon.ico" />
+
+    <link href="./assets/css/style.css" rel="stylesheet" />
+    <!-- FontAwesome -->
+    <link href="./assets/css/fontawesome/css/all.min.css" rel="stylesheet" />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="StrumentalMente - Dove la musica diventa semplice." />
+    <meta name="keywords" content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
+    <meta name="author" content="FSC" />
+    <meta name="robots" content="index, follow">
+    <meta property="og:image" content="https://f-s-c.github.io/StrumentalMente/logo/2048x2048.png">
+
+    <style>
+        body {
+            background: #63696c url('./assets/images/placeholder-600x400.png') no-repeat fixed right;
+            box-shadow: inset 0 0 0 2000px var(--main-color-dark-transparent);
+        }
+
+        .landing-page-wrapper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            text-align: center;
+            transform: translate(-50%, -60%);
+        }
+
+        .site-name {
+            text-align: center;
+            color: white;
+            margin: 20px 0;
+        }
+
+        .site-name h1 {
+            margin: 0 0 0.5em 0;
+            font-size: xx-large;
+        }
+
+        .site-name h2 {
+            margin: 0;
+            color: #ddd;
+            font-size: larger;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="main-navigation" id="main-nav">
+            <ul>
+                <li class="logo">
+                    <a href="#">
+                        <img src="./assets/icon.ico" width="25" height="25" alt="" /> StrumentalMente
+                    </a>
+                </li>
+                <li><a href="#">Home</a></li>
+                <li class="dropdown"><a href="#">Teoria</a>
+                    <ul>
+                        <li><a href="#">Basi</a></li>
+                        <li><a href="#">Avanzata</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Strumenti</a></li>
+                <li class="to-right"><a href="#">Aiuto</a></li>
+                <li class="icon">
+                    <a href="javascript:void(0);" onclick="openMobileNavigation()">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="main-wrapper">
+        <div class="landing-page-wrapper">
+            <header class="site-name">
+                <h1>StrumentalMente</h1>
+                <h2>Dove la musica diventa semplice</h2>
+            </header>
+            <a href="./home.html" class="btn start-button">Inizia <i class="btn-icon far fa-play-circle"></i></a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="links"></div>
+        <div class="copyright">
+            <p>Copyright &copy; 2019, <a href="https://f-s-c.github.io/" target="_blank">FSC</a>. Rilasciato sotto la
+                licenza <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache 2.0</a>.</p>
+            <img src="./assets/images/fsc-logo-svg.svg" />
+        </div>
+    </footer>
+
+    <script>
+        function openMobileNavigation() {
+            var x = document.getElementById("main-nav");
+            if (x.className === "main-navigation")
+                x.className += " responsive";
+            else
+                x.className = "main-navigation";
+        }
+    </script>
+</body>
+
+</html>

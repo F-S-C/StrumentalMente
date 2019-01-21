@@ -1,5 +1,5 @@
 {
-  "name": "StrumentalMente",
+  "name": "strumentalmente",
   "version": "1.0.0",
   "description": "Una applicazione multimediale realizzata seguendo il Modello di Alessi & Trollip",
   "main": "app.js",
@@ -11,5 +11,8 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "electron": "^4.0.1"
+  },
+  "dependencies": {
+    "electron-localshortcut": "^3.1.0"
   }
 }

@@ -1,0 +1,41 @@
+footer {
+    background-color: #333;
+    color: white;
+    line-height: 1.5;
+    padding-top: 20px;
+    font-family: var(--font-title);
+    flex-shrink: 0;
+}
+
+footer .copyright {
+    font-size: small;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #bbb;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+footer a, footer a:visited {
+    color: #ddd;
+    text-decoration: none;
+}
+
+footer a:hover, footer a:active {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer .links {
+    display: flex;
+}
+
+footer div {
+    padding: 0 20px;
+}
+
+footer .copyright img {
+    width: 46px;
+    height: 46px;
+}

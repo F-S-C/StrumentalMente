@@ -57,9 +57,9 @@ All'interno della _repository_ sono presenti:
 
 Ci si riferisca alla sottosezione ['la struttura della repository'](#la-struttura-della-repository) per maggiori informazioni sull'organizzaione della repository e dei file in essa presenti.
 
-Una versione utilizzabile del sistema è disponibile online grazie a GitHub Pages. L'indirizzo in cui è disponibile è [F-S-C.github.io/StrumentalMente/source](https://F-S-C.github.io/StrumentalMente/source/).
+Una versione utilizzabile del sistema è disponibile online grazie a GitHub Pages. L'indirizzo in cui è disponibile è [f-s-c.github.io/StrumentalMente/src](https://f-s-c.github.io/StrumentalMente/src/).
 
-I sorgenti della documentazione sono in formato [LaTeX](https://www.latex-project.org/) (estensione `.tex`). Non sono presenti all'interno della repository i file intermedi che sono automaticamente generati durante la compilazione da [MiKTeX](https://miktex.org/), il compilatore TeX utilizzato per generare i file PDF presenti all'interno della directory `documentation`.
+I sorgenti della documentazione sono in formato [LaTeX](https://www.latex-project.org/) (estensione `.tex`). Non sono presenti all'interno della repository i file intermedi che sono automaticamente generati durante la compilazione da [MiKTeX](https://miktex.org/), il compilatore TeX utilizzato per generare i file PDF presenti all'interno della directory `docs`.
 
 #### La struttura della repository
 
@@ -67,9 +67,9 @@ La repository è strutturata nel seguente modo.
 
 ```
 StrumentalMente
-├── documentation (contiene tutta la documentazione dell'applicazione)
+├── docs (contiene tutta la documentazione dell'applicazione)
 │   └── src (contiene i sorgenti della documentazione)
-└── source
+└── src
     └── assets
         ├── css (contiene i file CSS dell'applicazione)
         ├── media (contiene tutti i media dell'applicazione)

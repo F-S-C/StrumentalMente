@@ -1,0 +1,18 @@
+@import url("./main/variables.css");
+@import url("./main/navbar.css");
+@import url("./main/links-and-buttons.css");
+@import url("./main/footer.css");
+
+/* Regole semplici dell'intero sito non classificabili: */
+body {
+    margin: 0;
+    font-family: var(--font-text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-wrapper {
+    padding: 80px 20px 20px 20px;
+    flex: 1 0 auto;
+}

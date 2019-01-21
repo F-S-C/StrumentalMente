@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Raleway');
+:root {
+    --font-title: 'Montserrat', sans-serif;
+    --font-text: 'Raleway', sans-serif;
+    --main-color: rgb(229, 81, 0);
+    --main-color-dark: rgb(190, 67, 0);
+    --main-color-transparent: rgba(229, 81, 0, 0.2);
+    --main-color-dark-transparent: rgba(190, 67, 0, 0.2);
+}

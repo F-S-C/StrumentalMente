@@ -1,0 +1,190 @@
+/* 
+LINK E BOTTONI
+==============
+Nel presente file sono definite le seguenti
+classi aventi i seguenti stili:
+- .btn
+    - Definisce un "bottone contenuto" (contained button)
+      come definito nello standard del Material Design: vedere
+      https://material.io/design/components/buttons.html#contained-button
+- .btn-text
+    - Definisce un "bottone testuale" (text button) come
+      definito nello standard del Material Design: vedere
+      https://material.io/design/components/buttons.html#text-button
+- .btn-outlined
+    - Definisce un "bottone delineato" (outlined button)
+      come definito nello standard del Material Design: vedere
+      https://material.io/design/components/buttons.html#outlined-button
+- .btn-icon
+    - Se tale classe è posta come figlia di un bottone (di qualunque tipo)
+      definisce lo stile di un'icona allineata a destra.
+- .btn-icon.left
+    - Definisce un'icona allineata a sinistra (basandosi sulle regole di .btn-icon)
+*/
+
+/* classe .btn */
+
+.btn {
+    text-transform: uppercase;
+    line-height: 1.5em;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    border-width: 0;
+    outline: none;
+    font-size: 15px;
+    font-family: var(--font-text);
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 130px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+    background-color: var(--main-color);
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color .3s;
+    font-weight: bold;
+}
+
+.btn:hover, .btn:focus {
+    background-color: var(--main-color-dark);
+}
+
+.btn:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 0;
+    padding-top: 0;
+    border-radius: 100%;
+    /* animazione del click (v. linee guida Material Design) */
+    background-color: rgba(236, 240, 241, .3);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.btn:active:before {
+    width: 120%;
+    padding-top: 120%;
+    transition: width .2s ease-out, padding-top .2s ease-out;
+}
+
+/* classe .btn-text */
+
+.btn-text {
+    text-transform: uppercase;
+    line-height: 1.5em;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    outline: none;
+    font-size: 15px;
+    font-family: var(--font-text);
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 130px;
+    background-color: transparent;
+    color: var(--main-color);
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color .3s;
+}
+
+.btn-text:hover, .btn-text:focus {
+    background-color: var(--main-color-transparent);
+}
+
+.btn-text:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 0;
+    padding-top: 0;
+    border-radius: 100%;
+    /* animazione del click (v. linee guida Material Design) */
+    background-color: var(--main-color-dark-transparent);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.btn-text:active:before {
+    width: 120%;
+    padding-top: 120%;
+    transition: width .2s ease-out, padding-top .2s ease-out;
+}
+
+/* classe .btn-outlined */
+
+.btn-outlined {
+    text-transform: uppercase;
+    line-height: 1.5em;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid grey;
+    outline: none;
+    font-size: 15px;
+    font-family: var(--font-text);
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 130px;
+    background-color: transparent;
+    color: var(--main-color);
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color .3s;
+}
+
+.btn-outlined:hover, .btn-outlined:focus {
+    background-color: var(--main-color-transparent);
+}
+
+.btn-outlined:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 0;
+    padding-top: 0;
+    border-radius: 100%;
+    /* animazione del click (v. linee guida Material Design) */
+    background-color: var(--main-color-dark-transparent);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.btn-outlined:active:before {
+    width: 120%;
+    padding-top: 120%;
+    transition: width .2s ease-out, padding-top .2s ease-out;
+}
+
+/* Icone */
+
+.btn .btn-icon, .btn-text .btn-icon, .btn-outlined .btn-icon {
+    line-height: inherit;
+    float: right;
+    margin: 0 0 0 10px;
+}
+
+.btn .btn-icon.left, .btn-text .btn-icon.left, .btn-outlined .btn-icon.left {
+    line-height: inherit;
+    float: left;
+    margin: 0 10px 0 0;
+}
