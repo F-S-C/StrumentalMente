@@ -3,7 +3,7 @@ install:
 	cd src && \
 	npm install --save-dev electron && \
 	npm install --save electron-localshortcut && \
-	npm install electron-packager --save-dev
+	npm install -g --save-dev electron-packager
 start:
 	cd src && \
 	npm start
