@@ -41,3 +41,6 @@ dist/
 #files
 *.tgz
 *.log
+
+# Ignore 'make deploy' results
+StrumentalMente-*/

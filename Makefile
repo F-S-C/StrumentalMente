@@ -1,0 +1,12 @@
+all: | start
+install:
+	cd src && \
+	npm install --save-dev electron && \
+	npm install --save electron-localshortcut && \
+	npm install electron-packager --save-dev
+start:
+	cd src && \
+	npm start
+deploy:
+	electron-packager src StrumentalMente --platform=win32 --overwrite --icon=src/assets/icon.ico
+	electron-packager src StrumentalMente --platform=linux --overwrite
