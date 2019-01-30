@@ -3,14 +3,14 @@ const { app, BrowserWindow, Menu } = require("electron");
 let win;
 
 function openChildWindow(pageUrl, windowIcon = "./assets/icon.ico") {
-    child = new BrowserWindow({ width: 800, height: 400, parent: win, modal: true, icon: windowIcon });
+    child = new BrowserWindow({ width: 800, height: 400, parent: win, modal: true, icon: windowIcon, frame: false });
     child.setMenu(null);
     child.loadFile(pageUrl);
     child.show();
 }
 
 function createWindow() {
-    win = new BrowserWindow({ width: 800, height: 600, show: false, icon: "./assets/icon.ico" });
+    win = new BrowserWindow({ width: 800, height: 600, show: false, icon: "./assets/icon.ico", frame: false });
     win.loadFile("index.html");
 
     win.setMenu(null);

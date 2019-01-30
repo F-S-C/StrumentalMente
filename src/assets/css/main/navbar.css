@@ -1,3 +1,5 @@
+@import url("./titlebar.css");
+
 nav.main-navigation {
     z-index: 1;
 }
@@ -9,7 +11,8 @@ nav.main-navigation ul {
     padding: 0;
     background-color: #333;
     position: fixed;
-    top: 0;
+    top: 32px;
+    /* 32px è l'altezza della barra del titolo */
     left: 0;
     width: 100%;
     line-height: 1.5;
