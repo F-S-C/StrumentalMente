@@ -23,15 +23,22 @@ nav.main-navigation li.to-right {
     float: right;
 }
 
-nav.main-navigation li a {
+nav.main-navigation li button {
+    background-color: #333;
+    border: none;
+    cursor: pointer;
+}
+
+nav.main-navigation li a, nav.main-navigation li button {
     display: block;
     color: white;
     text-align: center;
     padding: 14px 16px;
+    font: inherit;
     text-decoration: none;
 }
 
-nav.main-navigation li:not(.active):not(.logo) a:hover {
+nav.main-navigation li:not(.active):not(.logo) a:hover, nav.main-navigation li:not(.active):not(.logo) button:hover {
     background-color: #111;
 }
 
