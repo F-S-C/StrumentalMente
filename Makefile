@@ -10,3 +10,5 @@ start:
 deploy:
 	electron-packager src StrumentalMente --platform=win32 --overwrite --icon=src/assets/icon.ico
 	electron-packager src StrumentalMente --platform=linux --overwrite
+docs:
+	python generate-documentation.py --src docs/src --dest docs

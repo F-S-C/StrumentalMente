@@ -1,1 +1,2 @@
 documentation/* linguist-vendored
+generate-documentation.py linguist-vendored
