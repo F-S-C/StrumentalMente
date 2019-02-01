@@ -1,3 +1,5 @@
+.PHONY: docs
+
 all: | start
 install:
 	cd src && \
