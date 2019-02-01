@@ -26,9 +26,12 @@ parser.add_argument(
 
 args = parser.parse_args()
 
+print(Fore.RED + figlet_format('StrumentalMente:',
+                               font='big', width=100) + Style.RESET_ALL)
+print(Fore.RED + figlet_format('  documentazione',
+                               font='big', width=100) + Style.RESET_ALL)
+
 if args.src is None:
-    print(Fore.RED + figlet_format('StrumentalMente',
-                                   font='big', width=100) + Style.RESET_ALL)
     args.src = input(
         "Inserire il percorso della cartella dei sorgenti della documentazione: ")
     while not os.path.exists(args.src):
@@ -38,31 +41,24 @@ if args.src is None:
     args.dest = input(
         "Inserire il percorso della cartella in cui salvare la documentazione: ")
 
-subprocess.run(["pdflatex.exe", "-synctex=1", "-interaction=batchmode", "--shell-escape",
-                "Pianificazione.tex"], cwd=os.path.join(args.src, "Pianificazione"))
-subprocess.run(["bibtex.exe", "Pianificazione"], cwd=os.path.join(
-    args.src, "Pianificazione"))
-subprocess.run(["pdflatex.exe", "-synctex=1", "-interaction=batchmode", "--shell-escape",
-                "Pianificazione.tex"], cwd=os.path.join(args.src, "Pianificazione"))
-subprocess.run(["pdflatex.exe", "-synctex=1", "-interaction=batchmode", "--shell-escape",
-                "Pianificazione.tex"], cwd=os.path.join(args.src, "Pianificazione"))
+if not os.path.exists(args.dest):
+    os.makedirs(args.dest)
 
-print(Fore.GREEN + "Generata la pianificazione" + Style.RESET_ALL)
-removeUselessFile(os.path.join(args.src, "Pianificazione"))
-print(Fore.GREEN + "Pulita la pianificazione" + Style.RESET_ALL)
+for file in ["Pianificazione", "Progettazione", "Realizzazione"]:
+    subprocess.run(["pdflatex.exe", "-synctex=1", "-interaction=batchmode",
+                    "--shell-escape", file + ".tex"], cwd=os.path.join(args.src, file))
+    # subprocess.run(["bibtex.exe", file], cwd=os.path.join(args.src, file))
+    subprocess.run(["pdflatex.exe", "-synctex=1", "-interaction=batchmode",
+                    "--shell-escape", file + ".tex"], cwd=os.path.join(args.src, file))
+    subprocess.run(["pdflatex.exe", "-synctex=1", "-interaction=batchmode",
+                    "--shell-escape", file + ".tex"], cwd=os.path.join(args.src, file))
 
-subprocess.run(["pdflatex.exe", "-synctex=1", "-interaction=batchmode",
-                "--shell-escape", "Progettazione.tex"], cwd=os.path.join(args.src, "Progettazione"))
-subprocess.run(["bibtex.exe", "Progettazione"], cwd=os.path.join(
-    args.src, "Progettazione"))
-subprocess.run(["pdflatex.exe", "-synctex=1", "-interaction=batchmode",
-                "--shell-escape", "Progettazione.tex"], cwd=os.path.join(args.src, "Progettazione"))
-subprocess.run(["pdflatex.exe", "-synctex=1", "-interaction=batchmode",
-                "--shell-escape", "Progettazione.tex"], cwd=os.path.join(args.src, "Progettazione"))
-
-print(Fore.GREEN + "Generata la progettazione" + Style.RESET_ALL)
-removeUselessFile(os.path.join(args.src, "Progettazione"))
-print(Fore.GREEN + "Pulita la progettazione" + Style.RESET_ALL)
+    print(Fore.GREEN + "Generata la " + file + Style.RESET_ALL)
+    removeUselessFile(os.path.join(args.src, file))
+    print(Fore.GREEN + "Pulita la " + file + Style.RESET_ALL)
+    shutil.move(os.path.join(args.src, file, file + ".pdf"),
+                os.path.join(args.dest, file + ".pdf"))
+    print(Fore.GREEN + "Spostata la " + file + Style.RESET_ALL)
 
 subprocess.run(["pdflatex.exe", "-synctex=1", "-interaction=batchmode",
                 "--shell-escape", "DocumentazioneCompleta.tex"], cwd=args.src)
@@ -76,14 +72,6 @@ print(Fore.GREEN + "Generata la documentazione completa" + Style.RESET_ALL)
 removeUselessFile(args.src)
 print(Fore.GREEN + "Pulita la documentazione completa" + Style.RESET_ALL)
 
-
-if not os.path.exists(args.dest):
-    os.makedirs(args.dest)
-
-shutil.move(os.path.join(args.src, "Pianificazione\\Pianificazione.pdf"),
-            os.path.join(args.dest, "Pianificazione.pdf"))
-shutil.move(os.path.join(args.src, "Progettazione\\Progettazione.pdf"),
-            os.path.join(args.dest, "Progettazione.pdf"))
 shutil.move(os.path.join(args.src, "DocumentazioneCompleta.pdf"),
             os.path.join(args.dest, "DocumentazioneCompleta.pdf"))
-print(Fore.GREEN + "Spostati i file" + Style.RESET_ALL)
+print(Fore.GREEN + "Spostata la documentazione completa" + Style.RESET_ALL)
