@@ -10,7 +10,7 @@
   "author": "FSC - Five Students of Computer Science",
   "license": "Apache-2.0",
   "devDependencies": {
-    "electron": "^4.0.3"
+    "electron": "^4.0.4"
   },
   "dependencies": {
     "electron-localshortcut": "^3.1.0"
