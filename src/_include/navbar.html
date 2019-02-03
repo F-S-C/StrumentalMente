@@ -1,26 +1,23 @@
-<header>
-    <!-- Inserire la titlebar qui! -->
-    <nav class="main-navigation" id="main-nav">
-        <ul>
-            <li class="logo">
-                <a href="#">
-                    <img src="./assets/icon.ico" width="25" height="25" alt="" /> StrumentalMente
+<nav class="main-navigation" id="main-nav">
+    <ul>
+        <li class="logo">
+            <a href="#">
+                <img src="./assets/icon.ico" width="25" height="25" alt="" /> StrumentalMente
+            </a>
+        </li>
+        <li><a href="#">Home</a></li>
+        <li class="dropdown"><a href="#">Teoria</a>
+            <ul>
+                <li><a href="#">Basi</a></li>
+                <li><a href="#">Avanzata</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Strumenti</a></li>
+        <li class="to-right"><button onclick="openModal('./help.html');">Aiuto</button></li>
+        <li class="icon">
+            <button onclick="openMobileNavigation();">
+                <i class="fa fa-bars"></i>
                 </a>
-            </li>
-            <li><a href="#">Home</a></li>
-            <li class="dropdown"><a href="#">Teoria</a>
-                <ul>
-                    <li><a href="#">Basi</a></li>
-                    <li><a href="#">Avanzata</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Strumenti</a></li>
-            <li class="to-right"><button onclick="openModal('./help.html');">Aiuto</button></li>
-            <li class="icon">
-                <button onclick="openMobileNavigation();">
-                    <i class="fa fa-bars"></i>
-                    </a>
-            </li>
-        </ul>
-    </nav>
-</header>
+        </li>
+    </ul>
+</nav>
