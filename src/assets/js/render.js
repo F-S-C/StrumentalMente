@@ -1,6 +1,8 @@
 /**
  * @file render.js
+ * 
  * @abstract Funzioni per il rendering della pagina.
+ * 
  * Questo file contiene alcune funzioni che sono chiamate
  * durante il rendering della pagina. Alcune di queste
  * funzioni sono **essenziali** per il funzionamento
@@ -9,6 +11,12 @@
 
 const remote = require('electron').remote; // Riferimento globale a Electron
 
+/**
+ * @abstract Gestisce gli eventi della titlebar.
+ * 
+ * Questa funzione gestisce gli eventi (riduci a icona, massimizza/minimizza,
+ * chiudi) che sono acessibili tramite la titlebar.
+ */
 function handleWindowControls() {
     // Quando il documento ha terminato il caricamento, inizializza
     document.onreadystatechange = () => {

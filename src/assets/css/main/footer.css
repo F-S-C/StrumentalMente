@@ -5,6 +5,7 @@ footer {
     padding-top: 20px;
     font-family: var(--font-title);
     flex-shrink: 0;
+    z-index: 2;
 }
 
 footer .copyright {
