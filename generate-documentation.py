@@ -75,3 +75,5 @@ print(Fore.GREEN + "Pulita la documentazione completa" + Style.RESET_ALL)
 shutil.move(os.path.join(args.src, "DocumentazioneCompleta.pdf"),
             os.path.join(args.dest, "DocumentazioneCompleta.pdf"))
 print(Fore.GREEN + "Spostata la documentazione completa" + Style.RESET_ALL)
+
+print("Fine\a")
