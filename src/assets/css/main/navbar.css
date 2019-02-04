@@ -44,6 +44,15 @@ nav.main-navigation .active {
     background-color: var(--main-color);
 }
 
+@keyframes gradually-show {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 nav.main-navigation .dropdown ul {
     display: none;
     background-color: #f9f9f9;
@@ -52,6 +61,16 @@ nav.main-navigation .dropdown ul {
     width: initial;
     position: relative;
     box-shadow: none;
+}
+
+nav.main-navigation .dropdown ul.show {
+    display: block;
+    animation: gradually-show 0.5s linear 0s 1 normal;
+}
+
+nav.main-navigation .dropdown ul.reverse {
+    display: block;
+    animation: gradually-show 0.5s linear 0s 1 reverse;
 }
 
 nav.main-navigation .dropdown li {
@@ -78,9 +97,9 @@ nav.main-navigation li i.fas {
     margin-right: .5vw;
 }
 
-nav.main-navigation .dropdown:hover ul {
+/*nav.main-navigation .dropdown:hover ul {
     display: block;
-}
+}*/
 
 nav.main-navigation .logo a {
     text-decoration: none;

@@ -10,3 +10,12 @@ function openMobileNavigation() {
         button.innerHTML = "<i class=\"fas fa-bars\"></i>";
     }
 }
+
+function drop(name) {
+    var el = document.getElementById(name);
+    var i = 0;
+    if (el.className !== "show")
+        el.className += "show";
+    else
+        el.className = "";
+}
