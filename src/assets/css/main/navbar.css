@@ -65,12 +65,12 @@ nav.main-navigation .dropdown ul {
 
 nav.main-navigation .dropdown ul.show {
     display: block;
-    animation: gradually-show 0.5s linear 0s 1 normal;
+    animation: gradually-show 0.25s linear 0s 1 normal;
 }
 
 nav.main-navigation .dropdown ul.reverse {
     display: block;
-    animation: gradually-show 0.5s linear 0s 1 reverse;
+    animation: gradually-show 0.25s linear 0s 1 reverse;
 }
 
 nav.main-navigation .dropdown li {
