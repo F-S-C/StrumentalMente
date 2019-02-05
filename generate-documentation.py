@@ -62,7 +62,7 @@ for file in ["Pianificazione", "Progettazione", "Realizzazione"]:
 
 subprocess.run(["pdflatex.exe", "-synctex=1", "-interaction=batchmode",
                 "--shell-escape", "DocumentazioneCompleta.tex"], cwd=args.src)
-subprocess.run(["bibtex.exe", "DocumentazioneCompleta"], cwd=args.src)
+# subprocess.run(["bibtex.exe", "DocumentazioneCompleta"], cwd=args.src)
 subprocess.run(["pdflatex.exe", "-synctex=1", "-interaction=batchmode",
                 "--shell-escape", "DocumentazioneCompleta.tex"], cwd=args.src)
 subprocess.run(["pdflatex.exe", "-synctex=1", "-interaction=batchmode",
