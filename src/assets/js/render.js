@@ -17,7 +17,7 @@ const remote = require('electron').remote; // Riferimento globale a Electron
  * Questa funzione gestisce gli eventi (riduci a icona, massimizza/minimizza,
  * chiudi) che sono acessibili tramite la titlebar.
  */
-function handleWindowControls() {
+(function () {
     // Quando il documento ha terminato il caricamento, inizializza
     document.onreadystatechange = () => {
         if (document.readyState == "complete") {
@@ -78,6 +78,4 @@ function handleWindowControls() {
             }
         }
     }
-}
-
-handleWindowControls();
+})();
