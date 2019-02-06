@@ -9,7 +9,7 @@
  * dell'applicazione stessa.
  */
 
-const remote = require('electron').remote; // Riferimento globale a Electron
+const remote = require('electron').remote; // Riferimento a Electron
 
 /**
  * @abstract Gestisce gli eventi della titlebar.

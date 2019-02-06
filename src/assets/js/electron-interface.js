@@ -22,3 +22,8 @@ function openOnKeyboardShortcut(shortcut, content, openInSameWindow = true) {
             remote.getCurrentWindow().loadFile(content);
     });
 }
+
+function exitApp() {
+    const remote = require("electron").remote;
+    remote.getCurrentWindow().close();
+}

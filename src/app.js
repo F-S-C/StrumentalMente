@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu } = require("electron");
+const { app, BrowserWindow, dialog, Menu } = require("electron");
 
 let win;
 
@@ -21,6 +21,22 @@ function createWindow() {
     });
 
     win.on("ready-to-show", () => { win.maximize(); win.show(); });
+
+    // FIXME: Modifica lo stile del messaggio per renderlo simile al resto dell'applicazione
+    win.on("close", e => {
+        var choice = dialog.showMessageBox(win,
+            {
+                type: "question",
+                buttons: ["Sì", "No"],
+                defaultId: 1,
+                title: "Sei sicuro?",
+                message: "Vuoi davvero uscire dall'applicazione?"
+            });
+        if (choice == 1) {
+            e.preventDefault();
+        }
+    });
+
     win.on("closed", () => {
         win = null;
     });
