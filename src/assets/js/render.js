@@ -35,10 +35,11 @@ const remote = require('electron').remote; // Riferimento globale a Electron
 
         titleText.innerHTML = remote.getCurrentWindow().getTitle();
 
-        minButton.addEventListener("click", event => {
-            window = remote.getCurrentWindow();
-            window.minimize();
-        });
+        if(minButton)
+            minButton.addEventListener("click", event => {
+                window = remote.getCurrentWindow();
+                window.minimize();
+            });
 
         maxButton.addEventListener("click", event => {
             window = remote.getCurrentWindow();
