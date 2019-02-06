@@ -2,6 +2,7 @@
 @import url("./main/navbar.css");
 @import url("./main/links-and-buttons.css");
 @import url("./main/footer.css");
+@import url("./main/background-slideshow.css");
 /* Regole semplici dell'intero sito non classificabili: */
 
 body {
