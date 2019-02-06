@@ -1,17 +1,13 @@
 footer {
+    font-size: 8pt;
     background-color: #333;
-    color: white;
     line-height: 1.5;
     padding-top: 20px;
     font-family: var(--font-title);
     flex-shrink: 0;
     z-index: 2;
-}
-
-footer .copyright {
-    font-size: small;
     overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.1);
+    padding: 0 15px;
     color: #bbb;
     display: flex;
     align-items: center;
@@ -36,7 +32,7 @@ footer div {
     padding: 0 20px;
 }
 
-footer .copyright img {
+footer img {
     width: 46px;
     height: 46px;
 }

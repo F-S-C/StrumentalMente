@@ -5,6 +5,11 @@
     width: 100%;
     color: #FFF;
     background: #3f3f3f;
+    /* 
+     * La titlebar deve essere sempre mostrata sopra ogni cosa, per cui
+     * si ha un valore z-index piuttosto elevato.
+     */
+    z-index: 10;
 }
 
 #titlebar #drag-region {
@@ -78,9 +83,10 @@
     overflow: hidden;
     text-overflow: ellipsis;
     line-height: 1.5;
-   width: 100%;
-   text-align: center;
+    width: 100%;
+    text-align: center;
 }
+
 #window-title-image {
     height: 16px;
     width: 16px;

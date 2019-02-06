@@ -1,6 +1,6 @@
 @import url("./titlebar.css");
 nav.main-navigation {
-    width: 25vw;
+    width: 15vw;
     z-index: 1;
     flex: 1 0 auto;
     background-color: #333;
@@ -8,12 +8,15 @@ nav.main-navigation {
     padding-top: 20px;
     line-height: 1.5;
     font-family: var(--font-title);
+    display: flex;
+    flex-direction: column;
 }
 
 nav.main-navigation ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    flex: 1 0 auto;
 }
 
 nav.main-navigation li {
@@ -105,7 +108,8 @@ nav.main-navigation .logo a {
     text-decoration: none;
     background-color: transparent;
     display: block;
-    text-align: center
+    text-align: center;
+    padding: 14px 0;
 }
 
 nav.main-navigation .logo img {
@@ -118,28 +122,38 @@ nav.main-navigation .logo img {
 }
 
 nav.main-navigation .logo h1 {
-    font-size: large;
+    font-size: 15pt;
     font-family: var(--font-title);
     font-weight: normal;
 }
 
 nav.main-navigation+#sidebar-controller {
+    position: sticky;
+    top: 32px;
     display: none;
     background-color: #333;
     border: none;
     cursor: pointer;
     color: white;
     text-align: center;
-    padding: 14px 16px;
     font: inherit;
     text-decoration: none;
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
 }
 
 nav.main-navigation+#sidebar-controller:hover, nav.main-navigation+#sidebar-controller:active {
     background-color: #111;
 }
 
-/* Mobile navigation bar */
+@media only screen and (max-width: 992px) {
+    nav.main-navigation {
+        width: 25vw;
+    }
+}
+
+/* navigation bar per schermi piccoli */
 
 @media only screen and (max-width: 768px) {
     nav.main-navigation {
@@ -149,7 +163,6 @@ nav.main-navigation+#sidebar-controller:hover, nav.main-navigation+#sidebar-cont
         display: block;
     }
     nav.main-navigation.responsive {
-        display: block;
-        flex: 1 0 auto;
+        display: flex;
     }
 }

@@ -4,12 +4,13 @@
             <li class="logo">
                 <a href="#">
                     <img src="./assets/icon.ico" width="" height="" alt="">
-                    <h1>StrumentalMente</h1>
+                    <h1>Strumental<wbr />Mente</h1>
                 </a>
             </li>
-            <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
-            <li class="dropdown"><a href="#"><i class="fas fa-book"></i> Teoria</a>
-                <ul>
+            <li><a class="active" href="#"><i class="fas fa-home"></i> Home</a></li>
+            <li class="dropdown" onclick="drop('sub1')" name="drop"><a href="#"><i class="fas fa-book"></i>
+                    Teoria</a>
+                <ul id="sub1">
                     <li><a href="#">Basi</a></li>
                     <li><a href="#">Avanzata</a></li>
                 </ul>
@@ -18,6 +19,14 @@
             <li><button onclick="openModal('./help.html');" title="Mostra l'aiuto (F1)"><i class="fas fa-question"></i>
                     Aiuto</button></li>
         </ul>
+
+        <footer>
+            <p>Copyright &copy; 2019, <a onclick="openInBrowser('https://f-s-c.github.io/');" href="javascript:void(0);">FSC</a>.
+                Rilasciato sotto la
+                licenza <a onclick="openInBrowser('https://www.apache.org/licenses/LICENSE-2.0');" href="javascript:void(0);">Apache
+                    2.0</a>.</p>
+            <img src="./assets/images/fsc-logo-svg.svg" />
+        </footer>
     </nav>
     <button id="sidebar-controller" onclick="openMobileNavigation();">
         <i class="fas fa-bars"></i>
