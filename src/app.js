@@ -16,7 +16,7 @@ function createWindow() {
     win.setMenu(null);
 
     const electronLocalshortcut = require('electron-localshortcut');
-    electronLocalshortcut.register(win, 'F11', () => {
+    electronLocalshortcut.register(win, 'F1', () => {
         openChildWindow("./help.html");
     });
 
