@@ -127,6 +127,10 @@ nav.main-navigation .logo h1 {
     font-weight: normal;
 }
 
+nav.main-navigation .logo h1 span {
+    font-weight: 600;
+}
+
 nav.main-navigation+#sidebar-controller {
     position: sticky;
     top: 32px;
