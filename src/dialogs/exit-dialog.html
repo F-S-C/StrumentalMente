@@ -18,17 +18,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="StrumentalMente - Dove la musica diventa semplice." />
-    <meta name="keywords" content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
+    <meta name="keywords"
+        content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
     <meta name="author" content="FSC" />
     <meta name="robots" content="index, follow">
     <meta property="og:image" content="https://f-s-c.github.io/StrumentalMente/logo/2048x2048.png">
 
     <style>
-
-        .slideshow span {
-            box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.65);
-        }
-
         .landing-page-wrapper {
             position: absolute;
             top: 50%;
@@ -48,7 +44,7 @@
                     <span id="window-title-text">Titolo</span>
                 </div>
                 <div id="window-controls">
-                    <div class="button" id="close-button">
+                    <div class="button modal" id="close-button">
                         <span><i class="fas fa-times" style="font-size: 1.2em;"></i></span>
                     </div>
                 </div>
@@ -61,14 +57,34 @@
             <header class="site-name">
                 <p>Sicuro di voler uscire dall'applicazione?</p>
             </header>
-            <button style="width: 5em;" class="btn-outlined">No</button>
-            <button style="width: 5em; margin-left: 2.5em;" class="btn">S&igrave;</button>
+            <button id="no-btn" style="width: 5em;" class="btn-outlined" onclick="clickedNo();">No</button>
+            <button id="yes-btn" style="width: 5em; margin-left: 2.5em;" class="btn"
+                onclick="clickedYes();">S&igrave;</button>
         </div>
     </div>
 
     <script src="../assets/js/electron-interface.js"></script>
-    <script src="../assets/js/main.js"></script>
     <script src="../assets/js/render.js"></script>
+
+    <script>
+        const modal = require("electron-modal");
+
+        function clickedYes() {
+            modal.emit('yes').then(() => {
+                require("electron").remote.app.quit();
+            });
+        }
+
+        function clickedNo() {
+            modal.emit('no').then(() => {
+                modal.hide();
+            });
+        }
+
+        modal.getData().then((data) => {
+            modal.show();
+        });
+    </script>
 </body>
 
 </html>

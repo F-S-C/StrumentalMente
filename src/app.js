@@ -1,4 +1,5 @@
 const { app, BrowserWindow, dialog, Menu } = require("electron");
+const modal = require("electron-modal");
 
 let win;
 
@@ -10,6 +11,7 @@ function openChildWindow(pageUrl, windowIcon = "./assets/icon.ico") {
 }
 
 function createWindow() {
+    modal.setup();
     win = new BrowserWindow({ width: 1066, height: 600, show: false, icon: "./assets/icon.ico", frame: false });
     win.loadFile("index.html");
 
@@ -21,21 +23,6 @@ function createWindow() {
     });
 
     win.on("ready-to-show", () => { win.maximize(); win.show(); });
-
-    // FIXME: Modifica lo stile del messaggio per renderlo simile al resto dell'applicazione
-    win.on("close", e => {
-        var choice = dialog.showMessageBox(win,
-            {
-                type: "question",
-                buttons: ["Sì", "No"],
-                defaultId: 1,
-                title: "Sei sicuro?",
-                message: "Vuoi davvero uscire dall'applicazione?"
-            });
-        if (choice == 1) {
-            e.preventDefault();
-        }
-    });
 
     win.on("closed", () => {
         win = null;

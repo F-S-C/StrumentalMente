@@ -5,7 +5,8 @@ install:
 	cd src && \
 	npm install --save-dev electron && \
 	npm install --save electron-localshortcut && \
-	npm install -g --save-dev electron-packager
+	npm install -g --save-dev electron-packager && \
+	npm install --save electron-modal
 start:
 	cd src && \
 	npm start

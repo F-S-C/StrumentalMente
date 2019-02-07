@@ -35,23 +35,25 @@ const remote = require('electron').remote; // Riferimento a Electron
 
         titleText.innerHTML = remote.getCurrentWindow().getTitle();
 
-        if(minButton)
+        if (minButton)
             minButton.addEventListener("click", event => {
                 window = remote.getCurrentWindow();
                 window.minimize();
             });
 
-        maxButton.addEventListener("click", event => {
-            window = remote.getCurrentWindow();
-            window.maximize();
-            toggleMaxRestoreButtons();
-        });
+        if (maxButton)
+            maxButton.addEventListener("click", event => {
+                window = remote.getCurrentWindow();
+                window.maximize();
+                toggleMaxRestoreButtons();
+            });
 
-        restoreButton.addEventListener("click", event => {
-            window = remote.getCurrentWindow();
-            window.unmaximize();
-            toggleMaxRestoreButtons();
-        });
+        if (restoreButton)
+            restoreButton.addEventListener("click", event => {
+                window = remote.getCurrentWindow();
+                window.unmaximize();
+                toggleMaxRestoreButtons();
+            });
 
         /* 
          * Switch tra i bottoni massimizza/ripristina quando avviene la
@@ -59,13 +61,20 @@ const remote = require('electron').remote; // Riferimento a Electron
          * diverse dal click del tasto apposito (es: doppio click della
          * barra del titolo).
          */
-        toggleMaxRestoreButtons();
-        window.on('maximize', toggleMaxRestoreButtons);
-        window.on('unmaximize', toggleMaxRestoreButtons);
+        if (minButton && restoreButton) {
+            toggleMaxRestoreButtons();
+            window.on('maximize', toggleMaxRestoreButtons);
+            window.on('unmaximize', toggleMaxRestoreButtons);
+        }
 
         closeButton.addEventListener("click", event => {
             window = remote.getCurrentWindow();
-            window.close();
+            if (closeButton.classList.contains("sub-window"))
+                window.close();
+            else if (closeButton.classList.contains("modal"))
+                require('electron-modal').hide()
+            else
+                showExitDialog();
         });
 
         function toggleMaxRestoreButtons() {
@@ -80,3 +89,22 @@ const remote = require('electron').remote; // Riferimento a Electron
         }
     }
 })();
+
+function showExitDialog() {
+    const modal = require('electron-modal');
+    const path = require('path');
+    var clicked = -1;
+
+    modal.open("./dialogs/exit-dialog.html", { width: 400, height: 250, frame: false, modal: true, parent: remote.getCurrentWindow() }, {
+        title: "Sicuro?"
+    }).then((modalInstance) => {
+        modalInstance.on('yes', () => {
+            clicked = 1;
+        });
+        modalInstance.on('no', () => {
+            clicked = 0;
+        });
+    });
+
+    return clicked;
+}
