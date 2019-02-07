@@ -23,6 +23,7 @@
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: none;
+    filter: blur(2px);
     opacity: 0;
     z-index: 0;
     backface-visibility: hidden;
@@ -63,6 +64,24 @@
     -o-animation-delay: 18s;
     -ms-animation-delay: 18s;
     animation-delay: 18s;
+}
+
+.slideshow li:nth-child(5) span {
+    background-image: url("../../images/black-and-white-blur-book-164821.jpg");
+    -webkit-animation-delay: 24s;
+    -moz-animation-delay: 24s;
+    -o-animation-delay: 24s;
+    -ms-animation-delay: 24s;
+    animation-delay: 24s;
+}
+
+.slideshow li:nth-child(6) span {
+    background-image: url("../../images/artist-guitar-guitarist-33597.jpg");
+    -webkit-animation-delay: 30s;
+    -moz-animation-delay: 30s;
+    -o-animation-delay: 30s;
+    -ms-animation-delay: 30s;
+    animation-delay: 30s;
 }
 
 /* Animation for the slideshow images */
