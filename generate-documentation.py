@@ -45,12 +45,12 @@ if not os.path.exists(args.dest):
     os.makedirs(args.dest)
 
 for file in ["Pianificazione", "Progettazione", "Realizzazione"]:
-    subprocess.run(["pdflatex.exe", "-synctex=1", "-interaction=batchmode",
+    subprocess.run(["pdflatex", "-synctex=1", "-interaction=batchmode",
                     "--shell-escape", file + ".tex"], cwd=os.path.join(args.src, file))
-    # subprocess.run(["bibtex.exe", file], cwd=os.path.join(args.src, file))
-    subprocess.run(["pdflatex.exe", "-synctex=1", "-interaction=batchmode",
+    subprocess.run(["biber", file], cwd=os.path.join(args.src, file))
+    subprocess.run(["pdflatex", "-synctex=1", "-interaction=batchmode",
                     "--shell-escape", file + ".tex"], cwd=os.path.join(args.src, file))
-    subprocess.run(["pdflatex.exe", "-synctex=1", "-interaction=batchmode",
+    subprocess.run(["pdflatex", "-synctex=1", "-interaction=batchmode",
                     "--shell-escape", file + ".tex"], cwd=os.path.join(args.src, file))
 
     print(Fore.GREEN + "Generata la " + file + Style.RESET_ALL)
@@ -60,12 +60,12 @@ for file in ["Pianificazione", "Progettazione", "Realizzazione"]:
                 os.path.join(args.dest, file + ".pdf"))
     print(Fore.GREEN + "Spostata la " + file + Style.RESET_ALL)
 
-subprocess.run(["pdflatex.exe", "-synctex=1", "-interaction=batchmode",
+subprocess.run(["pdflatex", "-synctex=1", "-interaction=batchmode",
                 "--shell-escape", "DocumentazioneCompleta.tex"], cwd=args.src)
-# subprocess.run(["bibtex.exe", "DocumentazioneCompleta"], cwd=args.src)
-subprocess.run(["pdflatex.exe", "-synctex=1", "-interaction=batchmode",
+subprocess.run(["biber", "DocumentazioneCompleta"], cwd=args.src)
+subprocess.run(["pdflatex", "-synctex=1", "-interaction=batchmode",
                 "--shell-escape", "DocumentazioneCompleta.tex"], cwd=args.src)
-subprocess.run(["pdflatex.exe", "-synctex=1", "-interaction=batchmode",
+subprocess.run(["pdflatex", "-synctex=1", "-interaction=batchmode",
                 "--shell-escape", "DocumentazioneCompleta.tex"], cwd=args.src)
 
 print(Fore.GREEN + "Generata la documentazione completa" + Style.RESET_ALL)
