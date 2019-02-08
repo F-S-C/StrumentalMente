@@ -1,7 +1,7 @@
-<h1>StrumentalMente</h1>
+# StrumentalMente<!-- omit in toc -->
 
 [![License](https://img.shields.io/github/license/F-S-C/StrumentalMente.svg?style=for-the-badge)](https://github.com/F-S-C/StrumentalMente/blob/master/LICENSE)
-[![Not yet released](https://img.shields.io/badge/release-non%20yet%20released-orange.svg?style=for-the-badge)](https://github.com/F-S-C/StrumentalMente/releases)
+[![Not yet released](https://img.shields.io/badge/release-non%20ancora%20rilasciato-orange.svg?style=for-the-badge)](https://github.com/F-S-C/StrumentalMente/releases)
 <!--[![Latest release](https://img.shields.io/github/release/F-S-C/StrumentalMente.svg?style=for-the-badge)](https://github.com/F-S-C/StrumentalMente/releases)-->
 
 _Leggi questo file in altre lingue: [English](https://github.com/F-S-C/StrumentalMente/blob/master/README.md)_
@@ -10,7 +10,7 @@ _StrumentalMente_ è un sistema multimediale di e-learning progettato seguendo i
 
 **:warning: ATTENZIONE:** Questo progetto è stato creato in vista di un esame universitario, per questo motivo è documentato solo in *italiano*.
 
-<h2>Indice</h2>
+## Indice<!-- omit in toc -->
 
 - [Prefazione](#prefazione)
   - [Gli autori](#gli-autori)
@@ -25,7 +25,7 @@ _StrumentalMente_ è un sistema multimediale di e-learning progettato seguendo i
 
 Il progetto rappresenta un'applicazione del modello di Alessi & Trollip (come già anticipato).
 
-L'obiettivo del sistema è quello di aiutare gli utenti nel conoscere la dolce arte della musica. Quindi, l'applicazione contiene delle funzionalità utili a conoscere le basi della teoria musicale, nonché le basi delle tecniche di utilizzo di diversi strumenti musicali. Nel raggiungere tali obiettivi, il sistema fornisce agli utenti la possibilità di autovalutare i propri livelli di preparazione senza intaccare la propria esperienza d'uso. 
+L'obiettivo del sistema è quello di aiutare gli utenti nel conoscere la dolce arte della musica. Quindi, l'applicazione contiene delle funzionalità utili a conoscere le basi della teoria musicale, nonché le basi delle tecniche di utilizzo di diversi strumenti musicali. Nel raggiungere tali obiettivi, il sistema fornisce agli utenti la possibilità di autovalutare i propri livelli di preparazione senza intaccare la propria esperienza d'uso.
 
 ### Gli autori
 
@@ -57,15 +57,13 @@ All'interno della _repository_ sono presenti:
 
 Ci si riferisca alla sottosezione ['la struttura della repository'](#la-struttura-della-repository) per maggiori informazioni sull'organizzaione della repository e dei file in essa presenti.
 
-Una versione utilizzabile del sistema è disponibile online grazie a GitHub Pages. L'indirizzo in cui è disponibile è [f-s-c.github.io/StrumentalMente/src](https://f-s-c.github.io/StrumentalMente/src/).
-
 I sorgenti della documentazione sono in formato [LaTeX](https://www.latex-project.org/) (estensione `.tex`). Non sono presenti all'interno della repository i file intermedi che sono automaticamente generati durante la compilazione da [MiKTeX](https://miktex.org/), il compilatore TeX utilizzato per generare i file PDF presenti all'interno della directory `docs`.
 
 #### La struttura della repository
 
 La repository è strutturata nel seguente modo.
 
-```
+```plaintext
 StrumentalMente
 ├── docs (contiene tutta la documentazione dell'applicazione)
 │   └── src (contiene i sorgenti della documentazione)
@@ -85,4 +83,4 @@ Il progetto è rilasciato sotto la [**licenza Apache 2.0**](https://github.com/F
 
 ### I tools e le librerie utilizate
 
-Non è stato utilizzato alcun _tool_ e alcuna libreria esterna. 
+Non è stato utilizzato alcun _tool_ e alcuna libreria esterna.
