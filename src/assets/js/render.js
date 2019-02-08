@@ -71,8 +71,10 @@ const remote = require('electron').remote; // Riferimento a Electron
             window = remote.getCurrentWindow();
             if (closeButton.classList.contains("sub-window"))
                 window.close();
-            else if (closeButton.classList.contains("modal"))
-                require('electron-modal').hide()
+            else if (closeButton.classList.contains("modal")) {
+                require('electron-modal').hide();
+                remote.getCurrentWindow().focus();
+            }
             else
                 showExitDialog();
         });
@@ -90,6 +92,10 @@ const remote = require('electron').remote; // Riferimento a Electron
     }
 })();
 
+(function () {
+    require("electron-localshortcut").register(remote.getCurrentWindow(), "Esc", showExitDialog);
+})();
+
 function showExitDialog() {
     const modal = require('electron-modal');
     const path = require('path');
@@ -100,9 +106,11 @@ function showExitDialog() {
     }).then((modalInstance) => {
         modalInstance.on('yes', () => {
             clicked = 1;
+            remote.getCurrentWindow().focus();
         });
         modalInstance.on('no', () => {
             clicked = 0;
+            remote.getCurrentWindow().focus();
         });
     });
 
