@@ -31,6 +31,9 @@
 *.synctex(busy)
 *.thm
 
+*.run.xml
+*.bcf
+
 ## ELECTRON
 
 #directories

@@ -2,8 +2,7 @@
 
 \usepackage[italian]{babel}
 \frenchspacing
-\usepackage{natbib}
-\usepackage{url}
+\usepackage[sorting=nty]{biblatex}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{graphicx}
@@ -20,6 +19,9 @@
 \usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
 \usepackage{vmargin}
 \usepackage{hyperref}
+\hypersetup{breaklinks=true}
+\usepackage{url}
+\usepackage[anythingbreaks]{breakurl}
 \usepackage{bold-extra}
 %\usepackage{booktabs}
 \usepackage{tabu}
@@ -145,4 +147,5 @@
 \fancyhead[LO,RE]{\textbf{\ProjectTitle}} %Oppure 
 \fancyhead[LE,RO]{\nouppercase{\leftmark}}
 
+\sloppy
 % ------
