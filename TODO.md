@@ -1,4 +1,4 @@
-# StrumentalMente - ToDo
+﻿# StrumentalMente - ToDo
 
 - [ ] Scrittura dei contenuti
   - [x] Teoria
@@ -24,7 +24,7 @@
   - [ ] Realizzazione
   - [ ] Manuale utente
 - [ ] Stesura dei quiz
-  - [ ] Teoria
+  - [x] Teoria
   - [ ] Strumenti
 - [ ] Stesura delle sezioni di aiuto
 - [ ] Creazione di un sistema di _"salvataggio delle sessioni"_ per salvare i quiz che l'utente ha già completato
