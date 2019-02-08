@@ -1,0 +1,40 @@
+# StrumentalMente - ToDo
+
+- [ ] Scrittura dei contenuti
+  - [x] Teoria
+    - [x] Base
+    - [x] Avanzata
+  - [ ] Strumenti
+    - [ ] Piano
+    - [ ] Chitarra
+    - [ ] Batteria
+    - [ ] Basso
+- [ ] Creazione della struttura delle pagine HTML
+  - [x] Creazione dei prototipi
+  - [x] Creazione degli storyboard
+  - [ ] Aggiunta dei contenuti agli storyboard
+  - [ ] Creazione del JavaScript per variare automaticamente i contenuti della pagina
+- [ ] Terminare la documentazione
+  - [x] Pianificazione
+  - [ ] Progettazione
+    - [x] Inserire le gabbie logiche
+    - [ ] Inserire i prototipi
+    - [x] Discutere colori e icone
+    - [ ] Inserire modello RMM/HDM
+  - [ ] Realizzazione
+  - [ ] Manuale utente
+- [ ] Stesura dei quiz
+  - [ ] Teoria
+  - [ ] Strumenti
+- [ ] Stesura delle sezioni di aiuto
+- [ ] Creazione di un sistema di _"salvataggio delle sessioni"_ per salvare i quiz che l'utente ha già completato
+- [ ] Stesura delle informazioni sul sistema (i _"credits"_)
+- [ ] Creazione della presentazione PowerPoint _(o LaTeX)_
+- [ ] Alpha &alpha; test
+  - [ ] Stesura del piano di test
+  - [ ] Test
+  - [ ] Conclusioni del test ed eventuali correzioni
+- [ ] Beta &beta; test
+  - [ ] Individuazione della lista di Beta Tester
+  - [ ] Stesura dei questionari da far compilare agli utenti
+- [ ] Creazione del CD con _autorun_
