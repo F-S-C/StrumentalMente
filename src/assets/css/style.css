@@ -5,6 +5,10 @@
 @import url("./main/background-slideshow.css");
 /* Regole semplici dell'intero sito non classificabili: */
 
+html, body {
+    overflow: hidden
+}
+
 body {
     margin: 0;
     font-family: var(--font-text);
@@ -31,17 +35,17 @@ article aside {
     display: inline;
 }
 
-h1 { font-size: 35pt; }
-h2 { font-size: 20pt; }
-h3 { font-size: 15pt; }
-h4 { font-size: 11pt; }
-h5 { font-size: 10pt; }
-h6 { font-size: 9pt; }
+h1 { font-size: 35pt; margin: 0.5em 0; }
+h2 { font-size: 20pt; margin: 0.5em 0; }
+h3 { font-size: 15pt; margin: 0.5em 0; }
+h4 { font-size: 11pt; margin: 0.5em 0; }
+h5 { font-size: 10pt; margin: 0.5em 0; }
+h6 { font-size: 9pt; margin: 0.5em 0; }
 
 header h1 + h2 {
     color: #666;
     font-size: 15pt;
-    margin-top: -40px;
+    margin-top: -1em;
 }
 
 figure {
