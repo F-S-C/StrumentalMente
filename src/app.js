@@ -1,7 +1,7 @@
-const { app, BrowserWindow, dialog, Menu } = require("electron");
+const { app, BrowserWindow } = require("electron");
 const modal = require("electron-modal");
 
-let win;
+let win = null;
 
 function openChildWindow(pageUrl, windowIcon = "./assets/icon.ico") {
     child = new BrowserWindow({ width: 800, height: 600, parent: win, modal: true, icon: windowIcon, frame: false });
@@ -12,17 +12,16 @@ function openChildWindow(pageUrl, windowIcon = "./assets/icon.ico") {
 
 function createWindow() {
     modal.setup();
-    win = new BrowserWindow({ width: 1066, height: 600, show: false, icon: "./assets/icon.ico", frame: false });
+    win = new BrowserWindow({ width: 1066, height: 600, show: true, icon: "./assets/icon.ico", frame: false, center: true });
     win.loadFile("index.html");
 
     win.setMenu(null);
+    win.maximize();
 
     const electronLocalshortcut = require('electron-localshortcut');
     electronLocalshortcut.register(win, 'F1', () => {
         openChildWindow("./help.html");
     });
-
-    win.on("ready-to-show", () => { win.maximize(); win.show(); });
 
     win.on("closed", () => {
         win = null;

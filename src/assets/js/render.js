@@ -93,12 +93,12 @@ const remote = require('electron').remote; // Riferimento a Electron
 })();
 
 (function () {
-    require("electron-localshortcut").register(remote.getCurrentWindow(), "Esc", showExitDialog);
+    const electronLocalShortcut = require("electron-localshortcut");
+    electronLocalShortcut.register(remote.getCurrentWindow(), "Esc", showExitDialog);
 })();
 
 function showExitDialog() {
     const modal = require('electron-modal');
-    const path = require('path');
     var clicked = -1;
 
     modal.open("./dialogs/exit-dialog.html", { width: 400, height: 250, frame: false, modal: true, parent: remote.getCurrentWindow() }, {
@@ -118,11 +118,10 @@ function showExitDialog() {
 }
 
 function openInBrowser(link) {
-    require("electron").shell.openExternal(link);
+    remote.shell.openExternal(link);
 }
 
 function openModal(content, windowIcon = "./assets/icon.ico") {
-    const remote = require("electron").remote;
     var win = new remote.BrowserWindow({ width: 800, height: 600, parent: remote.getCurrentWindow(), modal: true, icon: windowIcon, frame: false });
     win.setMenu(null);
     if (/^(f|ht)tp(s?):\/\//i.test(content))
@@ -132,9 +131,8 @@ function openModal(content, windowIcon = "./assets/icon.ico") {
 }
 
 function openOnKeyboardShortcut(shortcut, content, openInSameWindow = true) {
-    const remote = require("electron").remote;
-    const electronLocalshortcut = require('electron-localshortcut');
-    electronLocalshortcut.register(remote.getCurrentWindow(), shortcut, () => {
+    const electronLocalShortcut = require('electron-localshortcut');
+    electronLocalShortcut.register(remote.getCurrentWindow(), shortcut, () => {
         if (/^(f|ht)tp(s?):\/\//i.test(content))
             remote.getCurrentWindow().loadURL(content);
         else
