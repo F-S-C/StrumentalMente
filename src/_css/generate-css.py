@@ -24,4 +24,6 @@ with fileinput.FileInput("../assets/css/style.css", inplace=True) as file:
     for line in file:
         if "@import" in line:
             s = get_substitution(line)
-            print(line.replace(line, s), end='\n\n')
+            print(line.replace(line, s), end='\n')
+        else:
+            print(line, end="")

@@ -7,7 +7,6 @@
     --main-color-transparent: rgba(229, 81, 0, 0.2);
     --main-color-dark-transparent: rgba(190, 67, 0, 0.2);
 }
-
 #titlebar {
     display: block;
     position: fixed;
@@ -273,7 +272,6 @@ nav.main-navigation+#sidebar-controller:hover, nav.main-navigation+#sidebar-cont
         display: flex;
     }
 }
-
 /* 
 LINK E BOTTONI
 ==============
@@ -468,7 +466,6 @@ classi aventi i seguenti stili:
     float: left;
     margin: 0 10px 0 0;
 }
-
 footer {
     font-size: 8pt;
     background-color: #333;
@@ -507,7 +504,6 @@ footer img {
     width: 46px;
     height: 46px;
 }
-
 .slideshow, .slideshow:after {
     position: fixed;
     width: 100%;
@@ -546,11 +542,11 @@ footer img {
 }
 
 .slideshow li:nth-child(1) span {
-    background-image: url("../../images/black-and-white-electronic-keyboard-keys-63696.jpg");
+    background-image: url("../images/black-and-white-electronic-keyboard-keys-63696.jpg");
 }
 
 .slideshow li:nth-child(2) span {
-    background-image: url("../../images/adult-band-concert-995301.jpg");
+    background-image: url("../images/adult-band-concert-995301.jpg");
     -webkit-animation-delay: 6s;
     -moz-animation-delay: 6s;
     -o-animation-delay: 6s;
@@ -559,7 +555,7 @@ footer img {
 }
 
 .slideshow li:nth-child(3) span {
-    background-image: url("../../images/audio-black-and-white-black-and-white-6966.jpg");
+    background-image: url("../images/audio-black-and-white-black-and-white-6966.jpg");
     -webkit-animation-delay: 12s;
     -moz-animation-delay: 12s;
     -o-animation-delay: 12s;
@@ -568,7 +564,7 @@ footer img {
 }
 
 .slideshow li:nth-child(4) span {
-    background-image: url("../../images/acoustic-acoustic-guitar-black-and-white-54133.jpg");
+    background-image: url("../images/acoustic-acoustic-guitar-black-and-white-54133.jpg");
     -webkit-animation-delay: 18s;
     -moz-animation-delay: 18s;
     -o-animation-delay: 18s;
@@ -577,7 +573,7 @@ footer img {
 }
 
 .slideshow li:nth-child(5) span {
-    background-image: url("../../images/black-and-white-blur-book-164821.jpg");
+    background-image: url("../images/black-and-white-blur-book-164821.jpg");
     -webkit-animation-delay: 24s;
     -moz-animation-delay: 24s;
     -o-animation-delay: 24s;
@@ -586,7 +582,7 @@ footer img {
 }
 
 .slideshow li:nth-child(6) span {
-    background-image: url("../../images/artist-guitar-guitarist-33597.jpg");
+    background-image: url("../images/artist-guitar-guitarist-33597.jpg");
     -webkit-animation-delay: 30s;
     -moz-animation-delay: 30s;
     -o-animation-delay: 30s;
@@ -716,4 +712,78 @@ footer img {
 .no-cssanimations .slideshow li span {
     opacity: 1;
 }
+/* Regole semplici dell'intero sito non classificabili: */
 
+html, body {
+    overflow: hidden
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-size: 11pt;
+}
+
+.main-wrapper {
+    padding: 32px 0 0 0;
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.main-wrapper .content {
+    padding: 0 20px 0 20px;
+    flex: 1 1 auto;
+    width: 75vw;
+}
+
+article aside {
+    display: inline;
+}
+
+h1 { font-size: 35pt; margin: 0.5em 0; }
+h2 { font-size: 20pt; margin: 0.5em 0; }
+h3 { font-size: 15pt; margin: 0.5em 0; }
+h4 { font-size: 11pt; margin: 0.5em 0; }
+h5 { font-size: 10pt; margin: 0.5em 0; }
+h6 { font-size: 9pt; margin: 0.5em 0; }
+
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-title); }
+
+header h1 + h2 {
+    color: #666;
+    font-size: 15pt;
+    margin-top: -1em;
+}
+
+figure {
+    float: right;
+    width: 30%;
+    border: thin silver solid;
+    margin: 1em;
+    padding: 0.5em;
+}
+
+figure img {
+    width: 100%;
+}
+
+figure figcaption {
+    text-align: center;
+    font-style: italic;
+    font-size: smaller;
+    text-indent: 0;
+}
+
+figure figcaption span {
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 768px) {
+    .main-wrapper .content {
+        width: 15vw;
+    }
+}
