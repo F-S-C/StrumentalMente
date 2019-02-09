@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat|Raleway');
+@import url('fonts.css');
 :root {
     --font-title: 'Montserrat', sans-serif;
     --font-text: 'Raleway', sans-serif;

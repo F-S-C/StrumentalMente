@@ -1,4 +1,4 @@
-.PHONY: docs
+.PHONY: docs css
 
 all: | start
 install:
@@ -15,3 +15,5 @@ deploy:
 	electron-packager src StrumentalMente --platform=linux --overwrite
 docs:
 	python generate-documentation.py --src docs/src --dest docs
+css:
+	$(MAKE) -C src/_css
