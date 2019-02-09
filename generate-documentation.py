@@ -10,7 +10,7 @@ from pyfiglet import figlet_format
 def removeUselessFile(dir):
     dirList = os.listdir(dir)
     for item in dirList:
-        if re.match(r"(.*?)\.(aux|glo|idx|log|toc|ist|acn|acr|alg|bbl|blg|dvi|glg|gls|ilg|ind|lof|lot|maf|mtc|mtc1|out|synctex.gz|synctex\(busy\)|thm)", item, re.IGNORECASE):
+        if re.match(r"(.*?)\.(bcf|run\.xml|aux|glo|idx|log|toc|ist|acn|acr|alg|bbl|blg|dvi|glg|gls|ilg|ind|lof|lot|maf|mtc|mtc1|out|synctex.gz|synctex\(busy\)|thm)", item, re.IGNORECASE):
             os.remove(os.path.join(dir, item))
             print("eliminato " + item)
 
