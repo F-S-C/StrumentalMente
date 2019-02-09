@@ -44,7 +44,7 @@
                     <span id="window-title-text">Titolo</span>
                 </div>
                 <div id="window-controls">
-                    <div class="button modal" id="close-button">
+                    <div class="button" id="close-button">
                         <span><i class="fas fa-times" style="font-size: 1.2em;"></i></span>
                     </div>
                 </div>
@@ -55,35 +55,41 @@
     <div class="main-wrapper">
         <div class="landing-page-wrapper">
             <header class="site-name">
-                <p>Sicuro di voler uscire dall'applicazione?</p>
+                <p id="label">Sicuro di voler uscire dall'applicazione?</p>
             </header>
-            <button id="no-btn" style="width: 5em;" class="btn-outlined" onclick="clickedNo();">No</button>
-            <button id="yes-btn" style="width: 5em; margin-left: 2.5em;" class="btn" onclick="clickedYes();"
-                autofocus>S&igrave;</button>
+            <button id="no-btn" style="width: 5em;" class="btn-outlined" onclick="cancel();">No</button>
+            <button id="yes-btn" style="width: 5em; margin-left: 2.5em;" class="btn" onclick="response();"
+                autofocus>Sì</button>
         </div>
     </div>
 
     <script src="../assets/js/electron-interface.js"></script>
     <script src="../assets/js/render.js"></script>
 
+
     <script>
-        const modal = require("electron-modal");
+        const { ipcRenderer } = require("electron");
 
-        function clickedYes() {
-            modal.emit('yes').then(() => {
-                require("electron").remote.app.quit();
-            });
+        /** Risposta negativa */
+        function cancel() {
+            ipcRenderer.send("closeDialog", false);
+            this.close();
         }
 
-        function clickedNo() {
-            modal.emit('no').then(() => {
-                modal.hide();
-            });
+        /** Risposta positiva */
+        function response() {
+            ipcRenderer.send("closeDialog", true);
+            this.close();
         }
 
-        modal.getData().then((data) => {
-            modal.show();
-        });
+        /** Caricamento dei parametri */
+        window.onload = function () {
+            var options = ipcRenderer.sendSync("openDialog", "");
+            var params = JSON.parse(options);
+            document.getElementById("label").innerHTML = params.label;
+            document.getElementById("yes-btn").innerHTML = params.yes;
+            document.getElementById("no-btn").innerHTML = params.no;
+        }
     </script>
 </body>
 

@@ -71,10 +71,6 @@ const remote = require('electron').remote; // Riferimento a Electron
             window = remote.getCurrentWindow();
             if (closeButton.classList.contains("sub-window"))
                 window.close();
-            else if (closeButton.classList.contains("modal")) {
-                require('electron-modal').hide();
-                remote.getCurrentWindow().focus();
-            }
             else
                 showExitDialog();
         });
@@ -98,23 +94,12 @@ const remote = require('electron').remote; // Riferimento a Electron
 })();
 
 function showExitDialog() {
-    const modal = require('electron-modal');
-    var clicked = -1;
+    const { ipcRenderer } = require("electron")
 
-    modal.open("./dialogs/exit-dialog.html", { width: 400, height: 250, frame: false, modal: true, parent: remote.getCurrentWindow() }, {
-        title: "Sicuro?"
-    }).then((modalInstance) => {
-        modalInstance.on('yes', () => {
-            clicked = 1;
-            remote.getCurrentWindow().focus();
-        });
-        modalInstance.on('no', () => {
-            clicked = 0;
-            remote.getCurrentWindow().focus();
-        });
-    });
+    var answer = ipcRenderer.sendSync("prompt", "")
+    if (answer)
+        remote.app.quit();
 
-    return clicked;
 }
 
 function openInBrowser(link) {
