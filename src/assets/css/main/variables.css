@@ -6,4 +6,6 @@
     --main-color-dark: rgb(190, 67, 0);
     --main-color-transparent: rgba(229, 81, 0, 0.2);
     --main-color-dark-transparent: rgba(190, 67, 0, 0.2);
+    --grey: rgb(192, 192, 192);
+    --grey-dark: rgb(148, 148, 148);
 }

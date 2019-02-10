@@ -1,0 +1,27 @@
+@keyframes gradually-show {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes gradually-hide {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+section.show {
+    animation: gradually-show .5s linear 0s 1 normal;
+    display: block;
+}
+
+section.hide {
+    animation: gradually-hide .75s linear 0s 1 normal;
+    display: none;
+}
