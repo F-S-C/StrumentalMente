@@ -53,6 +53,8 @@ function changeWindow(slide) {
     var curr_element = sessionStorage.getItem("curr_element");
     var number_of_elements = sessionStorage.getItem("number_of_elements") - 1;
     document.getElementsByTagName("section")[curr_element].className = "hide";
+    document.getElementById("next").style.pointerEvents = "none";
+    document.getElementById("back").style.pointerEvents = "none";
     if (slide) {
         if (number_of_elements > curr_element)
             curr_element++;
@@ -73,7 +75,11 @@ function changeWindow(slide) {
         document.getElementById("back").disabled = true;
     else
         document.getElementById("back").disabled = false;
-    setTimeout(function () { document.getElementsByTagName("section")[curr_element].className = "show" }, 100);
+    setTimeout(function () {
+        document.getElementsByTagName("section")[curr_element].className = "show";
+        document.getElementById("next").style.pointerEvents = "";
+        document.getElementById("back").style.pointerEvents = "";
+    }, 100);
     sessionStorage.setItem("curr_element", curr_element);
 }
 
