@@ -36,8 +36,8 @@ classi aventi i seguenti stili:
     font-family: var(--font-text);
     display: inline-block;
     padding: 12px 24px;
-    border-radius: 2px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+    border-radius: 4px;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
     background-color: var(--main-color);
     color: white;
     text-decoration: none;
@@ -75,8 +75,9 @@ classi aventi i seguenti stili:
 }
 
 .btn:disabled, .btn:disabled:hover {
-    color: var(--grey-dark);
+    color: white;
     background-color: var(--grey);
+    box-shadow: none;
     cursor: not-allowed;
 }
 
@@ -94,7 +95,7 @@ classi aventi i seguenti stili:
     font-family: var(--font-text);
     display: inline-block;
     padding: 12px 24px;
-    border-radius: 2px;
+    border-radius: 4px;
     background-color: transparent;
     color: var(--main-color);
     font-weight: bold;
@@ -145,13 +146,13 @@ classi aventi i seguenti stili:
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    border: 1px solid var(--grey);
+    border: 2px solid var(--main-color);
     outline: none;
     font-size: 15px;
     font-family: var(--font-text);
     display: inline-block;
     padding: 12px 24px;
-    border-radius: 2px;
+    border-radius: 4px;
     background-color: transparent;
     color: var(--main-color);
     font-weight: bold;
@@ -188,8 +189,9 @@ classi aventi i seguenti stili:
     transition: width .2s ease-out, padding-top .2s ease-out;
 }
 
-.btn-outlined:disabled, .btn-outlined:disabled:hover{
-    color: var(--grey-dark);
+.btn-outlined:disabled, .btn-outlined:disabled:hover {
+    color: var(--grey);
+    border-color: var(--grey);
     background-color: transparent;
     cursor: not-allowed;
 }
