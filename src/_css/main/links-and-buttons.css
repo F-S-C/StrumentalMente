@@ -192,3 +192,15 @@ classi aventi i seguenti stili:
     float: left;
     margin: 0 10px 0 0;
 }
+
+.buttons-container {
+    position: absolute;
+    bottom: 0;
+    /* 40px è lo spessore dei due padding */
+    width: calc(100% - 40px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    padding-bottom: 20px;
+}

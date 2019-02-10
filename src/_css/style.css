@@ -26,9 +26,12 @@ body {
 }
 
 .main-wrapper .content {
+    position: relative;
     padding: 0 20px 0 20px;
     flex: 1 1 auto;
     width: 75vw;
+    display: flex;
+    flex-direction: column;
 }
 
 article aside {
