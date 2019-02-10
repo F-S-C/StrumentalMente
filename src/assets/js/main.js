@@ -76,3 +76,16 @@ function changeWindow(slide) {
     setTimeout(function () { document.getElementsByTagName("section")[curr_element].className = "show" }, 100);
     sessionStorage.setItem("curr_element", curr_element);
 }
+
+(function () {
+    const remote = require('electron').remote;
+    const electronLocalShortcut = require("electron-localshortcut");
+    electronLocalShortcut.register(remote.getCurrentWindow(), "Right", () => {
+        if (sessionStorage.getItem("curr_element") < sessionStorage.getItem("number_of_elements") - 1)
+            changeWindow(true);
+    });
+    electronLocalShortcut.register(remote.getCurrentWindow(), "Left", () => {
+        if (sessionStorage.getItem("curr_element") > 0)
+            changeWindow(false);
+    });
+})();
