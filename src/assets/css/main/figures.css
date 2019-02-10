@@ -1,0 +1,31 @@
+figure {
+    float: right;
+    width: 30%;
+    border: thin silver solid;
+    margin: 1em;
+    padding: 0.5em;
+}
+
+figure.left {
+    float: left;
+}
+
+figure.center {
+    float: none;
+    margin: 0 auto;
+}
+
+figure img {
+    width: 100%;
+}
+
+figure figcaption {
+    text-align: center;
+    font-style: italic;
+    font-size: smaller;
+    text-indent: 0;
+}
+
+figure figcaption span {
+    font-weight: bold;
+}

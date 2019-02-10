@@ -3,7 +3,9 @@
 @import url("./main/links-and-buttons.css");
 @import url("./main/footer.css");
 @import url("./main/background-slideshow.css");
-/* Regole semplici dell'intero sito non classificabili: */
+@import url("./main/typography.css");
+@import url("./main/figures.css");
+/* Regole semplici dell'intera applicazione che non sono classificabili: */
 
 html, body {
     overflow: hidden
@@ -16,6 +18,14 @@ body {
     display: flex;
     flex-direction: column;
     font-size: 11pt;
+}
+
+.landing-page-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -60%);
 }
 
 .main-wrapper {
@@ -34,50 +44,14 @@ body {
     flex-direction: column;
 }
 
-article aside {
-    display: inline;
-}
-
-h1 { font-size: 35pt; margin: 0.5em 0; }
-h2 { font-size: 20pt; margin: 0.5em 0; }
-h3 { font-size: 15pt; margin: 0.5em 0; }
-h4 { font-size: 11pt; margin: 0.5em 0; }
-h5 { font-size: 10pt; margin: 0.5em 0; }
-h6 { font-size: 9pt; margin: 0.5em 0; }
-
-h1, h2, h3, h4, h5, h6 { font-family: var(--font-title); }
-
-header h1 + h2 {
-    color: #666;
-    font-size: 15pt;
-    margin-top: -1em;
-}
-
-figure {
-    float: right;
-    width: 30%;
-    border: thin silver solid;
-    margin: 1em;
-    padding: 0.5em;
-}
-
-figure img {
-    width: 100%;
-}
-
-figure figcaption {
-    text-align: center;
-    font-style: italic;
-    font-size: smaller;
-    text-indent: 0;
-}
-
-figure figcaption span {
-    font-weight: bold;
-}
-
 @media only screen and (max-width: 768px) {
     .main-wrapper .content {
+        /* 
+         * La larghezza specificata è molto piccola in quanto
+         * è la larghezza che il contenuto avrà con la sidebar
+         * aperta. Di default, infatti, il contenuto occupa 
+         * tutto lo schermo. 
+         */
         width: 15vw;
     }
 }
