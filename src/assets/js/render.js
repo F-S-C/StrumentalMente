@@ -94,12 +94,11 @@ const remote = require('electron').remote; // Riferimento a Electron
 })();
 
 function showExitDialog() {
-    const { ipcRenderer } = require("electron")
+        const { ipcRenderer } = require("electron");
 
-    var answer = ipcRenderer.sendSync("prompt", "")
-    if (answer)
-        remote.app.quit();
-
+        var answer = ipcRenderer.sendSync("prompt", "");
+        if (answer)
+            remote.app.quit();
 }
 
 function openInBrowser(link) {
