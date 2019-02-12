@@ -86,7 +86,7 @@ nav.main-navigation .dropdown li {
 
 nav.main-navigation .dropdown li a {
     color: white;
-    padding: 12px 16px;
+    padding: 12px 16px 12px 5em;
     text-decoration: none;
     display: block;
     text-align: left;
