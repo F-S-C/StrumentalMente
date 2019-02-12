@@ -168,16 +168,15 @@ function changeWindowClick(element) {
 }
 
 (function () {
-    const remote = require('electron').remote;
-    const electronLocalShortcut = require("electron-localshortcut");
-    electronLocalShortcut.register(remote.getCurrentWindow(), "Right", () => {
+    const Mousetrap = require("mousetrap");
+    Mousetrap.bind("right", () => {
         if (sessionStorage.getItem("curr_element") == sessionStorage.getItem("number_of_elements") - 1)
             document.getElementById("quiz").click();
         else
             if ((sessionStorage.getItem("curr_element") < sessionStorage.getItem("number_of_elements") - 1) && (sessionStorage.getItem("shortcut_attive") == 1))
                 changeWindow(true);
     });
-    electronLocalShortcut.register(remote.getCurrentWindow(), "Left", () => {
+    Mousetrap.bind("left", () => {
         if ((sessionStorage.getItem("curr_element") == 0) && (document.getElementsByName("back-slide").length > 0))
             document.getElementsByName("back-slide")[0].click();
         else

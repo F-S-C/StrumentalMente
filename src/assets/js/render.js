@@ -89,14 +89,36 @@ const remote = require('electron').remote; // Riferimento a Electron
 })();
 
 (function () {
-    const electronLocalShortcut = require("electron-localshortcut");
-    electronLocalShortcut.register(remote.getCurrentWindow(), "Esc", showExitDialog);
+    const Mousetrap = require("mousetrap");
+    Mousetrap.bind("esc", showExitDialog);
+
+    // Un piccolo easter egg da parte degli FSC :)!
+    require("mousetrap").bind("up up down down left right left right b a enter", () => {
+        const { ipcRenderer } = require("electron");
+
+        var answer = ipcRenderer.sendSync("prompt", {
+            title: "Wow!",
+            label: "Wow! Fai anche tu parte del ristretto club di giocatori NES?!<br />\
+                    Siamo onorati di averti come nostro utente!<br />\
+                    <i>&mdash; by FSC</i>",
+            yes: "Wow!",
+            no: "Ehm... Ok",
+            width: 600
+        });
+        if (answer)
+            remote.app.quit();
+    });
 })();
 
 function showExitDialog() {
     const { ipcRenderer } = require("electron");
 
-    var answer = ipcRenderer.sendSync("prompt", "");
+    var answer = ipcRenderer.sendSync("prompt", {
+        title: "Sicuro?",
+        label: "Sicuro di voler uscire dall'applicazione?",
+        yes: "Sì",
+        no: "No"
+    });
     if (answer)
         remote.app.quit();
 }
@@ -115,9 +137,8 @@ function openModal(content, windowIcon = "./assets/icon.ico") {
 }
 
 function openOnKeyboardShortcut(shortcut, content, openAsModal = false) {
-    const electronLocalShortcut = require('electron-localshortcut');
-    electronLocalShortcut.unregister(remote.getCurrentWindow(), shortcut);
-    electronLocalShortcut.register(remote.getCurrentWindow(), shortcut, () => {
+    const Mousetrap = require("mousetrap");
+    Mousetrap.bind(shortcut.toLowerCase(), () => {
         if (!openAsModal) {
             if (/^(f|ht)tp(s?):\/\//i.test(content))
                 remote.getCurrentWindow().loadURL(content);
@@ -128,4 +149,6 @@ function openOnKeyboardShortcut(shortcut, content, openAsModal = false) {
             openModal(content);
         }
     });
+
+    Mousetrap.bind("a b c", () => { window.alert("d e f"); });
 }

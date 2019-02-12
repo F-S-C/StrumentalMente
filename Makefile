@@ -4,7 +4,7 @@ all: | start
 install:
 	cd src && \
 	npm install --save-dev electron && \
-	npm install --save electron-localshortcut && \
+	npm install --save-dev mousetrap && \
 	npm install -g --save-dev electron-packager && \
 	npm install --save-dev node-localstorage
 start:

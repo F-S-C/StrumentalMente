@@ -78,8 +78,8 @@ let promptWindow = null;
 function promptModal(parentWindow, options, callback) {
     promptOptions = options;
     promptWindow = new BrowserWindow({
-        width: 400,
-        height: 250,
+        width: options.width || 400,
+        height: options.height || 250,
         parent: parentWindow,
         show: true,
         modal: true,
@@ -106,18 +106,11 @@ ipcMain.on("closeDialog", (event, data) => {
 })
 
 /** Chiamata dall'applicazione per aprire la finestra di dialogo */
-ipcMain.on("prompt", (event, notused) => {
+ipcMain.on("prompt", (event, options) => {
     if (!promptWindow)
-        promptModal(win, {
-            title: "Sicuro?",
-            label: "Sicuro di voler uscire dall'applicazione?",
-            yes: "Sì",
-            no: "No"
-        },
-            function (data) {
-                event.returnValue = data;
-            }
-        );
+        promptModal(win, options, (data) => {
+            event.returnValue = data;
+        });
     else
         event.returnValue = undefined;
 });
