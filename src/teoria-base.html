@@ -4,7 +4,7 @@
 <head>
     <title>Home - StrumentalMente</title>
     <link rel="icon" href="./assets/icon.ico" />
-
+    <link href="./assets/css/main/section.css" rel="stylesheet" />
     <link href="./assets/css/style.css" rel="stylesheet" />
     <!-- FontAwesome -->
     <link href="./assets/css/fontawesome/css/all.min.css" rel="stylesheet" />
@@ -19,7 +19,7 @@
     <meta property="og:image" content="https://f-s-c.github.io/StrumentalMente/logo/2048x2048.png">
 </head>
 
-<body>
+<body onload="numberOfSection()">
     <header>
         <div id="titlebar">
             <div id="drag-region">
@@ -59,7 +59,7 @@
                 <li class="dropdown" onclick="drop('sub1')" name="drop"><a href="#"><i class="fas fa-book"></i>
                         Teoria</a>
                     <ul id="sub1">
-                        <li><a href="./teoria-base.html">Basi</a></li>
+                        <li><a href="#">Basi</a></li>
                         <li><a href="#">Avanzata</a></li>
                     </ul>
                 </li>
@@ -87,38 +87,45 @@
         <div class="content">
             <article>
                 <header>
-                    <h1>Un'introduzione alla musica</h1>
-                    <h2>La dolce arte che rallegra i nostri giorni</h2>
+                    <h1>Titolo dell'articolo</h1>
+                    <h2>Un eventuale sottotitolo un po' più lungo</h2>
                     <hr />
                 </header>
-                <h2>Una costante della nostra vita</h2>
-                <p>La musica è una costante della nostra vita, qualsiasi cosa che ci circonda emette un suono. Per chi
-                    la studia e per chi la suona, la musica è qualcosa di naturale, un bisogno primario che ci distoglie
-                    dalla realtà e ci fa sentire più liberi.</p>
-                <figure>
-                    <img alt="Strumenti musicali" src="./assets/images/audio-black-and-white-black-and-white-6966.jpg" />
-                    <figcaption><span>Figura 1.</span> Degli strumenti musicali</figcaption>
-                </figure>
-                <h2>La musica come arte</h2>
-                <p>La musica, quindi, è una forma d'espressione come la pittura, la poesia, la scultura, la danza e così
-                    via. Rispetto a queste, la musica è però la più astratta, la più libera e la più universale. Essa
-                    infatti non ha rimandi semantici, cioè non esiste una correlazione tra suono-immagine-realtà
-                    (con eccezione della musica onomatopeica che, per sua definizione, tende a riprodurre suoni e
-                    rumori esistenti nella realtà) e risulta sempre dall'articolazione dei suoni.</p>
-                <p>La Musica è una, e le sue espressioni sono molteplici. Ogni oggetto può diventare uno strumento
-                    musicale, e gli strumenti musicali sono innumerevoli. Come scegliere, dunque, "il proprio strumento
-                    musicale"? Una buona scelta, sincera e duratura, può derivare dall'ascolto di numerose produzioni
-                    musicali, nella quale cercare quel suono, quella ritmica, quel carattere che il "nostro" strumento
-                    può offrire. Non è utile lasciarsi consigliare da altri, o cadere nei pregiudizi di presunta
-                    "facilità o difficoltà" nell'apprendimento. Si seguano solo le proprie passioni, quando si saranno
-                    palesate. Ovviamente l'approcciarsi con lo strumento scelto, richiede necessariamente, come primo
-                    passo, un approccio alla teoria di base della musica.</p>
+                <section>
+                    <h2>Titolo della sezione 1</h2>
+                    <p>Primo paragrafo della sezione 1.</p>
+                </section>
+                <section class="hide">
+                    <h2>Titolo della sezione 2</h2>
+                    <p>Primo paragrafo della sezione 2.</p>
+                </section>
+                <section class="hide">
+                    <h2>Titolo della sezione 3</h2>
+                    <p>Primo paragrafo della sezione 3.</p>
+                </section>
+                <section class="hide">
+                    <h2>Titolo della sezione 4</h2>
+                    <p>Primo paragrafo della sezione 4.</p>
+                </section>
+                <section class="hide">
+                    <h2>Titolo della sezione 5</h2>
+                    <p>Primo paragrafo della sezione 5.</p>
+                </section>
             </article>
+            <div class="buttons-container">
+                <button id="back" class="btn-outlined" onclick="changeWindow(false);">Indietro <i
+                        class="btn-icon left fas fa-arrow-alt-circle-left" disabled></i></button>
+                <button id="next" class="btn" onclick="changeWindow(true);">Avanti <i
+                        class="btn-icon fas fa-arrow-circle-right"></i></button>
+                <button id="quiz" class="btn" onclick="javascript:void(0)" style="display: none;">Quiz <i
+                        class="btn-icon fas fa-arrow-circle-right"></i></button>
+            </div>
         </div>
     </div>
 
-    <script src="./assets/js/main.js"></script>
-    <script src="./assets/js/render.js"></script>
+    <script type="text/javascript" src="./assets/js/main.js"></script>
+    <script type="text/javascript" src="./assets/js/slide.js"></script>
+    <script type="text/javascript" src="./assets/js/render.js"></script>
 </body>
 
 </html>
