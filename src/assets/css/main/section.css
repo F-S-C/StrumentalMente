@@ -21,11 +21,11 @@ header.show {
 }
 
 section.show {
-    /*animation: gradually-show .5s linear 0s 1 normal;*/
+    animation: gradually-show .5s linear 0s 1 normal;
     display: block;
 }
 
 section.hide {
-    /*animation: gradually-hide .75s linear 0s 1 normal;*/
+    animation: gradually-hide .75s linear 0s 1 normal;
     display: none;
 }

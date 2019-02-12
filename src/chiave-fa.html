@@ -95,7 +95,8 @@
                     <hr />
                 </header>
                 <section>
-                    <p>La <em>chiave di fa</em> o <em>di basso</em> fissa la posizione della nota Fa posta sulla quarta linea del
+                    <p>La <em>chiave di fa</em> o <em>di basso</em> fissa la posizione della nota Fa posta sulla quarta
+                        linea del
                         pentagramma semplice e corrispondente alla quinta nota discendente del do centrale.</p>
                     <p>La chiave di fa viene chiamata anche chiave di basso perché usata nella scrittura musicale per la
                         voce di basso e per tutti gli strumenti la cui estensione abbraccia il registro grave:
@@ -104,12 +105,16 @@
                 </section>
             </article>
             <div class="buttons-container">
-                <button id="back" class="btn-outlined" onclick="changeWindow(false);">Indietro <i
-                        class="btn-icon left fas fa-arrow-alt-circle-left" disabled></i></button>
+                <button name="back-slide" class="btn-outlined"
+                    onclick="window.location.replace('./chiave-sol.html?last');">Chiave di Sol <i
+                        class="btn-icon left fas fa-arrow-alt-circle-left"></i></button>
+                <button id="back" class="btn-outlined" onclick="changeWindow(false);" style="display: none;"> Indietro <i
+                        class="btn-icon left fas fa-arrow-alt-circle-left"></i></button>
                 <button id="next" class="btn" onclick="changeWindow(true);">Avanti <i
                         class="btn-icon fas fa-arrow-circle-right"></i></button>
                 <button id="quiz" class="btn" onclick="window.location.replace('./valori e pause.html');"
-                    style="display: none;">Vai ad Valori e Pause <i class="btn-icon fas fa-arrow-circle-right"></i></button>
+                    style="display: none;">Valori e Pause <i
+                        class="btn-icon fas fa-arrow-circle-right"></i></button>
             </div>
         </div>
     </div>

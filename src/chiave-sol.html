@@ -103,12 +103,15 @@
                 </section>
             </article>
             <div class="buttons-container">
-                <button id="back" class="btn-outlined" onclick="changeWindow(false);">Indietro <i
-                        class="btn-icon left fas fa-arrow-alt-circle-left" disabled></i></button>
+                <button name="back-slide" class="btn-outlined"
+                    onclick="window.location.replace('./chiave-do.html?last');">Chiave di Do <i
+                        class="btn-icon left fas fa-arrow-alt-circle-left"></i></button>
+                <button id="back" class="btn-outlined" onclick="changeWindow(false);" style="display: none;">Indietro <i
+                        class="btn-icon left fas fa-arrow-alt-circle-left"></i></button>
                 <button id="next" class="btn" onclick="changeWindow(true);">Avanti <i
                         class="btn-icon fas fa-arrow-circle-right"></i></button>
                 <button id="quiz" class="btn" onclick="window.location.replace('./chiave-fa.html');"
-                    style="display: none;">Vai ad Chiave Fa <i class="btn-icon fas fa-arrow-circle-right"></i></button>
+                    style="display: none;">Chiave di Fa <i class="btn-icon fas fa-arrow-circle-right"></i></button>
             </div>
         </div>
     </div>

@@ -96,36 +96,40 @@
                 </header>
                 <section class="hide">
                     <p>I segni grafici che rappresentano i suoni sono detti <em>note</em>. Le note musicali sono sette;
-                       si chiamano <em>do, re, mi, fa, sol, la, si</em>, e formano la scala musicale.
-                       Questa successione di sette note, chiamate anche <em>gradi</em>, che termina con la ripetizione
-                       (8a nota) della nota iniziale ma in posizione più acuta o più grave:
+                        si chiamano <em>do, re, mi, fa, sol, la, si</em>, e formano la scala musicale.
+                        Questa successione di sette note, chiamate anche <em>gradi</em>, che termina con la ripetizione
+                        (8a nota) della nota iniziale ma in posizione più acuta o più grave:
                     </p>
                     <p>
-                        Note:		DO	RE	MI	FA	SOL	LA	SI	DO   
+                        Note: DO RE MI FA SOL LA SI DO
                     </p>
-                    <p>Gradi: 	 1°	 2°	 3°	 4°	 5°	 6°	7°	 8° (=1°)  </p>
+                    <p>Gradi: 1° 2° 3° 4° 5° 6° 7° 8° (=1°) </p>
                 </section>
                 <section class="hide">
                     <p>
-                         La scala musicale può essere <em>ascendente</em> o <em>discendente</em>. È ascendente quando i
-                          suoni che la
-                         compongono procedono dal grave verso l’acuto; è discendente quando i suoni procedono 
-                         dall’acuto verso il grave.   
+                        La scala musicale può essere <em>ascendente</em> o <em>discendente</em>. È ascendente quando i
+                        suoni che la
+                        compongono procedono dal grave verso l’acuto; è discendente quando i suoni procedono
+                        dall’acuto verso il grave.
                     </p>
                     <p>Esempio di scala naturale:</p>
                     <img src="./assets/images/scala.jpg" alt="Scala naturale" style="width:70%;float:center;">
                     <p>Il discorso musicale è basato sulla ripetizione e sulla combinazione di queste note che, a
-                       seconda della loro posizione, rappresentano suoni <em>gravi</em>, <em>medi</em> o <em>acuti</em>.
+                        seconda della loro posizione, rappresentano suoni <em>gravi</em>, <em>medi</em> o
+                        <em>acuti</em>.
                     </p>
                 </section>
             </article>
             <div class="buttons-container">
-                <button id="back" class="btn-outlined" onclick="changeWindow(false);">Indietro <i
-                        class="btn-icon left fas fa-arrow-alt-circle-left" disabled></i></button>
+                <button name="back-slide" class="btn-outlined"
+                    onclick="window.location.replace('./suono.html?last');">Suono <i
+                        class="btn-icon left fas fa-arrow-alt-circle-left"></i></button>
+                <button id="back" class="btn-outlined" onclick="changeWindow(false);" style="display: none;">Indietro <i
+                        class="btn-icon left fas fa-arrow-alt-circle-left"></i></button>
                 <button id="next" class="btn" onclick="changeWindow(true);">Avanti <i
                         class="btn-icon fas fa-arrow-circle-right"></i></button>
-                <button id="quiz" class="btn" onclick="window.location.replace('./rigo.html');" style="display: none;">Vai ad Rigo <i
-                        class="btn-icon fas fa-arrow-circle-right"></i></button>
+                <button id="quiz" class="btn" onclick="window.location.replace('./rigo.html');"
+                    style="display: none;">Rigo <i class="btn-icon fas fa-arrow-circle-right"></i></button>
             </div>
         </div>
     </div>
