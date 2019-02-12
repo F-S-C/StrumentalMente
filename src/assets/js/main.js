@@ -32,6 +32,7 @@ function numberOfSection() {
     sessionStorage.setItem("number_of_elements", document.getElementsByTagName("section").length);
     sessionStorage.setItem("curr_element", "0");
     document.getElementById("back").disabled = true;
+    document.getElementsByTagName("section")[0].className = "show";
     if (document.getElementsByTagName("section").length < 2) {
         document.getElementById("next").style.display = "none";
         document.getElementById("quiz").style.display = "inline-block";
