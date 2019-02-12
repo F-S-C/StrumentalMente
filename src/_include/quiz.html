@@ -17,6 +17,9 @@
     <meta name="author" content="FSC" />
     <meta name="robots" content="index, follow">
     <meta property="og:image" content="https://f-s-c.github.io/StrumentalMente/logo/2048x2048.png">
+    <sctipt>
+
+    </sctipt>
 </head>
 
 <body onload="numberOfSection()">
@@ -55,15 +58,11 @@
                         <h1>Strumental<wbr /><span>Mente</span></h1>
                     </a>
                 </li>
-                <li><a class="active" href="#"><i class="fas fa-home"></i> Home</a></li>
-                <li class="dropdown" onclick="drop('sub1')" name="drop"><a href="#"><i class="fas fa-book"></i>
-                        Teoria</a>
-                    <ul id="sub1">
-                        <li><a href="#">Basi</a></li>
-                        <li><a href="#">Avanzata</a></li>
-                    </ul>
-                </li>
-                <li><a href="#"><i class="fas fa-guitar"></i> Strumenti</a></li>
+                <li><button name="domanda" onclick="changeWindowQuizClick(0)" class="active">Domanda 1</button></li>
+                <li><button name="domanda" onclick="changeWindowQuizClick(1)">Domanda 2</button></li>
+                <li><button name="domanda" onclick="changeWindowQuizClick(2)">Domanda 3</button></li>
+                <li><button name="domanda" onclick="changeWindowQuizClick(3)">Domanda 4</button></li>
+                <li><button name="domanda" onclick="changeWindowQuizClick(4)">Domanda 5</button></li>
                 <li><button onclick="openModal('./help.html');" title="Mostra l'aiuto (F1)"><i
                             class="fas fa-question"></i>
                         Aiuto</button></li>
@@ -87,44 +86,44 @@
         <div class="content">
             <article>
                 <header>
-                    <h1>Titolo dell'articolo</h1>
+                    <h1>Titolo del Quiz</h1>
                     <h2>Un eventuale sottotitolo un po' più lungo</h2>
                     <hr />
                 </header>
                 <section>
-                    <h2>Titolo della sezione 1</h2>
-                    <p>Primo paragrafo della sezione 1.</p>
+                    <h2>Domanda 1</h2>
+                    <p>Risposta 1. ecc.</p>
                 </section>
                 <section class="hide">
-                    <h2>Titolo della sezione 2</h2>
-                    <p>Primo paragrafo della sezione 2.</p>
+                    <h2>Domanda 2</h2>
+                    <p>Risposta 2. ecc.</p>
                 </section>
                 <section class="hide">
-                    <h2>Titolo della sezione 3</h2>
-                    <p>Primo paragrafo della sezione 3.</p>
+                    <h2>Domanda 3</h2>
+                    <p>Risposta 3. ecc.</p>
                 </section>
                 <section class="hide">
-                    <h2>Titolo della sezione 4</h2>
-                    <p>Primo paragrafo della sezione 4.</p>
+                    <h2>Domanda 4</h2>
+                    <p>Risposta 4. ecc.</p>
                 </section>
                 <section class="hide">
-                    <h2>Titolo della sezione 5</h2>
-                    <p>Primo paragrafo della sezione 5.</p>
+                    <h2>Domanda 5</h2>
+                    <p>Risposta 5. ecc.</p>
                 </section>
             </article>
             <div class="buttons-container">
-                <button id="back" class="btn-outlined" onclick="changeWindow(false);">Indietro <i
+                <button id="back" class="btn-outlined" onclick="changeWindowQuiz(false);">Indietro <i
                         class="btn-icon left fas fa-arrow-alt-circle-left" disabled></i></button>
-                <button id="next" class="btn" onclick="changeWindow(true);">Avanti <i
+                <button id="next" class="btn" onclick="changeWindowQuiz(true);">Avanti <i
                         class="btn-icon fas fa-arrow-circle-right"></i></button>
-                <button id="quiz" class="btn" onclick="javascript:void(0)" style="display: none;">Quiz <i
-                        class="btn-icon fas fa-arrow-circle-right"></i></button>
+                <button id="quiz" class="btn" onclick="javascript:void(0)" style="display: none;">Verifica 
+                        <i class="fas fa-check-circle"></i></button>
             </div>
         </div>
     </div>
 
     <script type="text/javascript" src="./assets/js/main.js"></script>
-    <script type="text/javascript" src="./assets/js/slide.js"></script>
+    <script type="text/javascript" src="./assets/js/quiz.js"></script>
     <script type="text/javascript" src="./assets/js/render.js"></script>
 </body>
 
