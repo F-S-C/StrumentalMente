@@ -13,3 +13,7 @@ header h1 + h2 {
     font-size: 15pt;
     margin-top: -1em;
 }
+
+aside {
+    font-style: italic;
+}
