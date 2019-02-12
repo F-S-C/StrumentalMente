@@ -34,15 +34,37 @@ function numberOfSection() {
     sessionStorage.setItem("number_of_elements", document.getElementsByTagName("section").length);
     sessionStorage.setItem("curr_element", "0");
     document.getElementById("back").disabled = true;
-    document.getElementsByTagName("section")[0].className = "show";
+
+    if (document.getElementsByName("back-slide").length > 0) {
+        document.getElementById("back").disabled = false;
+        document.getElementById("back").style.display = "none";
+        document.getElementsByName("back-slide")[0].style.display = "inline-block";
+    }
+
     if (document.getElementsByTagName("section").length < 2) {
         document.getElementById("next").style.display = "none";
         document.getElementById("quiz").style.display = "inline-block";
     }
     else {
-        for (var i = 1; i < document.getElementsByTagName('section').length; i++)
-            document.getElementsByTagName("section")[i].className = "hide";
-        document.getElementById("quiz").style.display = "none";
+        if (window.location.search.substr(1) == "last") {
+            for (var i = 0; i < document.getElementsByTagName("section").length - 2; i++)
+                document.getElementsByTagName("section")[i].className = "hide";
+            document.getElementsByTagName("section")[document.getElementsByTagName("section").length - 1].className = "show";
+            document.getElementById("quiz").style.display = "inline-block";
+            document.getElementById("next").style.display = "none";
+            document.getElementById("back").disabled = false;
+            sessionStorage.setItem("curr_element", document.getElementsByTagName("section").length - 1);
+            if (document.getElementsByName("back-slide").length > 0) {
+                document.getElementsByName("back-slide")[0].style.display = "none";
+                document.getElementById("back").style.display = "inline-block";
+            }
+        }
+        else {
+            for (var i = 1; i < document.getElementsByTagName('section').length; i++)
+                document.getElementsByTagName("section")[i].className = "hide";
+            document.getElementById("quiz").style.display = "none";
+            document.getElementsByTagName("section")[0].className = "show";
+        }
     }
     sessionStorage.setItem("shortcut_attive", 1);
 }
@@ -58,7 +80,7 @@ del browser. Inoltre, in base al numero di slide, si occupa di rendere visibili 
 function changeWindow(slide) {
     var curr_element = sessionStorage.getItem("curr_element");
     var number_of_elements = sessionStorage.getItem("number_of_elements") - 1;
-    
+
     document.getElementsByTagName("section")[curr_element].className = "hide";
     document.getElementById("next").style.pointerEvents = "none";
     document.getElementById("back").style.pointerEvents = "none";
@@ -84,10 +106,22 @@ function changeWindow(slide) {
             curr_element--;
     }
 
-    if (curr_element == 0)
+    if (curr_element == 0) {
         document.getElementById("back").disabled = true;
-    else
+        if (document.getElementsByName("back-slide").length > 0) {
+            document.getElementById("back").style.display = "none";
+            document.getElementsByName("back-slide")[0].style.display = "inline-block";
+        } else
+            document.getElementById("back").style.display = "inline-block";
+    }
+    else {
         document.getElementById("back").disabled = false;
+        if (document.getElementsByName("back-slide").length > 0) {
+            document.getElementById("back").style.display = "inline-block";
+            document.getElementsByName("back-slide")[0].style.display = "none";
+        } else
+            document.getElementById("back").style.display = "inline-block";
+    }
 
     setTimeout(function () {
         document.getElementsByTagName("section")[curr_element].className = "show";
@@ -137,11 +171,17 @@ function changeWindowClick(element) {
     const remote = require('electron').remote;
     const electronLocalShortcut = require("electron-localshortcut");
     electronLocalShortcut.register(remote.getCurrentWindow(), "Right", () => {
-        if ((sessionStorage.getItem("curr_element") < sessionStorage.getItem("number_of_elements") - 1) && (sessionStorage.getItem("shortcut_attive") == 1))
+        if (sessionStorage.getItem("curr_element") == sessionStorage.getItem("number_of_elements") - 1)
+            document.getElementById("quiz").click();
+        else
+            if ((sessionStorage.getItem("curr_element") < sessionStorage.getItem("number_of_elements") - 1) && (sessionStorage.getItem("shortcut_attive") == 1))
                 changeWindow(true);
     });
     electronLocalShortcut.register(remote.getCurrentWindow(), "Left", () => {
-        if ((sessionStorage.getItem("curr_element") > 0) && (sessionStorage.getItem("shortcut_attive") == 1))
+        if ((sessionStorage.getItem("curr_element") == 0) && (document.getElementsByName("back-slide").length > 0))
+            document.getElementsByName("back-slide")[0].click();
+        else
+            if ((sessionStorage.getItem("curr_element") > 0) && (sessionStorage.getItem("shortcut_attive") == 1))
                 changeWindow(false);
     });
 

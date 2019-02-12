@@ -56,7 +56,7 @@
                     </a>
                 </li>
                 <li><a href="./home.html"><i class="fas fa-home"></i> Home</a></li>
-                <li class="dropdown" name="drop"><a  onclick="drop('sub1')" class="active" href="#"><i
+                <li class="dropdown" name="drop"><a onclick="drop('sub1')" class="active" href="#"><i
                             class="fas fa-book"></i>
                         Teoria</a>
                     <ul id="sub1" class="show">
@@ -94,7 +94,7 @@
                     <h2>Un eventuale sottotitolo un po' più lungo</h2>
                     <hr />
                 </header>
-                <section>
+                <section class="hide">
                     <h1>Intervallo musicale: tono e semitono </h1>
                     <p>Come già detto, la scala musicale è formata da una successione di sette note, chiamate anche
                         gradi,
@@ -223,7 +223,9 @@
                 </section>
             </article>
             <div class="buttons-container">
-                <button id="back" class="btn-outlined" onclick="changeWindow(false);">Indietro <i
+                <button name="back-slide" class="btn-outlined" onclick="window.location.replace('./teoria-base.html?last');">Vai a base <i
+                        class="btn-icon left fas fa-arrow-alt-circle-left" disabled></i></button>
+                <button id="back" class="btn-outlined" style="display:none;" onclick="changeWindow(false);">Indietro <i
                         class="btn-icon left fas fa-arrow-alt-circle-left" disabled></i></button>
                 <button id="next" class="btn" onclick="changeWindow(true);">Avanti <i
                         class="btn-icon fas fa-arrow-circle-right"></i></button>
@@ -234,7 +236,6 @@
     </div>
 
     <script type="text/javascript" src="./assets/js/main.js"></script>
-    <script type="text/javascript" src="./assets/js/slide.js"></script>
     <script type="text/javascript" src="./assets/js/render.js"></script>
 </body>
 
