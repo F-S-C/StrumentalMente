@@ -186,3 +186,11 @@ function changeWindowClick(element) {
     });
 
 })();
+
+
+(function () {
+    document.addEventListener('keydown', event => {
+        if (event.key == "Shift")
+            event.preventDefault();
+    });
+})();

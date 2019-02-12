@@ -1,4 +1,7 @@
 const { app, BrowserWindow, ipcMain } = require("electron");
+const JSONStorage = require('node-localstorage').JSONStorage;
+const storageLocation = app.getPath('userData');
+global.nodeStorage = new JSONStorage(storageLocation);
 
 let win = null;
 
@@ -10,18 +13,52 @@ function openChildWindow(pageUrl, windowIcon = "./assets/icon.ico") {
 }
 
 function createWindow() {
-    win = new BrowserWindow({ width: 1066, height: 600, show: true, icon: "./assets/icon.ico", frame: false, center: true });
+    var windowState = {};
+    try {
+        windowState = global.nodeStorage.getItem("windowstate");
+    } catch (err) {
+        // the file is there, but corrupt. Handle appropriately. 
+    }
+
+    if (!windowState)
+        windowState = { bounds: { width: 1066, height: 600 }, isMaximized: true };
+
+    win = new BrowserWindow({
+        width: windowState.bounds && windowState.bounds.width || 1066,
+        height: windowState.bounds && windowState.bounds.height || 600,
+        show: true,
+        icon: "./assets/icon.ico",
+        frame: false,
+        center: true
+    });
     win.loadFile("index.html");
 
     win.setMenu(null);
-    win.maximize();
+
+    if (windowState.isMaximized) {
+        win.maximize();
+    }
 
     win.on("closed", () => {
         win = null;
     });
+
+    ["resize", "move", "close"].forEach((e) => {
+        win.on(e, () => {
+            // Salvataggio delle impostazioni della finestra
+            windowState.isMaximized = win.isMaximized();
+            // se la finestra è massimizzata, è inutile aggiornare le dimensioni
+            if (!windowState.isMaximized)
+                windowState.bounds = win.getBounds();
+
+            global.nodeStorage.setItem("windowstate", windowState);
+        });
+    });
 }
 
-app.on("ready", createWindow);
+app.on("ready", () => {
+    createWindow();
+});
 
 app.on("window-all-closed", () => {
     if (process.platform !== "darwin")
