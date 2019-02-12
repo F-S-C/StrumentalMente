@@ -70,7 +70,7 @@
                         Aiuto</button></li>
                 <li><button onclick="javascript:void(0);" title="Informazioni">&nbsp;<i class="fas fa-info"></i>
                         Informazioni</button></li>
-                <li><button onclick="showExitDialog();"><i class="fas fa-sign-out-alt"></i> Esci</button></li>
+                <li><button onclick="showExitDialog();" title="Esci dall'app (Esc)"><i class="fas fa-sign-out-alt"></i> Esci</button></li>
             </ul>
 
             <footer>
@@ -150,9 +150,9 @@
                 </section>
             </article>
             <div class="buttons-container">
-                <button id="back" class="btn-outlined" onclick="changeWindow(false);">Indietro <i
+                <button id="back" title="Vai indietro (freccia sinistra)" class="btn-outlined" onclick="changeWindow(false);">Indietro <i
                         class="btn-icon left fas fa-arrow-alt-circle-left" disabled></i></button>
-                <button id="next" class="btn" onclick="changeWindow(true);">Avanti <i
+                <button id="next" title="Vai avanti (freccia destra)" class="btn" onclick="changeWindow(true);">Avanti <i
                         class="btn-icon fas fa-arrow-circle-right"></i></button>
                 <button id="quiz" class="btn" onclick="window.location.replace('./teoria-avanzato.html');" style="display: none;">Vai ad Avanzato <i
                         class="btn-icon fas fa-arrow-circle-right"></i></button>
