@@ -11,13 +11,17 @@ function openMobileNavigation() {
     }
 }
 
-function drop(name) {
-    var el = document.getElementById(name);
+function drop(name, defaultLinkClass = "") {
+    var el = document.getElementById(name), link = document.getElementById(name + "-link");
     var i = 0;
-    if (el.className !== "show")
-        el.className += "show";
-    else
+    if (el.className !== "show") {
+        el.className = "show";
+        link.className += " open";
+    }
+    else {
         el.className = "";
+        link.className = defaultLinkClass;
+    }
 }
 
 /*

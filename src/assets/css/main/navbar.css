@@ -56,6 +56,10 @@ nav.main-navigation .active {
     }
 }
 
+nav.main-navigation .dropdown {
+    position: relative;
+}
+
 nav.main-navigation .dropdown ul {
     display: none;
     background-color: #f9f9f9;
@@ -86,6 +90,28 @@ nav.main-navigation .dropdown li a {
     text-decoration: none;
     display: block;
     text-align: left;
+}
+
+nav.main-navigation .dropdown>a::after {
+    font-family: "Font Awesome 5 Free";
+    color: rgba(255, 255, 255, .9);
+    font-weight: 900;
+    content: "\f0d7";
+    position: absolute;
+    right: 0;
+    top: 2px;
+    padding: 14px 16px;
+}
+
+nav.main-navigation .dropdown>a.open::after {
+    font-family: "Font Awesome 5 Free";
+    color: rgba(255, 255, 255, .9);
+    font-weight: 900;
+    content: "\f0d8";
+    position: absolute;
+    right: 0;
+    top: 2px;
+    padding: 14px 16px;
 }
 
 nav.main-navigation .dropdown li a:hover {
