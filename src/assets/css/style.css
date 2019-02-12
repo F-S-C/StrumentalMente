@@ -9,7 +9,8 @@
 /* Regole semplici dell'intera applicazione che non sono classificabili: */
 
 html, body {
-    overflow: hidden
+    overflow: hidden;
+    -webkit-user-select: none;
 }
 
 body {
