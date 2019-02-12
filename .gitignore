@@ -47,3 +47,6 @@ dist/
 
 # Ignore 'make deploy' results
 StrumentalMente-*/
+
+# Word temporary
+~$*.doc*
