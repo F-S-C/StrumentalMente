@@ -116,6 +116,7 @@ function openModal(content, windowIcon = "./assets/icon.ico") {
 
 function openOnKeyboardShortcut(shortcut, content, openAsModal = false) {
     const electronLocalShortcut = require('electron-localshortcut');
+    electronLocalShortcut.unregister(remote.getCurrentWindow(), shortcut);
     electronLocalShortcut.register(remote.getCurrentWindow(), shortcut, () => {
         if (!openAsModal) {
             if (/^(f|ht)tp(s?):\/\//i.test(content))
