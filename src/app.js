@@ -16,11 +16,6 @@ function createWindow() {
     win.setMenu(null);
     win.maximize();
 
-    const electronLocalshortcut = require('electron-localshortcut');
-    electronLocalshortcut.register(win, 'F1', () => {
-        openChildWindow("./help.html");
-    });
-
     win.on("closed", () => {
         win = null;
     });

@@ -64,7 +64,7 @@
                     </ul>
                 </li>
                 <li><a href="#"><i class="fas fa-guitar"></i> Strumenti</a></li>
-                <li><button onclick="openModal('./help.html');" title="Mostra l'aiuto (F1)"><i
+                <li><button onclick="openModal('./helpers/help-home.html');" title="Mostra l'aiuto (F1)"><i
                             class="fas fa-question"></i> Aiuto</button></li>
                 <li><button onclick="javascript:void(0);" title="Informazioni">&nbsp;<i class="fas fa-info"></i>
                         Informazioni</button></li>
@@ -121,6 +121,9 @@
 
     <script src="./assets/js/main.js"></script>
     <script src="./assets/js/render.js"></script>
+    <script>
+        openOnKeyboardShortcut("F1", "./helpers/help-home.html", true);
+    </script>
 </body>
 
 </html>

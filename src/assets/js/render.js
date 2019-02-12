@@ -94,11 +94,11 @@ const remote = require('electron').remote; // Riferimento a Electron
 })();
 
 function showExitDialog() {
-        const { ipcRenderer } = require("electron");
+    const { ipcRenderer } = require("electron");
 
-        var answer = ipcRenderer.sendSync("prompt", "");
-        if (answer)
-            remote.app.quit();
+    var answer = ipcRenderer.sendSync("prompt", "");
+    if (answer)
+        remote.app.quit();
 }
 
 function openInBrowser(link) {
@@ -114,12 +114,17 @@ function openModal(content, windowIcon = "./assets/icon.ico") {
         win.loadFile(content);
 }
 
-function openOnKeyboardShortcut(shortcut, content, openInSameWindow = true) {
+function openOnKeyboardShortcut(shortcut, content, openAsModal = false) {
     const electronLocalShortcut = require('electron-localshortcut');
     electronLocalShortcut.register(remote.getCurrentWindow(), shortcut, () => {
-        if (/^(f|ht)tp(s?):\/\//i.test(content))
-            remote.getCurrentWindow().loadURL(content);
-        else
-            remote.getCurrentWindow().loadFile(content);
+        if (!openAsModal) {
+            if (/^(f|ht)tp(s?):\/\//i.test(content))
+                remote.getCurrentWindow().loadURL(content);
+            else
+                remote.getCurrentWindow().loadFile(content);
+        }
+        else {
+            openModal(content);
+        }
     });
 }
