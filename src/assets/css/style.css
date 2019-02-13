@@ -8,7 +8,7 @@
 @import url("./main/figures.css");
 /* Regole semplici dell'intera applicazione che non sono classificabili: */
 
-html, body {
+body {
     overflow: hidden;
     -webkit-user-select: none;
 }
@@ -20,6 +20,10 @@ body {
     display: flex;
     flex-direction: column;
     font-size: 12pt;
+}
+
+.scroll {
+    overflow: hidden auto;
 }
 
 .landing-page-wrapper {
