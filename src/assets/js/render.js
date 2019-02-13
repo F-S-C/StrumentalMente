@@ -102,7 +102,9 @@ const remote = require('electron').remote; // Riferimento a Electron
                     Siamo onorati di averti come nostro utente!<br />\
                     <i>&mdash; by FSC</i>",
             yes: "Wow!",
+            yesReturn: false,
             no: "Ehm... Ok",
+            noReturn: false,
             width: 600
         });
         if (answer)
@@ -117,7 +119,9 @@ function showExitDialog() {
         title: "Sicuro?",
         label: "Sicuro di voler uscire dall'applicazione?",
         yes: "Sì",
-        no: "No"
+        yesReturn: true,
+        no: "No",
+        noReturn: false
     });
     if (answer)
         remote.app.quit();

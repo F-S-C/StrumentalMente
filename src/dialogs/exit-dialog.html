@@ -52,17 +52,19 @@
 
 
     <script>
+        var yesReturn;
+        var noReturn;
         const { ipcRenderer } = require("electron");
 
         /** Risposta negativa */
         function cancel() {
-            ipcRenderer.send("closeDialog", false);
+            ipcRenderer.send("closeDialog", noReturn);
             this.close();
         }
 
         /** Risposta positiva */
         function response() {
-            ipcRenderer.send("closeDialog", true);
+            ipcRenderer.send("closeDialog", yesReturn);
             this.close();
         }
 
@@ -73,6 +75,8 @@
             document.getElementById("label").innerHTML = params.label;
             document.getElementById("yes-btn").innerHTML = params.yes;
             document.getElementById("no-btn").innerHTML = params.no;
+            yesReturn = params.yesReturn;
+            noReturn = params.noReturn;
         }
     </script>
 </body>
