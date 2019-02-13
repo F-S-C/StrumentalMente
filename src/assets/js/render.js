@@ -35,25 +35,30 @@ const remote = require('electron').remote; // Riferimento a Electron
 
         titleText.innerHTML = remote.getCurrentWindow().getTitle();
 
-        if (minButton)
-            minButton.addEventListener("click", event => {
-                window = remote.getCurrentWindow();
-                window.minimize();
-            });
+        let minimize = event => window.minimize();
+        let maximize = event => { window.maximize(); toggleMaxRestoreButtons(); };
+        let restore = event => { window.unmaximize(); toggleMaxRestoreButtons(); };
+        let close = event => {
+            if (closeButton.classList.contains("sub-window"))
+                window.close();
+            else
+                showExitDialog();
+        }
 
-        if (maxButton)
-            maxButton.addEventListener("click", event => {
-                window = remote.getCurrentWindow();
-                window.maximize();
-                toggleMaxRestoreButtons();
-            });
+        if (minButton) {
+            minButton.removeEventListener("click", minimize);
+            minButton.addEventListener("click", minimize);
+        }
 
-        if (restoreButton)
-            restoreButton.addEventListener("click", event => {
-                window = remote.getCurrentWindow();
-                window.unmaximize();
-                toggleMaxRestoreButtons();
-            });
+        if (maxButton) {
+            maxButton.removeEventListener("click", maximize);
+            maxButton.addEventListener("click", maximize);
+        }
+
+        if (restoreButton) {
+            restoreButton.removeEventListener("click", restore);
+            restoreButton.addEventListener("click", restore);
+        }
 
         /* 
          * Switch tra i bottoni massimizza/ripristina quando avviene la
@@ -67,16 +72,10 @@ const remote = require('electron').remote; // Riferimento a Electron
             window.on('unmaximize', toggleMaxRestoreButtons);
         }
 
-        closeButton.addEventListener("click", event => {
-            window = remote.getCurrentWindow();
-            if (closeButton.classList.contains("sub-window"))
-                window.close();
-            else
-                showExitDialog();
-        });
+        closeButton.removeEventListener("click", close);
+        closeButton.addEventListener("click", close);
 
         function toggleMaxRestoreButtons() {
-            window = remote.getCurrentWindow();
             if (window.isMaximized()) {
                 maxButton.style.display = "none";
                 restoreButton.style.display = "flex";
