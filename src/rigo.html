@@ -2,7 +2,7 @@
 <html lang="it">
 
 <head>
-    <title>Teoria -  Il Rigo</title>
+    <title>Teoria - Il Rigo</title>
     <link rel="icon" href="./assets/icon.ico" />
     <link href="./assets/css/main/section.css" rel="stylesheet" />
     <link href="./assets/css/style.css" rel="stylesheet" />
@@ -95,44 +95,57 @@
                     <hr />
                 </header>
                 <section class="hide">
-                    <p>Le note si scrivono sul rigo <em>musicale</em>. Il rigo è chiamato anche <strong>pentagramma</strong>,
-                         (dal greco pente = cinque, gramma = linea)
-                    essendo formato da 5 linee orizzontali parallele e da 4 spazi che intercorrono fra le linee.</p>
+                    <p>Le note si scrivono sul rigo <em>musicale</em>. Il rigo è chiamato anche
+                        <strong>pentagramma</strong>,
+                        (dal greco pente = cinque, gramma = linea)
+                        essendo formato da 5 linee orizzontali parallele e da 4 spazi che intercorrono fra le linee.</p>
                     <p>Le linee e gli spazi si contano dal basso all'alto.</p>
                     <p>Il pentagramma può essere <em>semplice</em> o <em>doppio</em>.</p>
-                    <p>Il pentagramma <strong>semplice</strong> si usa per la voce umana e per alcuni strumenti di limitata estensione
+                    <p>Il pentagramma <strong>semplice</strong> si usa per la voce umana e per alcuni strumenti di
+                        limitata estensione
                         <em>fonica</em> (suono) come
-                        gli archi, i fiati ecc., per i quali <em>gamma</em> (=scala, estensione) dei suoni che producono abbraccia o il
+                        gli archi, i fiati ecc., per i quali <em>gamma</em> (=scala, estensione) dei suoni che producono
+                        abbraccia o il
                         registro
                         acuto, o il registro centrale, oppure il registro basso.
                     </p>
                 </section>
                 <section class="hide">
-                    <p>Il pentagramma <strong>doppio</strong>, che è formato da due pentagrammi semplici uniti da una graffa, è usato da altri
-                       strumenti,
-                       come il pianoforte, l’arpa, l’harmonium e simili, le cui possibilità foniche abbracciano tutta la gamma degli
-                       strumenti citati in precedenza.</p>
+                    <p>Il pentagramma <strong>doppio</strong>, che è formato da due pentagrammi semplici uniti da una
+                        graffa, è usato da altri
+                        strumenti,
+                        come il pianoforte, l’arpa, l’harmonium e simili, le cui possibilità foniche abbracciano tutta
+                        la gamma degli
+                        strumenti citati in precedenza.</p>
                     <aside>
-                        <strong>CURIOSITÀ</strong>: Il pentagramma può essere anche <strong>triplo</strong> o <strong>multiplo</strong>. Il
+                        <strong>CURIOSITÀ</strong>: Il pentagramma può essere anche <strong>triplo</strong> o
+                        <strong>multiplo</strong>. Il
                         pentagramma triplo si usa nella grafia per le musiche
-                        d’organo: due pentagrammi per le tastiere e un pentagramma per le note gravi affidate alla pedaliera. Il pentagramma
+                        d’organo: due pentagrammi per le tastiere e un pentagramma per le note gravi affidate alla
+                        pedaliera. Il pentagramma
                         multiplo serve per le partiture dei complessi strumentali, vocali-strumentali e dell’orchestra.
                     </aside>
-                    <p>Al pentagramma, <em>semplice</em> o <em>doppio</em>, si possono aggiungere sopra e sotto brevi linee supplementari
-                    chiamati <strong>tagli addizionali</strong>.
-                    Questi tagli addizionali servono al compositore per scrivere le note dei suoni più acuti, o più gravi, per le quali il
-                    pentagramma semplice o doppio non basta. Per poter precisare e fissare in termini musicali il nome e la relativa altezza
-                    dei suoni, si ricorre all’uso di un segno convenzionale chiamato <em>chiave</em>.
+                    <p>Al pentagramma, <em>semplice</em> o <em>doppio</em>, si possono aggiungere sopra e sotto brevi
+                        linee supplementari
+                        chiamati <strong>tagli addizionali</strong>.
+                        Questi tagli addizionali servono al compositore per scrivere le note dei suoni più acuti, o più
+                        gravi, per le quali il
+                        pentagramma semplice o doppio non basta. Per poter precisare e fissare in termini musicali il
+                        nome e la relativa altezza
+                        dei suoni, si ricorre all’uso di un segno convenzionale chiamato <em>chiave</em>.
                     </p>
                 </section>
             </article>
             <div class="buttons-container">
-                <button id="back" class="btn-outlined" onclick="changeWindow(false);">Indietro <i
-                        class="btn-icon left fas fa-arrow-alt-circle-left" disabled></i></button>
+                <button name="back-slide" class="btn-outlined"
+                    onclick="window.location.replace('./note.html?last');">Vai ad Note <i
+                        class="btn-icon left fas fa-arrow-alt-circle-left"></i></button>
+                <button id="back" class="btn-outlined" onclick="changeWindow(false);" style="display: none;"> Indietro <i
+                        class="btn-icon left fas fa-arrow-alt-circle-left"></i></button>
                 <button id="next" class="btn" onclick="changeWindow(true);">Avanti <i
                         class="btn-icon fas fa-arrow-circle-right"></i></button>
-                <button id="quiz" class="btn" onclick="window.location.replace('./teoria-avanzato.html');" style="display: none;">Vai ad Avanzato <i
-                        class="btn-icon fas fa-arrow-circle-right"></i></button>
+                <button id="quiz" class="btn" onclick="window.location.replace('./chiave-do.html');"
+                    style="display: none;">Vai ad Chiave Do <i class="btn-icon fas fa-arrow-circle-right"></i></button>
             </div>
         </div>
     </div>
