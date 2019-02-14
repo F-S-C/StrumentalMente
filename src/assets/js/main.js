@@ -24,15 +24,21 @@ function drop(name, defaultLinkClass = "") {
     }
 }
 
+
+var numberOfSections = 0, currentSection = 0;
+var numberOfArticles = 0, currentArticle = 0;
+var shortcut_attive = 0;
 /*
 Funzione che, al caricamento della pagina, si occupa di impostare il numero 
 di tag section presenti all'interno della pagina nella memoria locale del browser, di
 impostare come sezione visibile corrente la prima (sempre all'interno della memoria locale)
 e di nascondere tutti i tag section successivi al primo.
 */
-function numberOfSection() {
-    sessionStorage.setItem("number_of_elements", document.getElementsByTagName("section").length);
-    sessionStorage.setItem("curr_element", "0");
+function initialize() {
+    numberOfSections = document.getElementsByTagName("section").length;
+    currentSection = 0;
+    numberOfArticles = document.getElementsByTagName("article").length;
+    currentArticle = 0;
     document.getElementById("back").disabled = true;
 
     if (document.getElementsByName("back-slide").length > 0) {
@@ -66,7 +72,7 @@ function numberOfSection() {
             document.getElementsByTagName("section")[0].className = "show";
         }
     }
-    sessionStorage.setItem("shortcut_attive", 1);
+    shortcut_attive = 1;
 }
 
 /* Funzioni di transizione delle sezioni in una pagina */
@@ -78,13 +84,13 @@ del browser. Inoltre, in base al numero di slide, si occupa di rendere visibili 
 (avanti con id next, indietro con id back e quiz con id quiz).
 */
 function changeWindow(slide) {
-    var curr_element = sessionStorage.getItem("curr_element");
-    var number_of_elements = sessionStorage.getItem("number_of_elements") - 1;
+    var curr_element = currentSection;
+    var number_of_elements = numberOfSections - 1;
 
     document.getElementsByTagName("section")[curr_element].className = "hide";
     document.getElementById("next").style.pointerEvents = "none";
     document.getElementById("back").style.pointerEvents = "none";
-    sessionStorage.setItem("shortcut_attive", 0);
+    shortcut_attive = 0;
 
     if (document.getElementsByName("quiz-page").length > 0)
         document.getElementsByName("domanda")[curr_element].className = "";
@@ -127,17 +133,17 @@ function changeWindow(slide) {
         document.getElementsByTagName("section")[curr_element].className = "show";
         document.getElementById("next").style.pointerEvents = "";
         document.getElementById("back").style.pointerEvents = "";
-        sessionStorage.setItem("shortcut_attive", 1);
+        shortcut_attive = 1;
     }, 100);
 
     if (document.getElementsByName("quiz-page").length > 0)
         document.getElementsByName("domanda")[curr_element].className = "active";
-    sessionStorage.setItem("curr_element", curr_element);
+    currentSection = curr_element;
 }
 
 function changeWindowClick(element) {
-    var curr_element = sessionStorage.getItem("curr_element");
-    var number_of_elements = sessionStorage.getItem("number_of_elements") - 1;
+    var curr_element = currentSection;
+    var number_of_elements = numberOfSections - 1;
     if (curr_element != element) {
         document.getElementsByTagName("section")[curr_element].className = "hide";
         document.getElementsByName("domanda")[curr_element].className = "";
@@ -164,23 +170,23 @@ function changeWindowClick(element) {
             document.getElementById("back").style.pointerEvents = "";
         }, 100);
     }
-    sessionStorage.setItem("curr_element", curr_element);
+    currentSection = curr_element;
 }
 
 (function () {
     const Mousetrap = require("mousetrap");
     Mousetrap.bind("right", () => {
-        if (sessionStorage.getItem("curr_element") == sessionStorage.getItem("number_of_elements") - 1)
+        if (currentSection == numberOfSections - 1)
             document.getElementById("quiz").click();
         else
-            if ((sessionStorage.getItem("curr_element") < sessionStorage.getItem("number_of_elements") - 1) && (sessionStorage.getItem("shortcut_attive") == 1))
+            if ((currentSection < numberOfSections - 1) && (shortcut_attive == 1))
                 changeWindow(true);
     });
     Mousetrap.bind("left", () => {
-        if ((sessionStorage.getItem("curr_element") == 0) && (document.getElementsByName("back-slide").length > 0))
+        if ((currentSection == 0) && (document.getElementsByName("back-slide").length > 0))
             document.getElementsByName("back-slide")[0].click();
         else
-            if ((sessionStorage.getItem("curr_element") > 0) && (sessionStorage.getItem("shortcut_attive") == 1))
+            if ((currentSection > 0) && (shortcut_attive == 1))
                 changeWindow(false);
     });
 
