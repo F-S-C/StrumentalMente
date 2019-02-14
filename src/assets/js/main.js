@@ -155,24 +155,31 @@ function initialize(initial, base = "./", ending) {
 		}, 100);
 	}
 
-
-	previousTopicButton.onclick = (e) => {
+	let openPreviousTopic = (e) => {
 		if (canChangeSlide)
 			changeTopic(pagesName.previousLink, baseFolder)
-	};
-	previousSlideButton.onclick = (e) => {
-		if (canChangeSlide)
-			changeSlide(false);
-	};
+	},
+		openPreviousSlide = (e) => {
+			if (canChangeSlide)
+				changeSlide(false);
+		},
+		openNextSlide = (e) => {
+			if (canChangeSlide)
+				changeSlide(true);
+		},
+		openNextTopic = (e) => {
+			if (canChangeSlide)
+				changeTopic(pagesName.nextLink, baseFolder);
+		};
+	previousTopicButton.removeEventListener("click", openPreviousTopic);
+	previousTopicButton.addEventListener("click", openPreviousTopic);
+	previousSlideButton.removeEventListener("click", openPreviousSlide);
+	previousSlideButton.addEventListener("click", openPreviousSlide);
 
-	nextSlideButton.onclick = (e) => {
-		if (canChangeSlide)
-			changeSlide(true);
-	};
-	nextTopicButton.onclick = (e) => {
-		if (canChangeSlide)
-			changeTopic(pagesName.nextLink, baseFolder);
-	};
+	nextSlideButton.removeEventListener("click", openNextSlide);
+	nextSlideButton.addEventListener("click", openNextSlide);
+	nextTopicButton.removeEventListener("click", openNextTopic);
+	nextTopicButton.addEventListener("click", openNextTopic);
 
 	(function () {
 		const Mousetrap = require("mousetrap");
