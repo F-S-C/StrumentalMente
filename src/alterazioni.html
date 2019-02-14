@@ -2,7 +2,7 @@
 <html lang="it">
 
 <head>
-	<title>Teoria - Avanzato</title>
+	<title>Teoria - Alterzioni</title>
 	<link rel="icon" href="./assets/icon.ico" />
 	<link href="./assets/css/main/section.css" rel="stylesheet" />
 	<link href="./assets/css/style.css" rel="stylesheet" />
@@ -61,7 +61,7 @@
 						Teoria</a>
 					<ul id="sub1" class="show">
 						<li><a href="teoria-base.html">Basi</a></li>
-						<li><a class="active" href="#">Avanzata</a></li>
+						<li><a class="active" href="teoria-avanzato.html">Avanzata</a></li>
 					</ul>
 				</li>
 				<li><a href="#"><i class="fas fa-guitar"></i> Strumenti</a></li>
@@ -92,29 +92,49 @@
 		<div class="content">
 			<article>
 				<header>
-					<h1>La teoria avanzata</h1>
-					<h2>Un sottotitolo adeguato</h2>
+					<h1>Alterazioni</h1>
+					<h2>Cosa sono le alterazioni</h2>
 					<hr />
 				</header>
-				<section>
-					<ul>
-						<li> <a href="./tono e semitono.html">Tono e semitono</a> </li>
-						<li> <a href="./alterazioni.html">Alterazioni</a> </li>
-						<li> <a href="./do maggiore la minore.html">Do maggiore e La minore</a> </li>
-						<li> <a href="./intervalli.html">Intervalli</a> </li>
-						<li> <a href="./tono-semitono diatonico e cromatico.html">Tono-semitono diatonico e cromatico</a> </li>
-						<li> <a href="./tonalità e modo.html">La tonalità e il modo</a> </li>
-						<li> <a href="./accordo tonale.html">Accordo Tonale</a> </li>
-					</ul>
+				<section class="hide">
+					<p>Le <strong>alterazioni</strong> sono segni grafici che posti davanti a una nota servono a
+						modificare verso l’alto o verso il basso l’intonazione della nota stessa.</p>
+					<p>Le alterazioni si suddividono in <strong>alterazioni semplici</strong>> e in <strong>alterazioni
+							doppie</strong>.</p>
+					<img src="./assets/images/alterazioni.jpg" alt="alterazioni" style="width:70%">
 				</section>
-				
+				<section class="hide">
+					<p>In un suono doppiamente alterato al quale si voglia annullare una delle alterazioni, è
+						consuetudine usare insieme il bequadro e il bemolle o il bequadro e il diesis. </p>
+					<p>Le alterazioni possono essere <strong>costanti</strong> (o <em>permanenti</em>),
+						<strong>momentanee</strong> (o <em>transitorie</em>) e di <strong>precauzione</strong> (o <em>di
+							rammento</em>).
+					</p>
+					<p>Sono <em>costanti</em> quando sono poste all’inizio del pezzo subito dopo la chiave e prima
+						dell’indicazione del tempo, e hanno valore, per i suoni corrispondenti, durante tutto il brano
+						musicale. </p>
+					<p>Per annullare un’alterazione costante, ci si serve del bequadro, il quale annulla l’alterazione
+						per la sola battuta in cui è posto; nella battuta seguente l’alterazione riacquista la sua
+						funzione. Per le alterazioni costanti è possibile solo l’uso dei diesis e dei bemolli.</p>
+					<p>Sono <em>momentanee</em> quando si trovano saltuariamente nel corso della composizione e in
+						questo caso alterano il suono nella misura o battuta dove sono poste.</p>
+					<p>Si chiamano alterazioni di <em>precauzione</em> quando servono a rammentare all’esecutore che la
+						nota, o le note, alterate momentaneamente nella misura o battuta precedente, devono ritornare
+						allo stato naturale.</p>
+				</section>
+
 			</article>
 			<div class="buttons-container">
-				<button title="Vai indietro (freccia sinistra)" id="back" class="btn-outlined"
-					onclick="changeWindow(false);">Indietro <i class="btn-icon left fas fa-arrow-alt-circle-left"
-						disabled></i></button>
-				<button title="Vai avanti (freccia destra)" id="next" class="btn" onclick="changeWindow(true);">Avanti
-					<i class="btn-icon fas fa-arrow-circle-right"></i></button>
+				<button id="back" class="btn-outlined" onclick="changeWindow(false);">Indietro <i
+						class="btn-icon left fas fa-arrow-alt-circle-left" disabled></i></button>
+				<button id="back-to-list" title="Torna all'elenco di argomenti" class="btn"
+					onclick="windows.location.replace('./teoria-avanzato.html');">Torna all'elenco <i
+						class="btn-icon fas fa-home"></i></button>
+				<button id="next" class="btn" onclick="changeWindow(true);">Avanti <i
+						class="btn-icon fas fa-arrow-circle-right"></i></button>
+				<button id="quiz" class="btn" onclick="window.location.replace('./do maggiore la minore.html');"
+					style="display: none;">Do maggiore La minore <i
+						class="btn-icon fas fa-arrow-circle-right"></i></button>
 			</div>
 		</div>
 	</div>

@@ -2,7 +2,7 @@
 <html lang="it">
 
 <head>
-	<title>Teoria - Avanzato</title>
+	<title>Teoria - Tono e semitono</title>
 	<link rel="icon" href="./assets/icon.ico" />
 	<link href="./assets/css/main/section.css" rel="stylesheet" />
 	<link href="./assets/css/style.css" rel="stylesheet" />
@@ -61,7 +61,7 @@
 						Teoria</a>
 					<ul id="sub1" class="show">
 						<li><a href="teoria-base.html">Basi</a></li>
-						<li><a class="active" href="#">Avanzata</a></li>
+						<li><a class="active" href="teoria-avanzato.html">Avanzata</a></li>
 					</ul>
 				</li>
 				<li><a href="#"><i class="fas fa-guitar"></i> Strumenti</a></li>
@@ -92,29 +92,38 @@
 		<div class="content">
 			<article>
 				<header>
-					<h1>La teoria avanzata</h1>
-					<h2>Un sottotitolo adeguato</h2>
+					<h1>Tono e semitono</h1>
+					<h2>intervallo musicale: tono e semitono</h2>
 					<hr />
 				</header>
 				<section>
-					<ul>
-						<li> <a href="./tono e semitono.html">Tono e semitono</a> </li>
-						<li> <a href="./alterazioni.html">Alterazioni</a> </li>
-						<li> <a href="./do maggiore la minore.html">Do maggiore e La minore</a> </li>
-						<li> <a href="./intervalli.html">Intervalli</a> </li>
-						<li> <a href="./tono-semitono diatonico e cromatico.html">Tono-semitono diatonico e cromatico</a> </li>
-						<li> <a href="./tonalità e modo.html">La tonalità e il modo</a> </li>
-						<li> <a href="./accordo tonale.html">Accordo Tonale</a> </li>
-					</ul>
+					<p>Come già detto, la scala musicale è formata da una successione di sette note, chiamate anche
+						gradi,
+						che procedono per gradi congiunti.</p>
+					<p>La <strong>distanza</strong>, cioè la diversità di altezza,
+						che passa fra due suoni
+						consecutivi però non è sempre uguale; infatti la distanza (intervallo) fra una nota e l'altra
+						può essere
+						di un tono oppure di un semitono.</p>
+					<p>Il <strong>tono</strong> è l'intervallo più grande fra due gradi congiunti; è formato da
+						due semitoni.</p>
+					<p>Il <strong>semitono</strong> è l'intervallo più piccolo fra due gradi congiunti.</p>
+					<p>Stabilito che il tono è formato da due semitoni, conseguentemente è possibile suddivide
+						l'intervallo di un tono in due intervalli di un semitono ciascuno. Questa suddivisione
+						si ottiene per mezzo dei segni di alterazione chiamati anche accidenti musicali.</p>
 				</section>
-				
+
 			</article>
 			<div class="buttons-container">
-				<button title="Vai indietro (freccia sinistra)" id="back" class="btn-outlined"
-					onclick="changeWindow(false);">Indietro <i class="btn-icon left fas fa-arrow-alt-circle-left"
-						disabled></i></button>
-				<button title="Vai avanti (freccia destra)" id="next" class="btn" onclick="changeWindow(true);">Avanti
-					<i class="btn-icon fas fa-arrow-circle-right"></i></button>
+				<button id="back" class="btn-outlined" onclick="changeWindow(false);">Indietro <i
+						class="btn-icon left fas fa-arrow-alt-circle-left" disabled></i></button>
+				<button id="back-to-list" title="Torna all'elenco di argomenti" class="btn"
+					onclick="windows.location.replace('./teoria-avanzato.html');">Torna all'elenco <i
+						class="btn-icon fas fa-home"></i></button>
+				<button id="next" class="btn" onclick="changeWindow(true);">Avanti <i
+						class="btn-icon fas fa-arrow-circle-right"></i></button>
+				<button id="quiz" class="btn" onclick="window.location.replace('./alterazioni.html');"
+					style="display: none;">Alterazioni <i class="btn-icon fas fa-arrow-circle-right"></i></button>
 			</div>
 		</div>
 	</div>
