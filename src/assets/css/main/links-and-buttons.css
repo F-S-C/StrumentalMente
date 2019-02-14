@@ -25,204 +25,221 @@ classi aventi i seguenti stili:
 /* classe .btn */
 
 .btn {
-    text-transform: uppercase;
-    line-height: 1.5em;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    border-width: 0;
-    outline: none;
-    font-size: 15px;
-    font-family: var(--font-text);
-    display: inline-block;
-    padding: 12px 24px;
-    border-radius: 4px;
-    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-    background-color: var(--main-color);
-    color: white;
-    text-decoration: none;
-    text-align: center;
-    transition: background-color .3s;
-    font-weight: bold;
+	text-transform: uppercase;
+	line-height: 1.5em;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+	border-width: 0;
+	outline: none;
+	font-size: 15px;
+	font-family: var(--font-text);
+	display: inline-block;
+	padding: 12px 24px;
+	border-radius: 4px;
+	box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+	background-color: var(--main-color);
+	color: white;
+	text-decoration: none;
+	text-align: center;
+	transition: background-color .3s;
+	font-weight: bold;
 }
 
 .btn:hover, .btn:focus {
-    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-    background-color: var(--main-color-light);
+	box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+	background-color: var(--main-color-light);
 }
 
 .btn:before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    display: block;
-    width: 0;
-    padding-top: 0;
-    border-radius: 100%;
-    /* animazione del click (v. linee guida Material Design) */
-    background-color: rgba(236, 240, 241, .3);
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	display: block;
+	width: 0;
+	padding-top: 0;
+	border-radius: 100%;
+	/* animazione del click (v. linee guida Material Design) */
+	background-color: rgba(236, 240, 241, .3);
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
 }
 
 .btn:active:before {
-    width: 120%;
-    padding-top: 120%;
-    transition: width .2s ease-out, padding-top .2s ease-out;
+	width: 120%;
+	padding-top: 120%;
+	transition: width .2s ease-out, padding-top .2s ease-out;
 }
 
 .btn:disabled, .btn:disabled:hover {
-    color: white;
-    background-color: var(--grey);
-    box-shadow: none;
-    cursor: not-allowed;
+	color: white;
+	background-color: var(--grey);
+	box-shadow: none;
+	cursor: not-allowed;
 }
 
 /* classe .btn-text */
 
 .btn-text {
-    text-transform: uppercase;
-    line-height: 1.5em;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    outline: none;
-    border: none;
-    font-size: 15px;
-    font-family: var(--font-text);
-    display: inline-block;
-    padding: 12px 24px;
-    border-radius: 4px;
-    background-color: transparent;
-    color: var(--main-color);
-    font-weight: bold;
-    text-decoration: none;
-    text-align: center;
-    transition: background-color .3s;
+	text-transform: uppercase;
+	line-height: 1.5em;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+	outline: none;
+	border: none;
+	font-size: 15px;
+	font-family: var(--font-text);
+	display: inline-block;
+	padding: 12px 24px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: var(--main-color);
+	font-weight: bold;
+	text-decoration: none;
+	text-align: center;
+	transition: background-color .3s;
 }
 
 .btn-text:hover, .btn-text:focus {
-    background-color: var(--main-color-transparent);
+	background-color: var(--main-color-transparent);
 }
 
 .btn-text:before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    display: block;
-    width: 0;
-    padding-top: 0;
-    border-radius: 100%;
-    /* animazione del click (v. linee guida Material Design) */
-    background-color: var(--main-color-dark-transparent);
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	display: block;
+	width: 0;
+	padding-top: 0;
+	border-radius: 100%;
+	/* animazione del click (v. linee guida Material Design) */
+	background-color: var(--main-color-dark-transparent);
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
 }
 
 .btn-text:active:before {
-    width: 120%;
-    padding-top: 120%;
-    transition: width .2s ease-out, padding-top .2s ease-out;
+	width: 120%;
+	padding-top: 120%;
+	transition: width .2s ease-out, padding-top .2s ease-out;
 }
 
 .btn-text:disabled, .btn-text:disabled:hover {
-    color: var(--grey-dark);
-    background-color: transparent;
-    cursor: not-allowed;
+	color: var(--grey-dark);
+	background-color: transparent;
+	cursor: not-allowed;
 }
 
 /* classe .btn-outlined */
 
 .btn-outlined {
-    text-transform: uppercase;
-    line-height: 1.5em;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    border: 2px solid var(--main-color);
-    outline: none;
-    font-size: 15px;
-    font-family: var(--font-text);
-    display: inline-block;
-    padding: 12px 24px;
-    border-radius: 4px;
-    background-color: transparent;
-    color: var(--main-color);
-    font-weight: bold;
-    text-decoration: none;
-    text-align: center;
-    transition: background-color .3s;
+	text-transform: uppercase;
+	line-height: 1.5em;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+	border: 2px solid var(--main-color);
+	outline: none;
+	font-size: 15px;
+	font-family: var(--font-text);
+	display: inline-block;
+	padding: 12px 24px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: var(--main-color);
+	font-weight: bold;
+	text-decoration: none;
+	text-align: center;
+	transition: background-color .3s;
 }
 
 .btn-outlined:hover, .btn-outlined:focus {
-    background-color: var(--main-color-transparent);
+	background-color: var(--main-color-transparent);
 }
 
 .btn-outlined:before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    display: block;
-    width: 0;
-    padding-top: 0;
-    border-radius: 100%;
-    /* animazione del click (v. linee guida Material Design) */
-    background-color: var(--main-color-dark-transparent);
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	display: block;
+	width: 0;
+	padding-top: 0;
+	border-radius: 100%;
+	/* animazione del click (v. linee guida Material Design) */
+	background-color: var(--main-color-dark-transparent);
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
 }
 
 .btn-outlined:active:before {
-    width: 120%;
-    padding-top: 120%;
-    transition: width .2s ease-out, padding-top .2s ease-out;
+	width: 120%;
+	padding-top: 120%;
+	transition: width .2s ease-out, padding-top .2s ease-out;
 }
 
 .btn-outlined:disabled, .btn-outlined:disabled:hover {
-    color: var(--grey);
-    border-color: var(--grey);
-    background-color: transparent;
-    cursor: not-allowed;
+	color: var(--grey);
+	border-color: var(--grey);
+	background-color: transparent;
+	cursor: not-allowed;
 }
 
 .btn.start-button {
-    border-radius: 130px;
+	border-radius: 130px;
 }
 
 /* Icone */
 
 .btn .btn-icon, .btn-text .btn-icon, .btn-outlined .btn-icon {
-    line-height: inherit;
-    float: right;
-    margin: 0 0 0 10px;
+	line-height: inherit;
+	float: right;
+	margin: 0 0 0 10px;
 }
 
 .btn .btn-icon.left, .btn-text .btn-icon.left, .btn-outlined .btn-icon.left {
-    line-height: inherit;
-    float: left;
-    margin: 0 10px 0 0;
+	line-height: inherit;
+	float: left;
+	margin: 0 10px 0 0;
 }
 
 .buttons-container {
-    position: absolute;
-    bottom: 0;
-    /* 40px è lo spessore dei due padding */
-    width: calc(100% - 40px);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-shrink: 0;
-    padding-bottom: 20px;
+	position: absolute;
+	bottom: 0;
+	/* 40px è lo spessore dei due padding */
+	width: calc(100% - 40px);
+	display: grid;
+	padding-bottom: 20px;
+	grid-template-columns: 33.33% 33.33% 33.33%;
+}
+
+.buttons-container .first-column {
+	grid-column: 1;
+	text-align: left;
+}
+
+.buttons-container .second-column {
+	grid-column: 2;
+	text-align: center;
+}
+
+.buttons-container .third-column {
+	grid-column: 3;
+	text-align: right;
+}
+
+.buttons-container button {
+	width: fit-content;
 }
