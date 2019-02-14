@@ -2,251 +2,251 @@
 <html lang="it">
 
 <head>
-    <title>Teoria - Avanzato</title>
-    <link rel="icon" href="./assets/icon.ico" />
-    <link href="./assets/css/main/section.css" rel="stylesheet" />
-    <link href="./assets/css/style.css" rel="stylesheet" />
-    <!-- FontAwesome -->
-    <link href="./assets/css/fontawesome/css/all.min.css" rel="stylesheet" />
+	<title>Teoria - Avanzato</title>
+	<link rel="icon" href="./assets/icon.ico" />
+	<link href="./assets/css/main/section.css" rel="stylesheet" />
+	<link href="./assets/css/style.css" rel="stylesheet" />
+	<!-- FontAwesome -->
+	<link href="./assets/css/fontawesome/css/all.min.css" rel="stylesheet" />
 
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="StrumentalMente - Dove la musica diventa semplice." />
-    <meta name="keywords"
-        content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
-    <meta name="author" content="FSC" />
-    <meta name="robots" content="index, follow">
-    <meta property="og:image" content="https://f-s-c.github.io/StrumentalMente/logo/2048x2048.png">
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="StrumentalMente - Dove la musica diventa semplice." />
+	<meta name="keywords"
+		content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
+	<meta name="author" content="FSC" />
+	<meta name="robots" content="index, follow">
+	<meta property="og:image" content="https://f-s-c.github.io/StrumentalMente/logo/2048x2048.png">
 </head>
 
 <body onload="initialize()">
-    <header>
-        <div id="titlebar">
-            <div id="drag-region">
-                <div id="window-title">
-                    <img id="window-title-image" src="./assets/icon.ico" alt="Icona" />
-                    <span id="window-title-text">Titolo</span>
-                </div>
-                <div id="window-controls">
-                    <div class="button" id="min-button">
-                        <span><i class="fas fa-minus" style="font-size: 125%;"></i></span>
-                    </div>
-                    <div class="button" id="max-button">
-                        <span><i class="far fa-window-maximize" style="font-size: 125%;"></i></span>
-                    </div>
-                    <div class="button" id="restore-button">
-                        <span><i class="far fa-window-restore" style="font-size: 125%;"></i></span>
-                    </div>
-                    <div class="button" id="close-button">
-                        <span><i class="fas fa-times" style="font-size: 150%;"></i></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+	<header>
+		<div id="titlebar">
+			<div id="drag-region">
+				<div id="window-title">
+					<img id="window-title-image" src="./assets/icon.ico" alt="Icona" />
+					<span id="window-title-text">Titolo</span>
+				</div>
+				<div id="window-controls">
+					<div class="button" id="min-button">
+						<span><i class="fas fa-minus" style="font-size: 125%;"></i></span>
+					</div>
+					<div class="button" id="max-button">
+						<span><i class="far fa-window-maximize" style="font-size: 125%;"></i></span>
+					</div>
+					<div class="button" id="restore-button">
+						<span><i class="far fa-window-restore" style="font-size: 125%;"></i></span>
+					</div>
+					<div class="button" id="close-button">
+						<span><i class="fas fa-times" style="font-size: 150%;"></i></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
 
 
-    <div class="main-wrapper">
-        <nav class="main-navigation" id="main-nav">
-            <ul>
-                <li class="logo">
-                    <a href="#">
-                        <img src="./assets/icon.ico" width="" height="" alt="">
-                        <h1>Strumental<wbr /><span>Mente</span></h1>
-                    </a>
-                </li>
-                <li><a href="./home.html"><i class="fas fa-home"></i> Home</a></li>
-                <li class="dropdown" name="drop"><a onclick="drop('sub1')" id="sub1-link" class="active" href="#"><i
-                            class="fas fa-book"></i>
-                        Teoria</a>
-                    <ul id="sub1" class="show">
-                        <li><a href="teoria-base.html">Basi</a></li>
-                        <li><a class="active" href="#">Avanzata</a></li>
-                    </ul>
-                </li>
-                <li><a href="#"><i class="fas fa-guitar"></i> Strumenti</a></li>
-                <li><button onclick="openModal('./helpers/map.html');" title="Mostra la mappa"><i
-                            class="fas fa-map"></i> Mappa</button></li>
-                <li><button onclick="openModal('./helpers/help-home.html');" title="Mostra l'aiuto (F1)"><i
-                            class="fas fa-question"></i> Aiuto</button></li>
-                <li><button onclick="openModal('./about.html');" title="Informazioni">&nbsp;<i class="fas fa-info"></i>
-                        Informazioni</button></li>
-                <li><button onclick="showExitDialog();" title="Esci dall'app (Esc)"><i class="fas fa-sign-out-alt"></i>
-                        Esci</button></li>
-            </ul>
+	<div class="main-wrapper">
+		<nav class="main-navigation" id="main-nav">
+			<ul>
+				<li class="logo">
+					<a href="#">
+						<img src="./assets/icon.ico" width="" height="" alt="">
+						<h1>Strumental<wbr /><span>Mente</span></h1>
+					</a>
+				</li>
+				<li><a href="./home.html"><i class="fas fa-home"></i> Home</a></li>
+				<li class="dropdown" name="drop"><a onclick="drop('sub1')" id="sub1-link" class="active" href="#"><i
+							class="fas fa-book"></i>
+						Teoria</a>
+					<ul id="sub1" class="show">
+						<li><a href="teoria-base.html">Basi</a></li>
+						<li><a class="active" href="#">Avanzata</a></li>
+					</ul>
+				</li>
+				<li><a href="#"><i class="fas fa-guitar"></i> Strumenti</a></li>
+				<li><button onclick="openModal('./helpers/map.html');" title="Mostra la mappa"><i
+							class="fas fa-map"></i> Mappa</button></li>
+				<li><button onclick="openModal('./helpers/help-home.html');" title="Mostra l'aiuto (F1)"><i
+							class="fas fa-question"></i> Aiuto</button></li>
+				<li><button onclick="openModal('./about.html');" title="Informazioni">&nbsp;<i class="fas fa-info"></i>
+						Informazioni</button></li>
+				<li><button onclick="showExitDialog();" title="Esci dall'app (Esc)"><i class="fas fa-sign-out-alt"></i>
+						Esci</button></li>
+			</ul>
 
-            <footer>
-                <p>Copyright &copy; 2019, <a onclick="openInBrowser('https://f-s-c.github.io/');"
-                        href="javascript:void(0);">FSC</a>.
-                    Rilasciato sotto la
-                    licenza <a onclick="openInBrowser('https://www.apache.org/licenses/LICENSE-2.0');"
-                        href="javascript:void(0);">Apache
-                        2.0</a>.</p>
-                <img src="./assets/images/fsc-logo-svg.svg" />
-            </footer>
-        </nav>
-        <button id="sidebar-controller" onclick="openMobileNavigation();">
-            <i class="fas fa-bars"></i>
-        </button>
+			<footer>
+				<p>Copyright &copy; 2019, <a onclick="openInBrowser('https://f-s-c.github.io/');"
+						href="javascript:void(0);">FSC</a>.
+					Rilasciato sotto la
+					licenza <a onclick="openInBrowser('https://www.apache.org/licenses/LICENSE-2.0');"
+						href="javascript:void(0);">Apache
+						2.0</a>.</p>
+				<img src="./assets/images/fsc-logo-svg.svg" />
+			</footer>
+		</nav>
+		<button id="sidebar-controller" onclick="openMobileNavigation();">
+			<i class="fas fa-bars"></i>
+		</button>
 
-        <div class="content">
-            <article>
-                <header>
-                    <h1>Titolo dell'articolo</h1>
-                    <h2>Un eventuale sottotitolo un po' più lungo</h2>
-                    <hr />
-                </header>
-                <section class="hide">
-                    <h1>Intervallo musicale: tono e semitono </h1>
-                    <p>Come già detto, la scala musicale è formata da una successione di sette note, chiamate anche
-                        gradi,
-                        che procedono per gradi congiunti.La <strong>distanza</strong>, cioè la diversità di altezza,
-                        che passa fra due suoni
-                        consecutivi però non è sempre uguale; infatti la distanza (intervallo) fra una nota e l'altra
-                        può essere
-                        di un tono oppure di un semitono. <br> Il <strong>tono</strong> è l'intervallo più grande fra
-                        due
-                        gradi congiunti; è formato da
-                        due semitoni. Il <strong>semitono</strong> è l'intervallo più piccolo fra due gradi congiunti.
-                        Stabilito che il tono è formato
-                        da due semitoni, conseguentemente è possibile suddivide l'intervallo di un tono in due
-                        intervalli di un semitono
-                        ciascuno. <br>Questa suddivisione si ottiene per mezzo dei segni di alterazione chiamati anche
-                        accidenti musicali.</p>
-                </section>
-                <section class="hide">
-                    <h1>Le Alterazioni</h1>
-                    <p>Le <strong>alterazioni</strong> sono segni grafici che posti davanti a una nota servono a
-                        modificare verso l'alto o verso il basso l'intonazione della nota stessa.
-                        Le alterazioni si suddividono in alterazioni semplici e in alterazioni doppie.<br>
-                        In un suono doppiamente alterato al quale si voglia annullare una delle alterazioni, è
-                        consuetudine usare insieme il bequadro e il bemolle o il bequadro e il diesis.
-                        Le alterazioni possono essere costanti (o permanenti), momentanee (o transitorie) e di
-                        precauzione (o di rammento).
-                        Sono costanti quando sono poste all'inizio del pezzo subito dopo la chiave e prima
-                        dell'indicazione del tempo, e hanno valore, per i suoni corrispondenti, durante tutto il brano
-                        musicale.<br> Per annullare un'alterazione costante, ci si serve del bequadro, il quale annulla
-                        l'alterazione per la sola battuta in cui è posto; nella battuta seguente l'alterazione
-                        riacquista la sua funzione. Per le alterazioni costanti è possibile solo l'uso dei diesis e dei
-                        bemolli.<br><br>
-                        Sono momentanee quando si trovano saltuariamente nel corso della composizione e in questo caso
-                        alterano il suono nella misura o battuta dove sono poste.
-                        Si chiamano alterazioni di precauzione quando servono a rammentare all'esecutore che la nota, o
-                        le note, alterate momentaneamente nella misura o battuta precedente, devono ritornare allo stato
-                        naturale.
-                    </p>
-                </section>
-                <section class="hide">
-                    <h1>Le scale modello di Do maggiore e La minore </h1>
-                    <p>Come già è stato detto, la scala musicale è una successione di sette note chiamate gradi comprese
-                        tra il suono iniziale e l'ottavo suono il quale non è che la ripetizione del primo però in
-                        posizione più acuta o più grave. Di seguito si cerca di capire come è costruita e i rapporti fra
-                        suono e suono.<br> <br>La scala <strong>diatonica</strong> è formata dalla successione di toni e
-                        semitoni e precisamente
-                        di 5 toni e di 2 semitoni; i semitoni diatonici si trovano fra il terzo e il quarto grado e fra
-                        il settimo e l'ottavo gradi, mentre i troni fra gli altri gradi.<br><br>La scala di Do maggiore
-                        è il
-                        modello da cui derivano tutte le altre scale.Ogni grado può essere l'inizio di una nuova scala,
-                        purché la successione dei toni e dei semitoni avvenga come nella scala di Do maggiore.<br><br>
-                        Ad
-                        ogni
-                        scala maggiore corrisponde la relativa minore che conserva le medesime alterazioni costanti
-                        della scala maggiore. La scala minore tipica derivante dalla scala di Do maggiore è quella di La
-                        minore che si ottiene partendo dal sesto grado della scala maggiore oppure scendendo di una
-                        terza minore dalla tonica della scala maggiore. </p>
-                </section>
-                <section class="hide">
-                    <h1>Intervalli</h1>
-                    <p>L'intervallo è la distanza fra due suoni congiunti o disgiunti. Gli intervalli
-                        <strong>congiunti</strong> sono
-                        quelli che procedono nell'ordine della scala, cioè senza suoni intermedi di note diverse, ad
-                        esempio: Do-Re, Re-Mi, Mi-Fa, Fa-Sol ecc. <br><br> Gli intervalli <strong>disgiunti</strong>
-                        invece sono quelli che procedono per salti, ad esempio: DoMi, Sol-Si, Fa-Do, Do-Sol ecc.
-                        L'intervallo musicale si misura contando i suoni che abbraccia. La sua denominazione viene data
-                        dal numero dei suoni
-                        contenuti nell'intervallo stesso contando anche il suono di partenza. Per la sua specifica
-                        classificazione bisogna calcolare i toni e i semitoni cromatici e diatonici che abbraccia
-                        l'intervallo stesso.<br> <br> L'intervallo è <strong>melodico</strong> quando le note che lo
-                        compongono
-                        sono eseguite
-                        successivamente, viceversa è <strong>armonico</strong> quando le note che lo compongono sono
-                        eseguite simultaneamente.
-                    </p>
-                </section>
-                <section class="hide">
-                    <h1>Tono – Semitono diatonico e cromatico</h1>
-                    <p>Il tono è l'intervallo più grande fra due gradi congiunti; è formato da due semitoni, uno
-                        cromatico e uno diatonico, e teoricamente è divisibili in nove parti dette
-                        <strong>comma</strong>, cioè
-                        piccolissimo intervallo in eccesso tra suoni di diversa altezza. Il semitono è l'intervallo più
-                        piccolo fra due gradi congiunti; può essere diatonico e cromatico. <br><br> Il semitono
-                        <strong>diatonico</strong> è
-                        formato dalla successione di due note di nome diverso e la sua distanza teorica è di quattro
-                        comma. Il semitono <strong>cromatico</strong> è formato da due note dello stesso nome di cui una
-                        alterata in modo
-                        ascendente o discendente; la sua distanza teorica è di cinque comma. Dalla successione di due
-                        semitoni, uno cromatico e uno diatonico o viceversa, si ha l'intervallo di un tono. </p>
-                </section>
-                <section class="hide">
-                    <h1>La tonalità e il modo </h1>
-                    <p>Qualsiasi brano musicale, pur nella libertà assoluta, tende a gravitare, ad appoggiarsi durante
-                        lo svolgimento, su un particolare suono che viene chiamato <strong>tonica</strong>, nota su cui
-                        il brano stesso
-                        si conclude.</p>
-                    <p>Per <strong>tonalità </strong> si intende l'atteggiarsi dei suoni in rapporto al suono
-                        fondamentale, cioè la
-                        tonica, che oltre ad essere al centro di attrazione e di intonazione dà il suo nome, la
-                        tonalità, alla scala o al brano musicale.
-                        Esempio: tonalità di Do maggiore significa che l'inizio del pezzo musicale è costituito
-                        nell'ambito tonale della scala di do maggiore e che dopo un libero sviluppo si concluderà sulla
-                        tonica.</p>
-                    <p>La <strong>tonalità</strong> può essere di due modi: di <strong>modo maggiore</strong> e di
-                        <strong>modo minore</strong> che si differenziano per
-                        la propria diversa maniera di formare una scala. Il modo è dato dalla diversa successione dei
-                        gradi della scala, cioè dalla disposizione dei toni e dei semitoni che nella scala minore
-                        risulta modificata rispetto alla scala di modo maggiore. Ogni scala di modo maggiore ha una
-                        relativa scala di modo minore, la quale ha per base il sesto grado della scala maggiore e
-                        conserva le medesime alterazioni costanti della scala maggiore. Le principali caratteristiche
-                        che differenziano la scala di modo minore dalla scala di modo
-                        maggiore sono:
-                        <ol>
-                            <li>L'intervallo fra la tonica e la nota mediante; nella scala maggiore è un
-                                intervallo di due toni ed è chiamato intervallo di terza maggiore, nella scala minore,
-                                invece, è
-                                un intervallo di un tono e mezzo ed è chiamato intervallo di terza minore</li>
-                            <li>Nella scala
-                                maggiore fra il 7° e 8° grado si ha un intervallo di un semitono, nella scala minore,
-                                invece,
-                                fra gli stessi gradi, si ha un intervallo di un tono.</li>
-                        </ol> Data una scala di modo maggiore, la sua
-                        relativa minore si trova scendendo di una terza minore dalla tonica. Data una scala di modo
-                        minore, per trovare la sua relativa maggiore si fa il procedimento inverso, cioè si sale di una
-                        terza minore sopra.</p>
-                </section>
-            </article>
-            <div class="buttons-container">
-                <button name="back-slide" class="btn-outlined"
-                    onclick="window.location.replace('./teoria-base.html?last');">Vai a base <i
-                        class="btn-icon left fas fa-arrow-alt-circle-left"></i></button>
-                <button title="Vai indietro (freccia sinistra)" id="back" class="btn-outlined"
-                    onclick="changeWindow(false);">Indietro <i class="btn-icon left fas fa-arrow-alt-circle-left"
-                        disabled></i></button>
-                <button id="back-to-list" title="Torna all'elenco di argomenti" class="btn-text"
-                    onclick="javascript:void(0);">Torna all'elenco
-                    <i class="btn-icon fas fa-home"></i></button>
-                <button title="Vai avanti (freccia destra)" id="next" class="btn" onclick="changeWindow(true);">Avanti
-                    <i class="btn-icon fas fa-arrow-circle-right"></i></button>
-                <button id="quiz" class="btn" onclick="javascript:void(0)" style="display: none;">Quiz <i
-                        class="btn-icon fas fa-arrow-circle-right"></i></button>
-            </div>
-        </div>
-    </div>
+		<div class="content">
+			<article>
+				<header>
+					<h1>Titolo dell'articolo</h1>
+					<h2>Un eventuale sottotitolo un po' più lungo</h2>
+					<hr />
+				</header>
+				<section class="hide">
+					<h1>Intervallo musicale: tono e semitono </h1>
+					<p>Come già detto, la scala musicale è formata da una successione di sette note, chiamate anche
+						gradi,
+						che procedono per gradi congiunti.La <strong>distanza</strong>, cioè la diversità di altezza,
+						che passa fra due suoni
+						consecutivi però non è sempre uguale; infatti la distanza (intervallo) fra una nota e l'altra
+						può essere
+						di un tono oppure di un semitono. <br> Il <strong>tono</strong> è l'intervallo più grande fra
+						due
+						gradi congiunti; è formato da
+						due semitoni. Il <strong>semitono</strong> è l'intervallo più piccolo fra due gradi congiunti.
+						Stabilito che il tono è formato
+						da due semitoni, conseguentemente è possibile suddivide l'intervallo di un tono in due
+						intervalli di un semitono
+						ciascuno. <br>Questa suddivisione si ottiene per mezzo dei segni di alterazione chiamati anche
+						accidenti musicali.</p>
+				</section>
+				<section class="hide">
+					<h1>Le Alterazioni</h1>
+					<p>Le <strong>alterazioni</strong> sono segni grafici che posti davanti a una nota servono a
+						modificare verso l'alto o verso il basso l'intonazione della nota stessa.
+						Le alterazioni si suddividono in alterazioni semplici e in alterazioni doppie.<br>
+						In un suono doppiamente alterato al quale si voglia annullare una delle alterazioni, è
+						consuetudine usare insieme il bequadro e il bemolle o il bequadro e il diesis.
+						Le alterazioni possono essere costanti (o permanenti), momentanee (o transitorie) e di
+						precauzione (o di rammento).
+						Sono costanti quando sono poste all'inizio del pezzo subito dopo la chiave e prima
+						dell'indicazione del tempo, e hanno valore, per i suoni corrispondenti, durante tutto il brano
+						musicale.<br> Per annullare un'alterazione costante, ci si serve del bequadro, il quale annulla
+						l'alterazione per la sola battuta in cui è posto; nella battuta seguente l'alterazione
+						riacquista la sua funzione. Per le alterazioni costanti è possibile solo l'uso dei diesis e dei
+						bemolli.<br><br>
+						Sono momentanee quando si trovano saltuariamente nel corso della composizione e in questo caso
+						alterano il suono nella misura o battuta dove sono poste.
+						Si chiamano alterazioni di precauzione quando servono a rammentare all'esecutore che la nota, o
+						le note, alterate momentaneamente nella misura o battuta precedente, devono ritornare allo stato
+						naturale.
+					</p>
+				</section>
+				<section class="hide">
+					<h1>Le scale modello di Do maggiore e La minore </h1>
+					<p>Come già è stato detto, la scala musicale è una successione di sette note chiamate gradi comprese
+						tra il suono iniziale e l'ottavo suono il quale non è che la ripetizione del primo però in
+						posizione più acuta o più grave. Di seguito si cerca di capire come è costruita e i rapporti fra
+						suono e suono.<br> <br>La scala <strong>diatonica</strong> è formata dalla successione di toni e
+						semitoni e precisamente
+						di 5 toni e di 2 semitoni; i semitoni diatonici si trovano fra il terzo e il quarto grado e fra
+						il settimo e l'ottavo gradi, mentre i troni fra gli altri gradi.<br><br>La scala di Do maggiore
+						è il
+						modello da cui derivano tutte le altre scale.Ogni grado può essere l'inizio di una nuova scala,
+						purché la successione dei toni e dei semitoni avvenga come nella scala di Do maggiore.<br><br>
+						Ad
+						ogni
+						scala maggiore corrisponde la relativa minore che conserva le medesime alterazioni costanti
+						della scala maggiore. La scala minore tipica derivante dalla scala di Do maggiore è quella di La
+						minore che si ottiene partendo dal sesto grado della scala maggiore oppure scendendo di una
+						terza minore dalla tonica della scala maggiore. </p>
+				</section>
+				<section class="hide">
+					<h1>Intervalli</h1>
+					<p>L'intervallo è la distanza fra due suoni congiunti o disgiunti. Gli intervalli
+						<strong>congiunti</strong> sono
+						quelli che procedono nell'ordine della scala, cioè senza suoni intermedi di note diverse, ad
+						esempio: Do-Re, Re-Mi, Mi-Fa, Fa-Sol ecc. <br><br> Gli intervalli <strong>disgiunti</strong>
+						invece sono quelli che procedono per salti, ad esempio: DoMi, Sol-Si, Fa-Do, Do-Sol ecc.
+						L'intervallo musicale si misura contando i suoni che abbraccia. La sua denominazione viene data
+						dal numero dei suoni
+						contenuti nell'intervallo stesso contando anche il suono di partenza. Per la sua specifica
+						classificazione bisogna calcolare i toni e i semitoni cromatici e diatonici che abbraccia
+						l'intervallo stesso.<br> <br> L'intervallo è <strong>melodico</strong> quando le note che lo
+						compongono
+						sono eseguite
+						successivamente, viceversa è <strong>armonico</strong> quando le note che lo compongono sono
+						eseguite simultaneamente.
+					</p>
+				</section>
+				<section class="hide">
+					<h1>Tono – Semitono diatonico e cromatico</h1>
+					<p>Il tono è l'intervallo più grande fra due gradi congiunti; è formato da due semitoni, uno
+						cromatico e uno diatonico, e teoricamente è divisibili in nove parti dette
+						<strong>comma</strong>, cioè
+						piccolissimo intervallo in eccesso tra suoni di diversa altezza. Il semitono è l'intervallo più
+						piccolo fra due gradi congiunti; può essere diatonico e cromatico. <br><br> Il semitono
+						<strong>diatonico</strong> è
+						formato dalla successione di due note di nome diverso e la sua distanza teorica è di quattro
+						comma. Il semitono <strong>cromatico</strong> è formato da due note dello stesso nome di cui una
+						alterata in modo
+						ascendente o discendente; la sua distanza teorica è di cinque comma. Dalla successione di due
+						semitoni, uno cromatico e uno diatonico o viceversa, si ha l'intervallo di un tono. </p>
+				</section>
+				<section class="hide">
+					<h1>La tonalità e il modo </h1>
+					<p>Qualsiasi brano musicale, pur nella libertà assoluta, tende a gravitare, ad appoggiarsi durante
+						lo svolgimento, su un particolare suono che viene chiamato <strong>tonica</strong>, nota su cui
+						il brano stesso
+						si conclude.</p>
+					<p>Per <strong>tonalità </strong> si intende l'atteggiarsi dei suoni in rapporto al suono
+						fondamentale, cioè la
+						tonica, che oltre ad essere al centro di attrazione e di intonazione dà il suo nome, la
+						tonalità, alla scala o al brano musicale.
+						Esempio: tonalità di Do maggiore significa che l'inizio del pezzo musicale è costituito
+						nell'ambito tonale della scala di do maggiore e che dopo un libero sviluppo si concluderà sulla
+						tonica.</p>
+					<p>La <strong>tonalità</strong> può essere di due modi: di <strong>modo maggiore</strong> e di
+						<strong>modo minore</strong> che si differenziano per
+						la propria diversa maniera di formare una scala. Il modo è dato dalla diversa successione dei
+						gradi della scala, cioè dalla disposizione dei toni e dei semitoni che nella scala minore
+						risulta modificata rispetto alla scala di modo maggiore. Ogni scala di modo maggiore ha una
+						relativa scala di modo minore, la quale ha per base il sesto grado della scala maggiore e
+						conserva le medesime alterazioni costanti della scala maggiore. Le principali caratteristiche
+						che differenziano la scala di modo minore dalla scala di modo
+						maggiore sono:
+						<ol>
+							<li>L'intervallo fra la tonica e la nota mediante; nella scala maggiore è un
+								intervallo di due toni ed è chiamato intervallo di terza maggiore, nella scala minore,
+								invece, è
+								un intervallo di un tono e mezzo ed è chiamato intervallo di terza minore</li>
+							<li>Nella scala
+								maggiore fra il 7° e 8° grado si ha un intervallo di un semitono, nella scala minore,
+								invece,
+								fra gli stessi gradi, si ha un intervallo di un tono.</li>
+						</ol> Data una scala di modo maggiore, la sua
+						relativa minore si trova scendendo di una terza minore dalla tonica. Data una scala di modo
+						minore, per trovare la sua relativa maggiore si fa il procedimento inverso, cioè si sale di una
+						terza minore sopra.</p>
+				</section>
+			</article>
+			<div class="buttons-container">
+				<button name="back-slide" class="btn-outlined"
+					onclick="window.location.replace('./teoria-base.html?last');">Vai a base <i
+						class="btn-icon left fas fa-arrow-alt-circle-left"></i></button>
+				<button title="Vai indietro (freccia sinistra)" id="back" class="btn-outlined"
+					onclick="changeWindow(false);">Indietro <i class="btn-icon left fas fa-arrow-alt-circle-left"
+						disabled></i></button>
+				<button id="back-to-list" title="Torna all'elenco di argomenti" class="btn-text"
+					onclick="javascript:void(0);">Torna all'elenco
+					<i class="btn-icon fas fa-home"></i></button>
+				<button title="Vai avanti (freccia destra)" id="next" class="btn" onclick="changeWindow(true);">Avanti
+					<i class="btn-icon fas fa-arrow-circle-right"></i></button>
+				<button id="quiz" class="btn" onclick="javascript:void(0)" style="display: none;">Quiz <i
+						class="btn-icon fas fa-arrow-circle-right"></i></button>
+			</div>
+		</div>
+	</div>
 
-    <script type="text/javascript" src="./assets/js/main.js"></script>
-    <script type="text/javascript" src="./assets/js/render.js"></script>
-    <script>
-        openOnKeyboardShortcut("F1", "./helpers/help-teoria.html", true);
-    </script>
+	<script type="text/javascript" src="./assets/js/main.js"></script>
+	<script type="text/javascript" src="./assets/js/render.js"></script>
+	<script>
+		openOnKeyboardShortcut("F1", "./helpers/help-teoria.html", true);
+	</script>
 </body>
 
 </html>
