@@ -9,55 +9,69 @@
 /* Regole semplici dell'intera applicazione che non sono classificabili: */
 
 body {
-    overflow: hidden;
-    -webkit-user-select: none;
+	overflow: hidden;
+	-webkit-user-select: none;
 }
 
 body {
-    margin: 0;
-    font-family: var(--font-text);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    font-size: 12pt;
+	margin: 0;
+	font-family: var(--font-text);
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	font-size: 12pt;
 }
 
 .scroll {
-    overflow: hidden auto;
+	overflow: hidden auto;
 }
 
 .landing-page-wrapper {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    text-align: center;
-    transform: translate(-50%, -60%);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	text-align: center;
+	transform: translate(-50%, -60%);
 }
 
 .main-wrapper {
-    padding: 32px 0 0 0;
-    flex: 1 0 auto;
-    display: flex;
-    flex-direction: row;
+	padding: 32px 0 0 0;
+	flex: 1 0 auto;
+	display: flex;
+	flex-direction: row;
 }
 
-.main-wrapper .content {
-    position: relative;
-    padding: 0 20px 0 20px;
-    flex: 1 1 auto;
-    width: 75vw;
-    display: flex;
-    flex-direction: column;
+.sub-wrapper {
+	padding: 0;
+	flex: 1 0 auto;
+	display: flex;
+	flex-direction: row;
+}
+
+.main-wrapper .content, .sub-wrapper .content {
+	position: relative;
+	padding: 0 20px 0 20px;
+	flex: 1 1 auto;
+	width: 75vw;
+	display: flex;
+	flex-direction: column;
+}
+
+.slide-container {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	border: none;
 }
 
 @media only screen and (max-width: 768px) {
-    .main-wrapper .content {
-        /* 
+	.main-wrapper .content, .sub-wrapper .content {
+		/* 
          * La larghezza specificata è molto piccola in quanto
          * è la larghezza che il contenuto avrà con la sidebar
          * aperta. Di default, infatti, il contenuto occupa 
          * tutto lo schermo. 
          */
-        width: 15vw;
-    }
+		width: 15vw;
+	}
 }

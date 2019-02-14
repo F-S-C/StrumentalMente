@@ -1,193 +1,203 @@
 function openMobileNavigation() {
-    var button = document.getElementById("sidebar-controller");
-    var nav = document.getElementById("main-nav");
-    if (nav.className === "main-navigation") {
-        nav.className += " responsive";
-        button.innerHTML = "<i class=\"fas fa-times\"></i>";
-    }
-    else {
-        nav.className = "main-navigation";
-        button.innerHTML = "<i class=\"fas fa-bars\"></i>";
-    }
+	var button = document.getElementById("sidebar-controller");
+	var nav = document.getElementById("main-nav");
+	if (nav.className === "main-navigation") {
+		nav.className += " responsive";
+		button.innerHTML = "<i class=\"fas fa-times\"></i>";
+	}
+	else {
+		nav.className = "main-navigation";
+		button.innerHTML = "<i class=\"fas fa-bars\"></i>";
+	}
 }
 
 function drop(name, defaultLinkClass = "") {
-    var el = document.getElementById(name), link = document.getElementById(name + "-link");
-    var i = 0;
-    if (el.className !== "show") {
-        el.className = "show";
-        link.className += " open";
-    }
-    else {
-        el.className = "";
-        link.className = defaultLinkClass;
-    }
+	var el = document.getElementById(name), link = document.getElementById(name + "-link");
+	var i = 0;
+	if (el.className !== "show") {
+		el.className = "show";
+		link.className += " open";
+	}
+	else {
+		el.className = "";
+		link.className = defaultLinkClass;
+	}
 }
 
 
 var numberOfSections = 0, currentSection = 0;
-var numberOfArticles = 0, currentArticle = 0;
 var shortcut_attive = 0;
+var initialPage = "", baseFolder = "./", endingPage = "";
+var pagesName = {
+	previous: "Argomento Precedente",
+	previousLink: "argomento-successivo",
+	next: "Argomento Successivo",
+	nextLink: "argomento-precedente"
+};
+var canChangeSlide = true;
+
+function setLinks(links) {
+	pagesName = links;
+	initialize(initialPage, baseFolder, endingPage);
+}
+
 /*
 Funzione che, al caricamento della pagina, si occupa di impostare il numero 
 di tag section presenti all'interno della pagina nella memoria locale del browser, di
 impostare come sezione visibile corrente la prima (sempre all'interno della memoria locale)
 e di nascondere tutti i tag section successivi al primo.
 */
-function initialize() {
-    numberOfSections = document.getElementsByTagName("section").length;
-    currentSection = 0;
-    numberOfArticles = document.getElementsByTagName("article").length;
-    currentArticle = 0;
-    document.getElementById("back").disabled = true;
+function initialize(initial, base = "./", ending) {
+	initialPage = initial;
+	baseFolder = base;
+	endingPage = ending;
+	currentSection = 0;
 
-    if (document.getElementsByName("back-slide").length > 0) {
-        document.getElementById("back").disabled = false;
-        document.getElementById("back").style.display = "none";
-        document.getElementsByName("back-slide")[0].style.display = "inline-block";
-    }
+	var iFrame = document.getElementById("content-frame");
+	var iFrameDocument = iFrame.contentWindow || iFrame.contentDocument;
+	numberOfSections = iFrameDocument.document.getElementsByTagName("section").length;
 
-    if (document.getElementsByTagName("section").length < 2) {
-        document.getElementById("next").style.display = "none";
-        document.getElementById("quiz").style.display = "inline-block";
-    }
-    else {
-        if (window.location.search.substr(1) == "last") {
-            for (var i = 0; i < document.getElementsByTagName("section").length - 2; i++)
-                document.getElementsByTagName("section")[i].className = "hide";
-            document.getElementsByTagName("section")[document.getElementsByTagName("section").length - 1].className = "show";
-            document.getElementById("quiz").style.display = "inline-block";
-            document.getElementById("next").style.display = "none";
-            document.getElementById("back").disabled = false;
-            sessionStorage.setItem("curr_element", document.getElementsByTagName("section").length - 1);
-            if (document.getElementsByName("back-slide").length > 0) {
-                document.getElementsByName("back-slide")[0].style.display = "none";
-                document.getElementById("back").style.display = "inline-block";
-            }
-        }
-        else {
-            for (var i = 1; i < document.getElementsByTagName('section').length; i++)
-                document.getElementsByTagName("section")[i].className = "hide";
-            document.getElementById("quiz").style.display = "none";
-            document.getElementsByTagName("section")[0].className = "show";
-        }
-    }
-    shortcut_attive = 1;
+	iFrameDocument.document.getElementsByTagName("section")[0].className = "show";
+
+	var previousTopicButton = document.getElementById("back-topic"),
+		previousSlideButton = document.getElementById("back"),
+		returnToListButton = document.getElementById("back-to-list"),
+		nextSlideButton = document.getElementById("next"),
+		nextTopicButton = document.getElementById("next-topic");
+
+	if (iFrame.src.includes(base + initial + ".html")) {
+		numberOfSections = 1;
+		previousTopicButton.style.display = "none";
+		previousSlideButton.style.display = "inline-block";
+		previousSlideButton.toggleAttribute("disabled", true);
+
+		nextSlideButton.style.display = "none";
+		nextTopicButton.style.display = "inline-block";
+
+		returnToListButton.style.display = "none";
+	}
+	else {
+		iFrameDocument.document.getElementsByTagName("section")[0].className = "show";
+		previousSlideButton.toggleAttribute("disabled", false);
+		returnToListButton.style.display = "inline-block";
+		if (currentSection === numberOfSections - 1) {
+			previousSlideButton.style.display = "inline-block";
+			previousTopicButton.style.display = "none";
+
+			nextTopicButton.style.display = "inline-block";
+			nextSlideButton.style.display = "none";
+
+		}
+		else if (currentSection === 0) {
+			previousTopicButton.style.display = "inline-block";
+			previousSlideButton.style.display = "none";
+
+			nextSlideButton.style.display = "inline-block";
+			nextTopicButton.style.display = "none";
+		}
+		else {
+			previousTopicButton.style.display = "none";
+			previousSlideButton.style.display = "inline-block";
+
+			nextTopicButton.style.display = "none";
+			nextSlideButton.style.display = "inline-block";
+		}
+	}
+
+	previousTopicButton.innerHTML = pagesName.previous + " <i class=\"btn-icon left fas fa-arrow-alt-circle-left\"></i>";
+	nextTopicButton.innerHTML = pagesName.next + " <i class=\"btn-icon fas fa-arrow-circle-right\"></i>";
+
+	/**
+	 * La funzione, in base al valore assunto da slide (true/false) cambia la sezione 
+	 * corrente in quella precedente (in caso di slide = false)
+	 * o in quella successiva (in caso di slide = true). Inoltre si occupa di aggiornare 
+	 * il numero della slide corrente nella memoria temporanea
+	 * del browser. Inoltre, in base al numero di slide, si occupa di rendere
+	 * visibili (o nascondere) i relativi pulsanti di spostamento
+	 * (avanti con id next, indietro con id back e quiz con id quiz).
+	 */
+	function changeSlide(slide) {
+		iFrameDocument.document.getElementsByTagName("section")[currentSection].className = "hide";
+		canChangeSlide = false;
+		if (slide) {
+			if (currentSection == 0) {
+				previousTopicButton.style.display = "none";
+				previousSlideButton.style.display = "inline-block";
+				previousSlideButton.toggleAttribute("disabled", false);
+			}
+			if (currentSection < numberOfSections - 1) {
+				currentSection++;
+				if (currentSection === numberOfSections - 1) {
+					nextSlideButton.style.display = "none";
+					nextTopicButton.style.display = "inline-block";
+				}
+			}
+		}
+		else {
+			if (currentSection === numberOfSections - 1) {
+				nextSlideButton.style.display = "inline-block";
+				nextTopicButton.style.display = "none";
+				currentSection--;
+			}
+			if (currentSection > 0) {
+				currentSection--;
+				if (currentSection == 0) {
+					previousTopicButton.style.display = "inline-block";
+					previousSlideButton.style.display = "none";
+					previousSlideButton.toggleAttribute("disabled", true);
+				}
+			}
+		}
+
+		setTimeout(() => {
+			iFrameDocument.document.getElementsByTagName("section")[currentSection].className = "show";
+			canChangeSlide = true;
+		}, 100);
+	}
+
+
+	previousTopicButton.onclick = (e) => {
+		if (canChangeSlide)
+			changeTopic(pagesName.previousLink, baseFolder)
+	};
+	previousSlideButton.onclick = (e) => {
+		if (canChangeSlide)
+			changeSlide(false);
+	};
+
+	nextSlideButton.onclick = (e) => {
+		if (canChangeSlide)
+			changeSlide(true);
+	};
+	nextTopicButton.onclick = (e) => {
+		if (canChangeSlide)
+			changeTopic(pagesName.nextLink, baseFolder);
+	};
+
+	(function () {
+		const Mousetrap = require("mousetrap");
+		Mousetrap.bind("right", () => {
+			if (currentSection === numberOfSections - 1)
+				nextTopicButton.click();
+			else
+				nextSlideButton.click();
+		});
+		Mousetrap.bind("left", () => {
+			if (currentSection === 0 && !iFrame.src.includes(base + initial + ".html"))
+				previousTopicButton.click();
+			else if (!document.getElementById("back").hasAttribute("disabled"))
+				previousSlideButton.click();
+		});
+
+	})();
 }
 
-/* Funzioni di transizione delle sezioni in una pagina */
-
-/*
-La funzione, in base al valore assunto da slide (true/false) cambia la sezione corrente in quella precedente (in caso di slide = false)
-o in quella successiva (in caso di slide = true). Inoltre si occupa di aggiornare il numero della slide corrente nella memoria temporanea
-del browser. Inoltre, in base al numero di slide, si occupa di rendere visibili (o nascondere) i relativi pulsanti di spostamento
-(avanti con id next, indietro con id back e quiz con id quiz).
-*/
-function changeWindow(slide) {
-    var curr_element = currentSection;
-    var number_of_elements = numberOfSections - 1;
-
-    document.getElementsByTagName("section")[curr_element].className = "hide";
-    document.getElementById("next").style.pointerEvents = "none";
-    document.getElementById("back").style.pointerEvents = "none";
-    shortcut_attive = 0;
-
-    if (document.getElementsByName("quiz-page").length > 0)
-        document.getElementsByName("domanda")[curr_element].className = "";
-
-    if (slide) {
-        if (number_of_elements > curr_element)
-            curr_element++;
-        if (number_of_elements == curr_element) {
-            document.getElementById("next").style.display = "none";
-            document.getElementById("quiz").style.display = "inline-block";
-        }
-    }
-    else {
-        if (curr_element == number_of_elements) {
-            document.getElementById("next").style.display = "inline-block";
-            document.getElementById("quiz").style.display = "none";
-        }
-        if (number_of_elements >= curr_element)
-            curr_element--;
-    }
-
-    if (curr_element == 0) {
-        document.getElementById("back").disabled = true;
-        if (document.getElementsByName("back-slide").length > 0) {
-            document.getElementById("back").style.display = "none";
-            document.getElementsByName("back-slide")[0].style.display = "inline-block";
-        } else
-            document.getElementById("back").style.display = "inline-block";
-    }
-    else {
-        document.getElementById("back").disabled = false;
-        if (document.getElementsByName("back-slide").length > 0) {
-            document.getElementById("back").style.display = "inline-block";
-            document.getElementsByName("back-slide")[0].style.display = "none";
-        } else
-            document.getElementById("back").style.display = "inline-block";
-    }
-
-    setTimeout(function () {
-        document.getElementsByTagName("section")[curr_element].className = "show";
-        document.getElementById("next").style.pointerEvents = "";
-        document.getElementById("back").style.pointerEvents = "";
-        shortcut_attive = 1;
-    }, 100);
-
-    if (document.getElementsByName("quiz-page").length > 0)
-        document.getElementsByName("domanda")[curr_element].className = "active";
-    currentSection = curr_element;
+function changeTopic(topicName, base = "./") {
+	var iFrame = document.getElementById("content-frame");
+	currentSection = 0;
+	document.activeElement.blur();
+	if (topicName !== "quiz")
+		iFrame.src = base + topicName + ".html";
+	else
+		require("electron").remote.getCurrentWindow().loadFile(base + topicName + ".html");
 }
-
-function changeWindowClick(element) {
-    var curr_element = currentSection;
-    var number_of_elements = numberOfSections - 1;
-    if (curr_element != element) {
-        document.getElementsByTagName("section")[curr_element].className = "hide";
-        document.getElementsByName("domanda")[curr_element].className = "";
-        document.getElementById("next").style.pointerEvents = "none";
-        document.getElementById("back").style.pointerEvents = "none";
-        curr_element = element;
-        if (number_of_elements == curr_element) {
-            document.getElementById("next").style.display = "none";
-            document.getElementById("quiz").style.display = "inline-block";
-        }
-        else {
-            document.getElementById("next").style.display = "inline-block";
-            document.getElementById("quiz").style.display = "none";
-        }
-        if (curr_element == 0)
-            document.getElementById("back").disabled = true;
-        else
-            document.getElementById("back").disabled = false;
-
-        document.getElementsByName("domanda")[curr_element].className = "active";
-        setTimeout(function () {
-            document.getElementsByTagName("section")[curr_element].className = "show";
-            document.getElementById("next").style.pointerEvents = "";
-            document.getElementById("back").style.pointerEvents = "";
-        }, 100);
-    }
-    currentSection = curr_element;
-}
-
-(function () {
-    const Mousetrap = require("mousetrap");
-    Mousetrap.bind("right", () => {
-        if (currentSection == numberOfSections - 1)
-            document.getElementById("quiz").click();
-        else
-            if ((currentSection < numberOfSections - 1) && (shortcut_attive == 1))
-                changeWindow(true);
-    });
-    Mousetrap.bind("left", () => {
-        if ((currentSection == 0) && (document.getElementsByName("back-slide").length > 0))
-            document.getElementsByName("back-slide")[0].click();
-        else
-            if ((currentSection > 0) && (shortcut_attive == 1))
-                changeWindow(false);
-    });
-
-})();

@@ -65,13 +65,13 @@
 					</ul>
 				</li>
 				<li><a href="#"><i class="fas fa-guitar"></i> Strumenti</a></li>
-				<li><button onclick="openModal('./helpers/map.html');" title="Mostra la mappa"><i
+				<li><button type="button" onclick="openModal('./helpers/map.html');" title="Mostra la mappa"><i
 							class="fas fa-map"></i> Mappa</button></li>
-				<li><button onclick="openModal('./helpers/help-home.html');" title="Mostra l'aiuto (F1)"><i
+				<li><button type="button" onclick="openModal('./helpers/help-home.html');" title="Mostra l'aiuto (F1)"><i
 							class="fas fa-question"></i> Aiuto</button></li>
-				<li><button onclick="openModal('./about.html');" title="Informazioni">&nbsp;<i class="fas fa-info"></i>
+				<li><button type="button" onclick="openModal('./about.html');" title="Informazioni">&nbsp;<i class="fas fa-info"></i>
 						Informazioni</button></li>
-				<li><button onclick="showExitDialog();" title="Esci dall'app (Esc)"><i class="fas fa-sign-out-alt"></i>
+				<li><button type="button" onclick="showExitDialog();" title="Esci dall'app (Esc)"><i class="fas fa-sign-out-alt"></i>
 						Esci</button></li>
 			</ul>
 
@@ -85,7 +85,7 @@
 				<img src="./assets/images/fsc-logo-svg.svg" />
 			</footer>
 		</nav>
-		<button id="sidebar-controller" onclick="openMobileNavigation();">
+		<button type="button" id="sidebar-controller" onclick="openMobileNavigation();">
 			<i class="fas fa-bars"></i>
 		</button>
 
@@ -123,14 +123,14 @@
 
 			</article>
 			<div class="buttons-container">
-				<button id="back" class="btn-outlined" onclick="changeWindow(false);">Indietro <i
+				<button type="button" id="back" class="btn-outlined" onclick="changeWindow(false);">Indietro <i
 						class="btn-icon left fas fa-arrow-alt-circle-left" disabled></i></button>
-				<button id="back-to-list" title="Torna all'elenco di argomenti" class="btn"
+				<button type="button" id="back-to-list" title="Torna all'elenco di argomenti" class="btn"
 					onclick="windows.location.replace('./teoria-avanzato.html');">Torna all'elenco <i
 						class="btn-icon fas fa-home"></i></button>
-				<button id="next" class="btn" onclick="changeWindow(true);">Avanti <i
+				<button type="button" id="next" class="btn" onclick="changeWindow(true);">Avanti <i
 						class="btn-icon fas fa-arrow-circle-right"></i></button>
-				<button id="quiz" class="btn" onclick="window.location.replace('#');" style="display: none;">Quiz <i
+				<button type="button" id="quiz" class="btn" onclick="window.location.replace('#');" style="display: none;">Quiz <i
 						class="btn-icon fas fa-arrow-circle-right"></i></button>
 			</div>
 		</div>

@@ -58,15 +58,15 @@
                         <h1>Strumental<wbr /><span>Mente</span></h1>
                     </a>
                 </li>
-                <li><button name="domanda" onclick="changeWindowClick(0)" class="active">Domanda 1</button></li>
-                <li><button name="domanda" onclick="changeWindowClick(1)">Domanda 2</button></li>
-                <li><button name="domanda" onclick="changeWindowClick(2)">Domanda 3</button></li>
-                <li><button name="domanda" onclick="changeWindowClick(3)">Domanda 4</button></li>
-                <li><button name="domanda" onclick="changeWindowClick(4)">Domanda 5</button></li>
-                <li><button onclick="openModal('./help.html');" title="Mostra l'aiuto (F1)"><i
+                <li><button type="button" name="domanda" onclick="changeWindowClick(0)" class="active">Domanda 1</button></li>
+                <li><button type="button" name="domanda" onclick="changeWindowClick(1)">Domanda 2</button></li>
+                <li><button type="button" name="domanda" onclick="changeWindowClick(2)">Domanda 3</button></li>
+                <li><button type="button" name="domanda" onclick="changeWindowClick(3)">Domanda 4</button></li>
+                <li><button type="button" name="domanda" onclick="changeWindowClick(4)">Domanda 5</button></li>
+                <li><button type="button" onclick="openModal('./help.html');" title="Mostra l'aiuto (F1)"><i
                             class="fas fa-question"></i>
                         Aiuto</button></li>
-                <li><button onclick="showExitDialog();"><i class="fas fa-sign-out-alt"></i> Esci</button></li>
+                <li><button type="button" onclick="showExitDialog();"><i class="fas fa-sign-out-alt"></i> Esci</button></li>
             </ul>
 
             <footer>
@@ -79,7 +79,7 @@
                 <img src="./assets/images/fsc-logo-svg.svg" />
             </footer>
         </nav>
-        <button id="sidebar-controller" onclick="openMobileNavigation();">
+        <button type="button" id="sidebar-controller" onclick="openMobileNavigation();">
             <i class="fas fa-bars"></i>
         </button>
 
@@ -112,11 +112,11 @@
                 </section>
             </article>
             <div class="buttons-container">
-                <button id="back" class="btn-outlined" onclick="changeWindow(false);">Indietro <i
+                <button type="button" id="back" class="btn-outlined" onclick="changeWindow(false);">Indietro <i
                         class="btn-icon left fas fa-arrow-alt-circle-left" disabled></i></button>
-                <button id="next" class="btn" onclick="changeWindow(true);">Avanti <i
+                <button type="button" id="next" class="btn" onclick="changeWindow(true);">Avanti <i
                         class="btn-icon fas fa-arrow-circle-right"></i></button>
-                <button id="quiz" class="btn" onclick="javascript:void(0)" style="display: none;">Verifica
+                <button type="button" id="quiz" class="btn" onclick="javascript:void(0)" style="display: none;">Verifica
                     <i class="fas fa-check-circle"></i></button>
             </div>
         </div>
