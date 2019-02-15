@@ -1,3 +1,7 @@
+/**
+ * Apre la navbar in modalità "mobile". Questa funzione è mantenuta solo per
+ * consentire un eventuale eccessivo ridimensionamento della finestra.
+ */
 function openMobileNavigation() {
 	var button = document.getElementById("sidebar-controller");
 	var nav = document.getElementById("main-nav");
@@ -11,6 +15,13 @@ function openMobileNavigation() {
 	}
 }
 
+/**
+ * Permette, alla pressione di un bottone, di aprire una sottolista
+ * della navbar.
+ * 
+ * @param {String} name L'ID della lista che si vuole controllare
+ * @param {String} [defaultLinkClass] La classe iniziale del bottone
+ */
 function drop(name, defaultLinkClass = "") {
 	var el = document.getElementById(name), link = document.getElementById(name + "-link");
 	var i = 0;
@@ -41,6 +52,10 @@ var canChangeSlide = true;
  * a quello attuale
  * 
  * @param {Object} links Le nuove impostazioni e link
+ * @param {String} links.previous Il nome della pagina precedente
+ * @param {String} links.previousLink Il link della pagina precedente (il nome del file *senza* l'estensione)
+ * @param {String} links.next Il nome della pagina successiva
+ * @param {String} links.nextLink Il link della pagina successiva (il nome del file *senza* l'estensione)
  */
 function setLinks(links) {
 	pagesName = links;
@@ -208,7 +223,7 @@ function initialize(initial, base = "./") {
  * Cambia l'argomento correntemente mostrato.
  * 
  * @param {String} topicName Il prossimo argomento
- * @param {String} base La cartella in cui è situato il file dell'argomento
+ * @param {String} [base] La cartella in cui è situato il file dell'argomento
  */
 function changeTopic(topicName, base = "./") {
 	var iFrame = document.getElementById("content-frame");
@@ -220,6 +235,9 @@ function changeTopic(topicName, base = "./") {
 		require("electron").remote.getCurrentWindow().loadFile(base + topicName + ".html");
 }
 
+/**
+ * Inizializza la pagina del quiz.
+ */
 function initializeQuiz() {
 	require("electron").remote.getCurrentWebContents().openDevTools();
 	sectionsList = document.getElementsByTagName("section");
@@ -267,6 +285,14 @@ function initializeQuiz() {
 	});
 }
 
+/**
+ * Cambia la slide del quiz attualmente mostrata.
+ * 
+ * @param {number} finalSlide La slide da aprire in seguito alla
+ * richiesta di variazione della slide. Tale valore deve essere
+ * compreso nell'intervallo `[0, n]`, dove `n` è il numero di slide
+ * presenti nella pagina.
+ */
 function changeQuizSlide(finalSlide) {
 	document.activeElement.blur();
 	var previousSlideButton = document.getElementById("back");
@@ -304,7 +330,9 @@ function changeQuizSlide(finalSlide) {
 	}, 100);
 }
 
-
+/**
+ * Calcola i risultati del quiz.
+ */
 function checkQuiz() {
 	document.activeElement.blur();
 	window.alert("Non ancora implementato!");

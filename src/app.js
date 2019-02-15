@@ -5,6 +5,12 @@ global.nodeStorage = new JSONStorage(storageLocation);
 
 let win = null;
 
+/**
+ * Apre una finestra "figlia" e modale.
+ * 
+ * @param {Strubg} pageUrl L'URL della pagina da aprire (assoluto o relativo)
+ * @param {string} [windowIcon] L'icona della finestra.
+ */
 function openChildWindow(pageUrl, windowIcon = "./assets/icon.ico") {
 	child = new BrowserWindow({ width: 800, height: 600, parent: win, modal: true, icon: windowIcon, frame: false });
 	child.setMenu(null);
@@ -12,12 +18,15 @@ function openChildWindow(pageUrl, windowIcon = "./assets/icon.ico") {
 	child.show();
 }
 
+/**
+ * Crea la finestra principale.
+ */
 function createWindow() {
 	var windowState = {};
 	try {
 		windowState = global.nodeStorage.getItem("windowstate");
 	} catch (err) {
-		// the file is there, but corrupt. Handle appropriately. 
+		windowState = {};
 	}
 
 	if (!windowState)
@@ -74,7 +83,13 @@ var promptOptions;
 var promptAnswer;
 let promptWindow = null;
 
-/** Creazione della finestra di dialogo */
+/**
+ * Creazione della finestra di dialogo.
+ * 
+ * @param {BrowserWindow} parentWindow La finestra "genitore"
+ * @param {Object} options Le opzioni della nuova finestra
+ * @param {*} callback La funzione da richiamare alla chiusura della finestra
+ */
 function promptModal(parentWindow, options, callback) {
 	promptOptions = options;
 	promptWindow = new BrowserWindow({
