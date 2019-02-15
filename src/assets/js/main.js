@@ -239,7 +239,6 @@ function changeTopic(topicName, base = "./") {
  * Inizializza la pagina del quiz.
  */
 function initializeQuiz() {
-	require("electron").remote.getCurrentWebContents().openDevTools();
 	sectionsList = document.getElementsByTagName("section");
 
 	numberOfSections = sectionsList.length;

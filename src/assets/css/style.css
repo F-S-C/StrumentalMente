@@ -6,6 +6,7 @@
 @import url("./main/background-slideshow.css");
 @import url("./main/typography.css");
 @import url("./main/figures.css");
+@import url("./main/section.css");
 /* Regole semplici dell'intera applicazione che non sono classificabili: */
 
 body {
