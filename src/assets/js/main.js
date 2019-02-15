@@ -27,6 +27,7 @@ function drop(name, defaultLinkClass = "") {
 
 var numberOfSections = 0, currentSection = 0;
 var initialPage = "", baseFolder = "./";
+var sectionList;
 var pagesName = {
 	previous: "Argomento Precedente",
 	previousLink: "argomento-successivo",
@@ -217,4 +218,94 @@ function changeTopic(topicName, base = "./") {
 		iFrame.src = base + topicName + ".html";
 	else
 		require("electron").remote.getCurrentWindow().loadFile(base + topicName + ".html");
+}
+
+function initializeQuiz() {
+	require("electron").remote.getCurrentWebContents().openDevTools();
+	sectionsList = document.getElementsByTagName("section");
+
+	numberOfSections = sectionsList.length;
+	currentSection = 0;
+	canChangeSlide = true;
+
+	sectionsList[currentSection].className = "show";
+
+	var previousSlideButton = document.getElementById("back");
+	var nextSlideButton = document.getElementById("next");
+	var verifyButton = document.getElementById("end");
+
+	let nextSlide = () => {
+		if (canChangeSlide)
+			changeQuizSlide(currentSection + 1);
+	};
+	let previousSlide = () => {
+		if (canChangeSlide)
+			changeQuizSlide(currentSection - 1);
+	}
+
+
+	verifyButton.style.display = "none";
+	previousSlideButton.toggleAttribute("disabled", true);
+
+	verifyButton.removeEventListener("click", checkQuiz);
+	verifyButton.addEventListener("click", checkQuiz);
+	previousSlideButton.removeEventListener("click", previousSlide);
+	previousSlideButton.addEventListener("click", previousSlide);
+	nextSlideButton.removeEventListener("click", nextSlide);
+	nextSlideButton.addEventListener("click", nextSlide);
+
+	const Mousetrap = require("mousetrap");
+	Mousetrap.bind("right", () => {
+		if (currentSection === numberOfSections - 1)
+			verifyButton.click();
+		else
+			nextSlideButton.click();
+	});
+	Mousetrap.bind("left", () => {
+		if (currentSection !== 0)
+			previousSlideButton.click();
+	});
+}
+
+function changeQuizSlide(finalSlide) {
+	document.activeElement.blur();
+	var previousSlideButton = document.getElementById("back");
+	var nextSlideButton = document.getElementById("next");
+	var verifyButton = document.getElementById("end");
+
+	canChangeSlide = false;
+	sectionsList[currentSection].className = "hide";
+
+	var questionsInNavbar = document.getElementsByClassName("question-link");
+	console.log(questionsInNavbar);
+	questionsInNavbar[currentSection].className = "question-link";
+
+	currentSection = finalSlide;
+
+
+	if (currentSection === 0)
+		previousSlideButton.toggleAttribute("disabled", true);
+	else
+		previousSlideButton.toggleAttribute("disabled", false);
+
+	if (currentSection === numberOfSections - 1) {
+		nextSlideButton.style.display = "none";
+		verifyButton.style.display = "inline-block";
+	}
+	else {
+		verifyButton.style.display = "none";
+		nextSlideButton.style.display = "inline-block";
+	}
+
+	setTimeout(() => {
+		sectionsList[currentSection].className = "show";
+		questionsInNavbar[finalSlide].className = "question-link active";
+		canChangeSlide = true;
+	}, 100);
+}
+
+
+function checkQuiz() {
+	document.activeElement.blur();
+	window.alert("Non ancora implementato!");
 }
