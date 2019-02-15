@@ -13,19 +13,23 @@
   - [x] Creazione dei prototipi
   - [x] Creazione degli storyboard
   - [ ] Aggiunta dei contenuti agli storyboard
-  - [ ] Creazione del JavaScript per variare automaticamente i contenuti della pagina
+  - [x] Creazione del JavaScript per variare automaticamente i contenuti della pagina
 - [ ] Terminare la documentazione
   - [x] Pianificazione
   - [ ] Progettazione
     - [x] Inserire le gabbie logiche
     - [ ] Inserire i prototipi
     - [x] Discutere colori e icone
-    - [ ] Inserire modello RMM/HDM
+    - [x] Inserire modello RMM/HDM
   - [ ] Realizzazione
   - [ ] Manuale utente
 - [ ] Stesura dei quiz
   - [x] Teoria
   - [ ] Strumenti
+    - [ ] Piano
+    - [ ] Chitarra
+    - [ ] Batteria
+    - [ ] Basso
 - [ ] Stesura delle sezioni di aiuto
 - [ ] Creazione di un sistema di _"salvataggio delle sessioni"_ per salvare i quiz che l'utente ha già completato
 - [ ] Stesura delle informazioni sul sistema (i _"credits"_)
