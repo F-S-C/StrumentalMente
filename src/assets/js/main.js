@@ -26,8 +26,7 @@ function drop(name, defaultLinkClass = "") {
 
 
 var numberOfSections = 0, currentSection = 0;
-var shortcut_attive = 0;
-var initialPage = "", baseFolder = "./", endingPage = "";
+var initialPage = "", baseFolder = "./";
 var pagesName = {
 	previous: "Argomento Precedente",
 	previousLink: "argomento-successivo",
@@ -36,21 +35,29 @@ var pagesName = {
 };
 var canChangeSlide = true;
 
+/**
+ * Cambia i link e i nomi dell'argomento precedente e quello successivo
+ * a quello attuale
+ * 
+ * @param {Object} links Le nuove impostazioni e link
+ */
 function setLinks(links) {
 	pagesName = links;
-	initialize(initialPage, baseFolder, endingPage);
+	initialize(initialPage, baseFolder);
 }
 
-/*
-Funzione che, al caricamento della pagina, si occupa di impostare il numero 
-di tag section presenti all'interno della pagina nella memoria locale del browser, di
-impostare come sezione visibile corrente la prima (sempre all'interno della memoria locale)
-e di nascondere tutti i tag section successivi al primo.
-*/
-function initialize(initial, base = "./", ending) {
+/**
+ * Funzione che, al caricamento della pagina, si occupa di impostare il numero 
+ * di tag section presenti all'interno della pagina nella memoria locale del browser, di
+ * impostare come sezione visibile corrente la prima (sempre all'interno della memoria locale)
+ * e di nascondere tutti i tag section successivi al primo.
+ * 
+ * @param {String} initial Il primo argomento
+ * @param {String} base La cartella in cui sono situati i file degli argomenti (default: `./`)
+ */
+function initialize(initial, base = "./") {
 	initialPage = initial;
 	baseFolder = base;
-	endingPage = ending;
 	currentSection = 0;
 
 	var iFrame = document.getElementById("content-frame");
@@ -80,27 +87,23 @@ function initialize(initial, base = "./", ending) {
 		iFrameDocument.document.getElementsByTagName("section")[0].className = "show";
 		previousSlideButton.toggleAttribute("disabled", false);
 		returnToListButton.style.display = "inline-block";
-		if (currentSection === numberOfSections - 1) {
-			previousSlideButton.style.display = "inline-block";
-			previousTopicButton.style.display = "none";
 
-			nextTopicButton.style.display = "inline-block";
-			nextSlideButton.style.display = "none";
-
-		}
-		else if (currentSection === 0) {
+		if (currentSection === 0) {
 			previousTopicButton.style.display = "inline-block";
 			previousSlideButton.style.display = "none";
-
-			nextSlideButton.style.display = "inline-block";
-			nextTopicButton.style.display = "none";
 		}
-		else {
-			previousTopicButton.style.display = "none";
+		else if (currentSection <= numberOfSections - 1) {
 			previousSlideButton.style.display = "inline-block";
+			previousTopicButton.style.display = "none";
+		}
 
-			nextTopicButton.style.display = "none";
+		if (currentSection === numberOfSections - 1) {
+			nextTopicButton.style.display = "inline-block";
+			nextSlideButton.style.display = "none";
+		}
+		else if (currentSection >= 0) {
 			nextSlideButton.style.display = "inline-block";
+			nextTopicButton.style.display = "none";
 		}
 	}
 
@@ -115,6 +118,8 @@ function initialize(initial, base = "./", ending) {
 	 * del browser. Inoltre, in base al numero di slide, si occupa di rendere
 	 * visibili (o nascondere) i relativi pulsanti di spostamento
 	 * (avanti con id next, indietro con id back e quiz con id quiz).
+	 * 
+	 * @param {boolean} slide se è `true`, avanza di una slide, altrimenti indietreggia di una slide.
 	 */
 	function changeSlide(slide) {
 		iFrameDocument.document.getElementsByTagName("section")[currentSection].className = "hide";
@@ -125,7 +130,7 @@ function initialize(initial, base = "./", ending) {
 				previousSlideButton.style.display = "inline-block";
 				previousSlideButton.toggleAttribute("disabled", false);
 			}
-			if (currentSection < numberOfSections - 1) {
+			if (currentSection <= numberOfSections - 1) {
 				currentSection++;
 				if (currentSection === numberOfSections - 1) {
 					nextSlideButton.style.display = "none";
@@ -158,19 +163,20 @@ function initialize(initial, base = "./", ending) {
 	let openPreviousTopic = (e) => {
 		if (canChangeSlide)
 			changeTopic(pagesName.previousLink, baseFolder)
-	},
-		openPreviousSlide = (e) => {
-			if (canChangeSlide)
-				changeSlide(false);
-		},
-		openNextSlide = (e) => {
-			if (canChangeSlide)
-				changeSlide(true);
-		},
-		openNextTopic = (e) => {
-			if (canChangeSlide)
-				changeTopic(pagesName.nextLink, baseFolder);
-		};
+	};
+	let openPreviousSlide = (e) => {
+		if (canChangeSlide)
+			changeSlide(false);
+	};
+	let openNextSlide = (e) => {
+		if (canChangeSlide)
+			changeSlide(true);
+	};
+	let openNextTopic = (e) => {
+		if (canChangeSlide)
+			changeTopic(pagesName.nextLink, baseFolder);
+	};
+
 	previousTopicButton.removeEventListener("click", openPreviousTopic);
 	previousTopicButton.addEventListener("click", openPreviousTopic);
 	previousSlideButton.removeEventListener("click", openPreviousSlide);
@@ -181,24 +187,28 @@ function initialize(initial, base = "./", ending) {
 	nextTopicButton.removeEventListener("click", openNextTopic);
 	nextTopicButton.addEventListener("click", openNextTopic);
 
-	(function () {
-		const Mousetrap = require("mousetrap");
-		Mousetrap.bind("right", () => {
-			if (currentSection === numberOfSections - 1)
-				nextTopicButton.click();
-			else
-				nextSlideButton.click();
-		});
-		Mousetrap.bind("left", () => {
-			if (currentSection === 0 && !iFrame.src.includes(base + initial + ".html"))
-				previousTopicButton.click();
-			else if (!document.getElementById("back").hasAttribute("disabled"))
-				previousSlideButton.click();
-		});
 
-	})();
+	const Mousetrap = require("mousetrap");
+	Mousetrap.bind("right", () => {
+		if (currentSection === numberOfSections - 1)
+			nextTopicButton.click();
+		else
+			nextSlideButton.click();
+	});
+	Mousetrap.bind("left", () => {
+		if (currentSection === 0 && !iFrame.src.includes(base + initial + ".html"))
+			previousTopicButton.click();
+		else if (!document.getElementById("back").hasAttribute("disabled"))
+			previousSlideButton.click();
+	});
 }
 
+/**
+ * Cambia l'argomento correntemente mostrato.
+ * 
+ * @param {String} topicName Il prossimo argomento
+ * @param {String} base La cartella in cui è situato il file dell'argomento
+ */
 function changeTopic(topicName, base = "./") {
 	var iFrame = document.getElementById("content-frame");
 	currentSection = 0;
