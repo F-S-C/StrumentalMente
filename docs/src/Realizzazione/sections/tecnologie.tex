@@ -1,0 +1,16 @@
+\section{I linguaggi}
+Il sistema \ProjectTitle{} è scritto utilizzando l'\textbf{HTML5} (il che porta all'utilizzo del \textbf{CSS3} per definire le varie regole di stile) e il \textbf{JavaScript}. L'intera applicazione è basata su \emph{Node.js}, principalmente per il pacchetto \textbf{Electron}, che consente di utilizzare i precedenti linguaggi, in combinazione con il motore di rendering \emph{Chromium}, per creare delle applicazioni \textit{desktop}.
+
+\section{Il codice}
+Il codice sorgente di \ProjectTitle{} è fondamentalmente suddiviso in tre file principali (escludendo i file HTML e CSS utilizzati per creare l'aspetto grafico dell'aplicazione). Tali file sono:
+\begin{description}
+	\item[\texttt{app.js}] È il file principale dell'applicazione. Contiene il processo principale (``\emph{main process}'') di Electron e gestisce, quindi, tutti gli eventi principali di \ProjectTitle{}, tra cui:
+	\begin{itemize}
+		\item L'apertura dell'applicazione e il \emph{rendering} della prima finestra
+		\item La chiusura dell'applicazione e le relative peculiarità di alcuni sistemi operativi (si veda la possibilità di ricreare la finestra appena chiusa su MacOS)
+		\item L'apertura di finestre di dialogo
+		\item L'apertura di finestra secondarie
+	\end{itemize} 
+	\item[\texttt{render.js}] È il file principale del \emph{rendering} dell'applicazione. Contiene tutte le funzioni da eseguire nel ``\emph{rendering process}'' (processo di \emph{rendering}) di Electron.
+	\item[\texttt{main.js}] Contiene tutte le funzioni che servono a dare dinamicità alle pagine HTML dell'applicazione. 
+\end{description}
