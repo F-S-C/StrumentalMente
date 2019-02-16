@@ -50,28 +50,48 @@
 			<ul>
 				<li class="logo">
 					<a href="./home.html">
-						<img src="./assets/icon.ico" width="" height="" alt="">
+						<img src="./assets/icon.ico" width="" height="" alt="" />
 						<h1>Strumental<wbr /><span>Mente</span></h1>
 					</a>
 				</li>
 				<li><a href="./home.html"><i class="fas fa-home"></i> Home</a></li>
-				<li class="dropdown" name="drop"><a onclick="drop('sub1', 'active');" class="active open" href="#"
-						id="sub1-link"><i class="fas fa-book"></i>
-						Teoria</a>
-					<ul id="sub1" class="show">
-						<li><a class="active" href="./teoria-base.html">Basi</a></li>
-						<li><a href="./teoria-avanzato.html">Avanzata</a></li>
+				<li class="dropdown">
+					<button type="button" class="active" onclick="drop('sub1', 'active')" id="sub1-link">
+						<i class="fas fa-book"></i> Teoria
+					</button>
+					<ul id="sub1">
+						<li>
+							<a class="active" href="./teoria-base.html" title="La teoria: le basi (Alt+T B)">
+								Basi
+							</a>
+						</li>
+						<li>
+							<a href="./teoria-avanzato.html" title="La teoria avanzata (Alt+T A)">
+								Avanzata
+							</a>
+						</li>
 					</ul>
 				</li>
 				<li><a href="#"><i class="fas fa-guitar"></i> Strumenti</a></li>
-				<li><button type="button" onclick="openModal('./helpers/map.html');" title="Mostra la mappa"><i
-							class="fas fa-map"></i> Mappa</button></li>
-				<li><button type="button" onclick="openModal('./helpers/help-home.html');"
-						title="Mostra l'aiuto (F1)"><i class="fas fa-question"></i> Aiuto</button></li>
-				<li><button type="button" onclick="openModal('./about.html');" title="Informazioni">&nbsp;<i
-							class="fas fa-info"></i>
-						Informazioni</button></li>
-				<li><button type="button" onclick="showExitDialog();"><i class="fas fa-sign-out-alt"></i> Esci</button>
+				<li>
+					<button type="button" onclick="openModal('./helpers/map.html');" title="Mostra la mappa (Alt+M)">
+						<i class="fas fa-map"></i> Mappa
+					</button>
+				</li>
+				<li>
+					<button type="button" onclick="openModal('./helpers/help-home.html');" title="Mostra l'aiuto (F1)">
+						<i class="fas fa-question"></i> Aiuto
+					</button>
+				</li>
+				<li>
+					<button type="button" onclick="openModal('./about.html');" title="Informazioni (Alt+I)">
+						&nbsp;<i class="fas fa-info"></i> Informazioni
+					</button>
+				</li>
+				<li>
+					<button type="button" onclick="showExitDialog();" title="Esci dall'app (Esc)">
+						<i class="fas fa-sign-out-alt"></i> Esci
+					</button>
 				</li>
 			</ul>
 
