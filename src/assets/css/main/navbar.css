@@ -96,7 +96,7 @@ nav.main-navigation .dropdown li a.active {
     background-color: #555555;
 }
 
-nav.main-navigation .dropdown>a::after {
+nav.main-navigation .dropdown>a::after, nav.main-navigation .dropdown>button::after {
     font-family: "Font Awesome 5 Free";
     color: rgba(255, 255, 255, .9);
     font-weight: 900;
@@ -107,7 +107,7 @@ nav.main-navigation .dropdown>a::after {
     padding: 14px 16px;
 }
 
-nav.main-navigation .dropdown>a.open::after {
+nav.main-navigation .dropdown>a.open::after, nav.main-navigation .dropdown>button.open::after {
     font-family: "Font Awesome 5 Free";
     color: rgba(255, 255, 255, .9);
     font-weight: 900;
