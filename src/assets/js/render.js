@@ -186,3 +186,25 @@ function openOnKeyboardShortcut(shortcut, content, openAsModal = false) {
 
 	Mousetrap.bind("a b c", () => { window.alert("d e f"); });
 }
+
+var shortcutDisabled = false;
+
+function disableShortcuts() {
+	shortcutDisabled = true;
+}
+
+window.addEventListener("load", () =>{
+	if (!shortcutDisabled) {
+		const Mousetrap = require("mousetrap");
+
+		Mousetrap.bind("alt+h", () => remote.getCurrentWindow().loadFile("./home.html"));
+		Mousetrap.bind("alt+t b", () => remote.getCurrentWindow().loadFile("./teoria-base.html"));
+		Mousetrap.bind("alt+t a", () => remote.getCurrentWindow().loadFile("./teoria-avanzata.html"));
+		// Mousetrap.bind("alt+s", () => ...);
+		// Mousetrap.bind("alt+s", () => ...);
+		// Mousetrap.bind("alt+s", () => ...);
+		// Mousetrap.bind("alt+s", () => ...);
+		Mousetrap.bind("alt+m", () => openModal("./map.html"));
+		Mousetrap.bind("alt+i", () => openModal("./about.html"));
+	}
+});
