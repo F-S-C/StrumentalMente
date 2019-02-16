@@ -153,7 +153,7 @@ function openInBrowser(link) {
  * @param {String} [windowIcon] L'icona della finestra modale 
  */
 function openModal(content, windowIcon = "./assets/icon.ico") {
-	var win = new remote.BrowserWindow({ width: 800, height: 600, parent: remote.getCurrentWindow(), modal: true, icon: windowIcon, frame: false });
+	var win = new remote.BrowserWindow({ width: 1000, height: 800, parent: remote.getCurrentWindow(), modal: true, icon: windowIcon, frame: false });
 	win.setMenu(null);
 	if (/^(f|ht)tp(s?):\/\//i.test(content))
 		win.loadURL(content);
@@ -193,18 +193,18 @@ function disableShortcuts() {
 	shortcutDisabled = true;
 }
 
-window.addEventListener("load", () =>{
+window.addEventListener("load", () => {
 	if (!shortcutDisabled) {
 		const Mousetrap = require("mousetrap");
 
-		Mousetrap.bind("alt+h", () => remote.getCurrentWindow().loadFile("./home.html"));
-		Mousetrap.bind("alt+t b", () => remote.getCurrentWindow().loadFile("./teoria-base.html"));
-		Mousetrap.bind("alt+t a", () => remote.getCurrentWindow().loadFile("./teoria-avanzata.html"));
+		Mousetrap.bind("alt+h", () => { remote.getCurrentWindow().loadFile("./home.html"); });
+		Mousetrap.bind("alt+t b", () => { remote.getCurrentWindow().loadFile("./teoria-base.html"); });
+		Mousetrap.bind("alt+t a", () => { remote.getCurrentWindow().loadFile("./teoria-avanzata.html"); });
 		// Mousetrap.bind("alt+s", () => ...);
 		// Mousetrap.bind("alt+s", () => ...);
 		// Mousetrap.bind("alt+s", () => ...);
 		// Mousetrap.bind("alt+s", () => ...);
-		Mousetrap.bind("alt+m", () => openModal("./map.html"));
-		Mousetrap.bind("alt+i", () => openModal("./about.html"));
+		Mousetrap.bind("alt+m", () => { openModal("./map.html"); });
+		Mousetrap.bind("alt+i", () => { openModal("./about.html"); });
 	}
 });

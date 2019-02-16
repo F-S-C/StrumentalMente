@@ -17,9 +17,127 @@
 	<meta name="author" content="FSC" />
 	<meta name="robots" content="index, follow">
 	<meta property="og:image" content="https://f-s-c.github.io/StrumentalMente/logo/2048x2048.png">
+
+	<style>
+		.team-row {
+			display: grid;
+			grid-template-columns: 20% 20% 20% 20% 20%;
+			grid-template-rows: max-content;
+			margin-bottom: 16px;
+		}
+
+		.team-row .team-column {
+			padding: 4px;
+		}
+
+		.team-row :nth-child(1).team-column {
+			grid-column: 1;
+		}
+
+		.team-row :nth-child(2).team-column {
+			grid-column: 2;
+		}
+
+		.team-row :nth-child(3).team-column {
+			grid-column: 3;
+		}
+
+		.team-row :nth-child(4).team-column {
+			grid-column: 4;
+		}
+
+		.team-row :nth-child(5).team-column {
+			grid-column: 5;
+		}
+
+		.profile-card {
+			overflow: hidden;
+			width: 100%;
+			height: 440px;
+			background: #FFFFFF;
+			border-radius: 4px;
+			box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16), 0px 3px 6px rgba(0, 0, 0, 0.23);
+		}
+
+		.profile-card .profile-avatar {
+			display: inline-block;
+			text-align: center;
+			position: relative;
+			margin: 15px;
+		}
+
+		.profile-card header {
+			width: auto;
+			height: auto;
+			padding: 30px 20px 0 20px;
+			display: block;
+			float: none;
+			border-right: none;
+			background: #FFFFFF;
+			color: #000000;
+			text-align: center;
+		}
+
+		.profile-card header img {
+			display: inline-block;
+			text-align: center;
+			position: relative;
+			width: 120px;
+			max-width: 100%;
+			border-radius: 50%;
+			transition: all .4s ease-in-out;
+			filter: grayscale(100%);
+			box-shadow: 0px 0px 0px 8px rgba(0, 0, 0, 0.06);
+		}
+
+		.profile-card:hover header img {
+			box-shadow: 0px 0px 0px 12px rgba(0, 0, 0, 0.1);
+			filter: grayscale(0%);
+		}
+
+		.profile-card header h3 {
+			color: var(--main-color);
+			font-weight: 500;
+			font-size: 20px;
+			margin: 0px 0px 5px 0px;
+		}
+
+		.profile-card header h4 {
+			font-weight: 500;
+			font-size: 15px;
+			margin: 0px 0px 5px 0px;
+		}
+
+		.profile-card .profile-bio {
+			text-align: center;
+			padding: 15px 20px 30px 20px;
+		}
+
+		.profile-card .profile-social-links {
+			display: block;
+			float: none;
+			padding: 15px 20px;
+			background: #FFFFFF;
+			text-align: center;
+			list-style-type: none;
+		}
+
+		.profile-card .profile-social-links li {
+			list-style: none;
+			margin: -5px 0px 0px 0px;
+			padding: 0px;
+			float: left;
+			width: 25%;
+			text-align: center;
+		}
+
+		.profile-card .profile-social-links li a {
+			color: var(--main-color);
+		}
+	</style>
 </head>
 
-<body class="scroll">
+<body class="scroll" onload="disableShortcuts();">
 	<header>
 		<div id="titlebar">
 			<div id="drag-region">
@@ -64,6 +182,143 @@
 							Multimediale</em> del Corso di Laurea in Informatica e Comunicazione Digitale
 						dell'Università degli Studi di Bari (Anno Accademico <time datetime="2018">2018</time>/<time
 							datetime="2019">19</time>).</p>
+					<h3>Il team</h3>
+					<!-- #region mmm-->
+					<div class="team-row">
+						<div class="team-column">
+							<aside class="profile-card">
+								<header>
+									<!-- here’s the avatar -->
+									<div class="profile-avatar">
+										<img src="./assets/images/il-team/Alessandro_COLOR.jpg"
+											alt="Alessandro Annese" />
+									</div>
+									<!-- the username -->
+									<h3>Alessandro Annese</h3>
+									<!-- and role or location -->
+									<h4>Better Visuals</h4>
+								</header>
+
+								<!-- bit of a bio; who are you? -->
+								<div class="profile-bio">
+									<p><i>Excelsior!</i></p>
+								</div>
+
+								<!-- some social links to show off -->
+								<div class="profile-social-links">
+									<button type="button" class="btn-text" onclick="javascript:void(0);">
+										GitHub <i class="btn-icon fab fa-github"></i>
+									</button>
+								</div>
+							</aside>
+						</div>
+						<div class="team-column">
+							<aside class="profile-card">
+								<header>
+									<!-- here’s the avatar -->
+									<div class="profile-avatar">
+										<img src="./assets/images/il-team/Davide_COLOR.jpg" alt="Davide De Salvo" />
+									</div>
+									<!-- the username -->
+									<h3>Davide De Salvo</h3>
+									<!-- and role or location -->
+									<h4>Better Visuals</h4>
+								</header>
+
+								<!-- bit of a bio; who are you? -->
+								<div class="profile-bio">
+									<p><i>Excelsior!</i></p>
+								</div>
+
+								<!-- some social links to show off -->
+								<div class="profile-social-links">
+									<button type="button" class="btn-text" onclick="javascript:void(0);">
+										GitHub <i class="btn-icon fab fa-github"></i>
+									</button>
+								</div>
+							</aside>
+						</div>
+						<div class="team-column">
+							<aside class="profile-card">
+								<header>
+									<!-- here’s the avatar -->
+									<div class="profile-avatar">
+										<img src="./assets/images/il-team/Andrea_COLOR.jpg" alt="Andrea Esposito" />
+									</div>
+									<!-- the username -->
+									<h3>Andrea Esposito</h3>
+									<!-- and role or location -->
+									<h4>Better Visuals</h4>
+								</header>
+
+								<!-- bit of a bio; who are you? -->
+								<div class="profile-bio">
+									<p><i>Excelsior!</i></p>
+								</div>
+
+								<!-- some social links to show off -->
+								<div class="profile-social-links">
+									<button type="button" class="btn-text" onclick="javascript:void(0);">
+										GitHub <i class="btn-icon fab fa-github"></i>
+									</button>
+								</div>
+							</aside>
+						</div>
+						<div class="team-column">
+							<aside class="profile-card">
+								<header>
+									<!-- here’s the avatar -->
+									<div class="profile-avatar">
+										<img src="./assets/images/il-team/Graziano_COLOR.jpg"
+											alt="Graziano Montanaro" />
+									</div>
+									<!-- the username -->
+									<h3>Graziano Montanaro</h3>
+									<!-- and role or location -->
+									<h4>Better Visuals</h4>
+								</header>
+
+								<!-- bit of a bio; who are you? -->
+								<div class="profile-bio">
+									<p><i>Excelsior!</i></p>
+								</div>
+
+								<!-- some social links to show off -->
+								<div class="profile-social-links">
+									<button type="button" class="btn-text" onclick="javascript:void(0);">
+										GitHub <i class="btn-icon fab fa-github"></i>
+									</button>
+								</div>
+							</aside>
+						</div>
+						<div class="team-column">
+							<aside class="profile-card">
+								<header>
+									<!-- here’s the avatar -->
+									<div class="profile-avatar">
+										<img src="./assets/images/il-team/Regina_COLOR.jpg" alt="Regina Zaccaria" />
+									</div>
+									<!-- the username -->
+									<h3>Regina Zaccaria</h3>
+									<!-- and role or location -->
+									<h4>Better Visuals</h4>
+								</header>
+
+								<!-- bit of a bio; who are you? -->
+								<div class="profile-bio">
+									<p><i>Excelsior!</i></p>
+								</div>
+
+								<!-- some social links to show off -->
+								<div class="profile-social-links">
+									<button type="button" class="btn-text" onclick="javascript:void(0);">
+										GitHub <i class="btn-icon fab fa-github"></i>
+									</button>
+								</div>
+							</aside>
+						</div>
+					</div>
+					<!-- #endregion -->
 				</section>
 				<section>
 					<h2>Ringraziamenti</h2>
