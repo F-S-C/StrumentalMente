@@ -96,8 +96,12 @@ const remote = require('electron').remote; // Riferimento a Electron
 
 // Imposta tutte le scorciatoie da tastiera più importanti
 (function () {
+	let win = remote.getCurrentWindow();
 	const Mousetrap = require("mousetrap");
+	
 	Mousetrap.bind("esc", showExitDialog);
+
+	Mousetrap.bind("f11", () => { win.setFullScreen(!win.isFullScreen()); });
 
 	// Un piccolo easter egg da parte degli FSC :)!
 	require("mousetrap").bind("up up down down left right left right b a enter", () => {
@@ -112,7 +116,7 @@ const remote = require('electron').remote; // Riferimento a Electron
 			yesReturn: false,
 			no: "Ehm... Ok",
 			noReturn: false,
-			width: 600
+			width: 600,
 		});
 		if (answer)
 			remote.app.quit();
@@ -183,8 +187,6 @@ function openOnKeyboardShortcut(shortcut, content, openAsModal = false) {
 			openModal(content);
 		}
 	});
-
-	Mousetrap.bind("a b c", () => { window.alert("d e f"); });
 }
 
 var shortcutDisabled = false;
