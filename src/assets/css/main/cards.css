@@ -46,8 +46,12 @@
 .card-horizontal .card-content {
 	-webkit-box-flex: 1;
 	flex-grow: 1;
-	padding: 24px;
+	padding: 12px 24px;
 	border-radius: 0 0 2px 2px;
+}
+
+.card-horizontal .card-content p {
+	margin: 0;
 }
 
 .card-horizontal .card-action {
