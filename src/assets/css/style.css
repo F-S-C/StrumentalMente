@@ -12,6 +12,7 @@
 body {
 	overflow: hidden;
 	-webkit-user-select: none;
+	-webkit-font-smoothing: antialiased;
 }
 
 body {
