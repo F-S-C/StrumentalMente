@@ -10,7 +10,7 @@
 /* Regole semplici dell'intera applicazione che non sono classificabili: */
 
 body {
-	overflow: hidden;
+	/* overflow: hidden; */
 	-webkit-user-select: none;
 	-webkit-font-smoothing: antialiased;
 }
