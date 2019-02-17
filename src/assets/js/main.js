@@ -336,3 +336,21 @@ function checkQuiz() {
 	document.activeElement.blur();
 	window.alert("Non ancora implementato!");
 }
+
+function playStopAudio(audioTagId, buttonRef, hasToStop = false) {
+	var audio = document.getElementById(audioTagId);
+	buttonRef.blur();
+	if (audio.paused && !hasToStop) {
+		audio.play();
+		buttonRef.className = buttonRef.className.replace("audio-stopped", "audio-playing");
+	}
+	else {
+		audio.pause();
+		audio.currentTime = 0;
+		buttonRef.className = buttonRef.className.replace("audio-playing", "audio-stopped");
+	}
+
+	audio.addEventListener("ended", () => {
+		playStopAudio(audioTagId, buttonRef, true);
+	});
+}

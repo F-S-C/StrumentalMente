@@ -226,7 +226,7 @@ classi aventi i seguenti stili:
 }
 
 @media only screen and (max-width: 992px) {
-    .buttons-container {
+	.buttons-container {
 		/* 40px è lo spessore dei due padding */
 		width: calc(100% - 25vw - 40px);
 	}
@@ -249,4 +249,13 @@ classi aventi i seguenti stili:
 
 .buttons-container button {
 	width: fit-content;
+}
+
+header .btn-audio {
+	float: right;
+    font-size: 15pt;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    padding: 0;
 }
