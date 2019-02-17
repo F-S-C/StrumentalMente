@@ -255,7 +255,7 @@ classi aventi i seguenti stili:
 
 header .blind-audio-buttons {
 	float: right;
-	width: 92px;
+	width: calc(56px * 2);
 	border: 2px solid var(--main-color);
 	border-radius: 4px;
 }
