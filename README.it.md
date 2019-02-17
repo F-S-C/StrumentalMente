@@ -69,12 +69,11 @@ StrumentalMente
 │   └── src (contiene i sorgenti della documentazione)
 └── src
     └── assets
+        ├── audios (contiene tutti gli audio dell'applicazione)
         ├── css (contiene i file CSS dell'applicazione)
-        ├── media (contiene tutti i media dell'applicazione)
-        │   ├── audios (contiene tutti gli audio dell'applicazione)
-        │   ├── images (contiene tutte le immagini dell'applicazione)
-        │   └── videos (contiene tutti i video dell'applicazione)
-        └── js (contiene tutti i file JavaScript dell'applicazione)
+        ├── images (contiene tutte le immagini dell'applicazione)
+        ├── js (contiene tutti i file JavaScript dell'applicazione)
+        └── videos (contiene tutti i video dell'applicazione)
 ```
 
 ## Copyright e licenze
