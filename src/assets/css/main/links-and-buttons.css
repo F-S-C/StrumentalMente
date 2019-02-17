@@ -251,11 +251,75 @@ classi aventi i seguenti stili:
 	width: fit-content;
 }
 
-header .btn-audio {
+/* Bottoni audio (per non vedenti) */
+
+header .blind-audio-buttons {
 	float: right;
-    font-size: 15pt;
-    border-radius: 50%;
+	width: 92px;
+	border: 2px solid var(--main-color);
+	border-radius: 4px;
+}
+
+header .blind-audio-buttons .btn-audio {
+	float: left;
     width: 56px;
     height: 56px;
-    padding: 0;
+	padding: 0;
+
+	text-transform: uppercase;
+	line-height: 1.5em;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+	outline: none;
+	border: none;
+	font-family: var(--font-text);
+	display: inline-block;
+	border-radius: 4px;
+	background-color: transparent;
+	color: var(--main-color);
+	font-weight: bold;
+	text-decoration: none;
+	text-align: center;
+	transition: background-color .3s;
+}
+
+header .blind-audio-buttons .btn-audio.btn-accessibility {
+	width: calc(56px * 2);
+	font-size: 15pt;
+}
+
+
+header .blind-audio-buttons .btn-audio:hover, header .blind-audio-buttons .btn-audio:focus {
+	background-color: var(--main-color-transparent);
+}
+
+header .blind-audio-buttons .btn-audio:before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	display: block;
+	width: 0;
+	padding-top: 0;
+	border-radius: 100%;
+	/* animazione del click (v. linee guida Material Design) */
+	background-color: var(--main-color-dark-transparent);
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+header .blind-audio-buttons .btn-audio:active:before {
+	width: 120%;
+	padding-top: 120%;
+	transition: width .2s ease-out, padding-top .2s ease-out;
+}
+
+header .blind-audio-buttons .btn-audio:disabled, header .blind-audio-buttons .btn-audio:disabled:hover {
+	color: var(--grey-dark);
+	background-color: transparent;
+	cursor: not-allowed;
 }

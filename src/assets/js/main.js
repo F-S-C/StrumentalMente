@@ -337,20 +337,40 @@ function checkQuiz() {
 	window.alert("Non ancora implementato!");
 }
 
-function playStopAudio(audioTagId, buttonRef, hasToStop = false) {
+/**
+ * Permette di avviare, mettere in pausa o stoppare un audio.
+ * 
+ * @param {String} audioTagId L'ID dell'elemento `<audio>` da controllare
+ * @param {HTMLElement} buttonRef Un riferimento al bottone che richiama questa funzione
+ * @param {String} stopButtonId L'ID del bottone di Stop.
+ */
+function playStopAudio(audioTagId, buttonRef, stopButtonId) {
 	var audio = document.getElementById(audioTagId);
 	buttonRef.blur();
-	if (audio.paused && !hasToStop) {
+
+	buttonRef.className = "btn-audio";
+	document.getElementById(stopButtonId).style.display = "inline-block";
+
+	if (audio.paused) {
+		buttonRef.innerHTML = "<i class=\"fas fa-pause\"></i>";
 		audio.play();
 		buttonRef.className = buttonRef.className.replace("audio-stopped", "audio-playing");
 	}
 	else {
+		buttonRef.innerHTML = "<i class=\"fas fa-play\"></i>";
 		audio.pause();
-		audio.currentTime = 0;
 		buttonRef.className = buttonRef.className.replace("audio-playing", "audio-stopped");
 	}
 
 	audio.addEventListener("ended", () => {
-		playStopAudio(audioTagId, buttonRef, true);
+		buttonRef.innerHTML = "<i class=\"fas fa-play\"></i>";
+		audio.pause();
+		audio.currentTime = 0;
 	});
+
+	document.getElementById(stopButtonId).onclick = () => {
+		buttonRef.innerHTML = "<i class=\"fas fa-play\"></i>";
+		audio.pause();
+		audio.currentTime = 0;
+	};
 }
