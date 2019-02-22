@@ -1,18 +1,17 @@
 /**
  * @file render.js
  * 
- * @abstract Funzioni per il rendering della pagina.
+ * Funzioni per il rendering della pagina.
  * 
- * Questo file contiene alcune funzioni che sono chiamate
- * durante il rendering della pagina. Alcune di queste
- * funzioni sono **essenziali** per il funzionamento
- * dell'applicazione stessa.
+ * E il file principale del _rendering_ dell'applicazione. Contiene tutte
+ * le funzioni da eseguire nel "rendering process" (processo di rendering) di
+ * Electron.
  */
 
 const remote = require('electron').remote; // Riferimento a Electron
 
 /**
- * @abstract Gestisce gli eventi della titlebar.
+ * Gestisce gli eventi della titlebar.
  * 
  * Questa funzione gestisce gli eventi (riduci a icona, massimizza/minimizza,
  * chiudi) che sono acessibili tramite la titlebar.
@@ -98,7 +97,7 @@ const remote = require('electron').remote; // Riferimento a Electron
 (function () {
 	let win = remote.getCurrentWindow();
 	const Mousetrap = require("mousetrap");
-	
+
 	Mousetrap.bind("esc", showExitDialog);
 
 	Mousetrap.bind("f11", () => { win.setFullScreen(!win.isFullScreen()); });

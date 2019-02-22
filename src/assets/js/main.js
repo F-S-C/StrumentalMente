@@ -1,4 +1,11 @@
 /**
+ * @file main.js
+ * 
+ * Contiene tutte le funzioni che servono a dare 
+ * dinamicità alle pagine HTML dell'applicazione. 
+ */
+
+/**
  * Apre la navbar in modalità "mobile". Questa funzione è mantenuta solo per
  * consentire un eventuale eccessivo ridimensionamento della finestra.
  */

@@ -1,3 +1,17 @@
+/**
+ * @file app.js
+ * 
+ * È il file principale dell'applicazione. 
+ * 
+ * Contiene il processo principale ("_main process_") di Electron e gestisce, 
+ * quindi, tutti gli eventi principali di StrumentalMente, tra cui:
+ * - L'apertura dell'applicazione e il \emph{rendering} della prima finestra
+ * - La chiusura dell'applicazione e le relative peculiarità di alcuni sistemi
+ *     operativi (si pensi alla possibilità di ricreare la finestra appena chiusa su MacOS)
+ * - L'apertura di finestre di dialogo
+ * - L'apertura di finestra secondarie 
+ */
+
 const { app, BrowserWindow, ipcMain } = require("electron");
 const JSONStorage = require('node-localstorage').JSONStorage;
 const storageLocation = app.getPath('userData');
