@@ -1,4 +1,8 @@
 {
-    "editor.insertSpaces": false,
-    "editor.detectIndentation": false
+	"editor.insertSpaces": false,
+	"editor.detectIndentation": false,
+	"files.exclude": {
+		"**/node_modules": true, // Hide "node_modules"
+		"**/StrumentalMente-*-x*": true // Hide build directories
+	}
 }
