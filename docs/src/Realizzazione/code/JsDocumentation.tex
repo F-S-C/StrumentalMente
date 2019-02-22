@@ -1,135 +1,125 @@
 \hypertarget{functions}{%
-\subsection{Functions}\label{functions}}
+\section{Functions}\label{functions}}
 
-openChildWindow(pageUrl, {[}windowIcon{]})
-
+\begin{description}
+\item[{ \protect\hyperlink{openChildWindow}{openChildWindow(pageUrl,
+{[}windowIcon{]})} }]
 Apre una finestra ``figlia'' e modale.
-
-createWindow()
-
+\item[{ \protect\hyperlink{createWindow}{createWindow()} }]
 Crea la finestra principale.
-
-promptModal(parentWindow, options, callback)
-
+\item[{ \protect\hyperlink{promptModal}{promptModal(parentWindow,
+options, callback)} }]
 Creazione della finestra di dialogo.
-
-openMobileNavigation()
-
+\item[{ \protect\hyperlink{openMobileNavigation}{openMobileNavigation()}
+}]
 Apre la navbar in modalità ``mobile''. Questa funzione è mantenuta solo
 per consentire un eventuale eccessivo ridimensionamento della finestra.
-
-drop(name, {[}defaultLinkClass{]})
-
+\item[{ \protect\hyperlink{drop}{drop(name, {[}defaultLinkClass{]})} }]
 Permette, alla pressione di un bottone, di aprire una sottolista della
 navbar.
-
-setLinks(links)
-
+\item[{ \protect\hyperlink{setLinks}{setLinks(links)} }]
 Cambia i link e i nomi dell'argomento precedente e quello successivo a
 quello attuale
-
-initialize(initial, base)
-
+\item[{ \protect\hyperlink{initialize}{initialize(initial, base)} }]
 Funzione che, al caricamento della pagina, si occupa di impostare il
 numero di tag section presenti all'interno della pagina nella memoria
 locale del browser, di impostare come sezione visibile corrente la prima
 (sempre all'interno della memoria locale) e di nascondere tutti i tag
 section successivi al primo.
-
-changeTopic(topicName, {[}base{]})
-
+\item[{ \protect\hyperlink{changeTopic}{changeTopic(topicName,
+{[}base{]})} }]
 Cambia l'argomento correntemente mostrato.
-
-initializeQuiz()
-
+\item[{ \protect\hyperlink{initializeQuiz}{initializeQuiz()} }]
 Inizializza la pagina del quiz.
-
-changeQuizSlide(finalSlide)
-
+\item[{ \protect\hyperlink{changeQuizSlide}{changeQuizSlide(finalSlide)}
+}]
 Cambia la slide del quiz attualmente mostrata.
-
-checkQuiz()
-
+\item[{ \protect\hyperlink{checkQuiz}{checkQuiz()} }]
 Calcola i risultati del quiz.
-
-playStopAudio(audioTagId, buttonRef, stopButtonId)
-
+\item[{ \protect\hyperlink{playStopAudio}{playStopAudio(audioTagId,
+buttonRef, stopButtonId)} }]
 Permette di avviare, mettere in pausa o stoppare un audio.
-
-showExitDialog()
-
+\item[{ \protect\hyperlink{showExitDialog}{showExitDialog()} }]
 Mostra il dialogo di richiesta di conferma di uscita.
-
-openInBrowser(link)
-
+\item[{ \protect\hyperlink{openInBrowser}{openInBrowser(link)} }]
 Apre un link nel browser predefinito.
-
-openModal(content, {[}windowIcon{]})
-
+\item[{ \protect\hyperlink{openModal}{openModal(content,
+{[}windowIcon{]})} }]
 Apre una finestra modale mostrante il contenuto richiesto.
-
-openOnKeyboardShortcut(shortcut, content, {[}openAsModal{]})
-
+\item[{
+\protect\hyperlink{openOnKeyboardShortcut}{openOnKeyboardShortcut(shortcut,
+content, {[}openAsModal{]})} }]
 Apre, tramite una shortcut da tastiera, una finestra mostrante il
 contenuto richiesto.
+\end{description}
+
+\protect\hypertarget{openChildWindow}{}{}
 
 \hypertarget{openchildwindowpageurl-windowicon}{%
-\subsection{openChildWindow(pageUrl,
+\section{openChildWindow(pageUrl,
 {[}windowIcon{]})}\label{openchildwindowpageurl-windowicon}}
 
 Apre una finestra ``figlia'' e modale.
 
 \textbf{Kind}: global function
 
-\begin{longtable}[]{@{}llll@{}}
+\begin{longtabu} to \textwidth {X[1,L,m]X[1,L,m]X[1.5,L,m]X[1.5,L,m]}
 \toprule
 Param & Type & Default & Description\tabularnewline
 \midrule
 \endhead
-pageUrl & Strubg & & L'URL della pagina da aprire (assoluto o
+pageUrl & \texttt{String} & & L'URL della pagina da aprire (assoluto o
 relativo)\tabularnewline
-{[}windowIcon{]} & string & ``./assets/icon.ico'' & L'icona della
-finestra.\tabularnewline
+{[}windowIcon{]} & \texttt{String} & \texttt{./assets/icon.ico} &
+L'icona della finestra.\tabularnewline
 \bottomrule
-\end{longtable}
+\end{longtabu}
+
+\protect\hypertarget{createWindow}{}{}
 
 \hypertarget{createwindow}{%
-\subsection{createWindow()}\label{createwindow}}
+\section{createWindow()}\label{createwindow}}
 
 Crea la finestra principale.
 
 \textbf{Kind}: global function\\
+\protect\hypertarget{promptModal}{}{}
 
 \hypertarget{promptmodalparentwindow-options-callback}{%
-\subsection{promptModal(parentWindow, options,
+\section{promptModal(parentWindow, options,
 callback)}\label{promptmodalparentwindow-options-callback}}
 
 Creazione della finestra di dialogo.
 
 \textbf{Kind}: global function
 
-\begin{longtable}[]{@{}lll@{}}
+\begin{longtabu} to \textwidth {X[1,L,m]X[1,L,m]X[1.5,L,m]}
 \toprule
 Param & Type & Description\tabularnewline
 \midrule
 \endhead
-parentWindow & BrowserWindow & La finestra ``genitore''\tabularnewline
-options & Object & Le opzioni della nuova finestra\tabularnewline
-callback & * & La funzione da richiamare alla chiusura della
+parentWindow & \texttt{BrowserWindow} & La finestra
+``genitore''\tabularnewline
+options & \texttt{Object} & Le opzioni della nuova
+finestra\tabularnewline
+callback & \texttt{*} & La funzione da richiamare alla chiusura della
 finestra\tabularnewline
 \bottomrule
-\end{longtable}
+\end{longtabu}
+
+\protect\hypertarget{openMobileNavigation}{}{}
 
 \hypertarget{openmobilenavigation}{%
-\subsection{openMobileNavigation()}\label{openmobilenavigation}}
+\section{openMobileNavigation()}\label{openmobilenavigation}}
 
 Apre la navbar in modalità ``mobile''. Questa funzione è mantenuta solo
 perconsentire un eventuale eccessivo ridimensionamento della finestra.
 
 \textbf{Kind}: global function\\
+\protect\hypertarget{drop}{}{}
 
 \hypertarget{dropname-defaultlinkclass}{%
-\subsection{drop(name,
+\section{drop(name,
 {[}defaultLinkClass{]})}\label{dropname-defaultlinkclass}}
 
 Permette, alla pressione di un bottone, di aprire una sottolistadella
@@ -137,26 +127,29 @@ navbar.
 
 \textbf{Kind}: global function
 
-\begin{longtable}[]{@{}lll@{}}
+\begin{longtabu} to \textwidth {X[1,L,m]X[1,L,m]X[1.5,L,m]}
 \toprule
 Param & Type & Description\tabularnewline
 \midrule
 \endhead
-name & String & L'ID della lista che si vuole controllare\tabularnewline
-{[}defaultLinkClass{]} & String & La classe iniziale del
+name & \texttt{String} & L'ID della lista che si vuole
+controllare\tabularnewline
+{[}defaultLinkClass{]} & \texttt{String} & La classe iniziale del
 bottone\tabularnewline
 \bottomrule
-\end{longtable}
+\end{longtabu}
+
+\protect\hypertarget{setLinks}{}{}
 
 \hypertarget{setlinkslinks}{%
-\subsection{setLinks(links)}\label{setlinkslinks}}
+\section{setLinks(links)}\label{setlinkslinks}}
 
 Cambia i link e i nomi dell'argomento precedente e quello successivoa
 quello attuale
 
 \textbf{Kind}: global function
 
-\begin{longtable}[]{@{}lll@{}}
+\begin{longtabu} to \textwidth {X[1,L,m]X[1,L,m]X[1.5,L,m]}
 \toprule
 \begin{minipage}[b]{0.30\columnwidth}\raggedright
 Param\strut
@@ -170,21 +163,21 @@ Description\strut
 \begin{minipage}[t]{0.30\columnwidth}\raggedright
 links\strut
 \end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Object\strut
+\texttt{Object}\strut
 \end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
 Le nuove impostazioni e link\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.30\columnwidth}\raggedright
 links.previous\strut
 \end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-String\strut
+\texttt{String}\strut
 \end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
 Il nome della pagina precedente\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.30\columnwidth}\raggedright
 links.previousLink\strut
 \end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-String\strut
+\texttt{String}\strut
 \end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
 Il link della pagina precedente (il nome del file \emph{senza}
 l'estensione)\strut
@@ -192,23 +185,25 @@ l'estensione)\strut
 \begin{minipage}[t]{0.30\columnwidth}\raggedright
 links.next\strut
 \end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-String\strut
+\texttt{String}\strut
 \end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
 Il nome della pagina successiva\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.30\columnwidth}\raggedright
 links.nextLink\strut
 \end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-String\strut
+\texttt{String}\strut
 \end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
 Il link della pagina successiva (il nome del file \emph{senza}
 l'estensione)\strut
 \end{minipage}\tabularnewline
 \bottomrule
-\end{longtable}
+\end{longtabu}
+
+\protect\hypertarget{initialize}{}{}
 
 \hypertarget{initializeinitial-base}{%
-\subsection{initialize(initial, base)}\label{initializeinitial-base}}
+\section{initialize(initial, base)}\label{initializeinitial-base}}
 
 Funzione che, al caricamento della pagina, si occupa di impostare il
 numero di tag section presenti all'interno della pagina nella memoria
@@ -218,7 +213,7 @@ section successivi al primo.
 
 \textbf{Kind}: global function
 
-\begin{longtable}[]{@{}llll@{}}
+\begin{longtabu} to \textwidth {X[1,L,m]X[1,L,m]X[1.5,L,m]X[1.5,L,m]}
 \toprule
 \begin{minipage}[b]{0.22\columnwidth}\raggedright
 Param\strut
@@ -234,7 +229,7 @@ Description\strut
 \begin{minipage}[t]{0.22\columnwidth}\raggedright
 initial\strut
 \end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
-String\strut
+\texttt{String}\strut
 \end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
 \strut
 \end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
@@ -243,18 +238,20 @@ Il primo argomento\strut
 \begin{minipage}[t]{0.22\columnwidth}\raggedright
 base\strut
 \end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
-String\strut
+\texttt{String}\strut
 \end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
-./\strut
+\texttt{./}\strut
 \end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
 La cartella in cui sono situati i file degli argomenti (default:
 \texttt{./})\strut
 \end{minipage}\tabularnewline
 \bottomrule
-\end{longtable}
+\end{longtabu}
+
+\protect\hypertarget{initialize..changeSlide}{}{}
 
 \hypertarget{initializechangeslideslide}{%
-\subsubsection{initialize\textasciitilde{}changeSlide(slide)}\label{initializechangeslideslide}}
+\subsection{initialize\textasciitilde{}changeSlide(slide)}\label{initializechangeslideslide}}
 
 La funzione, in base al valore assunto da slide (true/false) cambia la
 sezione corrente in quella precedente (in caso di slide = false)o in
@@ -265,9 +262,9 @@ renderevisibili (o nascondere) i relativi pulsanti di spostamento(avanti
 con id next, indietro con id back e quiz con id quiz).
 
 \textbf{Kind}: inner method of
-\protect\hyperlink{initialize}{initialize}
+\protect\hyperlink{initialize}{\texttt{initialize}}
 
-\begin{longtable}[]{@{}lll@{}}
+\begin{longtabu} to \textwidth {X[1,L,m]X[1,L,m]X[1.5,L,m]}
 \toprule
 \begin{minipage}[b]{0.30\columnwidth}\raggedright
 Param\strut
@@ -281,48 +278,53 @@ Description\strut
 \begin{minipage}[t]{0.30\columnwidth}\raggedright
 slide\strut
 \end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-boolean\strut
+\texttt{boolean}\strut
 \end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
 se è \texttt{true}, avanza di una slide, altrimenti indietreggia di una
 slide.\strut
 \end{minipage}\tabularnewline
 \bottomrule
-\end{longtable}
+\end{longtabu}
+
+\protect\hypertarget{changeTopic}{}{}
 
 \hypertarget{changetopictopicname-base}{%
-\subsection{changeTopic(topicName,
+\section{changeTopic(topicName,
 {[}base{]})}\label{changetopictopicname-base}}
 
 Cambia l'argomento correntemente mostrato.
 
 \textbf{Kind}: global function
 
-\begin{longtable}[]{@{}llll@{}}
+\begin{longtabu} to \textwidth {X[1,L,m]X[1,L,m]X[1.5,L,m]X[1.5,L,m]}
 \toprule
 Param & Type & Default & Description\tabularnewline
 \midrule
 \endhead
-topicName & String & & Il prossimo argomento\tabularnewline
-{[}base{]} & String & ./ & La cartella in cui è situato il file
-dell'argomento\tabularnewline
+topicName & \texttt{String} & & Il prossimo argomento\tabularnewline
+{[}base{]} & \texttt{String} & \texttt{./} & La cartella in cui è
+situato il file dell'argomento\tabularnewline
 \bottomrule
-\end{longtable}
+\end{longtabu}
+
+\protect\hypertarget{initializeQuiz}{}{}
 
 \hypertarget{initializequiz}{%
-\subsection{initializeQuiz()}\label{initializequiz}}
+\section{initializeQuiz()}\label{initializequiz}}
 
 Inizializza la pagina del quiz.
 
 \textbf{Kind}: global function\\
+\protect\hypertarget{changeQuizSlide}{}{}
 
 \hypertarget{changequizslidefinalslide}{%
-\subsection{changeQuizSlide(finalSlide)}\label{changequizslidefinalslide}}
+\section{changeQuizSlide(finalSlide)}\label{changequizslidefinalslide}}
 
 Cambia la slide del quiz attualmente mostrata.
 
 \textbf{Kind}: global function
 
-\begin{longtable}[]{@{}lll@{}}
+\begin{longtabu} to \textwidth {X[1,L,m]X[1,L,m]X[1.5,L,m]}
 \toprule
 \begin{minipage}[b]{0.30\columnwidth}\raggedright
 Param\strut
@@ -336,31 +338,34 @@ Description\strut
 \begin{minipage}[t]{0.30\columnwidth}\raggedright
 finalSlide\strut
 \end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-number\strut
+\texttt{number}\strut
 \end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
 La slide da aprire in seguito alla richiesta di variazione della slide.
 Tale valore deve essere compreso nell'intervallo \texttt{{[}0,\ n{]}},
 dove \texttt{n} è il numero di slide presenti nella pagina.\strut
 \end{minipage}\tabularnewline
 \bottomrule
-\end{longtable}
+\end{longtabu}
+
+\protect\hypertarget{checkQuiz}{}{}
 
 \hypertarget{checkquiz}{%
-\subsection{checkQuiz()}\label{checkquiz}}
+\section{checkQuiz()}\label{checkquiz}}
 
 Calcola i risultati del quiz.
 
 \textbf{Kind}: global function\\
+\protect\hypertarget{playStopAudio}{}{}
 
 \hypertarget{playstopaudioaudiotagid-buttonref-stopbuttonid}{%
-\subsection{playStopAudio(audioTagId, buttonRef,
+\section{playStopAudio(audioTagId, buttonRef,
 stopButtonId)}\label{playstopaudioaudiotagid-buttonref-stopbuttonid}}
 
 Permette di avviare, mettere in pausa o stoppare un audio.
 
 \textbf{Kind}: global function
 
-\begin{longtable}[]{@{}lll@{}}
+\begin{longtabu} to \textwidth {X[1,L,m]X[1,L,m]X[1.5,L,m]}
 \toprule
 \begin{minipage}[b]{0.30\columnwidth}\raggedright
 Param\strut
@@ -374,7 +379,7 @@ Description\strut
 \begin{minipage}[t]{0.30\columnwidth}\raggedright
 audioTagId\strut
 \end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-String\strut
+\texttt{String}\strut
 \end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
 L'ID dell'elemento \texttt{\textless{}audio\textgreater{}} da
 controllare\strut
@@ -382,65 +387,72 @@ controllare\strut
 \begin{minipage}[t]{0.30\columnwidth}\raggedright
 buttonRef\strut
 \end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-HTMLElement\strut
+\texttt{HTMLElement}\strut
 \end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
 Un riferimento al bottone che richiama questa funzione\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.30\columnwidth}\raggedright
 stopButtonId\strut
 \end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-String\strut
+\texttt{String}\strut
 \end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
 L'ID del bottone di Stop.\strut
 \end{minipage}\tabularnewline
 \bottomrule
-\end{longtable}
+\end{longtabu}
+
+\protect\hypertarget{showExitDialog}{}{}
 
 \hypertarget{showexitdialog}{%
-\subsection{showExitDialog()}\label{showexitdialog}}
+\section{showExitDialog()}\label{showexitdialog}}
 
 Mostra il dialogo di richiesta di conferma di uscita.
 
 \textbf{Kind}: global function\\
+\protect\hypertarget{openInBrowser}{}{}
 
 \hypertarget{openinbrowserlink}{%
-\subsection{openInBrowser(link)}\label{openinbrowserlink}}
+\section{openInBrowser(link)}\label{openinbrowserlink}}
 
 Apre un link nel browser predefinito.
 
 \textbf{Kind}: global function
 
-\begin{longtable}[]{@{}lll@{}}
+\begin{longtabu} to \textwidth {X[1,L,m]X[1,L,m]X[1.5,L,m]}
 \toprule
 Param & Type & Description\tabularnewline
 \midrule
 \endhead
-link & String & Il link da aprire\tabularnewline
+link & \texttt{String} & Il link da aprire\tabularnewline
 \bottomrule
-\end{longtable}
+\end{longtabu}
+
+\protect\hypertarget{openModal}{}{}
 
 \hypertarget{openmodalcontent-windowicon}{%
-\subsection{openModal(content,
+\section{openModal(content,
 {[}windowIcon{]})}\label{openmodalcontent-windowicon}}
 
 Apre una finestra modale mostrante il contenuto richiesto.
 
 \textbf{Kind}: global function
 
-\begin{longtable}[]{@{}llll@{}}
+\begin{longtabu} to \textwidth {X[1,L,m]X[1,L,m]X[1.5,L,m]X[1.5,L,m]}
 \toprule
 Param & Type & Default & Description\tabularnewline
 \midrule
 \endhead
-content & String & & Il link (assoluto o relativo) da
+content & \texttt{String} & & Il link (assoluto o relativo) da
 aprire\tabularnewline
-{[}windowIcon{]} & String & ./assets/icon.ico & L'icona della finestra
-modale\tabularnewline
+{[}windowIcon{]} & \texttt{String} & \texttt{./assets/icon.ico} &
+L'icona della finestra modale\tabularnewline
 \bottomrule
-\end{longtable}
+\end{longtabu}
+
+\protect\hypertarget{openOnKeyboardShortcut}{}{}
 
 \hypertarget{openonkeyboardshortcutshortcut-content-openasmodal}{%
-\subsection{openOnKeyboardShortcut(shortcut, content,
+\section{openOnKeyboardShortcut(shortcut, content,
 {[}openAsModal{]})}\label{openonkeyboardshortcutshortcut-content-openasmodal}}
 
 Apre, tramite una shortcut da tastiera,una finestra mostrante il
@@ -448,7 +460,7 @@ contenuto richiesto.
 
 \textbf{Kind}: global function
 
-\begin{longtable}[]{@{}llll@{}}
+\begin{longtabu} to \textwidth {X[1,L,m]X[1,L,m]X[1.5,L,m]X[1.5,L,m]}
 \toprule
 \begin{minipage}[b]{0.22\columnwidth}\raggedright
 Param\strut
@@ -464,7 +476,7 @@ Description\strut
 \begin{minipage}[t]{0.22\columnwidth}\raggedright
 shortcut\strut
 \end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
-String\strut
+\texttt{String}\strut
 \end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
 \strut
 \end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
@@ -473,7 +485,7 @@ La shortcut da utilizzare\strut
 \begin{minipage}[t]{0.22\columnwidth}\raggedright
 content\strut
 \end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
-String\strut
+\texttt{String}\strut
 \end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
 \strut
 \end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
@@ -482,506 +494,12 @@ Il link (assoluto o relativo) da aprire\strut
 \begin{minipage}[t]{0.22\columnwidth}\raggedright
 {[}openAsModal{]}\strut
 \end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
-boolean\strut
+\texttt{boolean}\strut
 \end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
-false\strut
-\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
-Se è \texttt{true}, la finestra sarà aperta come modale, altrimenti sarà
-aperta nella stessa finestra.\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
-
-\hypertarget{functions-1}{%
-\subsection{Functions}\label{functions-1}}
-
-openChildWindow(pageUrl, {[}windowIcon{]})
-
-Apre una finestra ``figlia'' e modale.
-
-createWindow()
-
-Crea la finestra principale.
-
-promptModal(parentWindow, options, callback)
-
-Creazione della finestra di dialogo.
-
-openMobileNavigation()
-
-Apre la navbar in modalità ``mobile''. Questa funzione è mantenuta solo
-per consentire un eventuale eccessivo ridimensionamento della finestra.
-
-drop(name, {[}defaultLinkClass{]})
-
-Permette, alla pressione di un bottone, di aprire una sottolista della
-navbar.
-
-setLinks(links)
-
-Cambia i link e i nomi dell'argomento precedente e quello successivo a
-quello attuale
-
-initialize(initial, base)
-
-Funzione che, al caricamento della pagina, si occupa di impostare il
-numero di tag section presenti all'interno della pagina nella memoria
-locale del browser, di impostare come sezione visibile corrente la prima
-(sempre all'interno della memoria locale) e di nascondere tutti i tag
-section successivi al primo.
-
-changeTopic(topicName, {[}base{]})
-
-Cambia l'argomento correntemente mostrato.
-
-initializeQuiz()
-
-Inizializza la pagina del quiz.
-
-changeQuizSlide(finalSlide)
-
-Cambia la slide del quiz attualmente mostrata.
-
-checkQuiz()
-
-Calcola i risultati del quiz.
-
-playStopAudio(audioTagId, buttonRef, stopButtonId)
-
-Permette di avviare, mettere in pausa o stoppare un audio.
-
-showExitDialog()
-
-Mostra il dialogo di richiesta di conferma di uscita.
-
-openInBrowser(link)
-
-Apre un link nel browser predefinito.
-
-openModal(content, {[}windowIcon{]})
-
-Apre una finestra modale mostrante il contenuto richiesto.
-
-openOnKeyboardShortcut(shortcut, content, {[}openAsModal{]})
-
-Apre, tramite una shortcut da tastiera, una finestra mostrante il
-contenuto richiesto.
-
-\hypertarget{openchildwindowpageurl-windowicon-1}{%
-\subsection{openChildWindow(pageUrl,
-{[}windowIcon{]})}\label{openchildwindowpageurl-windowicon-1}}
-
-Apre una finestra ``figlia'' e modale.
-
-\textbf{Kind}: global function
-
-\begin{longtable}[]{@{}llll@{}}
-\toprule
-Param & Type & Default & Description\tabularnewline
-\midrule
-\endhead
-pageUrl & Strubg & & L'URL della pagina da aprire (assoluto o
-relativo)\tabularnewline
-{[}windowIcon{]} & string & ``./assets/icon.ico'' & L'icona della
-finestra.\tabularnewline
-\bottomrule
-\end{longtable}
-
-\hypertarget{createwindow-1}{%
-\subsection{createWindow()}\label{createwindow-1}}
-
-Crea la finestra principale.
-
-\textbf{Kind}: global function\\
-
-\hypertarget{promptmodalparentwindow-options-callback-1}{%
-\subsection{promptModal(parentWindow, options,
-callback)}\label{promptmodalparentwindow-options-callback-1}}
-
-Creazione della finestra di dialogo.
-
-\textbf{Kind}: global function
-
-\begin{longtable}[]{@{}lll@{}}
-\toprule
-Param & Type & Description\tabularnewline
-\midrule
-\endhead
-parentWindow & BrowserWindow & La finestra ``genitore''\tabularnewline
-options & Object & Le opzioni della nuova finestra\tabularnewline
-callback & * & La funzione da richiamare alla chiusura della
-finestra\tabularnewline
-\bottomrule
-\end{longtable}
-
-\hypertarget{openmobilenavigation-1}{%
-\subsection{openMobileNavigation()}\label{openmobilenavigation-1}}
-
-Apre la navbar in modalità ``mobile''. Questa funzione è mantenuta solo
-perconsentire un eventuale eccessivo ridimensionamento della finestra.
-
-\textbf{Kind}: global function\\
-
-\hypertarget{dropname-defaultlinkclass-1}{%
-\subsection{drop(name,
-{[}defaultLinkClass{]})}\label{dropname-defaultlinkclass-1}}
-
-Permette, alla pressione di un bottone, di aprire una sottolistadella
-navbar.
-
-\textbf{Kind}: global function
-
-\begin{longtable}[]{@{}lll@{}}
-\toprule
-Param & Type & Description\tabularnewline
-\midrule
-\endhead
-name & String & L'ID della lista che si vuole controllare\tabularnewline
-{[}defaultLinkClass{]} & String & La classe iniziale del
-bottone\tabularnewline
-\bottomrule
-\end{longtable}
-
-\hypertarget{setlinkslinks-1}{%
-\subsection{setLinks(links)}\label{setlinkslinks-1}}
-
-Cambia i link e i nomi dell'argomento precedente e quello successivoa
-quello attuale
-
-\textbf{Kind}: global function
-
-\begin{longtable}[]{@{}lll@{}}
-\toprule
-\begin{minipage}[b]{0.30\columnwidth}\raggedright
-Param\strut
-\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
-Type\strut
-\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
-Description\strut
-\end{minipage}\tabularnewline
-\midrule
-\endhead
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-links\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Object\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Le nuove impostazioni e link\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-links.previous\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-String\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Il nome della pagina precedente\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-links.previousLink\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-String\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Il link della pagina precedente (il nome del file \emph{senza}
-l'estensione)\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-links.next\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-String\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Il nome della pagina successiva\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-links.nextLink\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-String\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Il link della pagina successiva (il nome del file \emph{senza}
-l'estensione)\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
-
-\hypertarget{initializeinitial-base-1}{%
-\subsection{initialize(initial, base)}\label{initializeinitial-base-1}}
-
-Funzione che, al caricamento della pagina, si occupa di impostare il
-numero di tag section presenti all'interno della pagina nella memoria
-locale del browser, diimpostare come sezione visibile corrente la prima
-(sempre all'interno della memoria locale)e di nascondere tutti i tag
-section successivi al primo.
-
-\textbf{Kind}: global function
-
-\begin{longtable}[]{@{}llll@{}}
-\toprule
-\begin{minipage}[b]{0.22\columnwidth}\raggedright
-Param\strut
-\end{minipage} & \begin{minipage}[b]{0.22\columnwidth}\raggedright
-Type\strut
-\end{minipage} & \begin{minipage}[b]{0.22\columnwidth}\raggedright
-Default\strut
-\end{minipage} & \begin{minipage}[b]{0.22\columnwidth}\raggedright
-Description\strut
-\end{minipage}\tabularnewline
-\midrule
-\endhead
-\begin{minipage}[t]{0.22\columnwidth}\raggedright
-initial\strut
-\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
-String\strut
-\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
-Il primo argomento\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.22\columnwidth}\raggedright
-base\strut
-\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
-String\strut
-\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
-./\strut
-\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
-La cartella in cui sono situati i file degli argomenti (default:
-\texttt{./})\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
-
-\hypertarget{initializechangeslideslide-1}{%
-\subsubsection{initialize\textasciitilde{}changeSlide(slide)}\label{initializechangeslideslide-1}}
-
-La funzione, in base al valore assunto da slide (true/false) cambia la
-sezione corrente in quella precedente (in caso di slide = false)o in
-quella successiva (in caso di slide = true). Inoltre si occupa di
-aggiornare il numero della slide corrente nella memoria temporaneadel
-browser. Inoltre, in base al numero di slide, si occupa di
-renderevisibili (o nascondere) i relativi pulsanti di spostamento(avanti
-con id next, indietro con id back e quiz con id quiz).
-
-\textbf{Kind}: inner method of
-\protect\hyperlink{initialize}{initialize}
-
-\begin{longtable}[]{@{}lll@{}}
-\toprule
-\begin{minipage}[b]{0.30\columnwidth}\raggedright
-Param\strut
-\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
-Type\strut
-\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
-Description\strut
-\end{minipage}\tabularnewline
-\midrule
-\endhead
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-slide\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-boolean\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-se è \texttt{true}, avanza di una slide, altrimenti indietreggia di una
-slide.\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
-
-\hypertarget{changetopictopicname-base-1}{%
-\subsection{changeTopic(topicName,
-{[}base{]})}\label{changetopictopicname-base-1}}
-
-Cambia l'argomento correntemente mostrato.
-
-\textbf{Kind}: global function
-
-\begin{longtable}[]{@{}llll@{}}
-\toprule
-Param & Type & Default & Description\tabularnewline
-\midrule
-\endhead
-topicName & String & & Il prossimo argomento\tabularnewline
-{[}base{]} & String & ./ & La cartella in cui è situato il file
-dell'argomento\tabularnewline
-\bottomrule
-\end{longtable}
-
-\hypertarget{initializequiz-1}{%
-\subsection{initializeQuiz()}\label{initializequiz-1}}
-
-Inizializza la pagina del quiz.
-
-\textbf{Kind}: global function\\
-
-\hypertarget{changequizslidefinalslide-1}{%
-\subsection{changeQuizSlide(finalSlide)}\label{changequizslidefinalslide-1}}
-
-Cambia la slide del quiz attualmente mostrata.
-
-\textbf{Kind}: global function
-
-\begin{longtable}[]{@{}lll@{}}
-\toprule
-\begin{minipage}[b]{0.30\columnwidth}\raggedright
-Param\strut
-\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
-Type\strut
-\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
-Description\strut
-\end{minipage}\tabularnewline
-\midrule
-\endhead
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-finalSlide\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-number\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-La slide da aprire in seguito alla richiesta di variazione della slide.
-Tale valore deve essere compreso nell'intervallo \texttt{{[}0,\ n{]}},
-dove \texttt{n} è il numero di slide presenti nella pagina.\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
-
-\hypertarget{checkquiz-1}{%
-\subsection{checkQuiz()}\label{checkquiz-1}}
-
-Calcola i risultati del quiz.
-
-\textbf{Kind}: global function\\
-
-\hypertarget{playstopaudioaudiotagid-buttonref-stopbuttonid-1}{%
-\subsection{playStopAudio(audioTagId, buttonRef,
-stopButtonId)}\label{playstopaudioaudiotagid-buttonref-stopbuttonid-1}}
-
-Permette di avviare, mettere in pausa o stoppare un audio.
-
-\textbf{Kind}: global function
-
-\begin{longtable}[]{@{}lll@{}}
-\toprule
-\begin{minipage}[b]{0.30\columnwidth}\raggedright
-Param\strut
-\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
-Type\strut
-\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
-Description\strut
-\end{minipage}\tabularnewline
-\midrule
-\endhead
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-audioTagId\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-String\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-L'ID dell'elemento \texttt{\textless{}audio\textgreater{}} da
-controllare\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-buttonRef\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-HTMLElement\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Un riferimento al bottone che richiama questa funzione\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-stopButtonId\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-String\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-L'ID del bottone di Stop.\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
-
-\hypertarget{showexitdialog-1}{%
-\subsection{showExitDialog()}\label{showexitdialog-1}}
-
-Mostra il dialogo di richiesta di conferma di uscita.
-
-\textbf{Kind}: global function\\
-
-\hypertarget{openinbrowserlink-1}{%
-\subsection{openInBrowser(link)}\label{openinbrowserlink-1}}
-
-Apre un link nel browser predefinito.
-
-\textbf{Kind}: global function
-
-\begin{longtable}[]{@{}lll@{}}
-\toprule
-Param & Type & Description\tabularnewline
-\midrule
-\endhead
-link & String & Il link da aprire\tabularnewline
-\bottomrule
-\end{longtable}
-
-\hypertarget{openmodalcontent-windowicon-1}{%
-\subsection{openModal(content,
-{[}windowIcon{]})}\label{openmodalcontent-windowicon-1}}
-
-Apre una finestra modale mostrante il contenuto richiesto.
-
-\textbf{Kind}: global function
-
-\begin{longtable}[]{@{}llll@{}}
-\toprule
-Param & Type & Default & Description\tabularnewline
-\midrule
-\endhead
-content & String & & Il link (assoluto o relativo) da
-aprire\tabularnewline
-{[}windowIcon{]} & String & ./assets/icon.ico & L'icona della finestra
-modale\tabularnewline
-\bottomrule
-\end{longtable}
-
-\hypertarget{openonkeyboardshortcutshortcut-content-openasmodal-1}{%
-\subsection{openOnKeyboardShortcut(shortcut, content,
-{[}openAsModal{]})}\label{openonkeyboardshortcutshortcut-content-openasmodal-1}}
-
-Apre, tramite una shortcut da tastiera,una finestra mostrante il
-contenuto richiesto.
-
-\textbf{Kind}: global function
-
-\begin{longtable}[]{@{}llll@{}}
-\toprule
-\begin{minipage}[b]{0.22\columnwidth}\raggedright
-Param\strut
-\end{minipage} & \begin{minipage}[b]{0.22\columnwidth}\raggedright
-Type\strut
-\end{minipage} & \begin{minipage}[b]{0.22\columnwidth}\raggedright
-Default\strut
-\end{minipage} & \begin{minipage}[b]{0.22\columnwidth}\raggedright
-Description\strut
-\end{minipage}\tabularnewline
-\midrule
-\endhead
-\begin{minipage}[t]{0.22\columnwidth}\raggedright
-shortcut\strut
-\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
-String\strut
-\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
-La shortcut da utilizzare\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.22\columnwidth}\raggedright
-content\strut
-\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
-String\strut
-\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
-Il link (assoluto o relativo) da aprire\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.22\columnwidth}\raggedright
-{[}openAsModal{]}\strut
-\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
-boolean\strut
-\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
-false\strut
+\texttt{false}\strut
 \end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
 Se è \texttt{true}, la finestra sarà aperta come modale, altrimenti sarà
 aperta nella stessa finestra.\strut
 \end{minipage}\tabularnewline
 \bottomrule
-\end{longtable}
+\end{longtabu}

@@ -22,8 +22,8 @@ let win = null;
 /**
  * Apre una finestra "figlia" e modale.
  * 
- * @param {Strubg} pageUrl L'URL della pagina da aprire (assoluto o relativo)
- * @param {string} [windowIcon] L'icona della finestra.
+ * @param {String} pageUrl L'URL della pagina da aprire (assoluto o relativo)
+ * @param {String} [windowIcon] L'icona della finestra.
  */
 function openChildWindow(pageUrl, windowIcon = "./assets/icon.ico") {
 	child = new BrowserWindow({ width: 800, height: 600, parent: win, modal: true, icon: windowIcon, frame: false });

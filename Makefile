@@ -20,5 +20,8 @@ docs: jsdoc
 
 jsdoc:
 	if not exist ".\docs\src\Realizzazione\code" mkdir .\docs\src\Realizzazione\code
-	jsdoc2md .\src\app.js .\src\assets\js\main.js .\src\assets\js\render.js >> .\docs\src\Realizzazione\code\JsDocumentation.md
-	cd .\docs\src\Realizzazione\code && pandoc JsDocumentation.md -f markdown -t latex -o JsDocumentation.tex
+	jsdoc2md .\src\app.js .\src\assets\js\main.js .\src\assets\js\render.js -d 1 > .\docs\src\Realizzazione\code\JsDocumentation.md
+	cd .\docs\src\Realizzazione\code && pandoc JsDocumentation.md -f markdown -t html -o JsDocumentation.html
+	cd .\docs\src\Realizzazione\code && pandoc JsDocumentation.html -f html -t latex -o JsDocumentation.tex
+	cd .\docs\src\Realizzazione\code && del JsDocumentation.html
+	python generate-documentation.py --src docs\src --dest docs --jsdoc
