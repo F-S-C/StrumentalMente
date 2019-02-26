@@ -25,3 +25,6 @@ jsdoc:
 	cd .\docs\src\Realizzazione\code && pandoc JsDocumentation.html -f html -t latex -o JsDocumentation.tex
 	cd .\docs\src\Realizzazione\code && del JsDocumentation.html
 	python generate-documentation.py --src docs\src --dest docs --jsdoc
+
+bib2html:
+	python generate-documentation.py --src docs\src --dest docs --bib

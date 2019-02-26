@@ -28,6 +28,7 @@
 
 		.team-row .team-column {
 			padding: 4px;
+			height: 100%;
 		}
 
 		.team-row :nth-child(1).team-column {
@@ -51,9 +52,11 @@
 		}
 
 		.profile-card {
+			display: flex;
+			flex-direction: column;
 			overflow: hidden;
 			width: 100%;
-			height: 440px;
+			height: 100%;
 			background: #FFFFFF;
 			border-radius: 4px;
 			box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16), 0px 3px 6px rgba(0, 0, 0, 0.23);
@@ -110,7 +113,16 @@
 
 		.profile-card .profile-bio {
 			text-align: center;
-			padding: 15px 20px 30px 20px;
+			font-size: 13px;
+			padding: 15px 20px;
+			flex: 1 0 auto;
+		}
+
+		.profile-card .profile-bio>ul {
+			list-style-type: disc;
+			list-style-position: inside;
+			margin: 0;
+			padding-left: 0;
 		}
 
 		.profile-card .profile-social-links {
@@ -133,6 +145,19 @@
 
 		.profile-card .profile-social-links li a {
 			color: var(--main-color);
+		}
+
+		ol.bibliography {
+			counter-reset: bib-counter;
+			list-style-type: none;
+		}
+
+		ol.bibliography li {
+			counter-increment: bib-counter;
+		}
+
+		ol.bibliography li::before {
+			content: "["counter(bib-counter) "] ";
 		}
 	</style>
 </head>
@@ -183,7 +208,7 @@
 						dell'Università degli Studi di Bari (Anno Accademico <time datetime="2018">2018</time>/<time
 							datetime="2019">19</time>).</p>
 					<h3>Il team</h3>
-					<!-- #region Team-->
+					<!-- #region Team -->
 					<div class="team-row">
 						<div class="team-column">
 							<aside class="profile-card">
@@ -193,15 +218,21 @@
 											alt="Alessandro Annese" />
 									</div>
 									<h3>Alessandro Annese</h3>
-									<h4>Better Visuals</h4>
+									<h4>Graphic Designer</h4>
 								</header>
 
 								<div class="profile-bio">
-									<p><i>Excelsior!</i></p>
+									<ul>
+										<li>Esperto di grafica</li>
+										<li>Esperto di multimedialità</li>
+										<li><i>Videomaker</i></li>
+										<li>Sviluppatore</li>
+									</ul>
 								</div>
 
 								<div class="profile-social-links">
-									<button type="button" class="btn-text" onclick="openInBrowser('https://github.com/Ax3lFernus/');">
+									<button type="button" class="btn-text"
+										onclick="openInBrowser('https://github.com/Ax3lFernus/');">
 										GitHub <i class="btn-icon fab fa-github"></i>
 									</button>
 								</div>
@@ -214,15 +245,21 @@
 										<img src="./assets/images/il-team/Davide_COLOR.jpg" alt="Davide De Salvo" />
 									</div>
 									<h3>Davide De Salvo</h3>
-									<h4>Better Visuals</h4>
+									<h4>Musician</h4>
 								</header>
 
 								<div class="profile-bio">
-									<p><i>Excelsior!</i></p>
+									<ul>
+										<li>Esperto del dominio</li>
+										<li><i>Web editor</i></li>
+										<li>Supporto al grafico</li>
+										<li>Sviluppatore</li>
+									</ul>
 								</div>
 
 								<div class="profile-social-links">
-									<button type="button" class="btn-text" onclick="openInBrowser('https://github.com/Davidedes/');">
+									<button type="button" class="btn-text"
+										onclick="openInBrowser('https://github.com/Davidedes/');">
 										GitHub <i class="btn-icon fab fa-github"></i>
 									</button>
 								</div>
@@ -235,15 +272,21 @@
 										<img src="./assets/images/il-team/Andrea_COLOR.jpg" alt="Andrea Esposito" />
 									</div>
 									<h3>Andrea Esposito</h3>
-									<h4>Better Visuals</h4>
+									<h4>Project Manager</h4>
 								</header>
 
 								<div class="profile-bio">
-									<p><i>Excelsior!</i></p>
+									<ul>
+										<li>Referente del <i>team</i></li>
+										<li><i>Technical writer</i></li>
+										<li>Fotografo</li>
+										<li>Sviluppatore</li>
+									</ul>
 								</div>
 
 								<div class="profile-social-links">
-									<button type="button" class="btn-text" onclick="openInBrowser('https://github.com/espositoandrea/');">
+									<button type="button" class="btn-text"
+										onclick="openInBrowser('https://github.com/espositoandrea/');">
 										GitHub <i class="btn-icon fab fa-github"></i>
 									</button>
 								</div>
@@ -257,15 +300,21 @@
 											alt="Graziano Montanaro" />
 									</div>
 									<h3>Graziano Montanaro</h3>
-									<h4>Better Visuals</h4>
+									<h4>Web editor</h4>
 								</header>
 
 								<div class="profile-bio">
-									<p><i>Success is not a shortcut</i></p>
+									<ul>
+										<li><i>Web editor</i></li>
+										<li>Supporto al <i>copywriter</i></li>
+										<li><i>Data entry</i></li>
+										<li>Sviluppatore</li>
+									</ul>
 								</div>
 
 								<div class="profile-social-links">
-									<button type="button" class="btn-text" onclick="openInBrowser('https://github.com/prewarning/');">
+									<button type="button" class="btn-text"
+										onclick="openInBrowser('https://github.com/prewarning/');">
 										GitHub <i class="btn-icon fab fa-github"></i>
 									</button>
 								</div>
@@ -278,15 +327,21 @@
 										<img src="./assets/images/il-team/Regina_COLOR.jpg" alt="Regina Zaccaria" />
 									</div>
 									<h3>Regina Zaccaria</h3>
-									<h4>Better Visuals</h4>
+									<h4>Copywriter</h4>
 								</header>
 
 								<div class="profile-bio">
-									<p><i>Excelsior!</i></p>
+									<ul>
+										<li><i>Copywriter &amp; Ghostwriter</i></li>
+										<li>Gestore dei contenuti</li>
+										<li>Organizzatrice degli eventi</li>
+										<li>Sviluppatrice</li>
+									</ul>
 								</div>
 
 								<div class="profile-social-links">
-									<button type="button" class="btn-text" onclick="openInBrowser('https://github.com/ReginaZaccaria/');">
+									<button type="button" class="btn-text"
+										onclick="openInBrowser('https://github.com/ReginaZaccaria/');">
 										GitHub <i class="btn-icon fab fa-github"></i>
 									</button>
 								</div>
@@ -294,6 +349,10 @@
 						</div>
 					</div>
 					<!-- #endregion -->
+					<p>L'intero <i>team</i> si è occupato di sviluppare parte dell'applicazione e tutte le sue
+						componenti sono, quindi, degli sviluppatori di StrumentalMente. Le posizioni precedentemente
+						presentate sono delle posizioni da affiancare a quelle di sviluppatore (o "<i>developer</i>").
+					</p>
 				</section>
 				<section>
 					<h2>Ringraziamenti</h2>
@@ -304,11 +363,78 @@
 					<h2>Bibliografia</h2>
 					<details id="bibliography">
 						<summary onclick="summaryClicked();">Mostra la bibliografia.</summary>
-						<ol>
-							<li>Elemento della bibliografia 1</li>
-							<li>Elemento della bibliografia 2</li>
-							<li>Elemento della bibliografia 3</li>
+
+						<!-- 
+							ATTENZIONE: 
+							La regione seguente è automaticamente riempita dallo script
+							python "generate-documentation.py". 
+							NON modificare il nome della regione. 
+						-->
+
+						<!-- #region Bibliografia -->
+						<ol class="bibliography">
+
+							<li id="stefanopantaleoni2015">Stefano Pantaleoni.
+								<em>Teoria, analisi e composizione per i licei musicali</em>, volume I,
+								II e III.
+								Liceo Attilio Bertolucci Editore, 2015.
+							</li>
+
+
+							<li id="maurogiuliani1976">Mauro Giuliani.
+								<em>Centoventi arpeggi</em>.
+								Edizioni Suvini Zerboni, 1976.
+							</li>
+
+
+							<li id="juliosagreras2010">Julio Sagreras.
+								<em>Le prime lezioni di chitarra</em>.
+								Edizioni BERBEN, 2010.
+							</li>
+
+
+							<li id="matteocarcassi1998">Matteo Carcassi.
+								<em>25 studi melodici progressivi</em>.
+								Curci, 1998.
+							</li>
+
+
+							<li id="marcoloiodice2019">Marco&nbsp;&ldquo;Pikkolo&rdquo; Loiodice.
+								Corso di musica per tutti... quelli che la amano!
+								[&nbsp;<a
+									href="https://www.inventati.org/rebirth/pikko_landia/corso_di_musica_by_pikkolo.pdf">.pdf</a>&nbsp;]
+							</li>
+
+
+							<li id="alessandrotoschi2012">Alessandro Toschi.
+								Il significato della musica, 03 2012.
+								[&nbsp;<a
+									href="https://alessandrotoschiblog.wordpress.com/2012/03/25/il-significato-della-musica/">http</a>&nbsp;]
+							</li>
+
+
+							<li id="anonimo">Anonimo.
+								Le caratteristiche del suono.
+								[&nbsp;<a
+									href="http://eventi.centrostudicampostrini.it/media/archive/161107-1031-il_suono.pdf">.pdf</a>&nbsp;]
+							</li>
+
+
+							<li id="stefanobusonero">Stefano Busonero.
+								Il valore delle note e delle pause.
+								[&nbsp;<a
+									href="https://www.busonero.it/2015/04-valore-delle-note-e-pause/">http</a>&nbsp;]
+							</li>
+
+
+							<li id="luigirossi1977">Luigi Rossi.
+								<em>Teoria Musicale</em>.
+								Edizioni Carrara, 01 1977.
+							</li>
 						</ol>
+						</ol> <!-- #endregion -->
+
+
 					</details>
 				</section>
 			</article>

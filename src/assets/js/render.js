@@ -153,10 +153,22 @@ function openInBrowser(link) {
  * Apre una finestra modale mostrante il contenuto richiesto.
  * 
  * @param {String} content Il link (assoluto o relativo) da aprire 
- * @param {String} [windowIcon] L'icona della finestra modale 
+ * @param {Object} [options] Le opzioni della nuova finestra
+ * @param {String} [windowIcon] L'icona della finestra modale
  */
-function openModal(content, windowIcon = "./assets/icon.ico") {
-	var win = new remote.BrowserWindow({ width: 1000, height: 800, parent: remote.getCurrentWindow(), modal: true, icon: windowIcon, frame: false });
+function openModal(content, options = {}, windowIcon = "./assets/icon.ico") {
+	var win = new remote.BrowserWindow({
+		width: options.width || 1400,
+		height: options.height || 800,
+		parent: remote.getCurrentWindow(),
+		modal: true,
+		icon: windowIcon,
+		frame: false
+	});
+
+	if (options.isMaximized)
+		win.maximize();
+
 	win.setMenu(null);
 	if (/^(f|ht)tp(s?):\/\//i.test(content))
 		win.loadURL(content);
@@ -206,6 +218,6 @@ window.addEventListener("load", () => {
 		// Mousetrap.bind("alt+s", () => ...);
 		// Mousetrap.bind("alt+s", () => ...);
 		Mousetrap.bind("alt+m", () => { openModal("./map.html"); });
-		Mousetrap.bind("alt+i", () => { openModal("./about.html"); });
+		Mousetrap.bind("alt+i", () => { openModal("./about.html", { isMaximized: true }); });
 	}
 });

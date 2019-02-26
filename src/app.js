@@ -101,10 +101,10 @@ let promptWindow = null;
  * Creazione della finestra di dialogo.
  * 
  * @param {BrowserWindow} parentWindow La finestra "genitore"
- * @param {Object} options Le opzioni della nuova finestra
+ * @param {Object} [options] Le opzioni della nuova finestra
  * @param {*} callback La funzione da richiamare alla chiusura della finestra
  */
-function promptModal(parentWindow, options, callback) {
+function promptModal(parentWindow, options = {}, callback) {
 	promptOptions = options;
 	promptWindow = new BrowserWindow({
 		width: options.width || 400,

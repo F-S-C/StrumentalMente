@@ -26,6 +26,10 @@ body {
 	font-size: 12pt;
 }
 
+details {
+	margin-bottom: 1em;
+}
+
 .scroll {
 	overflow: hidden auto;
 }

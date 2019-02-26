@@ -14,20 +14,54 @@ def removeUselessFile(dir):
             os.remove(os.path.join(dir, item))
             print("eliminato " + item)
 
-def fix_generated_jsdoc():
-	import fileinput
-	filename = "./docs/src/Realizzazione/code/JsDocumentation.tex"
-	file_content = ""
-	with open(filename, "r") as file:
-		content = file.readlines()
-		file_content = "".join(content)
-	
-	file_content = re.sub(r"\\begin{longtable}\[\]\{@\{\}(.*)@\{\}\}((?:.|\n)*?)\\end\{longtable\}", r"\\begin{longtabu} to \\textwidth {\1}\2\\end{longtabu}", file_content)
-	file_content = re.sub(r"\\begin{longtabu} to \\textwidth {lll}", r"\\begin{longtabu} to \\textwidth {X[1,L,m]X[1,L,m]X[1.5,L,m]}", file_content)
-	file_content = re.sub(r"\\begin{longtabu} to \\textwidth {llll}", r"\\begin{longtabu} to \\textwidth {X[1,L,m]X[1,L,m]X[1.5,L,m]X[1.5,L,m]}", file_content)
 
-	with open(filename, "w") as file:
-		file.write(file_content)
+def fix_generated_jsdoc():
+    filename = "./docs/src/Realizzazione/code/JsDocumentation.tex"
+    file_content = ""
+    with open(filename, "r") as file:
+        content = file.readlines()
+        file_content = "".join(content)
+
+    file_content = re.sub(r"\\begin{longtable}\[\]\{@\{\}(.*)@\{\}\}((?:.|\n)*?)\\end\{longtable\}",
+                          r"\\begin{longtabu} to \\textwidth {\1}\2\\end{longtabu}", file_content)
+    file_content = re.sub(r"\\begin{longtabu} to \\textwidth {lll}",
+                          r"\\begin{longtabu} to \\textwidth {X[1,L,m]X[1,L,m]X[1.5,L,m]}", file_content)
+    file_content = re.sub(r"\\begin{longtabu} to \\textwidth {llll}",
+                          r"\\begin{longtabu} to \\textwidth {X[1,L,m]X[1,L,m]X[1.5,L,m]X[1.5,L,m]}", file_content)
+
+    with open(filename, "w") as file:
+        file.write(file_content)
+
+
+def generate_html_bibliography():
+    about_page_file = "./src/about.html"
+    about_content = ""
+    bib_content = ""
+
+    subprocess.run(["bibtex2html", "--nodoc", "--nobibsource",
+                    "--html-entities", "--dl", "docs/src/Progettazione/biblist.bib"])
+
+    with open(about_page_file, "r") as file:
+        content = file.readlines()
+        about_content = "".join(content)
+    with open("./biblist.html", "r") as file:
+        content = file.readlines()
+        bib_content = "".join(content)
+
+    bib_content = re.sub(r'''<dl>((?:.|\n)*?)<\/dl>''',
+                         r'''<ol class="bibliography">\1</ol>\n''', bib_content)
+    bib_content = re.sub(r'''<dt>\n\[<a name="((?:.|\n)*?)">.*?<\/a>\]\n<\/dt>\n<dd>\n((?:.|\n)*?)\n<\/dd>''',
+                         r'''<li id="\1">\2</li>''', bib_content)
+    bib_content = re.sub(r'''(?:.|\n)*?(<ol.*?>(?:.|\n)*?<\/ol>)(?:.|\n)*''',
+                         r'''\1''', bib_content)
+
+    about_content = re.sub(r"(<!\-\-.*?#region Bibliografia.*?-->)(?:.|\n)*?(.*?<!\-\-.*?#endregion.*?\-\->)",
+                           r"\1\n" + bib_content + r"\2\n", about_content)
+
+    with open(about_page_file, "w") as file:
+        file.write(about_content)
+
+    os.remove("./biblist.html")
 
 
 init()
@@ -39,13 +73,21 @@ parser.add_argument(
 parser.add_argument(
     "-d", "--dest", help="La directory in cui saranno memorizzati i file PDF generati. (default: './')", default="./")
 
-parser.add_argument("-j", "--jsdoc", help="Genera solo i file JSDoc", action="store_true", dest="only_jsdoc")
+parser.add_argument("-j", "--jsdoc", help="Genera solo i file JSDoc.",
+                    action="store_true", dest="only_jsdoc")
+
+parser.add_argument("-b", "--bib", help="Aggiorna solo la bibliografia nella pagina 'about'.",
+                                        action="store_true", dest="only_bib")
 
 args = parser.parse_args()
 
 if args.only_jsdoc:
-	fix_generated_jsdoc()
-	exit()
+    fix_generated_jsdoc()
+    exit()
+
+if args.only_bib:
+    generate_html_bibliography()
+    exit()
 
 print(Fore.RED + figlet_format('StrumentalMente:',
                                font='big', width=100) + Style.RESET_ALL)
