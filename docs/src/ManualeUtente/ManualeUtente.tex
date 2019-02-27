@@ -1,0 +1,148 @@
+\documentclass[a4paper,11pt,leqno,openbib,oldfontcommands, twocolumn, openright]{memoir}
+
+\usepackage{datetime}
+\usepackage{palatino}
+\usepackage{fontawesome}
+\usepackage{wrapfig}
+\usepackage{booktabs}
+\usepackage{ifpdf}
+\ifpdf
+\pdfinfo{
+   /Author (FSC)
+   /Title (StrumentalMente - Manuale Utente)
+   /Keywords (StrumentalMente, manuale, utente)
+   /CreationDate (D:\pdfdate)
+}
+\fi
+% When draft option is on. 
+\ifdraftdoc 
+	\usepackage{draftwatermark}
+	\SetWatermarkScale{0.3}
+	\SetWatermarkText{\bf Draft: \today}
+\fi
+
+\newsubfloat{figure}
+\newsubfloat{table}
+
+\usepackage{geometry}
+
+% Better page layout for A4 paper, see memoir manual.
+\settrimmedsize{297mm}{210mm}{*}
+\setlength{\trimtop}{0pt} 
+\setlength{\trimedge}{\stockwidth} 
+\addtolength{\trimedge}{-\paperwidth} 
+\settypeblocksize{634pt}{448.13pt}{*} 
+\setulmarginsandblock{2.5cm}{2.5cm}{*}
+\setlrmarginsandblock{3.5cm}{2.5cm}{*}
+\setmarginnotes{17pt}{51pt}{\onelineskip} 
+\setheadfoot{\onelineskip}{2\onelineskip} 
+\setheaderspaces{*}{2\onelineskip}{*} 
+\checkandfixthelayout
+
+\frenchspacing
+
+\usepackage{fouriernc}
+
+\OnehalfSpacing
+
+\setsecnumdepth{subsection} 
+\maxsecnumdepth{subsubsection}
+
+\makechapterstyle{my}{
+\renewcommand\chapnamefont{\normalfont\Large\scshape\raggedleft}
+\renewcommand\chaptitlefont{\normalfont\huge\bfseries\scshape}
+\renewcommand\chapternamenum{}
+\renewcommand\printchaptername{}
+\renewcommand\printchapternum{\hfill\chaptitlefont\thechapter}
+\renewcommand\afterchapternum{\hspace*{20pt}}
+\renewcommand\printchaptertitle[1]{\chaptitlefont\raggedleft ##1\\\rule{\textwidth}{0.5pt}\par}
+}
+\chapterstyle{my}
+
+\renewcommand*\familydefault{\sfdefault}
+
+\makepagestyle{myvf} 
+\makeoddfoot{myvf}{}{\thepage}{} 
+\makeevenfoot{myvf}{}{\thepage}{} 
+\makeheadrule{myvf}{\textwidth}{\normalrulethickness} 
+\makeevenhead{myvf}{\small\textsc{\leftmark}}{}{} 
+\makeoddhead{myvf}{}{}{\small\textsc{\rightmark}}
+\pagestyle{myvf}
+\makeindex
+\usepackage{import}
+
+% Add other packages needed for chapters here. For example:
+\usepackage{lipsum}					%Needed to create dummy text
+\usepackage{amsfonts} 					%Calls Amer. Math. Soc. (AMS) fonts
+\usepackage[centertags]{amsmath}			%Writes maths centred down
+\usepackage{stmaryrd}					%New AMS symbols
+\usepackage{amssymb}					%Calls AMS symbols
+\usepackage{amsthm}					%Calls AMS theorem environment
+\usepackage{newlfont}					%Helpful package for fonts and symbols
+\usepackage{layouts}					%Layout diagrams
+\usepackage{graphicx}					%Calls figure environment
+\usepackage{longtable,rotating}			%Long tab environments including rotation. 
+\usepackage[utf8]{inputenc}			%Needed to encode non-english characters 
+									%directly for mac
+\usepackage{colortbl}					%Makes coloured tables
+\usepackage{wasysym}					%More math symbols
+\usepackage{mathrsfs}					%Even more math symbols
+\usepackage{float}						%Helps to place figures, tables, etc. 
+\usepackage{verbatim}					%Permits pre-formated text insertion
+\usepackage{upgreek}					%Calls other kind of greek alphabet
+\usepackage{latexsym}					%Extra symbols
+\usepackage[square,numbers,
+		     sort&compress]{natbib}		%Calls bibliography commands 
+\usepackage{url}						%Supports url commands
+% \usepackage{etex}						%eTeXÕs extended support for counters
+% \usepackage{fixltx2e}					%Eliminates some in felicities of the 
+									%original LaTeX kernel
+\usepackage[italian]{babel}		%For languages characters and hyphenation
+\usepackage[dvipsnames]{xcolor}               				%Creates coloured text and background
+\definecolor{mainColor}{HTML}{E55100}
+\usepackage{hyperref}              %Creates hyperlinks in cross references
+\usepackage{memhfixc}					%Must be used on memoir document 
+									%class after hyperref
+\usepackage{enumerate}					%For enumeration counter
+\usepackage{footnote}					%For footnotes
+\usepackage{microtype}					%Makes pdf look better.
+\usepackage{rotfloat}					%For rotating and float environments as tables, 
+									%figures, etc. 
+\usepackage{alltt}						%LaTeX commands are not disabled in 
+									%verbatim-like environment
+\usepackage[version=0.96]{pgf}			%PGF/TikZ is a tandem of languages for producing vector graphics from a 
+\usepackage{tikz}						%geometric/algebraic description.
+\usetikzlibrary{arrows,shapes,snakes,
+		       automata,backgrounds,
+		       petri,topaths}				%To use diverse features from tikz	
+%An initial of the very first character of the content
+\usepackage{lettrine}
+\newcommand{\initial}[1]{%
+	\lettrine[lines=3,lhang=0.33,nindent=0em]{
+		\color{gray}
+     		{\textsc{#1}}}{}}
+
+\begin{document}
+\frontmatter
+\pagenumbering{roman}
+%
+\input{frontmatter/title.tex}
+
+\maxtocdepth{subsection}
+\tableofcontents*
+\cleardoublepage
+% \listoftables
+% \cleardoublepage
+% \listoffigures
+% \cleardoublepage
+
+\import{./}{content.tex}
+% \backmatter
+% \bibliographystyle{siam}
+% \refstepcounter{chapter}
+% \bibliography{thesisbiblio}
+% \cleardoublepage
+% % Add index
+% %\printindex
+  
+\end{document}

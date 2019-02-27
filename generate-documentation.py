@@ -108,7 +108,7 @@ if not os.path.exists(args.dest):
     os.makedirs(args.dest)
 
 
-for file in ["Pianificazione", "Progettazione", "Realizzazione"]:
+for file in ["Pianificazione", "Progettazione", "Realizzazione", "ManualeUtente"]:
     subprocess.run(["pdflatex", "-synctex=1", "-interaction=batchmode",
                     "--shell-escape", file + ".tex"], cwd=os.path.join(args.src, file))
     subprocess.run(["biber", file], cwd=os.path.join(args.src, file))
