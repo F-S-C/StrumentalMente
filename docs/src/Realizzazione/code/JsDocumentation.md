@@ -7,7 +7,7 @@
 <dt><a href="#createWindow">createWindow()</a></dt>
 <dd><p>Crea la finestra principale.</p>
 </dd>
-<dt><a href="#promptModal">promptModal(parentWindow, options, callback)</a></dt>
+<dt><a href="#promptModal">promptModal(parentWindow, [options], callback)</a></dt>
 <dd><p>Creazione della finestra di dialogo.</p>
 </dd>
 <dt><a href="#openMobileNavigation">openMobileNavigation()</a></dt>
@@ -49,7 +49,7 @@ e di nascondere tutti i tag section successivi al primo.</p>
 <dt><a href="#openInBrowser">openInBrowser(link)</a></dt>
 <dd><p>Apre un link nel browser predefinito.</p>
 </dd>
-<dt><a href="#openModal">openModal(content, [windowIcon])</a></dt>
+<dt><a href="#openModal">openModal(content, [options], [windowIcon])</a></dt>
 <dd><p>Apre una finestra modale mostrante il contenuto richiesto.</p>
 </dd>
 <dt><a href="#openOnKeyboardShortcut">openOnKeyboardShortcut(shortcut, content, [openAsModal])</a></dt>
@@ -78,7 +78,7 @@ Crea la finestra principale.
 **Kind**: global function  
 <a name="promptModal"></a>
 
-# promptModal(parentWindow, options, callback)
+# promptModal(parentWindow, [options], callback)
 Creazione della finestra di dialogo.
 
 **Kind**: global function  
@@ -86,7 +86,7 @@ Creazione della finestra di dialogo.
 | Param | Type | Description |
 | --- | --- | --- |
 | parentWindow | <code>BrowserWindow</code> | La finestra "genitore" |
-| options | <code>Object</code> | Le opzioni della nuova finestra |
+| [options] | <code>Object</code> | Le opzioni della nuova finestra |
 | callback | <code>\*</code> | La funzione da richiamare alla chiusura della finestra |
 
 <a name="openMobileNavigation"></a>
@@ -212,7 +212,7 @@ Apre un link nel browser predefinito.
 
 <a name="openModal"></a>
 
-# openModal(content, [windowIcon])
+# openModal(content, [options], [windowIcon])
 Apre una finestra modale mostrante il contenuto richiesto.
 
 **Kind**: global function  
@@ -220,6 +220,7 @@ Apre una finestra modale mostrante il contenuto richiesto.
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | content | <code>String</code> |  | Il link (assoluto o relativo) da aprire |
+| [options] | <code>Object</code> |  | Le opzioni della nuova finestra |
 | [windowIcon] | <code>String</code> | <code>./assets/icon.ico</code> | L'icona della finestra modale |
 
 <a name="openOnKeyboardShortcut"></a>

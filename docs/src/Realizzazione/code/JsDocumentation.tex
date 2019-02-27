@@ -8,7 +8,7 @@ Apre una finestra ``figlia'' e modale.
 \item[{ \protect\hyperlink{createWindow}{createWindow()} }]
 Crea la finestra principale.
 \item[{ \protect\hyperlink{promptModal}{promptModal(parentWindow,
-options, callback)} }]
+{[}options{]}, callback)} }]
 Creazione della finestra di dialogo.
 \item[{ \protect\hyperlink{openMobileNavigation}{openMobileNavigation()}
 }]
@@ -43,7 +43,7 @@ Permette di avviare, mettere in pausa o stoppare un audio.
 Mostra il dialogo di richiesta di conferma di uscita.
 \item[{ \protect\hyperlink{openInBrowser}{openInBrowser(link)} }]
 Apre un link nel browser predefinito.
-\item[{ \protect\hyperlink{openModal}{openModal(content,
+\item[{ \protect\hyperlink{openModal}{openModal(content, {[}options{]},
 {[}windowIcon{]})} }]
 Apre una finestra modale mostrante il contenuto richiesto.
 \item[{
@@ -86,7 +86,7 @@ Crea la finestra principale.
 \protect\hypertarget{promptModal}{}{}
 
 \hypertarget{promptmodalparentwindow-options-callback}{%
-\section{promptModal(parentWindow, options,
+\section{promptModal(parentWindow, {[}options{]},
 callback)}\label{promptmodalparentwindow-options-callback}}
 
 Creazione della finestra di dialogo.
@@ -100,7 +100,7 @@ Param & Type & Description\tabularnewline
 \endhead
 parentWindow & \texttt{BrowserWindow} & La finestra
 ``genitore''\tabularnewline
-options & \texttt{Object} & Le opzioni della nuova
+{[}options{]} & \texttt{Object} & Le opzioni della nuova
 finestra\tabularnewline
 callback & \texttt{*} & La funzione da richiamare alla chiusura della
 finestra\tabularnewline
@@ -429,9 +429,9 @@ link & \texttt{String} & Il link da aprire\tabularnewline
 
 \protect\hypertarget{openModal}{}{}
 
-\hypertarget{openmodalcontent-windowicon}{%
-\section{openModal(content,
-{[}windowIcon{]})}\label{openmodalcontent-windowicon}}
+\hypertarget{openmodalcontent-options-windowicon}{%
+\section{openModal(content, {[}options{]},
+{[}windowIcon{]})}\label{openmodalcontent-options-windowicon}}
 
 Apre una finestra modale mostrante il contenuto richiesto.
 
@@ -444,6 +444,8 @@ Param & Type & Default & Description\tabularnewline
 \endhead
 content & \texttt{String} & & Il link (assoluto o relativo) da
 aprire\tabularnewline
+{[}options{]} & \texttt{Object} & & Le opzioni della nuova
+finestra\tabularnewline
 {[}windowIcon{]} & \texttt{String} & \texttt{./assets/icon.ico} &
 L'icona della finestra modale\tabularnewline
 \bottomrule
