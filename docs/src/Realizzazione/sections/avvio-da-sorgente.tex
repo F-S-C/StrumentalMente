@@ -1,0 +1,37 @@
+Affinchè si possa avviare \ProjectTitle{} dal codice sorgente è necessario che siano installati \texttt{npm} e \texttt{Node.js}. Successivamente, è necessario installare le dipendenze del progetto, eseguendo i seguenti comandi nella \textit{directory} in cui è situato il codice sorgente (cartella \texttt{src/} della \textit{repository}):
+
+\begin{lstlisting}
+npm install --save-dev electron
+npm install --save-dev mousetrap
+npm install --save-dev node-localstorage
+\end{lstlisting}
+
+È possibile installare \textit{Electron Packager} per poter compilare un eseguibile (non è necessario per avviare l'applicazione) utilizzando il comando:
+
+\begin{lstlisting}
+npm install -g electron-packager
+\end{lstlisting}
+
+Dopo aver installato tutte le dipendenze, è possibile avviare l'applicazione utilizzando il comando seguente all'interno della \textit{directory} del codice sorgente:
+
+\begin{lstlisting}
+npm start
+\end{lstlisting}
+
+\section{Il Makefile}
+
+Per comodità, si è creato un \texttt{Makefile} per eseguire facilmente tutte le operazioni sul codice. Il comando \lstinline|make| è da eseguire all'interno della \textit{directory} principale della \textit{repository}.
+
+Il file \texttt{Makefile} contiene le seguenti regole:
+\begin{description}
+	\item[\texttt{\textit{(all)}}] Avvia \ProjectTitle{}.
+	\item[\texttt{install}] Installa le dipendenze del progetto ed \textit{Electron Packager}.
+	\item[\texttt{start}] Avvia \ProjectTitle{}.
+	\item[\texttt{deploy}] Compila \ProjectTitle{} in un eseguibile per varie piattaforme. Al momento le piattaforme per cui la generazione è inclusa in questa regola sono:
+	\begin{itemize}
+		\item Windows (x64)
+	\end{itemize}
+	\item[\texttt{docs}] Ricompila tutta la documentazione partendo dai sorgenti \LaTeX.
+	\item[\texttt{jsdoc}] Ricompila la documentazione del codice in un file \LaTeX.
+	\item[\texttt{bib2html}] Converte la bibliografia in formato \textsc{Bib}\TeX{} in HTML e la importa automaticamente nell'apposita sezione della pagina "about".
+\end{description}

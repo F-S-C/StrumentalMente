@@ -22,6 +22,9 @@ def fix_generated_jsdoc():
         content = file.readlines()
         file_content = "".join(content)
 
+    file_content = re.sub(r"\\subsection\{((?:.|\n)*?)\}", r"\\subsubsection{\1}", file_content)
+    file_content = re.sub(r"\\section\{((?:.|\n)*?)\}", r"\\subsection{\1}", file_content)
+    file_content = re.sub(r"\\subsection\{Functions\}", r"\\section{Funzioni}", file_content)
     file_content = re.sub(r"\\begin{longtable}\[\]\{@\{\}(.*)@\{\}\}((?:.|\n)*?)\\end\{longtable\}",
                           r"\\begin{longtabu} to \\textwidth {\1}\2\\end{longtabu}", file_content)
     file_content = re.sub(r"\\begin{longtabu} to \\textwidth {lll}",
