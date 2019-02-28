@@ -146,6 +146,7 @@ function showExitDialog() {
  * @param {String} link Il link da aprire
  */
 function openInBrowser(link) {
+	document.activeElement.blur();
 	remote.shell.openExternal(link);
 }
 
