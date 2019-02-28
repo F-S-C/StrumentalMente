@@ -1,4 +1,4 @@
-\documentclass[a4paper,11pt,leqno,openbib,oldfontcommands, twocolumn, openright]{memoir}
+\documentclass[b6paper,9pt,openbib,oldfontcommands,openright]{memoir}
 
 \usepackage{datetime}
 \usepackage{palatino}
@@ -24,38 +24,25 @@
 \newsubfloat{figure}
 \newsubfloat{table}
 
-\usepackage{geometry}
-
-% Better page layout for A4 paper, see memoir manual.
-\settrimmedsize{297mm}{210mm}{*}
-\setlength{\trimtop}{0pt} 
-\setlength{\trimedge}{\stockwidth} 
-\addtolength{\trimedge}{-\paperwidth} 
-\settypeblocksize{634pt}{448.13pt}{*} 
-\setulmarginsandblock{2.5cm}{2.5cm}{*}
-\setlrmarginsandblock{3.5cm}{2.5cm}{*}
-\setmarginnotes{17pt}{51pt}{\onelineskip} 
-\setheadfoot{\onelineskip}{2\onelineskip} 
-\setheaderspaces{*}{2\onelineskip}{*} 
-\checkandfixthelayout
+\usepackage[inner=2.5cm, outer=1.5cm]{geometry}
 
 \frenchspacing
 
 \usepackage{fouriernc}
 
-\OnehalfSpacing
-
 \setsecnumdepth{subsection} 
 \maxsecnumdepth{subsubsection}
 
 \makechapterstyle{my}{
+\renewcommand{\chapterheadstart}{\vspace*{0cm}}
 \renewcommand\chapnamefont{\normalfont\Large\scshape\raggedleft}
 \renewcommand\chaptitlefont{\normalfont\huge\bfseries\scshape}
 \renewcommand\chapternamenum{}
 \renewcommand\printchaptername{}
 \renewcommand\printchapternum{\hfill\chaptitlefont\thechapter}
 \renewcommand\afterchapternum{\hspace*{20pt}}
-\renewcommand\printchaptertitle[1]{\chaptitlefont\raggedleft ##1\\\rule{\textwidth}{0.5pt}\par}
+\renewcommand\printchaptertitle[1]{\chaptitlefont\raggedleft ##1\\\rule{\textwidth}{0.5pt}\\}
+\renewcommand\afterchaptertitle{\vspace*{0.5cm}}
 }
 \chapterstyle{my}
 
