@@ -219,6 +219,6 @@ window.addEventListener("load", () => {
 		// Mousetrap.bind("alt+s", () => ...);
 		// Mousetrap.bind("alt+s", () => ...);
 		Mousetrap.bind("alt+m", () => { openModal("./map.html"); });
-		Mousetrap.bind("alt+i", () => { openModal("./about.html", { isMaximized: true }); });
+		Mousetrap.bind("alt+i", () => { openModal("./about.html"); });
 	}
 });
