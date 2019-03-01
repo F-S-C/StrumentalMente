@@ -5,6 +5,8 @@
 \usepackage[sorting=nty]{biblatex}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
+\usepackage[inner=3.5cm, outer=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+\usepackage{palatino}
 \usepackage{graphicx}
 \graphicspath{{images/}}
 \usepackage{parskip}
@@ -151,4 +153,36 @@
 \fancyhead[LE,RO]{\nouppercase{\leftmark}}
 
 \sloppy
+
+\def\docpart#1{%
+	\cleardoublepage\newpage
+	\thispagestyle{empty}
+	\newgeometry{top=0mm,bottom=-2.5cm, outer=-5mm}
+	\refstepcounter{part}
+	\addcontentsline{toc}{part}{\thepart\hspace{1em}#1}%
+	\noindent\begin{minipage}{0.6\paperwidth}
+		\vspace*{2.5cm}
+		\hspace*{4cm}\includegraphics[width=4cm]{include/LogoStrumentalMente}
+	\end{minipage}\begin{minipage}{0.4\paperwidth}
+		\colorbox{gray}{\parbox{\textwidth}{~\vspace*{10cm}}}
+	\end{minipage}
+	\colorbox{mainColorDark}{%
+		\parbox[c][3.7cm][c]{\paperwidth}{%
+			\color{white}\Huge\flushright \textsc{\textbf{\textsf{StrumentalMente - Documentazione}}}\hspace*{1.5cm}\par
+			\LARGE \textsc{\textsf{#1}}\hspace*{1.5cm}
+		}
+	}\\
+	\begin{minipage}{0.6\paperwidth}
+		~
+	\end{minipage}\begin{minipage}{0.4\paperwidth}
+		\colorbox{gray}{%
+			\parbox[c][17.9cm]{\textwidth}{%
+				\color{white}\centering\vfill \includegraphics[width=3cm]{include/Logo_FSC_DarkBg}\\[0.5cm]
+				\textsf{\thepage}\vspace*{2.5cm}
+			}%
+		}
+	\end{minipage}
+\clearpage\thispagestyle{empty}\clearpage
+	\restoregeometry
+}
 % ------
