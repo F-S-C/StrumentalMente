@@ -26,11 +26,11 @@ def fix_generated_jsdoc():
     file_content = re.sub(r"\\section\{((?:.|\n)*?)\}", r"\\subsection{\1}", file_content)
     file_content = re.sub(r"\\subsection\{Functions\}", r"\\section{Funzioni}", file_content)
     file_content = re.sub(r"\\begin{longtable}\[\]\{@\{\}(.*)@\{\}\}((?:.|\n)*?)\\end\{longtable\}",
-                          r"\\begin{longtabu} to \\textwidth {\1}\2\\end{longtabu}", file_content)
-    file_content = re.sub(r"\\begin{longtabu} to \\textwidth {lll}",
-                          r"\\begin{longtabu} to \\textwidth {X[1,L,m]X[1,L,m]X[1.5,L,m]}", file_content)
-    file_content = re.sub(r"\\begin{longtabu} to \\textwidth {llll}",
-                          r"\\begin{longtabu} to \\textwidth {X[1,L,m]X[1,L,m]X[1.5,L,m]X[1.5,L,m]}", file_content)
+                          r"\\begin{tabularx}{\\textwidth}{\1}\2\\end{tabularx}", file_content)
+    file_content = re.sub(r"\\begin{tabularx}{\\textwidth}{lll}",
+                          r"\\begin{tabularx}{\\textwidth}{XXX}", file_content)
+    file_content = re.sub(r"\\begin{tabularx}{\\textwidth}{llll}",
+                          r"\\begin{tabularx}{\\textwidth}{XXXX}", file_content)
 
     with open(filename, "w") as file:
         file.write(file_content)

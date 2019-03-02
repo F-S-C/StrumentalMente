@@ -32,15 +32,11 @@ Le categorie di utenti individuate sono le seguenti:
 \end{itemize}
 
 Le classi di utenti sopra elencate sono descritte in tutte le loro caratteristiche nella seguente tabella (Tabella \ref{tab:utenti}). Si noti che le età che sono state associate a ogni categoria di utente sono frutto di una stima empirica e sono puramente indicative: le conoscenze in campo musicale non sono facilmente associabili a un'età media.
-	\begin{longtabu}to \textwidth {|>{\columncolor{mainColorDark}}X[1,L,m]|X[1,L,m]|X[1,L,m]|X[1,L,m]|}
-		\caption{Caratteristiche degli utenti.}
+	\begin{tabularx}{\textwidth}{|>{\columncolor{mainColorDark}}X|X|X|X|}
+		\caption{Caratteristiche degli utenti}
 		\label{tab:utenti}\\
 		\hline
 		{\color[HTML]{FFFFFF} \textbf{}}                                    & \cellcolor{mainColorDark}{\color[HTML]{FFFFFF} \textbf{Neofita}}              & \cellcolor{mainColorDark}{\color[HTML]{FFFFFF} \textbf{Intermedio}}                & \cellcolor{mainColorDark}{\color[HTML]{FFFFFF} \textbf{Avanzato}}                                                                           \\ \hline
-		\endfirsthead
-		\multicolumn{4}{c}{{\footnotesize\textbf{Tabella \thetable{}:} continuazione della pagina precedente.}}                                                                                                                                                                                                                                                                                \\ \hline
-		{\color[HTML]{FFFFFF} \textbf{}}                                    & \cellcolor{mainColorDark}{\color[HTML]{FFFFFF} \textbf{\textsc{Neofita}}}              & \cellcolor{mainColorDark}{\color[HTML]{FFFFFF} \textbf{\textsc{Intermedio}}}                & \cellcolor{mainColorDark}{\color[HTML]{FFFFFF} \textbf{\textsc{Avanzato}}}                                                \\ \hline
-		\endhead
 		{\color[HTML]{FFFFFF} \textbf{Età}}                                 & Dai 13 anni in su                                                                      & Dai 18 anni in su                                                                           & Dai 22 anni in su                                                                                                         \\ \hline
 		{\color[HTML]{FFFFFF} \textbf{Livello di istruzione}}               & Intermedio                                                                             & Buono                                                                                       & Ottimo                                                                                                                    \\ \hline
 		{\color[HTML]{FFFFFF} \textbf{Capacità di lettura}}                 & Buona                                                                                  & Buona                                                                                       & Buona                                                                                                                     \\ \hline
@@ -51,14 +47,14 @@ Le classi di utenti sopra elencate sono descritte in tutte le loro caratteristic
 		{\color[HTML]{FFFFFF} \textbf{Familiarità con il Web}}              & Capacità basilari                                                                      & Capacità basilari                                                                           & Capacità basilari                                                                                                         \\ \hline
 		{\color[HTML]{FFFFFF} \textbf{Capacità di digitazione e scrittura}} & Capacità basilari                                                                      & Capacità basilari                                                                           & Capacità basilari                                                                                                         \\ \hline
 		{\color[HTML]{FFFFFF} \textbf{Accesso a un computer}}               & Buona                                                                                  & Buona                                                                                       & Buona                                                                                                                     \\ \hline
-		{\color[HTML]{FFFFFF} \textbf{Accesso a internet}}                  & Nessuno (esclusa la fase di \textit{download})                                         & Nessuno (esclusa la fase di \textit{download})                                              & Nessuno (esclusa la fase di \textit{download})                                                                            \\ \hline
+		{\color[HTML]{FFFFFF} \textbf{Accesso a internet}}                  & Nessuno                                         & Nessuno                                              & Nessuno (esclusa la fase di \textit{download})                                                                            \\ \hline
 		{\color[HTML]{FFFFFF} \textbf{Disponibilità (in tempo)}}            & Almeno tre ore consecutive al giorno                                                   & Almeno due ore consecutive al giorno                                                        & Disponibilità saltuaria                                                                                                   \\ \hline
 		{\color[HTML]{FFFFFF} \textbf{Obiettivo dell'applicazione}}         & Insegnare le basi della musica, avvicinare l'utente all'uso di uno strumento           & Migliorare le conoscenze dell'utente, fornirgli un supporto in caso di difficoltà           & Assistere l'utente nell'ampliare le proprie conoscenze, fornirgli un supporto per trasporre le stesse su altri strumenti. \\ \hline
-	\end{longtabu}
+	\end{tabularx}
 
-Come già anticipato precedentemente, il criterio con cui si sono individuate le seguenti classi di utenti si basa sulla classificazione dei livelli di conoscenza e competenza nel campo musicale degli stessi. Non è prevista alcuna classificazione basata sulle competenze di campo informatico, in quanto, come già specificato nella precedente tabella, non è richiesta alcuna abilità particolare in tale campo. Si noti, inoltre, che è necessario l'accesso a internet a prescindere dalla categoria d'utente: infatti, come già detto in precedenza, l'applicazione \ProjectTitle{} sarà sviluppata e sarà rilasciata come sito web e sarà quindi fruibile solo in presenza di una connessione alla rete.
+Come già anticipato precedentemente, il criterio con cui si sono individuate le seguenti classi di utenti si basa sulla classificazione dei livelli di conoscenza e competenza nel campo musicale degli stessi. Non è prevista alcuna classificazione basata sulle competenze di campo informatico, in quanto, come già specificato nella precedente tabella, non è richiesta alcuna abilità particolare in tale campo. Si noti che l'accesos a \textit{internet} non è richiesto per utilizzare l'applicazione, se non per scaricare il software o i suoi aggiornamenti.
 
-\paragraph{Competenze informatiche necessarie} Come già anticipato, non sono necessarie delle competenze informatiche particolari per utilizzare l'applicazione: il sistema sarà progettato in modo da essere fruibile da qualsiasi utente che sappia interfacciarsi con un computer tramite \emph{browser} web. L'applicazione sarà quindi progettata per essere intuitiva e semplice da utilizzare. Saranno tuttavia fornite, eventualmente, delle scorciatoie da tastiera per i più esperti per velocizzare la loro navigazione all'interno dell'ipermedia.
+\paragraph{Competenze informatiche necessarie} Come già anticipato, non sono necessarie delle competenze informatiche particolari per utilizzare l'applicazione: il sistema sarà progettato in modo da essere fruibile da qualsiasi utente che sappia interfacciarsi con un computer. L'applicazione sarà quindi progettata per essere intuitiva e semplice da utilizzare. Saranno tuttavia fornite, eventualmente, delle scorciatoie da tastiera per i più esperti per velocizzare la loro navigazione all'interno dell'ipermedia.
 
 \section{I vincoli}
 In questa sezione del documento saranno presentati i vincoli da rispettare durante lo sviluppo dell'applicazione. Tali vincoli sono frutto di discussioni tra i membri del team e il commitente o di previsioni e obiettivi del team su delle fasi dello sviluppo successive.
@@ -66,11 +62,9 @@ In questa sezione del documento saranno presentati i vincoli da rispettare duran
 \subsection{Requisiti minimi}
 Il sistema multimediale sarà progettato per diverse piattaforme multimediali con i seguenti requisiti \emph{hardware} minimi:
 \begin{itemize}
-	\item Processore da 1228 Mhz
-	\item RAM: 1 Gb
-	\item Touch Screen: consigliato 
-	\item Connessione Internet: necessaria
-	\item Risoluzione dello schermo: $480 \times 800$
+	\item Processore da 1 GHz
+	\item RAM: 2 Gb
+	\item Risoluzione dello schermo: 480 $\times$ 800
 \end{itemize}
 Non è inoltre richiesto alcun \textit{software} aggiuntivo affinché l'applicazione possa essere eseguita. Tuttavia, \ProjectTitle{} è disponibile per i soli sistemi operativi \textsf{Windows} e \textsf{Linux}.
 

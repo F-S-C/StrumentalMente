@@ -63,7 +63,7 @@ Apre una finestra ``figlia'' e modale.
 
 \textbf{Kind}: global function
 
-\begin{longtabu} to \textwidth {X[1,L,m]X[1,L,m]X[1.5,L,m]X[1.5,L,m]}
+\begin{tabularx}{\textwidth}{XXXX}
 \toprule
 Param & Type & Default & Description\tabularnewline
 \midrule
@@ -73,7 +73,7 @@ relativo)\tabularnewline
 {[}windowIcon{]} & \texttt{String} & \texttt{./assets/icon.ico} &
 L'icona della finestra.\tabularnewline
 \bottomrule
-\end{longtabu}
+\end{tabularx}
 
 \protect\hypertarget{createWindow}{}{}
 
@@ -93,7 +93,7 @@ Creazione della finestra di dialogo.
 
 \textbf{Kind}: global function
 
-\begin{longtabu} to \textwidth {X[1,L,m]X[1,L,m]X[1.5,L,m]}
+\begin{tabularx}{\textwidth}{XXX}
 \toprule
 Param & Type & Description\tabularnewline
 \midrule
@@ -105,7 +105,7 @@ finestra\tabularnewline
 callback & \texttt{*} & La funzione da richiamare alla chiusura della
 finestra\tabularnewline
 \bottomrule
-\end{longtabu}
+\end{tabularx}
 
 \protect\hypertarget{openMobileNavigation}{}{}
 
@@ -127,7 +127,7 @@ navbar.
 
 \textbf{Kind}: global function
 
-\begin{longtabu} to \textwidth {X[1,L,m]X[1,L,m]X[1.5,L,m]}
+\begin{tabularx}{\textwidth}{XXX}
 \toprule
 Param & Type & Description\tabularnewline
 \midrule
@@ -137,7 +137,7 @@ controllare\tabularnewline
 {[}defaultLinkClass{]} & \texttt{String} & La classe iniziale del
 bottone\tabularnewline
 \bottomrule
-\end{longtabu}
+\end{tabularx}
 
 \protect\hypertarget{setLinks}{}{}
 
@@ -149,7 +149,7 @@ quello attuale
 
 \textbf{Kind}: global function
 
-\begin{longtabu} to \textwidth {X[1,L,m]X[1,L,m]X[1.5,L,m]}
+\begin{tabularx}{\textwidth}{XXX}
 \toprule
 \begin{minipage}[b]{0.30\columnwidth}\raggedright
 Param\strut
@@ -198,7 +198,7 @@ Il link della pagina successiva (il nome del file \emph{senza}
 l'estensione)\strut
 \end{minipage}\tabularnewline
 \bottomrule
-\end{longtabu}
+\end{tabularx}
 
 \protect\hypertarget{initialize}{}{}
 
@@ -213,7 +213,7 @@ section successivi al primo.
 
 \textbf{Kind}: global function
 
-\begin{longtabu} to \textwidth {X[1,L,m]X[1,L,m]X[1.5,L,m]X[1.5,L,m]}
+\begin{tabularx}{\textwidth}{XXXX}
 \toprule
 \begin{minipage}[b]{0.22\columnwidth}\raggedright
 Param\strut
@@ -246,7 +246,7 @@ La cartella in cui sono situati i file degli argomenti (default:
 \texttt{./})\strut
 \end{minipage}\tabularnewline
 \bottomrule
-\end{longtabu}
+\end{tabularx}
 
 \protect\hypertarget{initialize..changeSlide}{}{}
 
@@ -264,7 +264,7 @@ con id next, indietro con id back e quiz con id quiz).
 \textbf{Kind}: inner method of
 \protect\hyperlink{initialize}{\texttt{initialize}}
 
-\begin{longtabu} to \textwidth {X[1,L,m]X[1,L,m]X[1.5,L,m]}
+\begin{tabularx}{\textwidth}{XXX}
 \toprule
 \begin{minipage}[b]{0.30\columnwidth}\raggedright
 Param\strut
@@ -284,7 +284,7 @@ se è \texttt{true}, avanza di una slide, altrimenti indietreggia di una
 slide.\strut
 \end{minipage}\tabularnewline
 \bottomrule
-\end{longtabu}
+\end{tabularx}
 
 \protect\hypertarget{changeTopic}{}{}
 
@@ -296,7 +296,7 @@ Cambia l'argomento correntemente mostrato.
 
 \textbf{Kind}: global function
 
-\begin{longtabu} to \textwidth {X[1,L,m]X[1,L,m]X[1.5,L,m]X[1.5,L,m]}
+\begin{tabularx}{\textwidth}{XXXX}
 \toprule
 Param & Type & Default & Description\tabularnewline
 \midrule
@@ -305,7 +305,7 @@ topicName & \texttt{String} & & Il prossimo argomento\tabularnewline
 {[}base{]} & \texttt{String} & \texttt{./} & La cartella in cui è
 situato il file dell'argomento\tabularnewline
 \bottomrule
-\end{longtabu}
+\end{tabularx}
 
 \protect\hypertarget{initializeQuiz}{}{}
 
@@ -324,7 +324,7 @@ Cambia la slide del quiz attualmente mostrata.
 
 \textbf{Kind}: global function
 
-\begin{longtabu} to \textwidth {X[1,L,m]X[1,L,m]X[1.5,L,m]}
+\begin{tabularx}{\textwidth}{XXX}
 \toprule
 \begin{minipage}[b]{0.30\columnwidth}\raggedright
 Param\strut
@@ -345,7 +345,7 @@ Tale valore deve essere compreso nell'intervallo \texttt{{[}0,\ n{]}},
 dove \texttt{n} è il numero di slide presenti nella pagina.\strut
 \end{minipage}\tabularnewline
 \bottomrule
-\end{longtabu}
+\end{tabularx}
 
 \protect\hypertarget{checkQuiz}{}{}
 
@@ -365,7 +365,7 @@ Permette di avviare, mettere in pausa o stoppare un audio.
 
 \textbf{Kind}: global function
 
-\begin{longtabu} to \textwidth {X[1,L,m]X[1,L,m]X[1.5,L,m]}
+\begin{tabularx}{\textwidth}{XXX}
 \toprule
 \begin{minipage}[b]{0.30\columnwidth}\raggedright
 Param\strut
@@ -399,7 +399,7 @@ stopButtonId\strut
 L'ID del bottone di Stop.\strut
 \end{minipage}\tabularnewline
 \bottomrule
-\end{longtabu}
+\end{tabularx}
 
 \protect\hypertarget{showExitDialog}{}{}
 
@@ -418,14 +418,14 @@ Apre un link nel browser predefinito.
 
 \textbf{Kind}: global function
 
-\begin{longtabu} to \textwidth {X[1,L,m]X[1,L,m]X[1.5,L,m]}
+\begin{tabularx}{\textwidth}{XXX}
 \toprule
 Param & Type & Description\tabularnewline
 \midrule
 \endhead
 link & \texttt{String} & Il link da aprire\tabularnewline
 \bottomrule
-\end{longtabu}
+\end{tabularx}
 
 \protect\hypertarget{openModal}{}{}
 
@@ -437,7 +437,7 @@ Apre una finestra modale mostrante il contenuto richiesto.
 
 \textbf{Kind}: global function
 
-\begin{longtabu} to \textwidth {X[1,L,m]X[1,L,m]X[1.5,L,m]X[1.5,L,m]}
+\begin{tabularx}{\textwidth}{XXXX}
 \toprule
 Param & Type & Default & Description\tabularnewline
 \midrule
@@ -449,7 +449,7 @@ finestra\tabularnewline
 {[}windowIcon{]} & \texttt{String} & \texttt{./assets/icon.ico} &
 L'icona della finestra modale\tabularnewline
 \bottomrule
-\end{longtabu}
+\end{tabularx}
 
 \protect\hypertarget{openOnKeyboardShortcut}{}{}
 
@@ -462,7 +462,7 @@ contenuto richiesto.
 
 \textbf{Kind}: global function
 
-\begin{longtabu} to \textwidth {X[1,L,m]X[1,L,m]X[1.5,L,m]X[1.5,L,m]}
+\begin{tabularx}{\textwidth}{XXXX}
 \toprule
 \begin{minipage}[b]{0.22\columnwidth}\raggedright
 Param\strut
@@ -504,4 +504,4 @@ Se è \texttt{true}, la finestra sarà aperta come modale, altrimenti sarà
 aperta nella stessa finestra.\strut
 \end{minipage}\tabularnewline
 \bottomrule
-\end{longtabu}
+\end{tabularx}

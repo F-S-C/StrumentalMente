@@ -2,20 +2,12 @@ La seguente tabella (Tabella \ref{tab:costi}) contiene una lista delle attività
 
 Oltre a ogni attività, sono elencate il numero di ore che si prevede siano necessarie a portare al termine le stesse.
 
-\begin{longtabu} to \textwidth {|X[1,L,m]|X[2,L,m]|X[.5,C,m]|}
-	\caption{Costi previsti in ore di lavoro.}
+\begin{tabularx}{\textwidth}{|m{5cm}|X|M{2cm}|}
+	\caption{Costi previsti in ore di lavoro}
 	\label{tab:costi}\\
 	\hline
 	\rowcolor{mainColorDark} 
 	{\color[HTML]{FFFFFF} \textbf{\textsc{Fasi della produzione}}}                                                           & {\color[HTML]{FFFFFF} \hspace*{\fill}\textbf{\textsc{Attività}}}\hspace*{\fill}              & {\color[HTML]{FFFFFF} \textbf{\textsc{Impegno orario}}} \\ \hline
-	\endfirsthead
-	%
-	\multicolumn{3}{c}%
-	{{\footnotesize\textbf{Tabella \thetable{}:} continuazione della pagina precedente.}} \\
-	\hline
-	\rowcolor{mainColorDark} 
-	{\color[HTML]{FFFFFF} \textbf{\textsc{Fasi della produzione}}}                                                           & {\color[HTML]{FFFFFF} \hspace*{\fill}\textbf{\textsc{Attività}}}\hspace*{\fill}              & {\color[HTML]{FFFFFF} \textbf{\textsc{Impegno orario}}} \\ \hline
-	\endhead
 	%
 	\cellcolor{mainColorDark}{\color[HTML]{FFFFFF} }                                                                          & Acquisizione del materiale audio                               & 10                                                      \\ \cline{2-3} 
 	\cellcolor{mainColorDark}{\color[HTML]{FFFFFF} }                                                                          & Acquisizione del materiale testuale                            & 4                                                       \\ \cline{2-3} 
@@ -43,20 +35,20 @@ Oltre a ogni attività, sono elencate il numero di ore che si prevede siano nece
 	\cellcolor{mainColorDark}{\color[HTML]{FFFFFF} }                                                                          & Realizzazione copia master                                     & 2                                                        \\ \cline{2-3} 
 	\cellcolor{mainColorDark}{\color[HTML]{FFFFFF} }                                                                          & Realizzazione delle copie per sviluppatori e commitente        & 2                                                        \\ \cline{2-3} 
 	\multirow{-3}{4cm}{\cellcolor{mainColorDark}{\color[HTML]{FFFFFF} \textbf{Pubblicazione}}}                                  & \textbf{\textsc{Totale}}                                     & \textbf{4}                                               \\ \hline
-\end{longtabu}
+\end{tabularx}
 
 \section{Documento di pianificazione}
 Il presente documento è stato modificato dopo circa una settimana di lavoro per poter includere le percentuali di completamento relative delle varie attività previste.
 
 Le percentuali di completamento presenti in questa tabella (Tabella \ref{tab:docPianificazione}) sono percentuali empiriche basate su un calcolo approssimativo della mole di lavoro compiuta, che è poi stata paragonata alla mole di lavoro prevista per portare al termine una singola attività.
  
-\begin{longtabu} to \textwidth {|X[4,L,m]|X[1,C,m]|X[1,C,m]|X[1,C,m]|}
-	\caption{Costi in ore e percentuali di completamento delle attività previste durante la pianificazione}
+\begin{tabularx}{\textwidth}{|X|M{2cm}|M{2cm}|M{2.5cm}|}
+	\caption[Costi e percentuali di completamento]{Costi in ore e percentuali di completamento delle attività previste durante la pianificazione}
 	\label{tab:docPianificazione}\\
 	\hline
 	\rowcolor{mainColorDark}
 	{\color[HTML]{FFFFFF} \textbf{\footnotesize \textsc{Attività}}} & {\color[HTML]{FFFFFF} \textbf{\footnotesize \textsc{Tempo stimato (ore)}}} & {\color[HTML]{FFFFFF} \textbf{\footnotesize \textsc{Tempo utilizzato (ore)}}} & {\color[HTML]{FFFFFF} \textbf{\footnotesize \textsc{Comple-\allowbreak{}tamento percentuale}}} \\ \hline
-	\endhead
+	\hline
 	\textbf{Acquisizione dei contenuti}               & x                                                            & x                                                               & x \%                                                                  \\ \hline
 	\textbf{Verifica e validazione dei contenuti}     & x                                                            & x                                                               & x \%                                                                  \\ \hline
 	\textbf{Definizione dell'interfaccia utente}      & x                                                            & x                                                               & x \%                                                                  \\ \hline
@@ -64,7 +56,7 @@ Le percentuali di completamento presenti in questa tabella (Tabella \ref{tab:doc
 	\textbf{Sviluppo}                                 & x                                                            & x                                                               & x \%                                                                  \\ \hline
 	\textbf{Test}                                     & x                                                            & x                                                               & x \%                                                                  \\ \hline
 	\textbf{Pubblicazione}                            & x                                                            & x                                                               & x \%                                                                  \\ \hline
-\end{longtabu}
+\end{tabularx}
 
 \section{Risorse}
 Di seguito, saranno illustrate tutte le risorse utilizzate per la realizzazione del sistema multimediale.

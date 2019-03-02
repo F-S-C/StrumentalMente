@@ -6,6 +6,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage[inner=3.5cm, outer=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+\usepackage[cm]{sfmath}
 \usepackage{palatino}
 \usepackage{graphicx}
 \graphicspath{{images/}}
@@ -14,6 +15,7 @@
 \usepackage{array}
 \usepackage{multirow}
 \usepackage{tabularx}
+\usepackage{ltablex}
 \usepackage[table,xcdraw]{xcolor}
 \usepackage{lipsum}
 \usepackage{cancel}
@@ -28,7 +30,6 @@
 \usepackage[anythingbreaks]{breakurl}
 \usepackage{bold-extra}
 \usepackage{booktabs}
-\usepackage{tabu}
 \usepackage{textcomp}
 \usepackage{calc}
 \usepackage{subcaption}
@@ -113,7 +114,6 @@
 
 \renewcommand\tabularxcolumn[1]{m{#1}}
 \renewcommand{\arraystretch}{2}
-\tabulinesep =^3mm_3mm
 \newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
 
 % ------
@@ -168,8 +168,8 @@
 	\end{minipage}
 	\colorbox{mainColorDark}{%
 		\parbox[c][3.7cm][c]{\paperwidth}{%
-			\color{white}\Huge\flushright \textsc{\textbf{\textsf{StrumentalMente - Documentazione}}}\hspace*{1.5cm}\par
-			\LARGE \textsc{\textsf{#1}}\hspace*{1.5cm}
+			\color{white}\LARGE\flushright \textsc{\textbf{\textsf{StrumentalMente - Documentazione}}}\hspace*{3cm}\par
+			\large \textsc{\textsf{#1}}\hspace*{3cm}
 		}
 	}\\
 	\begin{minipage}{0.6\paperwidth}
