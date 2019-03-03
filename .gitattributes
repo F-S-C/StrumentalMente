@@ -1,5 +1,4 @@
 *.docx diff=pandoc
 documentation/* linguist-vendored
 generate-documentation.py linguist-vendored
-minify-css.py linguist-vendored
-minify-html.py linguist-vendored
+minify.py linguist-vendored

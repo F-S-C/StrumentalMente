@@ -11,10 +11,14 @@ start:
 	cd src && \
 	npm start
 deploy:
-	python minify-css.py
+	python minify.py
 	electron-packager src StrumentalMente --platform=win32 --no-prune --overwrite --icon=src\assets\icon.ico --ignore="assets\css\main|assets\css\style_not-minified.css|_include"
-	# electron-packager src StrumentalMente --platform=linux --no-prune --overwrite --ignore="assets\css\main|assets\css\style_not-minified.css|_include"
+	electron-packager src StrumentalMente --platform=linux --no-prune --overwrite --ignore="assets\css\main|assets\css\style_not-minified.css|_include"
 	cd src\assets\css && copy /Y style_not-minified.css style.css && del style_not-minified.css
+	cd src\assets\js && copy /Y render_not-minified.js render.js && del render_not-minified.js
+	cd src\assets\js && copy /Y main_not-minified.js main.js && del main_not-minified.js
+	cd src && copy /Y app_not-minified.js app.js && del app_not-minified.js
+	git checkout -- "*.html"
 docs: jsdoc
 	python generate-documentation.py --src docs\src --dest docs
 

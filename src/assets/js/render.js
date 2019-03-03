@@ -45,7 +45,7 @@ const remote = require('electron').remote; // Riferimento a Electron
 				window.close();
 			else
 				showExitDialog();
-		}
+		};
 
 		if (minButton) {
 			minButton.removeEventListener("click", minimize);

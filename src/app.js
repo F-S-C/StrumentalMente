@@ -119,7 +119,7 @@ function promptModal(parentWindow, options = {}, callback) {
 	promptWindow.on('closed', () => {
 		promptWindow = null;
 		callback(promptAnswer);
-	})
+	});
 
 	promptWindow.loadFile("./dialogs/exit-dialog.html");
 }
@@ -127,12 +127,12 @@ function promptModal(parentWindow, options = {}, callback) {
 /** Chiamata dalla finestra del dialogo per ottenere i suoi parametri */
 ipcMain.on("openDialog", (event, data) => {
 	event.returnValue = JSON.stringify(promptOptions, null, '');
-})
+});
 
 /** Chiamata dalla finestra del dialogo alla sua chiusura */
 ipcMain.on("closeDialog", (event, data) => {
 	promptAnswer = data;
-})
+});
 
 /** Chiamata dall'applicazione per aprire la finestra di dialogo */
 ipcMain.on("prompt", (event, options) => {

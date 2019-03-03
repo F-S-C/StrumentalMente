@@ -265,7 +265,7 @@ function initializeQuiz() {
 	let previousSlide = () => {
 		if (canChangeSlide)
 			changeQuizSlide(currentSection - 1);
-	}
+	};
 
 
 	verifyButton.style.display = "none";
