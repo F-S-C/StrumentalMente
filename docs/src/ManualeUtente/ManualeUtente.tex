@@ -5,6 +5,7 @@
 \usepackage{fontawesome}
 \usepackage{wrapfig}
 \usepackage{booktabs}
+\usepackage{csvsimple}
 \usepackage{ifpdf}
 \ifpdf
 \pdfinfo{
@@ -81,6 +82,12 @@
 \usepackage[square,numbers,
 		     sort&compress]{natbib}		%Calls bibliography commands 
 \usepackage{url}						%Supports url commands
+\usepackage[anythingbreaks]{breakurl}
+\usepackage{caption}
+\captionsetup{%
+	font=footnotesize,% set font size to footnotesize
+	labelfont=bf % bold label (e.g., Figure 3.2) font
+}
 % \usepackage{etex}						%eTeXÕs extended support for counters
 % \usepackage{fixltx2e}					%Eliminates some in felicities of the 
 									%original LaTeX kernel
