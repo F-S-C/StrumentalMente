@@ -38,7 +38,7 @@ function openChildWindow(pageUrl, windowIcon = "./assets/icon.ico") {
 function createWindow() {
 	var windowState = {};
 	try {
-		windowState = global.nodeStorage.getItem("windowstate");
+		windowState = global.nodeStorage.getItem("WindowState");
 	} catch (err) {
 		windowState = {};
 	}
@@ -74,7 +74,7 @@ function createWindow() {
 			if (!windowState.isMaximized)
 				windowState.bounds = win.getBounds();
 
-			global.nodeStorage.setItem("windowstate", windowState);
+			global.nodeStorage.setItem("WindowState", windowState);
 		});
 	});
 }
