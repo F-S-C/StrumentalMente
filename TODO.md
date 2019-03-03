@@ -4,11 +4,11 @@
   - [x] Teoria
     - [x] Base
     - [x] Avanzata
-  - [ ] Strumenti
-    - [ ] Piano
-    - [ ] Chitarra
-    - [ ] Batteria
-    - [ ] Basso
+  - [x] Strumenti
+    - [x] Piano
+    - [x] Chitarra
+    - [x] Batteria
+    - [x] Basso
 - [ ] Creazione della struttura delle pagine HTML
   - [x] Creazione dei prototipi
   - [x] Creazione degli storyboard
@@ -30,9 +30,9 @@
     - [ ] Chitarra
     - [ ] Batteria
     - [ ] Basso
-- [ ] Stesura delle sezioni di aiuto
-- [ ] Creazione di un sistema di _"salvataggio delle sessioni"_ per salvare i quiz che l'utente ha già completato
-- [ ] Stesura delle informazioni sul sistema (i _"credits"_)
+- [x] Stesura delle sezioni di aiuto
+- [x] Creazione di un sistema di _"salvataggio delle sessioni"_ per salvare i quiz che l'utente ha già completato
+- [x] Stesura delle informazioni sul sistema (i _"credits"_)
 - [ ] Creazione della presentazione PowerPoint _(o LaTeX)_
 - [ ] Alpha &alpha; test
   - [ ] Stesura del piano di test
@@ -41,4 +41,5 @@
 - [ ] Beta &beta; test
   - [ ] Individuazione della lista di Beta Tester
   - [ ] Stesura dei questionari da far compilare agli utenti
+- [ ] Stampa dei documenti
 - [ ] Creazione del CD con _autorun_
