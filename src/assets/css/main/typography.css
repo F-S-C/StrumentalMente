@@ -58,3 +58,17 @@ dd {
     margin: 0 0 0 110px;
     padding: 0 0 0.5em 0;
 }
+
+.help_ul > li{
+	margin-top: 8px;
+}
+
+.help_ul > li > strong {
+    padding: 2px 5px;
+    background-color: #E8E8E8;
+    color: #333333;
+    border-radius: 5px;
+    font-family: 'RobotoMono';
+	font-weight: 300;
+	margin: 0px 3px 0px 3px;
+}
