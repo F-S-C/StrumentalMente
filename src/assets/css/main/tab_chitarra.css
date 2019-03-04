@@ -1,0 +1,104 @@
+.check {
+	display: block;
+	cursor: pointer;
+	background-image: url('../../images/schemi_base_chitarra/indicatore_vuoto.svg');
+	background-repeat: no-repeat;
+	overflow: hidden;
+	position: relative;
+	height: 25px;
+	width: 25px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-khtml-appearance: none;
+	z-index: 2;
+	width: 26px;
+	height: 26px;
+	left: 50%;
+	margin-left: -13px;
+	margin-top: -13px;
+	text-align: center;
+	border-radius: 50%;
+	padding-top: 4px;
+}
+
+.check:hover {
+	background-image: url('../../images/schemi_base_chitarra/indicatore_hover.svg');
+}
+
+.check:checked {
+	background-image: url('../../images/schemi_base_chitarra/indicatore_pieno.svg');
+}
+
+.check:checked:hover{
+	background-image: url('../../images/schemi_base_chitarra/indicatore_pieno_hover.svg');
+}
+
+.nome_accordo {
+	font-family: 'Montserrat';
+	font-size: 3rem;
+	margin: 10px 0 25px;
+	font-weight: bold;
+	text-align: center;
+	position: relative;
+	margin-left: -19px;
+}
+
+.box {
+	float: left;
+	width: 400px;
+}
+
+.diagramma .riga {
+	clear: both;
+}
+
+.diagramma .riga.prima .sopra {
+	border-top: 1px solid #222;
+}
+
+.diagramma .riga.ultima .sopra {
+	border: 1px solid #fff;
+}
+
+.diagramma .cella {
+	float: left;
+	position: relative;
+	width: 76px;
+	height: 32px;
+}
+
+.diagramma .cella.sopra {
+	border: 1px solid #222;
+	border-top: 0;
+}
+
+.diagramma .cella.sopra:not(:last-of-type) {
+	border-right: 0;
+}
+
+.diagramma .cella.etichetta {
+	width: 20px;
+}
+
+.diagramma .cella .nota {
+	position: absolute;
+	z-index: 2;
+	width: 26px;
+	height: 26px;
+	left: 50%;
+	margin-left: -13px;
+	margin-top: -13px;
+	text-align: center;
+	border-radius: 50%;
+	padding-top: 4px;
+}
+
+.diagramma .cella .nota.nome_corda {
+	background: none;
+	color: #222;
+	font-family: 'Montserrat';
+}
+
+.diagramma .cella .nota.nome_corda {
+	color: #666;
+}
