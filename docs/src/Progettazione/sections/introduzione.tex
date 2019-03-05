@@ -1,0 +1,71 @@
+L'\textit{hypermedia} \ProjectTitle{} ha l'obiettivo di avvicinare gli utenti al mondo della musica e di aiutarli a migliorare le loro conoscenze riguardanti questa arte.
+\section{I concetti}
+L'applicazione conterrà i seguenti concetti:
+\begin{itemize}
+	\item Concetti teorici
+	\item Strumenti
+	\item Accordi
+	\item Quiz
+\end{itemize}
+
+L'applicazione è quindi divisa in sezioni (tante quante i singoli concetti). Tali sezioni sono ulteriormente divise in ``unità'' all'interno delle quali ogni argomento sarà presentato attraverso una combinazione di testo, immagini, video e audio.
+
+L'applicazione avrà una pagina iniziale che ha lo scopo di introdurre il concetto di ``musica'', nonché di presentare all'utente delle istruzioni basilari sull'uso del sistema.
+
+\ProjectTitle{} sarà introdotto da una semplice \textit{splash screen} che permetterà all'utente di accedere più gradualmente all'applicazione. Si accompagnerà il tutto con un manuale utente.
+
+Il sistema conterrà una sezione per ogni unità che possa permettere all'utente di mettersi alla prova tramite domande a risposta multipla o ``minigiochi''.
+\subsection{Definizione dei concetti}
+\paragraph{Concetti teorici} I concetti teorici sono alla base dell'interfaccia con il mondo della musica. Sono suddivisi in due unità (più propriamente dette ``livelli''): \textit{teoria di livello base} e \textit{teoria di livello intermedio/avanzato} in cui, rispettivamente, saranno presentati i concetti necessari alla comprensione dei contenuti e saranno presentati dei concetti di approfondimento. Gli argomenti saranno trattati in modo da essere facilmente comprensibili dagli utenti che non hanno conoscenze in questo campo.
+\paragraph{Strumenti} Come tutte le arti, la musica necessita di una grande abilità pratica. Tramite le varie unità (che si identificano con gli strumenti presenti nell'applicazione, ovverosia: batteria, basso, chitarra e pianoforte) in cui è diviso questo concetto l'utente può interfacciarsi sulle tecniche base, intermedie e avanzate dello strumento scelto.
+\paragraph{Accordi} Una parte degli strumenti prevede la possibilità di suonare degli accordi. Nelle varie unità (che, anche in questo caso, si identificano con gli strumenti) di questo concetto, l'utente potrà imparare a suonare degli accordi con il proprio strumento.
+\paragraph{Quiz} Per ogni unità dei concetti precedentemente definiti, sarà presente un'unità di \textit{test} che consentirà all'utente di verificare le proprie conoscenze. Non è necessario superare un test per procedere nell'utilizzo dell'applicazione, ma è consigliato.
+\section{I task}
+\begin{enumerate}
+	\item Conoscere la teoria che c'è dietro l'arte della musica
+	\item Conoscere le tecniche basilari di almeno uno strumento
+\end{enumerate}
+\begin{figure}[H]
+	\label{fig:tasks}
+	\caption[I task]{I task di \ProjectTitle{}. Sono stati disposti orizzontalmente (da sinistra verso destra) affinché potessero facilmente essere inseriti in questo documento.}
+	\resizebox{\textwidth}{!}{%
+		\begin{tikzpicture}[%
+		sibling distance=10em,
+		level distance=8em,grow=right,
+		every node/.style = {shape=rectangle, align=center, inner sep=1em,draw},
+		edge from parent/.style={draw,thick,-latex},
+		root/.style={align=center, thick, rounded corners, font=\bfseries\scshape\color{white}, fill=mainColorDark},
+		level 1/.style={level distance=8em,sibling distance= 20em, fill=mainColorDark!60},
+		level 2/.style={level distance=18em,sibling distance= 10em, fill=mainColorDark!30},
+		final/.style = {thin, fill=mainColorDark!60, ellipse, fill=mainColorDark!5}
+		]
+			\node[root] (root) {Entrare nel mondo\\della musica}
+			child {
+				node[level 1] (c1) {Conoscere i\\concetti teorici} 
+				child {
+					node[level 2] (c11) {Conoscere i\\concetti di base}
+					child {
+						node[final] (c111) {Trasferire conoscenze\\mediante testo,\\immagini e audio}
+					}
+				}
+				child {
+					node[level 2] (c12) {Conoscere i\\concetti avanzati}
+					child {
+						node[final] (c121) {Trasferire conoscenze\\mediante testo\\e immagini}
+					}
+				}
+			}
+			child { 
+				node[level 1] (c2) {Conoscere uno\\strumento}
+				child {
+					node[level 2] (c21) {Conoscere le\\tecniche avanzate\\(accordi)}
+					child { 
+						node[final] (c211) {Trasferire conoscenze\\sugli accordi mediante\\immagini, video e audio} }
+				}
+				child { 
+					node[final] (c22) {Trasferire conoscenze\\sullo strumento scelto\\mediante testo e immagini} 
+				}
+			};
+		\end{tikzpicture}%
+	}
+\end{figure}
