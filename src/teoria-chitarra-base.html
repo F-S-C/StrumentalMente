@@ -18,7 +18,8 @@
 	<meta property="og:image" content="https://f-s-c.github.io/StrumentalMente/logo/2048x2048.png">
 </head>
 
-<body onload="initialize('argomenti', 'teoria/base/');">
+<body
+onload="window.parent.setLinks({ previous: '', previousLink: '', next: '', nextLink: '' });">
 	<header>
 		<div id="titlebar">
 			<div id="drag-region">
@@ -109,49 +110,25 @@
 			<i class="fas fa-bars"></i>
 		</button>
 
-		<div class="content">
-			<h1>La chitarra</h1>
-			<h2>Conoscenze fondamentali sulla chitarra</h2>
-			<section class="hide">
-				<p>La chitarra è uno strumento musicale <strong>cordafono a pizzico</strong>, che può essere suonato con
-					i polpastrelli, con le unghie o con un plettro. La chitarra è uno degli strumenti musicali più
-					popolari di tutti i tempi e la sua origine si fa risalire al diciassettesimo secolo. Oggi esistono
-					diversi tipi di chitarre, come la <strong>chitarra classica</strong>, la <strong>chitarra
-						acustica</strong> e quella <strong>chitarra elettrica</strong>. </p>
-				<p>Nella chitarra ci sono due sistemi che concorrono al funzionamento dello strumento: un sistema di
-					<strong>produzione e amplificazione del suono</strong> e un sistema del <strong>sostegno</strong>.
-					Una buona chitarra deve avere un ottimo equilibrio fra questi due sistemi, deve essere elastica e
-					deformarsi in modo controllato e nelle sezioni utili. Soprattutto per chi è agli inizi è importante
-					conosce tutte le parti che costituiscono una chitarra.</p>
-				<p>La <strong>paletta</strong> è la parte della chitarra verso l’estrema sinistra che tiene i
-					<strong>piroli</strong>. I piroli sono dispositivi dove vengono avvolte le corde, oltre a tenere le
-					corde servono per regolare l’intonazione della chitarra.</p>
-				<p>Di solito si hanno 3 piroli su ciascun lato della paletta. Alcune chitarre invece hanno tutte e 6 i
-					piroli su un lato della paletta. Il dado guida e tiene le corde nel posto giusto prima di arrivare
-					alla paletta. Solitamente il <strong>dado</strong> è fatto di plastica, osso, grafite o metallo.</p>
-			</section>
-			<section class="hide">
-				<p>Il <strong>collo/manico</strong> rappresenta tutta la parte della chitarra dalla paletta fino al
-					corpo. Inoltre, il collo è la parte che ospita la tastiera. La <strong>tastiera</strong> è incollata
-					al collo, ovvero la parte che tiene i tasti in posizione. </p>
-				<p>Solitamente è fatta in legno di palissandro, acero o ebano. I <strong>tasti</strong> sono quelle
-					strisce metalliche verticali sulla tastiera. Normalmente sono fatti di nichel o acciaio
-					inossidabile. Il <strong>corpo</strong>> è la parte principale della chitarra che può avere varie
-					forme o dimensioni. Il <strong>ponte</strong> contiene le corde sul corpo della chitarra.</p>
-			</section>
-			<div class="buttons-container">
-				<div class="first-column">
-					<button type="button" id="back-topic" class="btn-outlined" style="display: none;">
-						Argomento Precedente <i class="btn-icon left fas fa-arrow-alt-circle-left"></i>
-					</button>
-					<button type="button" id="back" class="btn-outlined" disabled>
-						Indietro <i class="btn-icon left fas fa-arrow-alt-circle-left"></i>
-					</button>
-				</div>
-				<div class="third-column">
-					<button type="button" id="next" class="btn">
-						Avanti <i class="btn-icon fas fa-arrow-circle-right"></i>
-					</button>
+		<div class="sub-wrapper">
+
+
+			<div class="content">
+				<iframe id="content-frame" src="./strumenti/chitarra/base/introduzione.html" class="slide-container"></iframe>
+				<div class="buttons-container">
+					<div class="first-column">
+						<button type="button" id="back" class="btn-outlined" disabled>
+							Indietro <i class="btn-icon left fas fa-arrow-alt-circle-left"></i>
+						</button>
+					</div>
+					<div class="third-column">
+						<button type="button" id="next" class="btn">
+							Avanti <i class="btn-icon fas fa-arrow-circle-right"></i>
+						</button>
+						<button type="button" id="next-topic" class="btn">
+							Differenza classica ed elettrica <i class="btn-icon fas fa-arrow-circle-right"></i>
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>
