@@ -165,16 +165,15 @@ function initialize(initial, base = "./") {
 			if (currentSection === numberOfSections - 1) {
 				nextSlideButton.style.display = "inline-block";
 				nextTopicButton.style.display = "none";
-				currentSection--;
 			}
 			if (currentSection > 0) {
-				currentSection--;
-				if (currentSection == 0) {
+				if (currentSection - 1 == 0) {
 					previousTopicButton.style.display = "inline-block";
 					previousSlideButton.style.display = "none";
 					previousSlideButton.toggleAttribute("disabled", true);
 				}
 			}
+			currentSection--;
 		}
 
 		setTimeout(() => {
