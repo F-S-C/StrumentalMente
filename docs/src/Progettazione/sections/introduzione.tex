@@ -43,15 +43,15 @@ Il sistema conterrà una sezione per ogni unità che possa permettere all'utente
 			child {
 				node[level 1] (c1) {Conoscere i\\concetti teorici} 
 				child {
-					node[level 2] (c11) {Conoscere i\\concetti di base}
-					child {
-						node[final] (c111) {Trasferire conoscenze\\mediante testo,\\immagini e audio}
-					}
-				}
-				child {
 					node[level 2] (c12) {Conoscere i\\concetti avanzati}
 					child {
 						node[final] (c121) {Trasferire conoscenze\\mediante testo\\e immagini}
+					}
+				}
+				child {
+					node[level 2] (c11) {Conoscere i\\concetti di base}
+					child {
+						node[final] (c111) {Trasferire conoscenze\\mediante testo,\\immagini e audio}
 					}
 				}
 			}
@@ -63,9 +63,10 @@ Il sistema conterrà una sezione per ogni unità che possa permettere all'utente
 						node[final] (c211) {Trasferire conoscenze\\sugli accordi mediante\\immagini, video e audio} }
 				}
 				child { 
-					node[final] (c22) {Trasferire conoscenze\\sullo strumento scelto\\mediante testo e immagini} 
+					node[final] (c22) {Trasferire conoscenze sullo\\strumento scelto mediante\\testo, immagini e video} 
 				}
 			};
+%		\draw[dashed, thick, -latex] (root) -- (c21);
 		\end{tikzpicture}%
 	}
 \end{figure}
