@@ -380,3 +380,29 @@ function playStopAudio(audioTagId, buttonRef, stopButtonId) {
 		audio.currentTime = 0;
 	};
 }
+
+(function () {
+
+	let figures = Array.prototype.slice.call(document.getElementsByTagName("figure"));
+
+	figures.forEach(fig => {
+		let showImageModal = () => {
+			if (!/.*?modal.*?/i.test(fig.className)) {
+				let closeButton = document.createElement("button");
+				closeButton.className = "close-btn";
+				closeButton.innerHTML = "<i class=\"fas fa-times\"></i>";
+				fig.appendChild(closeButton);
+				closeButton.addEventListener("click", () => {
+					fig.className = fig.className.replace("modal", "");
+					closeButton.parentElement.removeChild(closeButton);
+					setTimeout(() => {
+						fig.addEventListener("click", showImageModal);
+					}, 100);
+				});
+				fig.className += " modal";
+				fig.removeEventListener("click", showImageModal);
+			}
+		};
+		fig.addEventListener("click", showImageModal);
+	});
+})();

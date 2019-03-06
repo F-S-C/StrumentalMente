@@ -1,44 +1,123 @@
 figure {
-    float: right;
-    width: 30%;
-    border: thin silver solid;
-    margin: 1em;
-    padding: 0.5em;
+	float: right;
+	width: 30%;
+	border: thin silver solid;
+	margin: 1em;
+	padding: 0.5em;
 }
 
 figure.left {
-    float: left;
+	float: left;
 }
 
 figure.center {
-    float: none;
-    margin: 0 auto;
+	float: none;
+	margin: 0 auto;
 }
 
 figure img {
-    width: 100%;
+	width: 100%;
 }
 
 figure figcaption {
-    text-align: center;
-    font-style: italic;
-    font-size: smaller;
-    text-indent: 0;
+	text-align: center;
+	font-style: italic;
+	font-size: smaller;
+	text-indent: 0;
 }
 
 figure figcaption span {
-    font-weight: bold;
+	font-weight: bold;
 }
 
 .multiple-figures {
-    float: none;
-    align-items: center;
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
+	float: none;
+	align-items: center;
+	width: 100%;
+	display: flex;
+	justify-content: space-evenly;
 }
 
 .multiple-figures figure {
-    flex: 0.1 0 auto;
-    width: 20%;
+	flex: 0.1 0 auto;
+	width: 20%;
+}
+
+figure.modal {
+	display: block;
+	position: fixed;
+	z-index: 1;
+	padding-top: 100px;
+	left: 0;
+	margin: 0;
+	border: none;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.9);
+}
+
+figure.modal img {
+	margin: auto;
+	display: block;
+	width: 80%;
+	max-width: 700px;
+	max-height: 90%;
+}
+
+figure.modal figcaption {
+	margin: auto;
+	display: block;
+	width: 80%;
+	max-width: 700px;
+	text-align: center;
+	color: #ccc;
+	padding: 10px 0;
+	height: 150px;
+}
+
+figure.modal img, figure.modal figcaption {
+	animation-name: zoom;
+	animation-duration: 0.6s;
+}
+
+figure.modal .close-btn {
+	position: absolute;
+	top: 40px;
+	right: 40px;
+	color: #f1f1f1;
+	font-size: 1em;
+	transition: 0.3s;
+	background-color: transparent;
+	border: none;
+	width: 46px;
+	height: 46px;
+	border-radius: 50%;
+}
+
+figure.modal .close-btn:hover, figure.modal .close-btn:focus {
+	background-color: rgba(255, 255, 255, 0.1);
+	color: #bbb;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+@-webkit-keyframes zoom {
+	from {
+		-webkit-transform: scale(0)
+	}
+	to {
+		-webkit-transform: scale(1)
+	}
+}
+
+@keyframes zoom {
+	from {
+		transform: scale(0)
+	}
+	to {
+		transform: scale(1)
+	}
 }
