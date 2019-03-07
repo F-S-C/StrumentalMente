@@ -104,7 +104,7 @@ let promptWindow = null;
  * @param {Object} [options] Le opzioni della nuova finestra
  * @param {*} callback La funzione da richiamare alla chiusura della finestra
  */
-function promptModal(parentWindow, options = {}, callback) {
+function promptModal(parentWindow, options = {}, file = "./dialogs/exit-dialog.html", callback) {
 	promptOptions = options;
 	promptWindow = new BrowserWindow({
 		width: options.width || 400,
@@ -121,7 +121,7 @@ function promptModal(parentWindow, options = {}, callback) {
 		callback(promptAnswer);
 	});
 
-	promptWindow.loadFile("./dialogs/exit-dialog.html");
+	promptWindow.loadFile(file);
 }
 
 /** Chiamata dalla finestra del dialogo per ottenere i suoi parametri */
@@ -137,7 +137,7 @@ ipcMain.on("closeDialog", (event, data) => {
 /** Chiamata dall'applicazione per aprire la finestra di dialogo */
 ipcMain.on("prompt", (event, options) => {
 	if (!promptWindow)
-		promptModal(win, options, (data) => {
+		promptModal(win, options, options.file || "./dialogs/exit-dialog.html", (data) => {
 			event.returnValue = data;
 		});
 	else
