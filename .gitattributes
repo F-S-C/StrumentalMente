@@ -1,4 +1,5 @@
 *.docx diff=pandoc
-documentation/* linguist-vendored
+docs/* linguist-vendored
 generate-documentation.py linguist-vendored
 minify.py linguist-vendored
+docs/Contenuti/convert-word.py linguist-vendored
