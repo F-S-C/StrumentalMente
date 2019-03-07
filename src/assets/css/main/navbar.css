@@ -34,7 +34,7 @@ nav.main-navigation li a, nav.main-navigation li button {
     display: block;
     color: white;
     text-align: left;
-    padding: 14px 16px;
+    padding: 8px 10px;
     font: inherit;
     text-decoration: none;
 }
@@ -86,7 +86,7 @@ nav.main-navigation .dropdown li {
 
 nav.main-navigation .dropdown li a {
     color: white;
-    padding: 12px 16px 12px 5em;
+    padding: 8px 10px 8px 5em;
     text-decoration: none;
     display: block;
     text-align: left;
@@ -104,18 +104,11 @@ nav.main-navigation .dropdown>a::after, nav.main-navigation .dropdown>button::af
     position: absolute;
     right: 0;
     top: 2px;
-    padding: 14px 16px;
+    padding: 8px 10px;
 }
 
 nav.main-navigation .dropdown>a.open::after, nav.main-navigation .dropdown>button.open::after {
-    font-family: "Font Awesome 5 Free";
-    color: rgba(255, 255, 255, .9);
-    font-weight: 900;
     content: "\f0d8";
-    position: absolute;
-    right: 0;
-    top: 2px;
-    padding: 14px 16px;
 }
 
 nav.main-navigation .dropdown li a:hover {

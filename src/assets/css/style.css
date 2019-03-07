@@ -70,6 +70,8 @@ details {
 	height: 100%;
 	padding: 0;
 	border: none;
+	display: block;
+	overflow: hidden;
 }
 
 @media only screen and (max-width: 768px) {
