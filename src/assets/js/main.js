@@ -270,8 +270,6 @@ function initializeQuiz() {
 	verifyButton.style.display = "none";
 	previousSlideButton.toggleAttribute("disabled", true);
 
-	verifyButton.removeEventListener("click", checkQuiz);
-	verifyButton.addEventListener("click", checkQuiz);
 	previousSlideButton.removeEventListener("click", previousSlide);
 	previousSlideButton.addEventListener("click", previousSlide);
 	nextSlideButton.removeEventListener("click", nextSlide);
@@ -333,14 +331,6 @@ function changeQuizSlide(finalSlide) {
 		questionsInNavbar[finalSlide].className = "question-link active";
 		canChangeSlide = true;
 	}, 100);
-}
-
-/**
- * Calcola i risultati del quiz.
- */
-function checkQuiz() {
-	document.activeElement.blur();
-	window.alert("Non ancora implementato!");
 }
 
 /**

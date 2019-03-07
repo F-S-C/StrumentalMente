@@ -44,6 +44,12 @@ function createWindow() {
 		windowState = {};
 	}
 
+	try {
+		allQuizzes = global.nodeStorage.getItem("QuizResults");
+	} catch (err) {
+		allQuizzes = {};
+	}
+
 	if (!windowState)
 		windowState = { bounds: { width: 1066, height: 600 }, isMaximized: true };
 
@@ -147,7 +153,7 @@ ipcMain.on("prompt", (event, options) => {
 
 ipcMain.on("save-quiz", (event, quiz) => {
 	allQuizzes[quiz.id] = quiz.passed;
-	
+
 	// save to file
 	global.nodeStorage.setItem("QuizResults", allQuizzes);
 

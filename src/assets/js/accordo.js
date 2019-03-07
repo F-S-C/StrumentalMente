@@ -107,7 +107,7 @@ function verify_and_store() {
 	sessionStorage.setItem("selected_checkbox", JSON.stringify(item));
 	sessionStorage.setItem("correct", JSON.stringify(corretto));
 	if(corretto)
-		sessionStorage.setItem("score",sessionStorage.getItem("score")+1);
+		sessionStorage.setItem("score",JSON.parse(sessionStorage.getItem("score"))+1);
 }
 
 /**
