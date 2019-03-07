@@ -44,6 +44,7 @@ function drop(name, defaultLinkClass = "") {
 
 
 var numberOfSections = 0, currentSection = 0;
+var returnToLast = false;
 var initialPage = "", baseFolder = "./";
 var sectionList;
 var pagesName = {
@@ -130,6 +131,11 @@ function initialize(initial, base = "./") {
 		}
 	}
 
+	if (returnToLast) {
+		changeSlide(numberOfSections - 1);
+		returnToLast = false;
+	}
+
 	previousTopicButton.innerHTML = pagesName.previous + " <i class=\"btn-icon left fas fa-arrow-alt-circle-left\"></i>";
 	nextTopicButton.innerHTML = pagesName.next + " <i class=\"btn-icon fas fa-arrow-circle-right\"></i>";
 
@@ -142,19 +148,19 @@ function initialize(initial, base = "./") {
 	 * visibili (o nascondere) i relativi pulsanti di spostamento
 	 * (avanti con id next, indietro con id back e quiz con id quiz).
 	 * 
-	 * @param {boolean} slide se è `true`, avanza di una slide, altrimenti indietreggia di una slide.
+	 * @param {numer} slide Il numero della slide da aprire.
 	 */
 	function changeSlide(slide) {
 		iFrameDocument.document.getElementsByTagName("section")[currentSection].className = "hide";
 		canChangeSlide = false;
-		if (slide) {
+		if (slide > currentSection) {
 			if (currentSection == 0) {
 				previousTopicButton.style.display = "none";
 				previousSlideButton.style.display = "inline-block";
 				previousSlideButton.toggleAttribute("disabled", false);
 			}
 			if (currentSection <= numberOfSections - 1) {
-				currentSection++;
+				currentSection = slide;
 				if (currentSection === numberOfSections - 1) {
 					nextSlideButton.style.display = "none";
 					nextTopicButton.style.display = "inline-block";
@@ -173,7 +179,7 @@ function initialize(initial, base = "./") {
 					previousSlideButton.toggleAttribute("disabled", true);
 				}
 			}
-			currentSection--;
+			currentSection = slide;
 		}
 
 		setTimeout(() => {
@@ -183,16 +189,18 @@ function initialize(initial, base = "./") {
 	}
 
 	let openPreviousTopic = (e) => {
-		if (canChangeSlide)
-			changeTopic(pagesName.previousLink, baseFolder)
+		if (canChangeSlide) {
+			changeTopic(pagesName.previousLink, baseFolder, true);
+			returnToLast = true;
+		}
 	};
 	let openPreviousSlide = (e) => {
 		if (canChangeSlide)
-			changeSlide(false);
+			changeSlide(currentSection - 1);
 	};
 	let openNextSlide = (e) => {
 		if (canChangeSlide)
-			changeSlide(true);
+			changeSlide(currentSection + 1);
 	};
 	let openNextTopic = (e) => {
 		if (canChangeSlide)
@@ -235,8 +243,9 @@ function changeTopic(topicName, base = "./") {
 	var iFrame = document.getElementById("content-frame");
 	currentSection = 0;
 	document.activeElement.blur();
-	if (topicName !== "quiz")
+	if (topicName !== "quiz") {
 		iFrame.src = base + topicName + ".html";
+	}
 	else
 		require("electron").remote.getCurrentWindow().loadFile(base + topicName + ".html");
 }
