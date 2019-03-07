@@ -19,7 +19,7 @@
 </head>
 
 <body
-    onload="initialize( 'argomenti' , 'strumenti/chitarra/base/');">
+    onload="initialize( 'argomenti' , 'strumenti/chitarra/');">
 	<header>
 		<div id="titlebar">
 			<div id="drag-region">
@@ -114,7 +114,7 @@
 
 
 			<div class="content">
-				<iframe id="content-frame" src="./strumenti/chitarra/base/argomenti.html" class="slide-container"></iframe>
+				<iframe id="content-frame" src="./strumenti/chitarra/argomenti.html" class="slide-container"></iframe>
 				<div class="buttons-container">
 					<div class="first-column">
 						<button type="button" id="back-topic" class="btn-outlined" style="display: none;">
@@ -126,7 +126,7 @@
 					</div>
 					<div class="second-column">
 						<button type="button" id="back-to-list" title="Torna all'elenco argomenti"
-							class="btn-text" onclick="changeTopic('argomenti', './strumenti/chitarra/base/')" style="display: none;">
+							class="btn-text" onclick="changeTopic('argomenti', './strumenti/chitarra/')" style="display: none;">
 							Torna all'elenco argomenti <i class="btn-icon fas fa-home"></i>
 						</button>
 					</div>
@@ -147,6 +147,7 @@
 	<script type="text/javascript" src="./assets/js/render.js"></script>
 	<script>
 		openOnKeyboardShortcut("F1", "./helpers/help-teoria.html", true);
+		require("mousetrap").bind("ctrl+backspace", () => changeTopic('argomenti', './strumenti/chitarra/'));
 	</script>
 </body>
 
