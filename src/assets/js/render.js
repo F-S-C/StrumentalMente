@@ -244,10 +244,11 @@ window.addEventListener("load", () => {
 		Mousetrap.bind("alt+h", () => { remote.getCurrentWindow().loadFile("./home.html"); });
 		Mousetrap.bind("alt+t b", () => { remote.getCurrentWindow().loadFile("./teoria-base.html"); });
 		Mousetrap.bind("alt+t a", () => { remote.getCurrentWindow().loadFile("./teoria-avanzata.html"); });
-		// Mousetrap.bind("alt+s", () => ...);
-		// Mousetrap.bind("alt+s", () => ...);
-		// Mousetrap.bind("alt+s", () => ...);
-		// Mousetrap.bind("alt+s", () => ...);
+		Mousetrap.bind("alt+s s", () => { remote.getCurrentWindow().loadFile("./home-strumenti.html"); });
+		Mousetrap.bind("alt+s c", () => { remote.getCurrentWindow().loadFile("./teoria-chitarra.html"); });
+		Mousetrap.bind("alt+s b", () => { remote.getCurrentWindow().loadFile("./teoria-batteria.html"); });
+		Mousetrap.bind("alt+s shift+b", () => { remote.getCurrentWindow().loadFile("./teoria-basso.html"); });
+		Mousetrap.bind("alt+s p", () => { remote.getCurrentWindow().loadFile("./teoria-piano.html"); });
 		Mousetrap.bind("alt+m", () => { openModal("./map.html"); });
 		Mousetrap.bind("alt+i", () => { openModal("./about.html"); });
 	}
