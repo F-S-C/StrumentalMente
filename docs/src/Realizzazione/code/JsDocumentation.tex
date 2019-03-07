@@ -34,13 +34,14 @@ Inizializza la pagina del quiz.
 \item[{ \protect\hyperlink{changeQuizSlide}{changeQuizSlide(finalSlide)}
 }]
 Cambia la slide del quiz attualmente mostrata.
-\item[{ \protect\hyperlink{checkQuiz}{checkQuiz()} }]
-Calcola i risultati del quiz.
 \item[{ \protect\hyperlink{playStopAudio}{playStopAudio(audioTagId,
 buttonRef, stopButtonId)} }]
 Permette di avviare, mettere in pausa o stoppare un audio.
 \item[{ \protect\hyperlink{showExitDialog}{showExitDialog()} }]
 Mostra il dialogo di richiesta di conferma di uscita.
+\item[{ \protect\hyperlink{showQuizDialog}{showQuizDialog(nomeQuiz,
+score, total)} }]
+Mostra il dialogo con il punteggio dei quiz.
 \item[{ \protect\hyperlink{openInBrowser}{openInBrowser(link)} }]
 Apre un link nel browser predefinito.
 \item[{ \protect\hyperlink{openModal}{openModal(content, {[}options{]},
@@ -51,6 +52,23 @@ Apre una finestra modale mostrante il contenuto richiesto.
 content, {[}openAsModal{]})} }]
 Apre, tramite una shortcut da tastiera, una finestra mostrante il
 contenuto richiesto.
+\item[{ \protect\hyperlink{accordo}{accordo(nome, dita,
+tasto\_iniziale)} }]
+Oggetto accordo.
+\item[{ \protect\hyperlink{script_load}{script\_load()} }]
+Seleziona un numero casuale compreso tra 1 e 7 e ne imposta l'accordo da
+richiedere all'utente.
+\item[{ \protect\hyperlink{replace_selected}{replace\_selected()} }]
+Ripristina le checkbox selezionate dall'utente e il nome dell'accordo
+richiesto durante il quiz.
+\item[{ \protect\hyperlink{verify_and_store}{verify\_and\_store()} }]
+Verifica che le selezioni effettuate dall'utente siano corrette in base
+all'accordo presentatogli e memorizza: se la selezione è corretta (1) o
+non corretta (0), le checkbox selezionate (e non) e l'accordo che
+l'utente doveva riprodurre.
+\item[{ \protect\hyperlink{correct_chord}{correct\_chord()} }]
+In base al numero di accordo che l'utente doveva riprodurre, ripristina
+la sequenza di selezioni corretta nello schema.
 \end{description}
 
 \protect\hypertarget{openChildWindow}{}{}
@@ -266,23 +284,10 @@ con id next, indietro con id back e quiz con id quiz).
 
 \begin{tabularx}{\textwidth}{XXX}
 \toprule
-\begin{minipage}[b]{0.30\columnwidth}\raggedright
-Param\strut
-\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
-Type\strut
-\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
-Description\strut
-\end{minipage}\tabularnewline
+Param & Type & Description\tabularnewline
 \midrule
 \endhead
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-slide\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-\texttt{boolean}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-se è \texttt{true}, avanza di una slide, altrimenti indietreggia di una
-slide.\strut
-\end{minipage}\tabularnewline
+slide & \texttt{numer} & Il numero della slide da aprire.\tabularnewline
 \bottomrule
 \end{tabularx}
 
@@ -347,14 +352,6 @@ dove \texttt{n} è il numero di slide presenti nella pagina.\strut
 \bottomrule
 \end{tabularx}
 
-\protect\hypertarget{checkQuiz}{}{}
-
-\hypertarget{checkquiz}{%
-\subsection{checkQuiz()}\label{checkquiz}}
-
-Calcola i risultati del quiz.
-
-\textbf{Kind}: global function\\
 \protect\hypertarget{playStopAudio}{}{}
 
 \hypertarget{playstopaudioaudiotagid-buttonref-stopbuttonid}{%
@@ -409,6 +406,27 @@ L'ID del bottone di Stop.\strut
 Mostra il dialogo di richiesta di conferma di uscita.
 
 \textbf{Kind}: global function\\
+\protect\hypertarget{showQuizDialog}{}{}
+
+\hypertarget{showquizdialognomequiz-score-total}{%
+\subsection{showQuizDialog(nomeQuiz, score,
+total)}\label{showquizdialognomequiz-score-total}}
+
+Mostra il dialogo con il punteggio dei quiz.
+
+\textbf{Kind}: global function
+
+\begin{tabularx}{\textwidth}{XXX}
+\toprule
+Param & Type & Description\tabularnewline
+\midrule
+\endhead
+nomeQuiz & \texttt{String} & Il nome del quiz.\tabularnewline
+score & \texttt{number} & Il punteggio ottenuto.\tabularnewline
+total & \texttt{number} & Il punteggio totale possibile.\tabularnewline
+\bottomrule
+\end{tabularx}
+
 \protect\hypertarget{openInBrowser}{}{}
 
 \hypertarget{openinbrowserlink}{%
@@ -505,3 +523,88 @@ aperta nella stessa finestra.\strut
 \end{minipage}\tabularnewline
 \bottomrule
 \end{tabularx}
+
+\protect\hypertarget{accordo}{}{}
+
+\hypertarget{accordonome-dita-tasto_iniziale}{%
+\subsection{accordo(nome, dita,
+tasto\_iniziale)}\label{accordonome-dita-tasto_iniziale}}
+
+Oggetto accordo.
+
+\textbf{Kind}: global function
+
+\begin{tabularx}{\textwidth}{XXX}
+\toprule
+\begin{minipage}[b]{0.30\columnwidth}\raggedright
+Param\strut
+\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
+Type\strut
+\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
+Description\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.30\columnwidth}\raggedright
+nome\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+\texttt{String}\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+Stringa che indica il nome dell'accordo\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.30\columnwidth}\raggedright
+dita\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+\texttt{Boolean}\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+Sequenza di valori logici che indicano se la checkbox corrispondente è
+stata selezionata o meno\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.30\columnwidth}\raggedright
+tasto\_iniziale\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+\texttt{number}\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+Indica il numero del capotasto iniziale dell'accordo\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{tabularx}
+
+\protect\hypertarget{script_load}{}{}
+
+\hypertarget{script_load}{%
+\subsection{script\_load()}\label{script_load}}
+
+Seleziona un numero casuale compreso tra 1 e 7 e ne imposta l'accordo da
+richiedere all'utente.
+
+\textbf{Kind}: global function\\
+\protect\hypertarget{replace_selected}{}{}
+
+\hypertarget{replace_selected}{%
+\subsection{replace\_selected()}\label{replace_selected}}
+
+Ripristina le checkbox selezionate dall'utente e il nome dell'accordo
+richiesto durante il quiz.
+
+\textbf{Kind}: global function\\
+\protect\hypertarget{verify_and_store}{}{}
+
+\hypertarget{verify_and_store}{%
+\subsection{verify\_and\_store()}\label{verify_and_store}}
+
+Verifica che le selezioni effettuate dall'utente siano corrette in base
+all'accordo presentatogli ememorizza: se la selezione è corretta (1) o
+non corretta (0), le checkbox selezionate (e non) e l'accordo che
+l'utente doveva riprodurre.
+
+\textbf{Kind}: global function\\
+\protect\hypertarget{correct_chord}{}{}
+
+\hypertarget{correct_chord}{%
+\subsection{correct\_chord()}\label{correct_chord}}
+
+In base al numero di accordo che l'utente doveva riprodurre, ripristina
+la sequenza di selezionicorretta nello schema.
+
+\textbf{Kind}: global function

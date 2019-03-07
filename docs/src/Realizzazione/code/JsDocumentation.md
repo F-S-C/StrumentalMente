@@ -37,14 +37,14 @@ e di nascondere tutti i tag section successivi al primo.</p>
 <dt><a href="#changeQuizSlide">changeQuizSlide(finalSlide)</a></dt>
 <dd><p>Cambia la slide del quiz attualmente mostrata.</p>
 </dd>
-<dt><a href="#checkQuiz">checkQuiz()</a></dt>
-<dd><p>Calcola i risultati del quiz.</p>
-</dd>
 <dt><a href="#playStopAudio">playStopAudio(audioTagId, buttonRef, stopButtonId)</a></dt>
 <dd><p>Permette di avviare, mettere in pausa o stoppare un audio.</p>
 </dd>
 <dt><a href="#showExitDialog">showExitDialog()</a></dt>
 <dd><p>Mostra il dialogo di richiesta di conferma di uscita.</p>
+</dd>
+<dt><a href="#showQuizDialog">showQuizDialog(nomeQuiz, score, total)</a></dt>
+<dd><p>Mostra il dialogo con il punteggio dei quiz.</p>
 </dd>
 <dt><a href="#openInBrowser">openInBrowser(link)</a></dt>
 <dd><p>Apre un link nel browser predefinito.</p>
@@ -55,6 +55,24 @@ e di nascondere tutti i tag section successivi al primo.</p>
 <dt><a href="#openOnKeyboardShortcut">openOnKeyboardShortcut(shortcut, content, [openAsModal])</a></dt>
 <dd><p>Apre, tramite una shortcut da tastiera,
 una finestra mostrante il contenuto richiesto.</p>
+</dd>
+<dt><a href="#accordo">accordo(nome, dita, tasto_iniziale)</a></dt>
+<dd><p>Oggetto accordo.</p>
+</dd>
+<dt><a href="#script_load">script_load()</a></dt>
+<dd><p>Seleziona un numero casuale compreso tra 1 e 7 e ne imposta l&#39;accordo da richiedere all&#39;utente.</p>
+</dd>
+<dt><a href="#replace_selected">replace_selected()</a></dt>
+<dd><p>Ripristina le checkbox selezionate dall&#39;utente e il nome dell&#39;accordo richiesto durante il quiz.</p>
+</dd>
+<dt><a href="#verify_and_store">verify_and_store()</a></dt>
+<dd><p>Verifica che le selezioni effettuate dall&#39;utente siano corrette in base all&#39;accordo presentatogli e
+memorizza: se la selezione è corretta (1) o non corretta (0), le checkbox selezionate (e non) e 
+l&#39;accordo che l&#39;utente doveva riprodurre.</p>
+</dd>
+<dt><a href="#correct_chord">correct_chord()</a></dt>
+<dd><p>In base al numero di accordo che l&#39;utente doveva riprodurre, ripristina la sequenza di selezioni
+corretta nello schema.</p>
 </dd>
 </dl>
 
@@ -143,7 +161,7 @@ La funzione, in base al valore assunto da slide (true/false) cambia la sezione 
 
 | Param | Type | Description |
 | --- | --- | --- |
-| slide | <code>boolean</code> | se è `true`, avanza di una slide, altrimenti indietreggia di una slide. |
+| slide | <code>numer</code> | Il numero della slide da aprire. |
 
 <a name="changeTopic"></a>
 
@@ -174,12 +192,6 @@ Cambia la slide del quiz attualmente mostrata.
 | --- | --- | --- |
 | finalSlide | <code>number</code> | La slide da aprire in seguito alla richiesta di variazione della slide. Tale valore deve essere compreso nell'intervallo `[0, n]`, dove `n` è il numero di slide presenti nella pagina. |
 
-<a name="checkQuiz"></a>
-
-# checkQuiz()
-Calcola i risultati del quiz.
-
-**Kind**: global function  
 <a name="playStopAudio"></a>
 
 # playStopAudio(audioTagId, buttonRef, stopButtonId)
@@ -199,6 +211,19 @@ Permette di avviare, mettere in pausa o stoppare un audio.
 Mostra il dialogo di richiesta di conferma di uscita.
 
 **Kind**: global function  
+<a name="showQuizDialog"></a>
+
+# showQuizDialog(nomeQuiz, score, total)
+Mostra il dialogo con il punteggio dei quiz.
+
+**Kind**: global function  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| nomeQuiz | <code>String</code> | Il nome del quiz. |
+| score | <code>number</code> | Il punteggio ottenuto. |
+| total | <code>number</code> | Il punteggio totale possibile. |
+
 <a name="openInBrowser"></a>
 
 # openInBrowser(link)
@@ -236,3 +261,40 @@ Apre, tramite una shortcut da tastiera,una finestra mostrante il contenuto rich
 | content | <code>String</code> |  | Il link (assoluto o relativo) da aprire |
 | [openAsModal] | <code>boolean</code> | <code>false</code> | Se è `true`, la finestra sarà aperta come modale,  altrimenti sarà aperta nella stessa finestra. |
 
+<a name="accordo"></a>
+
+# accordo(nome, dita, tasto_iniziale)
+Oggetto accordo.
+
+**Kind**: global function  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| nome | <code>String</code> | Stringa che indica il nome dell'accordo |
+| dita | <code>Boolean</code> | Sequenza di valori logici che indicano se la checkbox corrispondente è stata selezionata o meno |
+| tasto_iniziale | <code>number</code> | Indica il numero del capotasto iniziale dell'accordo |
+
+<a name="script_load"></a>
+
+# script\_load()
+Seleziona un numero casuale compreso tra 1 e 7 e ne imposta l'accordo da richiedere all'utente.
+
+**Kind**: global function  
+<a name="replace_selected"></a>
+
+# replace\_selected()
+Ripristina le checkbox selezionate dall'utente e il nome dell'accordo richiesto durante il quiz.
+
+**Kind**: global function  
+<a name="verify_and_store"></a>
+
+# verify\_and\_store()
+Verifica che le selezioni effettuate dall'utente siano corrette in base all'accordo presentatogli ememorizza: se la selezione è corretta (1) o non corretta (0), le checkbox selezionate (e non) e l'accordo che l'utente doveva riprodurre.
+
+**Kind**: global function  
+<a name="correct_chord"></a>
+
+# correct\_chord()
+In base al numero di accordo che l'utente doveva riprodurre, ripristina la sequenza di selezionicorretta nello schema.
+
+**Kind**: global function  
