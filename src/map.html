@@ -54,49 +54,64 @@
 					<h1>Mappa dell'applicazione</h1>
 					<hr />
 				</header>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, nostrum. Amet accusantium modi
-					provident veritatis exercitationem ex corrupti doloremque suscipit dolor laborum culpa adipisci
-					aliquam expedita hic ullam reprehenderit impedit, error praesentium perspiciatis explicabo aperiam
-					iste nemo ab odit? Ratione laboriosam ipsam qui animi magni, a eius. Voluptate alias natus fugiat,
-					in quia suscipit tempore pariatur? Officia maiores quaerat nobis inventore deleniti quis suscipit,
-					ea, nisi doloribus, nemo architecto aspernatur reprehenderit? Neque veniam voluptas sapiente
-					similique nemo dolor eius, eligendi cupiditate unde debitis deserunt nobis, laudantium, quo
-					laboriosam ea. Sequi nulla cupiditate amet officia blanditiis tempore modi temporibus in error esse
-					sapiente dignissimos, sit quis possimus sint aspernatur quaerat, harum expedita qui, alias
-					consequuntur. Amet minima porro optio! Veniam, delectus. Nihil repellat expedita earum totam,
-					quibusdam quia culpa nemo, dolore a debitis tempore vero! Maxime facere excepturi ea, at non quasi
-					dolores accusantium vitae? Harum autem consequatur itaque tempore recusandae cum hic iste nam! Sint
-					vel qui distinctio, architecto tempore et numquam ducimus itaque, odio quibusdam quidem possimus
-					dicta, consequatur vero facere? Molestias maxime distinctio qui saepe voluptatem sed porro nisi
-					consequuntur a laudantium, quasi corporis molestiae fugiat optio, laborum minima quia. Expedita
-					facilis, voluptatibus provident atque minima doloremque quidem, nesciunt magni hic possimus ut nemo
-					laborum. Eos quas quod soluta sequi error delectus harum nemo quo aspernatur cupiditate voluptas,
-					excepturi accusamus iste minima libero ad deserunt praesentium alias veritatis cum. Veniam neque et
-					ipsa quod, unde odit dolor eius tempore voluptas maxime ducimus! Iusto repellendus architecto
-					voluptatem vitae aliquam non quisquam placeat, tempora similique. Natus reprehenderit itaque
-					inventore nam porro tenetur omnis dolore qui suscipit perferendis voluptatum laudantium, excepturi,
-					quibusdam, consequatur totam magnam possimus explicabo dignissimos alias unde numquam animi odit.
-					Dignissimos, molestias commodi. Laudantium deserunt id corrupti ullam repellendus? Nulla temporibus
-					quo ab sit labore quae optio beatae?</p>
-				<p>Totam eum perferendis ipsum ipsa sunt exercitationem! Amet unde maxime dolorum eligendi molestiae
-					eius quasi dolores minima ipsam cupiditate! Illum facilis natus consectetur quod atque optio
-					cupiditate incidunt ut culpa? Suscipit voluptatem soluta veniam cumque odit aliquid natus commodi
-					nihil, reiciendis repellendus at dignissimos, aperiam facere corrupti illo repellat rerum explicabo
-					fugiat consequuntur. Adipisci aperiam dolor veniam qui, inventore obcaecati consequatur, nobis
-					facere aut quidem expedita ducimus animi eaque et, asperiores tenetur odio nihil. Eius vitae earum
-					quam aliquid velit modi ad dolore iure debitis. Quae vitae praesentium reprehenderit. Labore nihil
-					tempore quod, vero quos consequatur corrupti quisquam doloribus quasi vitae natus eaque nostrum
-					ipsam sunt pariatur esse dicta est officia iste consequuntur laborum reprehenderit aliquam, sint
-					autem! Dolorem voluptate qui facere eligendi voluptatum reprehenderit officiis culpa excepturi at
-					aspernatur dignissimos, sunt pariatur aliquam? Ex est sit obcaecati reprehenderit facilis. Explicabo
-					ab, ex dicta minus odit tempore quae deserunt vitae harum repellendus fuga laborum consequatur
-					fugiat aut tenetur fugit accusamus ipsum placeat quibusdam eaque temporibus.</p>
+				<div style="width:100%; text-align: center;">
+					<img id="img_ID" src="./assets/images/StrumentalMente-Sitemap.svg" usemap="#map" alt=""
+						style="border:none; height:600px;" />
+				</div>
+				<map id="map_ID" name="map">
+					<area alt="Home" title="Home" href="javascript:window.alert('home.html');" coords="259,95,342,159" shape="rect">
+					<area alt="Strumenti" title="Strumenti" href="javascript:window.alert('strumenti.html');" coords="116,180,200,243" shape="rect">
+					<area alt="Accordi" title="Accordi" href="javascript:window.alert('Accordi.html');" coords="223,180,307,244" shape="rect">
+					<area  alt="Teoria base" title="Teoria base" href="javascript:window.alert('Teoria base');" shape="rect" coords="32,267,119,332" />
+					<area  alt="Accordi basso" title="Accordi basso" href="javascript:window.alert('Accordi basso');" shape="rect" coords="246,267,333,332" />
+					<area  alt="Teoria batteria" title="Teoria batteria" href="javascript:window.alert('Teoria batteria');" shape="rect" coords="138,268,225,333" />
+					<area  alt="Teoria avanzata" title="Teoria avanzata" href="javascript:window.alert('Teoria avanzata');" shape="rect" coords="32,353,119,418"  />
+					<area  alt="Teoria basso" title="Teoria basso" href="javascript:window.alert('Teoria basso');" shape="rect" coords="138,353,225,418" />
+					<area  alt="Teoria chitarra" title="Teoria chitarra" href="javascript:window.alert('Teoria chitarra');" shape="rect" coords="139,439,226,504" />
+					<area  alt="Teoria pianoforte" title="Teoria pianoforte" href="javascript:window.alert('Teoria pianoforte');" shape="rect" coords="139,524,226,589" />
+					<area  alt="Accordi pianoforte" title="Accordi pianoforte" href="javascript:window.alert('Accordi pianoforte');" shape="rect" coords="246,439,333,504" />
+					<area  alt="Accordi chitarra" title="Accordi chitarra" href="javascript:window.alert('Accordi chitarra');" shape="rect" coords="246,353,333,418" />
+				</map>
 			</section>
 		</div>
 	</div>
 
 	<script src="./assets/js/main.js"></script>
 	<script src="./assets/js/render.js"></script>
+	<script>
+
+		window.onload = function () {
+			var ImageMap = function (map, img) {
+				var n,
+					areas = map.getElementsByTagName('area'),
+					len = areas.length,
+					coords = [],
+					previousWidth = 611;
+				for (n = 0; n < len; n++) {
+					coords[n] = areas[n].coords.split(',');
+				}
+				this.resize = function () {
+					var n, m, clen,
+						x = img.offsetWidth / previousWidth;
+					for (n = 0; n < len; n++) {
+						clen = coords[n].length;
+						for (m = 0; m < clen; m++) {
+							coords[n][m] *= x;
+						}
+						areas[n].coords = coords[n].join(',');
+					}
+					previousWidth = document.body.clientWidth;
+					return true;
+				};
+				window.onresize = this.resize;
+			},
+				imageMap = new ImageMap(document.getElementById('map_ID'), document.getElementById('img_ID'));
+			imageMap.resize();
+			return;
+		}
+
+
+	</script>
 </body>
 
 </html>
