@@ -1,6 +1,6 @@
 ﻿# StrumentalMente - ToDo
 
-- [ ] Scrittura dei contenuti
+- [x] Scrittura dei contenuti
   - [x] Teoria
     - [x] Base
     - [x] Avanzata
@@ -40,6 +40,6 @@
   - [ ] Conclusioni del test ed eventuali correzioni
 - [ ] Beta &beta; test
   - [ ] Individuazione della lista di Beta Tester
-  - [ ] Stesura dei questionari da far compilare agli utenti
+  - [x] Stesura dei questionari da far compilare agli utenti
 - [ ] Stampa dei documenti
 - [ ] Creazione del CD con _autorun_
