@@ -142,8 +142,12 @@ function showExitDialog() {
 
 /**
  * Mostra il dialogo con il punteggio dei quiz.
+ * 
+ * @param {String} nomeQuiz Il nome del quiz.
+ * @param {number} score Il punteggio ottenuto.
+ * @param {number} total Il punteggio totale possibile.
  */
-function showQuizDialog(score, total) {
+function showQuizDialog(nomeQuiz, score, total) {
 	const { ipcRenderer } = require("electron");
 
 	var answer = ipcRenderer.sendSync("prompt", {
@@ -157,8 +161,13 @@ function showQuizDialog(score, total) {
 		totalScore: total,
 		file: "./dialogs/quiz-dialog.html"
 	});
-	// if (answer)
-	// 	remote.app.quit();
+
+	ipcRenderer.sendSync("save-quiz", { id: nomeQuiz, passed: (score >= ((total / 2) + 1)) });
+
+	if (answer)
+		console.log("WIP");
+	else
+		console.log("WIP");
 }
 
 /**
@@ -241,5 +250,6 @@ window.addEventListener("load", () => {
 		// Mousetrap.bind("alt+s", () => ...);
 		Mousetrap.bind("alt+m", () => { openModal("./map.html"); });
 		Mousetrap.bind("alt+i", () => { openModal("./about.html"); });
+		Mousetrap.bind("alt+k", () => { showQuizDialog("boh", 11, 20); });
 	}
 });

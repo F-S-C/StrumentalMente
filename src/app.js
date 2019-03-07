@@ -18,6 +18,7 @@ const storageLocation = app.getPath('userData');
 global.nodeStorage = new JSONStorage(storageLocation);
 
 let win = null;
+let allQuizzes = {};
 
 /**
  * Apre una finestra "figlia" e modale.
@@ -142,4 +143,17 @@ ipcMain.on("prompt", (event, options) => {
 		});
 	else
 		event.returnValue = undefined;
+});
+
+ipcMain.on("save-quiz", (event, quiz) => {
+	allQuizzes[quiz.id] = quiz.passed;
+	
+	// save to file
+	global.nodeStorage.setItem("QuizResults", allQuizzes);
+
+	event.returnValue = quiz.passed;
+});
+
+ipcMain.on("get-quiz", (event, quizName) => {
+	event.returnValue = allQuizzes[quizName] || false;
 });
