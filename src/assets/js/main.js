@@ -190,8 +190,9 @@ function initialize(initial, base = "./") {
 
 	let openPreviousTopic = (e) => {
 		if (canChangeSlide) {
-			changeTopic(pagesName.previousLink, baseFolder, true);
-			returnToLast = true;
+			changeTopic(pagesName.previousLink, baseFolder);
+			if(pagesName.previousLink !== initialPage)
+				returnToLast = true;
 		}
 	};
 	let openPreviousSlide = (e) => {
