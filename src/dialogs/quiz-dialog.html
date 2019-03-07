@@ -75,7 +75,9 @@
             var params = JSON.parse(options);
             document.getElementById("label").innerHTML = params.label;
             document.getElementById("yes-btn").innerHTML = params.yes;
-            document.getElementById("no-btn").innerHTML = params.no;
+			document.getElementById("no-btn").innerHTML = params.no;
+			document.getElementById("score").innerHTML = params.scored;
+			document.getElementById("total").innerHTML = params.totalScore;
             yesReturn = params.yesReturn;
             noReturn = params.noReturn;
         }

@@ -141,6 +141,27 @@ function showExitDialog() {
 }
 
 /**
+ * Mostra il dialogo con il punteggio dei quiz.
+ */
+function showQuizDialog(score, total) {
+	const { ipcRenderer } = require("electron");
+
+	var answer = ipcRenderer.sendSync("prompt", {
+		title: "Quiz - Risultato",
+		label: "Hai ottenuto un punteggio di:",
+		yes: "Verifica",
+		yesReturn: true,
+		no: "Ok",
+		noReturn: false,
+		scored: score,
+		totalScore: total,
+		file: "./dialogs/quiz-dialog.html"
+	});
+	// if (answer)
+	// 	remote.app.quit();
+}
+
+/**
  * Apre un link nel browser predefinito.
  * 
  * @param {String} link Il link da aprire
