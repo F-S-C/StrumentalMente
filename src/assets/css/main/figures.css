@@ -46,7 +46,7 @@ figure figcaption span {
 figure.modal {
 	display: block;
 	position: fixed;
-	z-index: 1;
+	z-index: 5;
 	padding-top: 150px;
 	left: 0;
 	margin: 0;

@@ -191,7 +191,7 @@ function initialize(initial, base = "./") {
 	let openPreviousTopic = (e) => {
 		if (canChangeSlide) {
 			changeTopic(pagesName.previousLink, baseFolder);
-			if(pagesName.previousLink !== initialPage)
+			if (pagesName.previousLink !== initialPage)
 				returnToLast = true;
 		}
 	};
@@ -395,10 +395,14 @@ function playStopAudio(audioTagId, buttonRef, stopButtonId) {
 				closeButton.addEventListener("click", () => {
 					fig.className = fig.className.replace("modal", "");
 					closeButton.parentElement.removeChild(closeButton);
-					document.activeElement.blur();
 					setTimeout(() => {
 						fig.addEventListener("click", showImageModal);
 					}, 100);
+
+					if (parent.document !== document)
+						parent.document.activeElement.blur();
+					else
+						document.activeElement.blur();
 				});
 				fig.className += " modal";
 				fig.removeEventListener("click", showImageModal);
