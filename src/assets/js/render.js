@@ -250,6 +250,5 @@ window.addEventListener("load", () => {
 		// Mousetrap.bind("alt+s", () => ...);
 		Mousetrap.bind("alt+m", () => { openModal("./map.html"); });
 		Mousetrap.bind("alt+i", () => { openModal("./about.html"); });
-		Mousetrap.bind("alt+k", () => { showQuizDialog("boh", 11, 20); });
 	}
 });
