@@ -395,6 +395,7 @@ function playStopAudio(audioTagId, buttonRef, stopButtonId) {
 				closeButton.addEventListener("click", () => {
 					fig.className = fig.className.replace("modal", "");
 					closeButton.parentElement.removeChild(closeButton);
+					document.activeElement.blur();
 					setTimeout(() => {
 						fig.addEventListener("click", showImageModal);
 					}, 100);
