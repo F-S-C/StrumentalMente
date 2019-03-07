@@ -387,11 +387,18 @@ function playStopAudio(audioTagId, buttonRef, stopButtonId) {
 
 	figures.forEach(fig => {
 		let showImageModal = () => {
+			let realDocument = (parent.document !== document) ? parent.document : document;
 			if (!/.*?modal.*?/i.test(fig.className)) {
 				let closeButton = document.createElement("button");
 				closeButton.className = "close-btn";
 				closeButton.innerHTML = "<i class=\"fas fa-times\"></i>";
+				var backupFig = fig.cloneNode(true);
 				fig.appendChild(closeButton);
+				fig.insertAdjacentElement("afterend", backupFig);
+				if (parent.document !== document)
+					fig.getElementsByTagName("img")[0].src = fig.getElementsByTagName("img")[0].src.replace("../../../", "./");
+				fig = realDocument.body.appendChild(fig);
+				closeButton = fig.getElementsByTagName("button")[0];
 				closeButton.addEventListener("click", () => {
 					fig.className = fig.className.replace("modal", "");
 					closeButton.parentElement.removeChild(closeButton);
@@ -399,10 +406,9 @@ function playStopAudio(audioTagId, buttonRef, stopButtonId) {
 						fig.addEventListener("click", showImageModal);
 					}, 100);
 
-					if (parent.document !== document)
-						parent.document.activeElement.blur();
-					else
-						document.activeElement.blur();
+					fig.parentElement.removeChild(fig);
+					fig = backupFig;
+					realDocument.activeElement.blur();
 				});
 				fig.className += " modal";
 				fig.removeEventListener("click", showImageModal);
