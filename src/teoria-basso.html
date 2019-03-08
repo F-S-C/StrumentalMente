@@ -122,7 +122,7 @@
 				</div>
 				<div class="second-column">
 					<button type="button" id="back-to-list" title="Torna all'elenco di argomenti (CTRL + Backspace)"
-						class="btn-text" onclick="changeTopic('./argomenti', './strumenti/basso/');" style="display: none;">
+						class="btn-text" onclick="changeTopic('argomenti', './strumenti/basso/');" style="display: none;">
 						Torna all'elenco <i class="btn-icon fas fa-home"></i>
 					</button>
 				</div>
@@ -142,7 +142,7 @@
 	<script type="text/javascript" src="./assets/js/render.js"></script>
 	<script>
 		openOnKeyboardShortcut("F1", "./helpers/help-teoria.html", true);
-		require("mousetrap").bind("ctrl+backspace", () => changeTopic('./argomenti', './strumenti/basso/'));
+		require("mousetrap").bind("ctrl+backspace", () => changeTopic('argomenti', './strumenti/basso/'));
 	</script>
 </body>
 
