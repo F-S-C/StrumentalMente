@@ -382,26 +382,33 @@ function playStopAudio(audioTagId, buttonRef, stopButtonId) {
 }
 
 (function () {
-
 	let figures = Array.prototype.slice.call(document.getElementsByTagName("figure"));
 
 	figures.forEach(fig => {
 		let showImageModal = () => {
 			let realDocument = (parent.document !== document) ? parent.document : document;
+
 			if (!/.*?modal.*?/i.test(fig.className)) {
+				var backupFig = fig.cloneNode(true);
+				fig.insertAdjacentElement("afterend", backupFig);
+				
 				let closeButton = document.createElement("button");
 				closeButton.className = "close-btn";
 				closeButton.innerHTML = "<i class=\"fas fa-times\"></i>";
-				var backupFig = fig.cloneNode(true);
 				fig.appendChild(closeButton);
-				fig.insertAdjacentElement("afterend", backupFig);
+
+				fig.style = "";
+
 				if (parent.document !== document)
 					fig.getElementsByTagName("img")[0].src = fig.getElementsByTagName("img")[0].src.replace("../../../", "./");
+				
 				fig = realDocument.body.appendChild(fig);
 				closeButton = fig.getElementsByTagName("button")[0];
-				closeButton.addEventListener("click", () => {
+
+				let closeModal = () => {
 					fig.className = fig.className.replace("modal", "");
 					closeButton.parentElement.removeChild(closeButton);
+					
 					setTimeout(() => {
 						fig.addEventListener("click", showImageModal);
 					}, 100);
@@ -409,11 +416,15 @@ function playStopAudio(audioTagId, buttonRef, stopButtonId) {
 					fig.parentElement.removeChild(fig);
 					fig = backupFig;
 					realDocument.activeElement.blur();
-				});
+				};
+
+				closeButton.addEventListener("click", closeModal);
 				fig.className += " modal";
 				fig.removeEventListener("click", showImageModal);
+				fig.addEventListener("click", closeModal);
 			}
 		};
+
 		fig.addEventListener("click", showImageModal);
 	});
 })();
