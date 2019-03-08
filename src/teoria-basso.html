@@ -2,7 +2,7 @@
 <html lang="it">
 
 <head>
-	<title>Teoria base</title>
+	<title>Strumenti - Teoria basso</title>
 	<link rel="icon" href="./assets/icon.ico" />
 	<link href="./assets/css/style.css" rel="stylesheet" />
 	<!-- FontAwesome -->
@@ -24,7 +24,7 @@
 			<div id="drag-region">
 				<div id="window-title">
 					<img id="window-title-image" src="./assets/icon.ico" alt="Icona" />
-					<span id="window-title-text">Teoria base</span>
+					<span id="window-title-text">Strumenti - Teoria basso</span>
 				</div>
 				<div id="window-controls">
 					<div class="button" id="min-button">
@@ -56,12 +56,12 @@
 				</li>
 				<li><a href="./home.html"><i class="fas fa-home"></i> Home</a></li>
 				<li class="dropdown">
-					<button type="button" class="active" onclick="drop('sub1', 'active')" id="sub1-link">
+					<button type="button" onclick="drop('sub1')" id="sub1-link">
 						<i class="fas fa-book"></i> Teoria
 					</button>
-					<ul id="sub1" class="show">
+					<ul id="sub1">
 						<li>
-							<a class="active" href="./teoria-base.html" title="La teoria: le basi (Alt+T B)">
+							<a href="./teoria-base.html" title="La teoria: le basi (Alt+T B)">
 								Basi
 							</a>
 						</li>
@@ -72,9 +72,9 @@
 						</li>
 					</ul>
 				</li>
-				<li><a href="./home-strumenti.html"><i class="fas fa-guitar"></i> Strumenti</a></li>
+				<li><a class="active" href="./home-strumenti.html"><i class="fas fa-guitar"></i> Strumenti</a></li>
 				<li>
-					<button type="button" onclick="openModal('./helpers/map.html');" title="Mostra la mappa (Alt+M)">
+					<button type="button" onclick="openModal('./map.html');" title="Mostra la mappa (Alt+M)">
 						<i class="fas fa-map"></i> Mappa
 					</button>
 				</li>

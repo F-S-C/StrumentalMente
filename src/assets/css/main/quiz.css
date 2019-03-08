@@ -1,0 +1,37 @@
+section>form {
+	margin-top: 3em;
+	display: grid;
+	grid-template-rows: 8em 8em;
+	grid-template-columns: 50% 50%;
+	grid-template-areas:
+		"a b"
+		"c d";
+}
+
+section>form>input[type="radio"] {
+	cursor: pointer;
+	overflow: hidden;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-khtml-appearance: none;
+	background-image: url('../../images/schemi_base_chitarra/indicatore_vuoto.svg');
+	background-repeat: no-repeat;
+	width: 20px;
+	height: 20px;
+}
+
+section>form>input[type="radio"]:checked,
+section>form>input[type="radio"]:checked:hover {
+	background-image: url('../../images/schemi_base_chitarra/indicatore_pieno.svg');
+}
+
+section>form>input[type="radio"]:hover {
+	background-image: url('../../images/schemi_base_chitarra/indicatore_hover.svg');
+}
+
+section>form>label{
+	font-size: 20px;
+	margin-left: 2em;
+	margin-top: 1px;
+	max-width: 75%;
+}

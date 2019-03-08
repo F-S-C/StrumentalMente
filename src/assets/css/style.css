@@ -72,6 +72,7 @@ details {
 	border: none;
 	display: block;
 	overflow: hidden;
+	z-index: 3;
 }
 
 @media only screen and (max-width: 768px) {

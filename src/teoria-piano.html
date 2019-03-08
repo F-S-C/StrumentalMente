@@ -2,7 +2,7 @@
 <html lang="it">
 
 <head>
-	<title>Strumenti - Chitarra</title>
+	<title>Strumenti - Teoria pianoforte</title>
 	<link rel="icon" href="./assets/icon.ico" />
 	<link href="./assets/css/style.css" rel="stylesheet" />
 	<!-- FontAwesome -->
@@ -18,13 +18,13 @@
 	<meta property="og:image" content="https://f-s-c.github.io/StrumentalMente/logo/2048x2048.png">
 </head>
 
-<body onload="initialize('argomenti', 'teoria/base/');">
+<body onload="initialize('argomenti', 'strumenti/basso/');">
 	<header>
 		<div id="titlebar">
 			<div id="drag-region">
 				<div id="window-title">
 					<img id="window-title-image" src="./assets/icon.ico" alt="Icona" />
-					<span id="window-title-text">Teoria base</span>
+					<span id="window-title-text">Strumenti - Teoria piano</span>
 				</div>
 				<div id="window-controls">
 					<div class="button" id="min-button">
@@ -56,12 +56,12 @@
 				</li>
 				<li><a href="./home.html"><i class="fas fa-home"></i> Home</a></li>
 				<li class="dropdown">
-					<button type="button" onclick="drop('sub1', 'active')" id="sub1-link">
+					<button type="button" onclick="drop('sub1')" id="sub1-link">
 						<i class="fas fa-book"></i> Teoria
 					</button>
 					<ul id="sub1">
 						<li>
-							<a class="active" href="./teoria-base.html" title="La teoria: le basi (Alt+T B)">
+							<a href="./teoria-base.html" title="La teoria: le basi (Alt+T B)">
 								Basi
 							</a>
 						</li>
@@ -72,9 +72,9 @@
 						</li>
 					</ul>
 				</li>
-				<li><a href="#" class="active"><i class="fas fa-guitar"></i> Strumenti</a></li>
+				<li><a class="active" href="./home-strumenti.html"><i class="fas fa-guitar"></i> Strumenti</a></li>
 				<li>
-					<button type="button" onclick="openModal('./helpers/map.html');" title="Mostra la mappa (Alt+M)">
+					<button type="button" onclick="openModal('./map.html');" title="Mostra la mappa (Alt+M)">
 						<i class="fas fa-map"></i> Mappa
 					</button>
 				</li>
@@ -110,14 +110,31 @@
 		</button>
 
 		<div class="content">
-			<div class="row" style="margin-top:5%;">
-				<div class="button" style="grid-row:1;">
-					<button type="button" class="btn" onclick="window.location.href='./teoria-chitarra-base.html';">Teoria</button>
+			<iframe id="content-frame" src="./strumenti/piano/argomenti.html" class="slide-container"></iframe>
+			<div class="buttons-container">
+				<div class="first-column">
+					<button type="button" id="back-topic" class="btn-outlined" style="display: none;">
+						Argomento Precedente <i class="btn-icon left fas fa-arrow-alt-circle-left"></i>
+					</button>
+					<button type="button" id="back" class="btn-outlined" disabled>
+						Indietro <i class="btn-icon left fas fa-arrow-alt-circle-left"></i>
+					</button>
 				</div>
-				<div class="button" style="grid-row:2;">
-					<button type="button" class="btn" onclick="window.location.href='#';">Suona Strumento</button>
+				<div class="second-column">
+					<button type="button" id="back-to-list" title="Torna all'elenco di argomenti (CTRL + Backspace)"
+						class="btn-text" onclick="changeTopic('./argomenti', './strumenti/piano/');" style="display: none;">
+						Torna all'elenco <i class="btn-icon fas fa-home"></i>
+					</button>
 				</div>
-			</div>			
+				<div class="third-column">
+					<button type="button" id="next" class="btn">
+						Avanti <i class="btn-icon fas fa-arrow-circle-right"></i>
+					</button>
+					<button type="button" id="next-topic" class="btn">
+						Introduzione <i class="btn-icon fas fa-arrow-circle-right"></i>
+					</button>
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -125,6 +142,7 @@
 	<script type="text/javascript" src="./assets/js/render.js"></script>
 	<script>
 		openOnKeyboardShortcut("F1", "./helpers/help-teoria.html", true);
+		require("mousetrap").bind("ctrl+backspace", () => changeTopic('./argomenti', './strumenti/piano/'));
 	</script>
 </body>
 
