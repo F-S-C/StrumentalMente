@@ -55,7 +55,6 @@ figure.modal {
 	width: 100vw;
 	height: 100vh;
 	overflow: hidden;
-	background-color: rgb(0, 0, 0);
 	background-color: rgba(0, 0, 0, 0.9);
 }
 
@@ -65,6 +64,10 @@ figure.modal img {
 	width: 80%;
 	max-width: 700px;
 	max-height: 90%;
+	position: absolute;
+	top: calc(50% - 32px);
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
 figure.modal figcaption {
@@ -78,7 +81,7 @@ figure.modal figcaption {
 	height: 150px;
 }
 
-figure.modal img, figure.modal figcaption {
+figure.modal img {
 	animation-name: zoom;
 	animation-duration: 0.6s;
 }
@@ -106,18 +109,18 @@ figure.modal .close-btn:hover, figure.modal .close-btn:focus {
 
 @-webkit-keyframes zoom {
 	from {
-		-webkit-transform: scale(0)
+		-webkit-transform: scale(0) translate(-50%, -50%);
 	}
 	to {
-		-webkit-transform: scale(1)
+		-webkit-transform: scale(1) translate(-50%, -50%);
 	}
 }
 
 @keyframes zoom {
 	from {
-		transform: scale(0)
+		transform: scale(0) translate(-50%, -50%);
 	}
 	to {
-		transform: scale(1)
+		transform: scale(1) translate(-50%, -50%);
 	}
 }
