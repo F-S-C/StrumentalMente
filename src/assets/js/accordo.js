@@ -1,16 +1,18 @@
 var selezionato = 0;
 
 /**
- * Oggetto accordo.
+ * Classe accordo.
  * @param {String} nome Stringa che indica il nome dell'accordo
  * @param {Boolean} dita Sequenza di valori logici che indicano se la checkbox corrispondente è
  * stata selezionata o meno
  * @param {number} tasto_iniziale Indica il numero del capotasto iniziale dell'accordo
  */
-function accordo(nome, dita, tasto_iniziale) {
-	this.nome = nome;
-	this.dita = dita;
-	this.tasto_iniziale = tasto_iniziale;
+class accordo {
+	constructor(nome, dita, tasto_iniziale) {
+		this.nome = nome;
+		this.dita = dita;
+		this.tasto_iniziale = tasto_iniziale;
+	}
 }
 
 var accordi = [
@@ -73,16 +75,17 @@ function script_load() {
  */
 function replace_selected() {
 	var item = JSON.parse(sessionStorage.getItem("selected_checkbox")); //LOAD SELECTED CHECKBOX
+	var elements = document.getElementById("chord");
 	selezionato = sessionStorage.getItem("quiz_chord");//LOAD QUIZ CHORD
 	document.getElementById("name").innerHTML = accordi[selezionato - 1].nome; //NAME OF SELECTED CHORD
 	for (var i = 0; i < 4; i++) //TABS OF SELECTED CHORD
 		document.getElementsByClassName("num_tasto")[i].innerHTML = (i + accordi[selezionato - 1].tasto_iniziale) + "° Tasto";
 	for (var i = 0; i < 24; i++) {
 		if (item[i] == true)
-			document.getElementsByTagName("input")[i].checked = true; //CHECK CHECKBOX
+			elements.getElementsByTagName("input")[i].checked = true; //CHECK CHECKBOX
 		else
-			document.getElementsByTagName("input")[i].checked = false; //UNCHECK CHECKBOX
-		document.getElementsByTagName("input")[i].disabled = true;//DISABLE SELECTED CHECKBOX
+			elements.getElementsByTagName("input")[i].checked = false; //UNCHECK CHECKBOX
+		elements.getElementsByTagName("input")[i].disabled = true;//DISABLE SELECTED CHECKBOX
 	}
 }
 
@@ -94,11 +97,12 @@ function replace_selected() {
 function verify_and_store() {
 	var corretto = true;
 	var item = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
+	var elements = document.getElementById("chord");
 	for (var i = 0; i < 24; i++) {
-		if (accordi[selezionato - 1].dita[i] != document.getElementsByTagName("input")[i].checked)
+		if (accordi[selezionato - 1].dita[i] != elements.getElementsByTagName("input")[i].checked)
 			corretto = false;
 
-		if (document.getElementsByTagName("input")[i].checked == true)
+		if (elements.getElementsByTagName("input")[i].checked == true)
 			item[i] = true;
 		else
 			item[i] = false;
@@ -116,10 +120,11 @@ function verify_and_store() {
  */
 function correct_chord() {
 	var selected = sessionStorage.getItem("quiz_chord");
+	var elements = document.getElementById("chord");
 	for (var i = 0; i < 24; i++) {
 		if (accordi[selected - 1].dita[i] == true)
-			document.getElementsByTagName("input")[i].checked = true;
+			elements.getElementsByTagName("input")[i].checked = true;
 		else
-			document.getElementsByTagName("input")[i].checked = false;
+			elements.getElementsByTagName("input")[i].checked = false;
 	}
 }
