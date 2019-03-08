@@ -1,11 +1,9 @@
 section>form {
-	margin-top: 3em;
+	margin-top: 5em;
 	display: grid;
-	grid-template-rows: 8em 8em;
+	grid-template-rows: 13em 13em;
 	grid-template-columns: 50% 50%;
-	grid-template-areas:
-		"a b"
-		"c d";
+	grid-template-areas: "a b" "c d";
 }
 
 section>form>input[type="radio"] {
@@ -20,8 +18,7 @@ section>form>input[type="radio"] {
 	height: 20px;
 }
 
-section>form>input[type="radio"]:checked,
-section>form>input[type="radio"]:checked:hover {
+section>form>input[type="radio"]:checked, section>form>input[type="radio"]:checked:hover {
 	background-image: url('../../images/schemi_base_chitarra/indicatore_pieno.svg');
 }
 
@@ -29,9 +26,15 @@ section>form>input[type="radio"]:hover {
 	background-image: url('../../images/schemi_base_chitarra/indicatore_hover.svg');
 }
 
-section>form>label{
+section>form>input[type="radio"]:checked+label {
+	font-weight: 700;
+}
+
+section>form>label {
 	font-size: 20px;
 	margin-left: 2em;
 	margin-top: 1px;
 	max-width: 75%;
 }
+
+section>h2{font-size:35px;}
