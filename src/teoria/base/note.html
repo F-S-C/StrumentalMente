@@ -17,6 +17,144 @@
 	<meta name="author" content="FSC" />
 	<meta name="robots" content="index, follow">
 	<meta property="og:image" content="https://f-s-c.github.io/StrumentalMente/logo/2048x2048.png">
+
+	<style>
+		.notes-table {
+			margin: 0px auto;
+		}
+
+		.notes-table td {
+			text-align: center;
+		}
+
+		.notes-table tr {
+			text-align: center;
+		}
+
+		div.progression {
+			margin: 0 auto;
+			width: 70%;
+			position: relative;
+		}
+
+		div.progression>div:not(.arrow) {
+			display: grid;
+			grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+			grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+			text-align: center;
+		}
+
+		div.progression>div>div:not(.arrow) {
+			border-bottom: 1px solid black;
+		}
+
+		div.progression>div>div:not(.arrow):nth-child(1) {
+			border-right: 1px solid black;
+			grid-column: 1;
+			grid-row: 8;
+		}
+
+		div.progression>div>div:not(.arrow):nth-child(2) {
+			border-right: 1px solid black;
+			grid-column: 2;
+			grid-row: 7;
+		}
+
+		div.progression>div>div:not(.arrow):nth-child(3) {
+			border-right: 1px solid black;
+			grid-column: 3;
+			grid-row: 6;
+		}
+
+		div.progression>div>div:not(.arrow):nth-child(4) {
+			border-right: 1px solid black;
+			grid-column: 4;
+			grid-row: 5;
+		}
+
+		div.progression>div>div:not(.arrow):nth-child(5) {
+			border-right: 1px solid black;
+			grid-column: 5;
+			grid-row: 4;
+		}
+
+		div.progression>div>div:not(.arrow):nth-child(6) {
+			border-right: 1px solid black;
+			grid-column: 6;
+			grid-row: 3;
+		}
+
+		div.progression>div>div:not(.arrow):nth-child(7) {
+			border-right: 1px solid black;
+			grid-column: 7;
+			grid-row: 2;
+		}
+
+		div.progression>div>div:not(.arrow):nth-child(8) {
+			grid-column: 8;
+			grid-row: 1;
+		}
+
+		div.progression>div>div:not(.arrow):nth-child(9) {
+			border-left: 1px solid black;
+			grid-column: 9;
+			grid-row: 2;
+		}
+
+		div.progression>div>div:not(.arrow):nth-child(10) {
+			border-left: 1px solid black;
+			grid-column: 10;
+			grid-row: 3;
+		}
+
+		div.progression>div>div:not(.arrow):nth-child(11) {
+			border-left: 1px solid black;
+			grid-column: 11;
+			grid-row: 4;
+		}
+
+		div.progression>div>div:not(.arrow):nth-child(12) {
+			border-left: 1px solid black;
+			grid-column: 12;
+			grid-row: 5;
+		}
+
+		div.progression>div>div:not(.arrow):nth-child(13) {
+			border-left: 1px solid black;
+			grid-column: 13;
+			grid-row: 6;
+		}
+
+		div.progression>div>div:not(.arrow):nth-child(14) {
+			border-left: 1px solid black;
+			grid-column: 14;
+			grid-row: 7;
+		}
+
+		div.progression>div>div:not(.arrow):nth-child(15) {
+			border-left: 1px solid black;
+			grid-column: 15;
+			grid-row: 8;
+		}
+
+		div.arrow {
+			width: fit-content;
+			position: absolute;
+			padding: 0 15px;
+			background-color: var(--main-color);
+			color: white;
+		}
+
+		div.arrow::after {
+			content: "";
+			border-top: 19px solid transparent;
+			border-bottom: 19px solid transparent;
+			border-left: 21px solid var(--main-color);
+			position: absolute;
+			right: -20px;
+			transform: translate(0, -25%);
+		}
+	</style>
 </head>
 
 <body
@@ -40,10 +178,32 @@
 						Questa successione di sette note, chiamate anche <em>gradi</em>, che termina con la ripetizione
 						(8a nota) della nota iniziale ma in posizione più acuta o più grave:
 					</p>
-					<p>
-						Note: DO RE MI FA SOL LA SI DO
-					</p>
-					<p>Gradi: 1° 2° 3° 4° 5° 6° 7° 8° (=1°) </p>
+					<table class="notes-table highlight cols">
+						<tbody>
+							<tr>
+								<th class="row">Note</th>
+								<td>Do</td>
+								<td>Re</td>
+								<td>Mi</td>
+								<td>Fa</td>
+								<td>Sol</td>
+								<td>La</td>
+								<td>Si</td>
+								<td>Do</td>
+							</tr>
+							<tr>
+								<th class="row">Grado</th>
+								<td>1</td>
+								<td>2</td>
+								<td>3</td>
+								<td>4</td>
+								<td>5</td>
+								<td>6</td>
+								<td>7</td>
+								<td>8 = 1</td>
+							</tr>
+						</tbody>
+					</table>
 				</section>
 				<section class="hide">
 					<p>
@@ -53,7 +213,30 @@
 						dall’acuto verso il grave.
 					</p>
 					<p>Esempio di scala naturale:</p>
-					<img src="../../assets/images/scala.jpg" alt="Scala naturale" style="width:70%;float:center;">
+					<div class="progression">
+						<div>
+							<div>Do</div>
+							<div>Re</div>
+							<div>Mi</div>
+							<div>Fa</div>
+							<div>Sol</div>
+							<div>La</div>
+							<div>Si</div>
+							<div>Do</div>
+							<div>Re</div>
+							<div>Mi</div>
+							<div>Fa</div>
+							<div>Sol</div>
+							<div>La</div>
+							<div>Si</div>
+							<div>Do</div>
+						</div>
+						<div class="arrow" style="transform: rotate(-90deg); left: -40px; top: 60px;">
+							Ascendente</div>
+						<div class="arrow" style="transform: rotate(90deg);right: -40px; bottom: 100px;">
+							Discendente</div>
+					</div>
+					<!-- <img src="../../assets/images/scala.jpg" alt="Scala naturale" style="width:70%;float:center;"> -->
 					<p>Il discorso musicale è basato sulla ripetizione e sulla combinazione di queste note che, a
 						seconda della loro posizione, rappresentano suoni <em>gravi</em>, <em>medi</em> o
 						<em>acuti</em>.
