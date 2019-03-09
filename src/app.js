@@ -86,6 +86,9 @@ function createWindow() {
 	});
 }
 
+// V. https://stackoverflow.com/questions/40390779/why-does-an-electron-js-app-respond-slow
+app.disableHardwareAcceleration();
+
 app.on("ready", () => {
 	createWindow();
 });
