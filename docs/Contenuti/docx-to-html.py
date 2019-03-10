@@ -10,7 +10,8 @@ if __name__ == "__main__":
         print(file)
         currentDir = os.path.split(file)[0]
         subprocess.Popen(["pandoc", os.path.split(file)[1],
-                          "-o", os.path.split(file)[1].replace("docx", "html")],
+                          "--template=" + "..\\"*(len(currentDir.split("\\")) - 1) + "template.html",
+                          "--quiet","-s", "-o", os.path.split(file)[1].replace("docx", "html")],
                          cwd=currentDir)
 
     print("Done\a")
