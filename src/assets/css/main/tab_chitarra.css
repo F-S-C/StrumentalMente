@@ -29,7 +29,7 @@
 	text-align: center;
 	border-radius: 50%;
 	padding-top: 4px;
-	transition: background-image 0.3s;
+	transition: background-image 0.2s;
 }
 
 .check:hover {
@@ -42,6 +42,16 @@
 
 .check:checked:hover {
 	background-image: url('../../images/schemi_base_chitarra/indicatore_pieno_hover.svg');
+}
+
+.check:disabled, .check:disabled:hover {
+	background-image: url('../../images/schemi_base_chitarra/indicatore_vuoto.svg');
+	cursor: default;
+}
+
+.check:disabled:checked, .check:disabled:checked:hover {
+	background-image: url('../../images/schemi_base_chitarra/indicatore_pieno.svg');
+	cursor: default;
 }
 
 .nome_accordo {
