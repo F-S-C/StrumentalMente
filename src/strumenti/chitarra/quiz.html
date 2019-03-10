@@ -82,6 +82,11 @@
 					</button>
 				</li>
 				<li>
+					<button type="button" onclick="showExitFromQuizDialog('./teoria-chitarra.html');">
+						<i class="fas fa-arrow-circle-left"></i> Torna alla home
+					</button>
+				</li>
+				<li>
 					<button type="button" onclick="showExitDialog();">
 						<i class="fas fa-sign-out-alt"></i> Esci
 					</button>
@@ -326,10 +331,9 @@
 					<button type="button" id="end" class="btn" onclick="quizVerify();" style="display: none;">
 						Verifica <i class="fas fa-check-circle"></i>
 					</button>
-					<button type="button" id="exit" class="btn"
-						onclick="window.location.href = '../../home-strumenti.html';" style="display: none;">
-						Esci <i class="fas fa-running"></i>
-					</button>
+					<a id="exit" class="btn" href="../../home-strumenti.html" style="display: none;">
+						Esci <i class="btn-icon fas fa-running"></i>
+					</a>
 				</div>
 			</div>
 		</div>

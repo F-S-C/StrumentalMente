@@ -141,6 +141,27 @@ function showExitDialog() {
 }
 
 /**
+ * Mostra il dialogo di richiesta di conferma di uscita dal quiz.
+ * 
+ * @param {String} toOpen Il file da aprire se è cliccato il tasto
+ * 'Sì'. Il percorso è relativo rispetto alla cartella principale.
+ */
+function showExitFromQuizDialog(toOpen) {
+	const { ipcRenderer } = require("electron");
+
+	var answer = ipcRenderer.sendSync("prompt", {
+		title: "Sicuro?",
+		label: "Sicuro di voler uscire dal quiz?",
+		yes: "Sì",
+		yesReturn: true,
+		no: "No",
+		noReturn: false
+	});
+	if (answer)
+		remote.getCurrentWindow().loadFile(toOpen);
+}
+
+/**
  * Mostra il dialogo con il punteggio dei quiz.
  * 
  * @param {String} nomeQuiz Il nome del quiz.
