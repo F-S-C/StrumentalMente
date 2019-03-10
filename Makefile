@@ -32,3 +32,6 @@ jsdoc:
 
 bib2html:
 	python generate-documentation.py --src docs\src --dest docs --bib
+
+docx-to-html:
+	cd docs\Contenuti && python docx-to-html.py
