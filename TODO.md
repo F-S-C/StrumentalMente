@@ -26,10 +26,10 @@
 - [ ] Stesura dei quiz
   - [x] Teoria
   - [ ] Strumenti
-    - [ ] Piano
-    - [ ] Chitarra
+    - [x] Piano
+    - [x] Chitarra
     - [ ] Batteria
-    - [ ] Basso
+    - [x] Basso
 - [x] Stesura delle sezioni di aiuto
 - [x] Creazione di un sistema di _"salvataggio delle sessioni"_ per salvare i quiz che l'utente ha già completato
 - [x] Stesura delle informazioni sul sistema (i _"credits"_)
