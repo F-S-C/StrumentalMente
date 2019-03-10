@@ -2,14 +2,15 @@
 
 all: | start
 
-install:
-	cd src && \
+yarn-install:
 	npm install -g yarn
+	
+install:
 	cd src && yarn install --force
 
 start:
 	cd src && \
-	npm start
+	yarn start
 
 deploy:
 	python minify.py
