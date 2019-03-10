@@ -165,9 +165,9 @@ function showQuizDialog(nomeQuiz, score, total) {
 	ipcRenderer.sendSync("save-quiz", { id: nomeQuiz, passed: (score >= ((total / 2) + 1)) });
 
 	if (answer)
-		console.log("WIP");
+		quizCompare();
 	else
-		console.log("WIP");
+		window.location.href = '../../home-strumenti.html';
 }
 
 /**

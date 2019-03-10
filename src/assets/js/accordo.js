@@ -65,7 +65,7 @@ var accordi = [
  */
 function script_load() {
 	selezionato = Math.floor((Math.random() * 7) + 1);
-	document.getElementById("name").innerHTML = accordi[selezionato - 1].nome; //NAME OF SELECTED CHORD
+	document.getElementById("chord_name").innerHTML = "Accordo di " + accordi[selezionato - 1].nome; //NAME OF SELECTED CHORD
 	for (var i = 0; i < 4; i++) //TABS OF SELECTED CHORD
 		document.getElementsByClassName("num_tasto")[i].innerHTML = (i + accordi[selezionato - 1].tasto_iniziale) + "° Tasto";
 }
@@ -77,7 +77,6 @@ function replace_selected() {
 	var item = JSON.parse(sessionStorage.getItem("selected_checkbox")); //LOAD SELECTED CHECKBOX
 	var elements = document.getElementById("chord");
 	selezionato = sessionStorage.getItem("quiz_chord");//LOAD QUIZ CHORD
-	document.getElementById("name").innerHTML = accordi[selezionato - 1].nome; //NAME OF SELECTED CHORD
 	for (var i = 0; i < 4; i++) //TABS OF SELECTED CHORD
 		document.getElementsByClassName("num_tasto")[i].innerHTML = (i + accordi[selezionato - 1].tasto_iniziale) + "° Tasto";
 	for (var i = 0; i < 24; i++) {
@@ -120,11 +119,14 @@ function verify_and_store() {
  */
 function correct_chord() {
 	var selected = sessionStorage.getItem("quiz_chord");
-	var elements = document.getElementById("chord");
+	var elements = document.getElementById("correct_chord");
+	elements.style.display = "block";
+	document.getElementById("errato").style.display = "block";
 	for (var i = 0; i < 24; i++) {
 		if (accordi[selected - 1].dita[i] == true)
 			elements.getElementsByTagName("input")[i].checked = true;
 		else
 			elements.getElementsByTagName("input")[i].checked = false;
+		elements.getElementsByTagName("input")[i].disabled = true;
 	}
 }

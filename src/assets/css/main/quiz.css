@@ -26,8 +26,41 @@ section>form>input[type="radio"]:hover {
 	background-image: url('../../images/schemi_base_chitarra/indicatore_hover.svg');
 }
 
+section>form>input[type="radio"]:disabled, section>form>input[type="radio"]:disabled+label {
+	cursor: default;
+}
+
+section>form>input[type="radio"]:disabled:hover {
+	background-image: url('../../images/schemi_base_chitarra/indicatore_vuoto.svg');
+	cursor: default;
+}
+
 section>form>input[type="radio"]:checked+label {
 	font-weight: 700;
+}
+
+section>form>input[type="radio"]+label {
+	cursor: pointer;
+}
+
+section>form>input[type="radio"].correct, section>form>input[type="radio"].correct:hover {
+	background-image: url('../../images/schemi_base_chitarra/indicatore_risposta_corretta.svg');
+	cursor: default;
+}
+
+section>form>input[type="radio"].wrong, section>form>input[type="radio"].wrong:hover {
+	background-image: url('../../images/schemi_base_chitarra/indicatore_risposta_sbagliata.svg');
+	cursor: default;
+}
+
+section>form>input[type="radio"].correct_not_selected, section>form>input[type="radio"].correct_not_selected:hover {
+	background-image: url('../../images/schemi_base_chitarra/indicatore_risposta_corretta_non_selezionata.svg');
+	cursor: default;
+}
+
+section>form>input[type="radio"].disabled, section>form>input[type="radio"].disabled:hover {
+	background-image: url('../../images/schemi_base_chitarra/indicatore_disabilitato.svg');
+	cursor: default;
 }
 
 section>form>label {
@@ -37,4 +70,6 @@ section>form>label {
 	max-width: 75%;
 }
 
-section>h2{font-size:35px;}
+section>h2 {
+	font-size: 35px;
+}

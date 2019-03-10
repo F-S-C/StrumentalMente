@@ -266,6 +266,7 @@ function initializeQuiz() {
 	var previousSlideButton = document.getElementById("back");
 	var nextSlideButton = document.getElementById("next");
 	var verifyButton = document.getElementById("end");
+	var exitButton = document.getElementById("exit");
 
 	let nextSlide = () => {
 		if (canChangeSlide)
@@ -276,7 +277,7 @@ function initializeQuiz() {
 			changeQuizSlide(currentSection - 1);
 	};
 
-
+	exitButton.style.display = "none";
 	verifyButton.style.display = "none";
 	previousSlideButton.toggleAttribute("disabled", true);
 
@@ -287,9 +288,12 @@ function initializeQuiz() {
 
 	const Mousetrap = require("mousetrap");
 	Mousetrap.bind("right", () => {
-		if (currentSection === numberOfSections - 1)
-			verifyButton.click();
-		else
+		if (currentSection === numberOfSections - 1) {
+			if (compare)
+				exitButton.click();
+			else
+				verifyButton.click();
+		} else
 			nextSlideButton.click();
 	});
 	Mousetrap.bind("left", () => {
@@ -311,6 +315,7 @@ function changeQuizSlide(finalSlide) {
 	var previousSlideButton = document.getElementById("back");
 	var nextSlideButton = document.getElementById("next");
 	var verifyButton = document.getElementById("end");
+	var exitButton = document.getElementById("exit");
 
 	canChangeSlide = false;
 	sectionsList[currentSection].className = "hide";
@@ -329,10 +334,17 @@ function changeQuizSlide(finalSlide) {
 
 	if (currentSection === numberOfSections - 1) {
 		nextSlideButton.style.display = "none";
-		verifyButton.style.display = "inline-block";
+		if (compare) {
+			exitButton.style.display = "inline-block";
+			verifyButton.style.display = "none";
+		} else {
+			verifyButton.style.display = "inline-block";
+			exitButton.style.display = "none";
+		}
 	}
 	else {
 		verifyButton.style.display = "none";
+		exitButton.style.display = "none";
 		nextSlideButton.style.display = "inline-block";
 	}
 
@@ -391,7 +403,7 @@ function playStopAudio(audioTagId, buttonRef, stopButtonId) {
 			if (!/.*?modal.*?/i.test(fig.className)) {
 				var backupFig = fig.cloneNode(true);
 				fig.insertAdjacentElement("afterend", backupFig);
-				
+
 				let closeButton = document.createElement("button");
 				closeButton.className = "close-btn";
 				closeButton.innerHTML = "<i class=\"fas fa-times\"></i>";
@@ -401,14 +413,14 @@ function playStopAudio(audioTagId, buttonRef, stopButtonId) {
 
 				if (parent.document !== document)
 					fig.getElementsByTagName("img")[0].src = fig.getElementsByTagName("img")[0].src.replace("../../../", "./");
-				
+
 				fig = realDocument.body.appendChild(fig);
 				closeButton = fig.getElementsByTagName("button")[0];
 
 				let closeModal = () => {
 					fig.className = fig.className.replace("modal", "");
 					closeButton.parentElement.removeChild(closeButton);
-					
+
 					setTimeout(() => {
 						fig.addEventListener("click", showImageModal);
 					}, 100);
