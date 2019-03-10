@@ -26,8 +26,28 @@ section>form>input[type="radio"]:hover {
 	background-image: url('../../images/schemi_base_chitarra/indicatore_hover.svg');
 }
 
+section>form>input[type="radio"]:disabled:hover{
+	background-image: url('../../images/schemi_base_chitarra/indicatore_vuoto.svg');
+}
+
 section>form>input[type="radio"]:checked+label {
 	font-weight: 700;
+}
+
+section>form>input[type="radio"].correct, section>form>input[type="radio"].correct:hover{
+	background-image: url('../../images/schemi_base_chitarra/indicatore_risposta_corretta.svg');
+}
+
+section>form>input[type="radio"].wrong, section>form>input[type="radio"].wrong:hover{
+	background-image: url('../../images/schemi_base_chitarra/indicatore_risposta_sbagliata.svg');
+}
+
+section>form>input[type="radio"].correct_not_selected, section>form>input[type="radio"].correct_not_selected:hover{
+	background-image: url('../../images/schemi_base_chitarra/indicatore_risposta_corretta_non_selezionata.svg');
+}
+
+section>form>input[type="radio"].disabled, section>form>input[type="radio"].disabled:hover{
+	background-image: url('../../images/schemi_base_chitarra/indicatore_disabilitato.svg');
 }
 
 section>form>label {

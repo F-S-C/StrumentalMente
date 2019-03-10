@@ -20,7 +20,7 @@
 	<meta property="og:image" content="https://f-s-c.github.io/StrumentalMente/logo/2048x2048.png">
 </head>
 
-<body name="quiz-page" onload="quizLoad('chitarra',4);">
+<body name="quiz-page" onload="quizLoad('chitarra');">
 	<header>
 		<div id="titlebar">
 			<div id="drag-region">
@@ -126,11 +126,89 @@
 					</form>
 				</section>
 				<section class="hide">
-					<h2>Accordo</h2>
+					<h2 id="chord_name">Accordo di</h2>
 					<div id="chord" class="page">
 						<div class="box">
 							<div class="diagramma">
-								<h3 class="nome_accordo" id="name">--</h3>
+								<h4 class="nome_accordo" id="errato" style="display: none;">Errato</h4>
+								<div class="riga prima">
+									<div class="cella etichetta">
+										<div class="nota nome_corda">Mi</div>
+									</div>
+									<div class="cella etichetta"></div>
+									<div class="cella sopra" style="border-left: 3px solid #222;"><input class="check"
+											type="checkbox">
+									</div>
+									<div class="cella sopra"><input class="check nota" type="checkbox"></div>
+									<div class="cella sopra"><input class="check nota" type="checkbox"></div>
+									<div class="cella sopra"><input class="check nota" type="checkbox"></div>
+								</div>
+								<div class="riga">
+									<div class="cella etichetta">
+										<div class="nota nome_corda">La</div>
+									</div>
+									<div class="cella etichetta"></div>
+									<div class="cella sopra" style="border-left: 3px solid #222;"><input
+											class="check nota" type="checkbox"></div>
+									<div class="cella sopra"><input class="check nota" type="checkbox"></div>
+									<div class="cella sopra"><input class="check nota" type="checkbox"></div>
+									<div class="cella sopra"><input class="check nota" type="checkbox"></div>
+								</div>
+								<div class="riga">
+									<div class="cella etichetta">
+										<div class="nota nome_corda">Re</div>
+									</div>
+									<div class="cella etichetta"></div>
+									<div class="cella sopra" style="border-left: 3px solid #222;"><input
+											class="check nota" type="checkbox"></div>
+									<div class="cella sopra"><input class="check nota" type="checkbox"></div>
+									<div class="cella sopra"><input class="check nota" type="checkbox"></div>
+									<div class="cella sopra"><input class="check nota" type="checkbox"></div>
+								</div>
+								<div class="riga">
+									<div class="cella etichetta">
+										<div class="nota nome_corda">Sol</div>
+									</div>
+									<div class="cella etichetta"></div>
+									<div class="cella sopra" style="border-left: 3px solid #222;"><input
+											class="check nota" type="checkbox"></div>
+									<div class="cella sopra"><input class="check nota" type="checkbox"></div>
+									<div class="cella sopra"><input class="check nota" type="checkbox"></div>
+									<div class="cella sopra"><input class="check nota" type="checkbox"></div>
+								</div>
+								<div class="riga">
+									<div class="cella etichetta">
+										<div class="nota nome_corda">Si</div>
+									</div>
+									<div class="cella etichetta"></div>
+									<div class="cella sopra" style="border-left: 3px solid #222;"><input
+											class="check nota" type="checkbox"></div>
+									<div class="cella sopra"><input class="check nota" type="checkbox"></div>
+									<div class="cella sopra"><input class="check nota" type="checkbox"></div>
+									<div class="cella sopra"><input class="check nota" type="checkbox"></div>
+								</div>
+								<div class="riga ultima">
+									<div class="cella etichetta">
+										<div class="nota nome_corda">Mi</div>
+									</div>
+									<div class="cella etichetta"></div>
+									<div class="cella sopra" style="margin-left: 2px;"><input class="check nota"
+											type="checkbox"></div>
+									<div class="cella sopra"><input class="check nota" type="checkbox"></div>
+									<div class="cella sopra"><input class="check nota" type="checkbox"></div>
+									<div class="cella sopra"><input class="check nota" type="checkbox"></div>
+								</div>
+								<div class="num_tasto">1° Tasto</div>
+								<div class="num_tasto">2° Tasto</div>
+								<div class="num_tasto">3° Tasto</div>
+								<div class="num_tasto">4° Tasto</div>
+							</div>
+						</div>
+					</div>
+					<div id="correct_chord" class="page" style="display: none;">
+						<div class="box">
+							<div class="diagramma">
+								<h4 class="nome_accordo" id="corretto">Corretto</h4>
 								<div class="riga prima">
 									<div class="cella etichetta">
 										<div class="nota nome_corda">Mi</div>
@@ -247,6 +325,10 @@
 					</button>
 					<button type="button" id="end" class="btn" onclick="quizVerify();" style="display: none;">
 						Verifica <i class="fas fa-check-circle"></i>
+					</button>
+					<button type="button" id="exit" class="btn"
+						onclick="window.location.href = '../../home-strumenti.html';" style="display: none;">
+						Esci <i class="fas fa-running"></i>
 					</button>
 				</div>
 			</div>
