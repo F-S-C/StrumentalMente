@@ -18,7 +18,7 @@ const storageLocation = app.getPath('userData');
 global.nodeStorage = new JSONStorage(storageLocation);
 
 let win = null;
-let allQuizzes = {};
+var allQuizzes = {};
 
 /**
  * Apre una finestra "figlia" e modale.
@@ -39,14 +39,16 @@ function openChildWindow(pageUrl, windowIcon = "./assets/icon.ico") {
 function createWindow() {
 	var windowState = {};
 	try {
-		windowState = global.nodeStorage.getItem("WindowState");
+		windowState = global.nodeStorage.getItem("WindowState") || {};
 	} catch (err) {
+		global.nodeStorage.setItem("WindowState", {});
 		windowState = {};
 	}
 
 	try {
-		allQuizzes = global.nodeStorage.getItem("QuizResults");
+		allQuizzes = global.nodeStorage.getItem("QuizResults") || {};
 	} catch (err) {
+		global.nodeStorage.setItem("QuizResults", {});
 		allQuizzes = {};
 	}
 

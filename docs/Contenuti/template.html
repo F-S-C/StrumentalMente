@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="it">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="$lang$" xml:lang="$lang$" $if(dir)$ dir="$dir$" $endif$>
 
 <head>
-	<title>Teoria - Il Tempo</title>
+	<title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
 	<link rel="icon" href="../../assets/icon.ico" />
 	<link href="../../assets/css/main/section.css" rel="stylesheet" />
 	<link href="../../assets/css/style.css" rel="stylesheet" />
@@ -18,33 +18,29 @@
 	<meta name="robots" content="index, follow">
 </head>
 
-<body onload="window.parent.setLinks({ previous: 'Il ritmo', previousLink: 'ritmo', next: 'Quiz', nextLink: 'quiz' });">
+<body onload="window.parent.setLinks({ previous: '', previousLink: '', next: '', nextLink: '' });">
 	<div class="sub-wrapper">
 		<div class="content">
 			<article>
+				$for(include-before)$
+				$include-before$
+				$endfor$
+				$if(title)$
 				<header>
-					<h1>Il Tempo</h1>
-					<h2>Cos'è il tempo</h2>
+					<h1>$title$</h1>
+					$if(subtitle)$
+					<h2>$subtitle$</h2>
+					$endif$
 					<hr />
 				</header>
-				<section class="hide">
-					<p>Si è visto che il brano musicale viene suddiviso in tante battute. Per determinare la durata di
-						ogni misura si mette subito dopo la chiave una indicazione particolare composta da un numero e
-						da una nota. Il numero sta a indicare <em>quanti tempi</em> possono essere contenuti nella
-						misura, e la nota sta a indicare il valore di questi tempi.</p>
-					<p>Esiste anche un altro sistema per indicare il tempo: quello rappresentato da un numero
-						frazionario, posto subito dopo la chiave, che va interpretato nel modo seguente: il
-						<strong>numeratore</strong> indica il numero dei tempi contenuti nella misura, il
-						<strong>denominatore</strong> indica il valore di detti tempi.</p>
-				</section>
+				$endif$
+				$body$
 			</article>
-
 		</div>
 	</div>
 
 	<script type="text/javascript" src="../../assets/js/main.js"></script>
 	<script type="text/javascript" src="../../assets/js/render.js"></script>
-
 </body>
 
 </html>

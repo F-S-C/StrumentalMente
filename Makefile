@@ -1,24 +1,26 @@
 .PHONY: docs css
 
 all: | start
+
+yarn-install:
+	npm install -g yarn
+	
 install:
-	cd src && \
-	npm install --save-dev electron && \
-	npm install --save-dev mousetrap && \
-	npm install -g electron-packager && \
-	npm install --save-dev node-localstorage
+	cd src && yarn install --force
+
 start:
 	cd src && \
-	npm start
+	yarn start
+
 deploy:
 	python minify.py
-	electron-packager src StrumentalMente --platform=win32 --no-prune --overwrite --icon=src\assets\icon.ico --ignore="assets\css\main|assets\css\style_not-minified.css|_include"
-	electron-packager src StrumentalMente --platform=linux --no-prune --overwrite --ignore="assets\css\main|assets\css\style_not-minified.css|_include"
+	cd src && yarn dist
 	cd src\assets\css && copy /Y style_not-minified.css style.css && del style_not-minified.css
 	cd src\assets\js && copy /Y render_not-minified.js render.js && del render_not-minified.js
 	cd src\assets\js && copy /Y main_not-minified.js main.js && del main_not-minified.js
 	cd src && copy /Y app_not-minified.js app.js && del app_not-minified.js
 	git checkout -- "*.html"
+
 docs: jsdoc
 	python generate-documentation.py --src docs\src --dest docs
 
@@ -32,3 +34,6 @@ jsdoc:
 
 bib2html:
 	python generate-documentation.py --src docs\src --dest docs --bib
+
+docx-to-html:
+	cd docs\Contenuti && python docx-to-html.py
