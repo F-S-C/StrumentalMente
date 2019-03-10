@@ -262,10 +262,9 @@ header .blind-audio-buttons {
 
 header .blind-audio-buttons .btn-audio {
 	float: left;
-    width: 56px;
-    height: 56px;
+	width: 56px;
+	height: 56px;
 	padding: 0;
-
 	text-transform: uppercase;
 	line-height: 1.5em;
 	cursor: pointer;
@@ -288,7 +287,6 @@ header .blind-audio-buttons .btn-audio.btn-accessibility {
 	width: calc(56px * 2);
 	font-size: 15pt;
 }
-
 
 header .blind-audio-buttons .btn-audio:hover, header .blind-audio-buttons .btn-audio:focus {
 	background-color: var(--main-color-transparent);
@@ -322,4 +320,13 @@ header .blind-audio-buttons .btn-audio:disabled, header .blind-audio-buttons .bt
 	color: var(--grey-dark);
 	background-color: transparent;
 	cursor: not-allowed;
+}
+
+a.external::after {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 600;
+	content: "\f35d";
+	margin-left: .5em;
+	font-size: 5pt;
+	vertical-align: super;
 }
