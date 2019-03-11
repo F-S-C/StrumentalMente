@@ -22,8 +22,8 @@
     color: transparent;
     background-size: cover;
     background-position: 50% 50%;
-    background-repeat: none;
-    filter: blur(2px);
+    background-repeat: no-repeat;
+    filter: blur(3px);
     opacity: 0;
     z-index: 0;
     backface-visibility: hidden;
