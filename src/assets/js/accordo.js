@@ -121,7 +121,7 @@ function correct_chord() {
 	var selected = sessionStorage.getItem("quiz_chord");
 	var elements = document.getElementById("correct_chord");
 	elements.style.display = "block";
-	document.getElementById("errato").style.display = "block";
+	document.getElementById("errato").innerHTML = "Inserito";
 	for (var i = 0; i < 24; i++) {
 		if (accordi[selected - 1].dita[i] == true)
 			elements.getElementsByTagName("input")[i].checked = true;

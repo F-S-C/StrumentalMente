@@ -32,7 +32,6 @@ function generateRandomQuestions() {
 			label[v[3] - 1].style.gridArea = "d";
 			for (var g = 0; g < 4; g++)
 				input[g].checked = false;
-			input[v[0] - 1].checked = true;
 		}
 	}
 }
