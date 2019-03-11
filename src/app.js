@@ -18,7 +18,8 @@ const storageLocation = app.getPath('userData');
 global.nodeStorage = new JSONStorage(storageLocation);
 
 let win = null;
-var allQuizzes = {};
+let username = "";
+let allQuizzes = {};
 
 /**
  * Apre una finestra "figlia" e modale.
@@ -46,9 +47,12 @@ function createWindow() {
 	}
 
 	try {
-		allQuizzes = global.nodeStorage.getItem("QuizResults") || {};
+		let temp = JSON.parse(global.nodeStorage.getItem("Profile") || {});
+		username = temp["username"];
+		allQuizzes = temp["quizzes"];
 	} catch (err) {
-		global.nodeStorage.setItem("QuizResults", {});
+		global.nodeStorage.setItem("Profile", {});
+		username = "";
 		allQuizzes = {};
 	}
 
@@ -63,13 +67,14 @@ function createWindow() {
 		frame: false,
 		center: true
 	});
+
+	if (windowState.isMaximized)
+		win.maximize();
+
 	win.loadFile("index.html");
 
 	win.setMenu(null);
 
-	if (windowState.isMaximized) {
-		win.maximize();
-	}
 
 	win.on("closed", () => {
 		win = null;
@@ -156,12 +161,29 @@ ipcMain.on("prompt", (event, options) => {
 ipcMain.on("save-quiz", (event, quiz) => {
 	allQuizzes[quiz.id] = quiz.passed;
 
-	// save to file
-	global.nodeStorage.setItem("QuizResults", allQuizzes);
+	let temp = {};
+	temp.username = username;
+	temp.quiz = allQuizzes;
+	global.nodeStorage.setItem("Profile", temp);
 
 	event.returnValue = quiz.passed;
 });
 
 ipcMain.on("get-quiz", (event, quizName) => {
 	event.returnValue = allQuizzes[quizName] || false;
+});
+
+ipcMain.on("get-user", (event) => {
+	event.returnValue = username;
+});
+
+ipcMain.on("save-user", (event, newUser) => {
+	username = newUser;
+
+	let temp = {};
+	temp.username = username;
+	temp.quiz = allQuizzes;
+	global.nodeStorage.setItem("Profile", temp);
+
+	event.returnValue = true;
 });
