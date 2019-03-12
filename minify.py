@@ -16,7 +16,7 @@ def removeComments(content):
 def get_substitution(line, base="src/assets/css"):
     fileName = ""
     data = ""
-    m = re.search(r"\@import url\(\"(.*?)\"\);", line)
+    m = re.search(r"\@import url\([\"'](.*?)[\"']\);", line)
     if m:
         fileName = m.group(1)
         with open(os.path.join(base, fileName), 'r') as myfile:
