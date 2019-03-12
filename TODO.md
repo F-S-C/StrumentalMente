@@ -23,12 +23,12 @@
     - [x] Inserire modello RMM/HDM
   - [ ] Realizzazione
   - [ ] Manuale utente
-- [ ] Stesura dei quiz
+- [x] Stesura dei quiz
   - [x] Teoria
-  - [ ] Strumenti
+  - [x] Strumenti
     - [x] Piano
     - [x] Chitarra
-    - [ ] Batteria
+    - [x] Batteria
     - [x] Basso
 - [x] Stesura delle sezioni di aiuto
 - [x] Creazione di un sistema di _"salvataggio delle sessioni"_ per salvare i quiz che l'utente ha già completato
