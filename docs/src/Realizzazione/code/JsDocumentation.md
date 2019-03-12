@@ -1,3 +1,11 @@
+# Classes
+
+<dl>
+<dt><a href="#accordo">accordo</a></dt>
+<dd><p>Classe accordo.</p>
+</dd>
+</dl>
+
 # Functions
 
 <dl>
@@ -43,6 +51,9 @@ e di nascondere tutti i tag section successivi al primo.</p>
 <dt><a href="#showExitDialog">showExitDialog()</a></dt>
 <dd><p>Mostra il dialogo di richiesta di conferma di uscita.</p>
 </dd>
+<dt><a href="#showExitFromQuizDialog">showExitFromQuizDialog(toOpen)</a></dt>
+<dd><p>Mostra il dialogo di richiesta di conferma di uscita dal quiz.</p>
+</dd>
 <dt><a href="#showQuizDialog">showQuizDialog(nomeQuiz, score, total)</a></dt>
 <dd><p>Mostra il dialogo con il punteggio dei quiz.</p>
 </dd>
@@ -55,9 +66,6 @@ e di nascondere tutti i tag section successivi al primo.</p>
 <dt><a href="#openOnKeyboardShortcut">openOnKeyboardShortcut(shortcut, content, [openAsModal])</a></dt>
 <dd><p>Apre, tramite una shortcut da tastiera,
 una finestra mostrante il contenuto richiesto.</p>
-</dd>
-<dt><a href="#accordo">accordo(nome, dita, tasto_iniziale)</a></dt>
-<dd><p>Oggetto accordo.</p>
 </dd>
 <dt><a href="#script_load">script_load()</a></dt>
 <dd><p>Seleziona un numero casuale compreso tra 1 e 7 e ne imposta l&#39;accordo da richiedere all&#39;utente.</p>
@@ -75,6 +83,22 @@ l&#39;accordo che l&#39;utente doveva riprodurre.</p>
 corretta nello schema.</p>
 </dd>
 </dl>
+
+<a name="accordo"></a>
+
+# accordo
+Classe accordo.
+
+**Kind**: global class  
+<a name="new_accordo_new"></a>
+
+## new accordo(nome, dita, tasto_iniziale)
+
+| Param | Type | Description |
+| --- | --- | --- |
+| nome | <code>String</code> | Stringa che indica il nome dell'accordo |
+| dita | <code>Boolean</code> | Sequenza di valori logici che indicano se la checkbox corrispondente è stata selezionata o meno |
+| tasto_iniziale | <code>number</code> | Indica il numero del capotasto iniziale dell'accordo |
 
 <a name="openChildWindow"></a>
 
@@ -211,6 +235,17 @@ Permette di avviare, mettere in pausa o stoppare un audio.
 Mostra il dialogo di richiesta di conferma di uscita.
 
 **Kind**: global function  
+<a name="showExitFromQuizDialog"></a>
+
+# showExitFromQuizDialog(toOpen)
+Mostra il dialogo di richiesta di conferma di uscita dal quiz.
+
+**Kind**: global function  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| toOpen | <code>String</code> | Il file da aprire se è cliccato il tasto 'Sì'. Il percorso è relativo rispetto alla cartella principale. |
+
 <a name="showQuizDialog"></a>
 
 # showQuizDialog(nomeQuiz, score, total)
@@ -260,19 +295,6 @@ Apre, tramite una shortcut da tastiera,una finestra mostrante il contenuto rich
 | shortcut | <code>String</code> |  | La shortcut da utilizzare |
 | content | <code>String</code> |  | Il link (assoluto o relativo) da aprire |
 | [openAsModal] | <code>boolean</code> | <code>false</code> | Se è `true`, la finestra sarà aperta come modale,  altrimenti sarà aperta nella stessa finestra. |
-
-<a name="accordo"></a>
-
-# accordo(nome, dita, tasto_iniziale)
-Oggetto accordo.
-
-**Kind**: global function  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| nome | <code>String</code> | Stringa che indica il nome dell'accordo |
-| dita | <code>Boolean</code> | Sequenza di valori logici che indicano se la checkbox corrispondente è stata selezionata o meno |
-| tasto_iniziale | <code>number</code> | Indica il numero del capotasto iniziale dell'accordo |
 
 <a name="script_load"></a>
 
