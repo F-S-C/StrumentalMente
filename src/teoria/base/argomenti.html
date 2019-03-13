@@ -12,13 +12,12 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="description" content="StrumentalMente - Dove la musica diventa semplice." />
-	<meta name="keywords"
-		content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
+	<meta name="keywords" content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
 	<meta name="author" content="FSC" />
 	<meta name="robots" content="index, follow">
 </head>
 
-<body onload="window.parent.setLinks({ previous: '', previousLink: '', next: 'Il suono', nextLink: 'suono' });">
+<body class="count" onload="window.parent.setLinks({ previous: '', previousLink: '', next: 'Il suono', nextLink: 'suono' });">
 	<div class="sub-wrapper">
 		<div class="content">
 			<article id="list">
@@ -28,56 +27,163 @@
 						<h2>Tutto ciò che serve per iniziare a parlare di "Musica"</h2>
 						<hr />
 					</header>
+					<p>Di seguito, sono riportati gli argomenti che verranno trattati in questa sezione.</p>
+					<!--
 					<ul>
 						<li>
-							<button type="button" onclick="window.parent.changeTopic('suono', './teoria/base/');">
-								Il Suono
+							<button type="button" onclick="window.parent.changeTopic('./tono-e-semitono', './teoria/avanzata/');">
+								Il suono
 							</button>
 						</li>
 						<li>
-							<button type="button" onclick="window.parent.changeTopic('note', './teoria/base/');">
-								Le Note
+							<button type="button" onclick="window.parent.changeTopic('./alterazioni', './teoria/avanzata/');">
+								Le note
 							</button>
 						</li>
 						<li>
-							<button type="button" onclick="window.parent.changeTopic('rigo', './teoria/base/');">
-								Il Rigo
+							<button type="button" onclick="window.parent.changeTopic('./do-maggiore-la-minore', './teoria/avanzata/');">
+								Il rigo
 							</button>
 						</li>
 						<li>
-							<button type="button" onclick="window.parent.changeTopic('chiave', './teoria/base/');">
-								La Chiave
+							<button type="button" onclick="window.parent.changeTopic('./intervalli', './teoria/avanzata/');">
+								La chiave
 							</button>
 						</li>
 						<li>
-							<button type="button" onclick="window.parent.changeTopic('chiave-do', './teoria/base/');">
-								La Chiave Do
+							<button type="button" onclick="window.parent.changeTopic('./tono-semitono-diatonico-e-cromatico', './teoria/avanzata/');">
+								La chiave di Do
 							</button>
 						</li>
 						<li>
-							<button type="button" onclick="window.parent.changeTopic('chiave-sol', './teoria/base/');">
-								La Chiave Sol
+							<button type="button" onclick="window.parent.changeTopic('./tonalita-e-modo', './teoria/avanzata/');">
+								La chiave di Sol
 							</button>
 						</li>
 						<li>
-							<button type="button" onclick="window.parent.changeTopic('chiave-fa', './teoria/base/');">
-								La Chiave fa
-							</button>
-						</li>
-						<li><button type="button" onclick="window.parent.changeTopic('valori-e-pause', './teoria/base/');">
-								Valori e Pause
+							<button type="button" onclick="window.parent.changeTopic('./accordo-tonale', './teoria/avanzata/');">
+								La chiave di Fa
 							</button>
 						</li>
 						<li>
-							<button type="button" onclick="window.parent.changeTopic('ritmo', './teoria/base/');">
-								Il Ritmo</button>
+							<button type="button" onclick="window.parent.changeTopic('./accordo-tonale', './teoria/avanzata/');">
+								Valori e pause
+							</button>
 						</li>
 						<li>
-							<button type="button" onclick="window.parent.changeTopic('tempo', './teoria/base/');">
-								Il Tempo
+							<button type="button" onclick="window.parent.changeTopic('./accordo-tonale', './teoria/avanzata/');">
+								Il ritmo
+							</button>
+						</li>
+						<li>
+							<button type="button" onclick="window.parent.changeTopic('./accordo-tonale', './teoria/avanzata/');">
+								Il tempo
 							</button>
 						</li>
 					</ul>
+				-->
+					<div class="row" style="margin: 30pt auto;">
+						<div class="card-horizontal" style="grid-column: 1; grid-row: 1; ">
+							<div class="card-stacked">
+								<div class="card-content">
+									<p>La base della musica</p>
+								</div>
+								<div class="card-action" style="text-align: center;" >
+									<a class="btn-text" href="./teoria-piano.html" title="Apri la teoria del pianoforte (Alt+S P)">Il suono</a>
+								</div>
+							</div>
+						</div>
+						<div class="card-horizontal" style="grid-column: 2; grid-row: 1;">
+							<div class="card-stacked">
+								<div class="card-content">
+									<p>Cosa sono le note</p>
+								</div>
+								<div class="card-action" style="text-align: center;" >
+									<a class="btn-text" href="./teoria-piano.html" title="Apri la teoria del pianoforte (Alt+S P)">Le note</a>
+								</div>
+							</div>
+						</div>
+						<div class="card-horizontal" style="grid-column: 3; grid-row: 1;">
+							<div class="card-stacked">
+								<div class="card-content">
+									<p>Cosa è il rigo</p>
+								</div>
+								<div class="card-action" style="text-align: center;">
+									<a class="btn-text" href="./teoria-piano.html" title="Apri la teoria del pianoforte (Alt+S P)">Il rigo</a>
+								</div>
+							</div>
+						</div>
+						<div class="card-horizontal" style="grid-column: 4; grid-row: 1;">
+							<div class="card-stacked">
+								<div class="card-content">
+									<p>Cosa è la chiave</p>
+								</div>
+								<div class="card-action" style="text-align: center;">
+									<a class="btn-text" href="./teoria-piano.html" title="Apri la teoria del pianoforte (Alt+S P)">La chiave</a>
+								</div>
+							</div>
+						</div>
+						<div class="card-horizontal" style="grid-column: 5; grid-row: 1;">
+							<div class="card-stacked">
+								<div class="card-content">
+									<p>Cosa è la chiave di Do</p>
+								</div>
+								<div class="card-action" style="text-align: center;">
+									<a class="btn-text" href="./teoria-piano.html" title="Apri la teoria del pianoforte (Alt+S P)">Chiave Do</a>
+								</div>
+							</div>
+						</div>
+						<div class="card-horizontal" style="grid-column: 1; grid-row: 2;">
+							<div class="card-stacked">
+								<div class="card-content">
+									<p>Cosa è la chiave di Sol</p>
+								</div>
+								<div class="card-action" style="text-align: center;">
+									<a class="btn-text" href="./teoria-piano.html" title="Apri la teoria del pianoforte (Alt+S P)">Chiave Sol</a>
+								</div>
+							</div>
+						</div>
+						<div class="card-horizontal" style="grid-column: 2; grid-row: 2;">
+							<div class="card-stacked">
+								<div class="card-content">
+									<p>Cosa è la chiave di Fa</p>
+								</div>
+								<div class="card-action" style="text-align: center;">
+									<a class="btn-text" href="./teoria-piano.html" title="Apri la teoria del pianoforte (Alt+S P)">Chiave Fa</a>
+								</div>
+							</div>
+						</div>
+						<div class="card-horizontal" style="grid-column: 3; grid-row: 2;">
+							<div class="card-stacked">
+								<div class="card-content">
+									<p>Cosa sono pause, battute e legature</p>
+								</div>
+								<div class="card-action" style="text-align: center; padding: 5px 5px;">
+									<a class=" btn-text" href="./teoria-piano.html" title="Apri la teoria del pianoforte (Alt+S P)">Valori e pause</a>
+								</div>
+							</div>
+						</div>
+						<div class="card-horizontal" style="grid-column: 4; grid-row: 2;">
+							<div class="card-stacked">
+								<div class="card-content">
+									<p>Cosa è il ritmo</p>
+								</div>
+								<div class="card-action" style="text-align: center;">
+									<a class="btn-text" href="./teoria-piano.html" title="Apri la teoria del pianoforte (Alt+S P)">Il Ritmo</a>
+								</div>
+							</div>
+						</div>
+						<div class="card-horizontal" style="grid-column: 5; grid-row: 2;">
+							<div class="card-stacked">
+								<div class="card-content">
+									<p>Cosa è il tempo</p>
+								</div>
+								<div class="card-action" style="text-align: center;">
+									<a class="btn-text" href="./teoria-piano.html" title="Apri la teoria del pianoforte (Alt+S P)">Il tempo</a>
+								</div>
+							</div>
+						</div>
+					</div>
 				</section>
 			</article>
 		</div>
