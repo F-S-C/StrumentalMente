@@ -229,6 +229,26 @@ function openModal(content, options = {}, windowIcon = "./assets/icon.ico") {
 }
 
 /**
+ * Ritorna l'username collegato a StrumentalMente.
+ */
+function getUsername() {
+	const { ipcRenderer } = require("electron");
+	let user = ipcRenderer.sendSync("get-user");
+	return user;
+}
+
+/**
+ * Ottiene il risultato del quiz scelto
+ * 
+ * @param {String} id L'id del quiz di cui interessa il risultato.
+ */
+function getQuiz(id) {
+	const { ipcRenderer } = require("electron");
+	let quiz = ipcRenderer.sendSync("get-quiz", id);
+	return quiz;
+}
+
+/**
  * Apre, tramite una shortcut da tastiera,
  * una finestra mostrante il contenuto richiesto.
  * 
@@ -270,6 +290,7 @@ window.addEventListener("load", () => {
 		Mousetrap.bind("alt+s b", () => { remote.getCurrentWindow().loadFile("./teoria-batteria.html"); });
 		Mousetrap.bind("alt+s shift+b", () => { remote.getCurrentWindow().loadFile("./teoria-basso.html"); });
 		Mousetrap.bind("alt+s p", () => { remote.getCurrentWindow().loadFile("./teoria-piano.html"); });
+		Mousetrap.bind("alt+p", () => { remote.getCurrentWindow().loadFile("./profile.html"); });
 		Mousetrap.bind("alt+m", () => { openModal("./map.html"); });
 		Mousetrap.bind("alt+i", () => { openModal("./about.html"); });
 	}
