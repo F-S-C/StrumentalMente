@@ -56,6 +56,9 @@ function createWindow() {
 		allQuizzes = {};
 	}
 
+	if (!username)
+		username = require("os").userInfo().username;
+
 	if (!windowState)
 		windowState = { bounds: { width: 1066, height: 600 }, isMaximized: true };
 
