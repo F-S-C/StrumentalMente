@@ -2,6 +2,15 @@
 	display: grid;
 	grid-row-gap: 8px;
 	grid-column-gap: 16px;
+	margin: 0 auto;
+}
+
+.row.topic-buttons {
+	position: absolute;
+	bottom: 20px;
+	left: 0;
+	right: 0;
+	width: 90%;
 }
 
 .card-horizontal {
@@ -29,10 +38,10 @@
 	max-width: 50%;
 }
 
-
 .card-horizontal .card-image img {
 	border-radius: 2px 0 0 2px;
 	max-width: 100%;
+	height: 100%;
 	width: 200px;
 	display: block;
 	position: relative;
@@ -43,8 +52,6 @@
 	transition: all .4s ease-in-out;
 	filter: grayscale(100%);
 }
-
-
 
 .card-horizontal:hover .card-image img {
 	filter: grayscale(0%);
@@ -57,14 +64,12 @@
 	position: relative;
 }
 
-
 .card-horizontal .card-content {
 	-webkit-box-flex: 1;
 	flex-grow: 1;
 	padding: 12px 24px;
 	border-radius: 0 0 2px 2px;
 }
-
 
 .card-horizontal-alt .card-content img {
 	border-radius: 2px 2px 0 0;
@@ -83,6 +88,7 @@
 .card-horizontal-alt:hover .card-content img {
 	filter: grayscale(0%);
 }
+
 .card-horizontal .card-content p {
 	margin: 0;
 }
