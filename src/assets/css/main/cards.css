@@ -18,6 +18,7 @@
 	max-width: 50%;
 }
 
+
 .card-horizontal .card-image img {
 	border-radius: 2px 0 0 2px;
 	max-width: 100%;
@@ -42,6 +43,7 @@
 	flex: 1;
 	position: relative;
 }
+
 
 .card-horizontal .card-content {
 	-webkit-box-flex: 1;
