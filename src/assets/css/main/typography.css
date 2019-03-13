@@ -115,3 +115,7 @@ table.highlight td:hover::after, table.highlight thead th:not(:empty):hover::aft
 table.highlight.cols td:hover::after, table.highlight.cols th:hover::after {
 	background-color: rgba(0, 0, 0, 0.05);
 }
+
+h1.center, h2.center, h3.center, h4.center, h5.center, h6.center {
+	text-align: center;
+}

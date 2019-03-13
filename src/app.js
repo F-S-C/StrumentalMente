@@ -47,17 +47,22 @@ function createWindow() {
 	}
 
 	try {
-		let temp = JSON.parse(global.nodeStorage.getItem("Profile") || {});
+		let temp = global.nodeStorage.getItem("Profile") || {};
 		username = temp["username"];
-		allQuizzes = temp["quizzes"];
+		allQuizzes = temp["quiz"];
 	} catch (err) {
 		global.nodeStorage.setItem("Profile", {});
 		username = "";
 		allQuizzes = {};
 	}
 
-	if (!username)
+	if (!username) {
 		username = require("os").userInfo().username;
+		let temp = {};
+		temp.username = username;
+		temp.quiz = allQuizzes;
+		global.nodeStorage.setItem("Profile", temp);
+	}
 
 	if (!windowState)
 		windowState = { bounds: { width: 1066, height: 600 }, isMaximized: true };

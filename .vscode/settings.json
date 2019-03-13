@@ -4,5 +4,7 @@
 	"files.exclude": {
 		"**/node_modules": true, // Hide "node_modules"
 		"**/StrumentalMente-*-x*": true // Hide build directories
-	}
+	},
+	"html.format.wrapAttributes": "aligned-multiple",
+	"html.format.wrapLineLength": 0
 }

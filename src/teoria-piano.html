@@ -72,7 +72,8 @@
 					</ul>
 				</li>
 				<li><a class="active" href="./home-strumenti.html" title="Apri la lista di srumenti (Alt+S S)"><i class="fas fa-guitar"></i> Strumenti</a></li>
-				<li><a href="./home-accordi.html"><i class="fas fa-music"></i> Accordi</a></li>
+				<li><a title="Apri la lista di strumenti per vederne gli accordi (Alt+A A)" href="./home-accordi.html"><i class="fas fa-music"></i> Accordi</a></li>
+				<li><a href="./profile.html" title="Mostra il profilo dell'utente (Alt+P)"><i class="fas fa-user-circle"></i> Profilo</a></li>
 				<li>
 					<button type="button" onclick="openModal('./map.html');" title="Mostra la mappa (Alt+M)">
 						<i class="fas fa-map"></i> Mappa
@@ -141,7 +142,7 @@
 	<script type="text/javascript" src="./assets/js/main.js"></script>
 	<script type="text/javascript" src="./assets/js/render.js"></script>
 	<script>
-		openOnKeyboardShortcut("F1", "./helpers/help-teoria.html", true);
+		openOnKeyboardShortcut("F1", "./helpers/help-strumenti.html", true);
 		require("mousetrap").bind("ctrl+backspace", () => changeTopic('./argomenti', './strumenti/piano/'));
 	</script>
 </body>
