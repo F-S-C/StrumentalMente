@@ -238,7 +238,7 @@
 			let containers = document.getElementsByClassName("quiz-result");
 
 			for (var i = 0; i < containers.length; i++) {
-				let hasPassedQuiz = getQuiz(containers[i].id) || false;
+				let hasPassedQuiz = getQuiz(containers[i].id);
 				if (hasPassedQuiz)
 					containers[i].getElementsByTagName("i")[0].className = "fas fa-check-circle";
 				else
