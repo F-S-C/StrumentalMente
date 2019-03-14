@@ -238,6 +238,17 @@ function getUsername() {
 }
 
 /**
+ * Imposta l'username dell'utente.
+ * 
+ * @param {String} newUsername Il nuovo username. 
+ */
+function setUsername(newUsername) {
+	const { ipcRenderer } = require("electron");
+	ipcRenderer.sendSync("save-user", newUsername);
+	console.log("done");
+}
+
+/**
  * Ottiene il risultato del quiz scelto
  * 
  * @param {String} id L'id del quiz di cui interessa il risultato.
