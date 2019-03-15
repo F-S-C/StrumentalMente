@@ -1,4 +1,4 @@
-var selezionato = 0;
+var selezionato = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 /**
  * Classe accordo.
@@ -64,10 +64,16 @@ var accordi = [
  * Seleziona un numero casuale compreso tra 1 e 7 e ne imposta l'accordo da richiedere all'utente.
  */
 function script_load() {
-	selezionato = Math.floor((Math.random() * 7) + 1);
-	document.getElementById("chord_name").innerHTML = "Accordo di " + accordi[selezionato - 1].nome; //NAME OF SELECTED CHORD
-	for (var i = 0; i < 4; i++) //TABS OF SELECTED CHORD
-		document.getElementsByClassName("num_tasto")[i].innerHTML = (i + accordi[selezionato - 1].tasto_iniziale) + "° Tasto";
+	var accordi_copia = Array.from(accordi);
+	for (var i = 0; i < document.getElementsByName("chord").length; i++) {
+		selezionato[i] = Math.floor((Math.random() * (7 - i)) + 1);
+		console.log(accordi_copia[selezionato[i] - 1]);
+		document.getElementsByName("chord_name")[i].innerHTML = "Accordo di " + accordi_copia[selezionato[i] - 1].nome; //NAME OF SELECTED CHORD
+		for (var j = 0; j < 4; j++) //TABS OF SELECTED CHORD
+			document.getElementsByName("chord")[i].getElementsByClassName("num_tasto")[j].innerHTML = (j + accordi_copia[selezionato[i] - 1].tasto_iniziale) + "° Tasto";
+		accordi_copia.splice(selezionato[i] - 1, 1);
+		console.log(accordi_copia);
+	}
 }
 
 /**
@@ -106,11 +112,11 @@ function verify_and_store() {
 		else
 			item[i] = false;
 	}
-	sessionStorage.setItem("quiz_chord",selezionato);
+	sessionStorage.setItem("quiz_chord", selezionato);
 	sessionStorage.setItem("selected_checkbox", JSON.stringify(item));
 	sessionStorage.setItem("correct", JSON.stringify(corretto));
-	if(corretto)
-		sessionStorage.setItem("score",JSON.parse(sessionStorage.getItem("score"))+1);
+	if (corretto)
+		sessionStorage.setItem("score", JSON.parse(sessionStorage.getItem("score")) + 1);
 }
 
 /**

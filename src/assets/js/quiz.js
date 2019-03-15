@@ -39,7 +39,7 @@ function quizLoad(id) {
 	generateRandomQuestions();
 	sessionStorage.setItem('score', 0);
 	sessionStorage.setItem('score_max', document.getElementsByTagName("section").length);
-	if (document.getElementById("chord") != undefined)
+	if (document.getElementsByName("chord")[0] != undefined)
 		script_load();
 	initializeQuiz();
 }
