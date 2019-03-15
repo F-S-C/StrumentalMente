@@ -78,3 +78,15 @@ section.hide {
 .card-topic:hover span {
 	transform: translate(-50%, -50%) scale(1.3);
 }
+
+.chords-container {
+	display: grid;
+	grid-row-gap: 8px;
+	grid-column-gap: 8px;
+	padding: 4px 0 0 4px;
+	grid-template-columns: calc(50% - 8px) calc(50% - 8px);
+	grid-template-rows: calc(50% - 8px) calc(50% - 8px);
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0s, opacity 0.15s linear;
+}
