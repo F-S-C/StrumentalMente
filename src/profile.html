@@ -12,8 +12,7 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="description" content="StrumentalMente - Dove la musica diventa semplice." />
-	<meta name="keywords"
-		content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
+	<meta name="keywords" content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
 	<meta name="author" content="FSC" />
 	<meta name="robots" content="index, follow">
 	<style>
@@ -29,26 +28,51 @@
 			position: relative;
 		}
 
-		body article header img {
+		body article header #profile-img {
 			display: inline-block;
 			text-align: center;
 			position: relative;
 			width: 48px;
+			height: 48px;
 			max-width: 100%;
 			border-radius: 50%;
 			transition: all .4s ease-in-out;
 			box-shadow: 0px 0px 0px 8px rgba(0, 0, 0, 0.06);
 		}
 
-		body article header:hover img {
+		body article header:hover #profile-img {
 			box-shadow: 0px 0px 0px 12px rgba(0, 0, 0, 0.1);
 		}
 
-		body article header h1 {
+		#profile-img #initial {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			text-transform: uppercase;
+			font-size: 20pt;
+			color: white;
+		}
+
+		#username {
 			color: var(--main-color);
 			font-weight: 500;
 			font-size: 20px;
 			text-transform: capitalize;
+			display: block;
+			margin: 0 auto;
+			text-align: center;
+			border: none;
+			font-family: var(--font-title);
+		}
+
+		#username+.fa-pen {
+			font-family: "Font Awesome 5 Free";
+			position: absolute;
+			right: 0;
+			top: 10px;
+			font-size: x-small;
+			color: lightgray;
 		}
 
 		.quiz-results-container {
@@ -87,6 +111,14 @@
 
 		.fa-times-circle {
 			color: #CC0000;
+		}
+
+		.user-container {
+			position: relative;
+			margin: 0 auto;
+			width: fit-content;
+			text-align: center;
+			margin-top: 10px;
 		}
 	</style>
 </head>
@@ -128,6 +160,7 @@
 					</a>
 				</li>
 				<li><a href="./home.html"><i class="fas fa-home"></i> Home</a></li>
+				<li><a class="active" href="#" title="Mostra il profilo dell'utente (Alt+P)"><i class="fas fa-user-circle"></i> Profilo</a></li>
 				<li class="dropdown">
 					<button type="button" onclick="drop('sub1')" id="sub1-link">
 						<i class="fas fa-book"></i> Teoria
@@ -145,11 +178,8 @@
 						</li>
 					</ul>
 				</li>
-				<li><a href="./home-strumenti.html" title="Apri la lista di srumenti (Alt+S S)"><i
-							class="fas fa-guitar"></i> Strumenti</a></li>
+				<li><a href="./home-strumenti.html" title="Apri la lista di srumenti (Alt+S S)"><i class="fas fa-guitar"></i> Strumenti</a></li>
 				<li><a title="Apri la lista di strumenti per vederne gli accordi (Alt+A A)" href="./home-accordi.html"><i class="fas fa-music"></i> Accordi</a></li>
-				<li><a class="active" href="#" title="Mostra il profilo dell'utente (Alt+P)"><i
-							class="fas fa-user-circle"></i> Profilo</a></li>
 				<li>
 					<button type="button" onclick="openModal('./map.html');" title="Mostra la mappa (Alt+M)">
 						<i class="fas fa-map"></i> Mappa
@@ -173,11 +203,9 @@
 			</ul>
 
 			<footer>
-				<p>Copyright &copy; 2019, <a onclick="openInBrowser('https:\/\/f-s-c.github.io\/');"
-						href="javascript:void(0);">FSC</a>.
+				<p>Copyright &copy; 2019, <a onclick="openInBrowser('https:\/\/f-s-c.github.io\/');" href="javascript:void(0);">FSC</a>.
 					Rilasciato sotto la
-					licenza <a onclick="openInBrowser('https:\/\/www.apache.org\/licenses\/LICENSE-2.0');"
-						href="javascript:void(0);">Apache
+					licenza <a onclick="openInBrowser('https:\/\/www.apache.org\/licenses\/LICENSE-2.0');" href="javascript:void(0);">Apache
 						2.0</a>.</p>
 				<img src="./assets/images/fsc-logo-svg.svg" />
 			</footer>
@@ -189,8 +217,13 @@
 		<div class="content">
 			<article>
 				<header>
-					<img src="./assets/images/profile.png" />
-					<h1 id="username">username</h1>
+					<div id="profile-img">
+						<span id="initial">U</span>
+					</div>
+					<div class="user-container">
+						<input id="username" type="text" name="username" value="Username" />
+						<i class="fas fa-pen"></i>
+					</div>
 				</header>
 				<section>
 					<h2>Riepilogo dei quiz</h2>
@@ -234,11 +267,20 @@
 		openOnKeyboardShortcut("F1", "./helpers/help-home.html", true);
 
 		window.onload = () => {
-			document.getElementById("username").innerHTML = getUsername();
+
+			let usernameContainer = document.getElementById("username");
+			usernameContainer.value = getUsername();
+			let changeProfileImage = () => {
+				let colors = Array("#E55100", "#E58B00", "#0C4D95", "#00976A");
+				document.getElementById("profile-img").style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+				document.getElementById("initial").innerHTML = usernameContainer.value.charAt(0);
+			};
+			changeProfileImage();
+			usernameContainer.onchange = () => { setUsername(usernameContainer.value); changeProfileImage(); };
 			let containers = document.getElementsByClassName("quiz-result");
 
 			for (var i = 0; i < containers.length; i++) {
-				let hasPassedQuiz = getQuiz(containers[i].id) || false;
+				let hasPassedQuiz = getQuiz(containers[i].id);
 				if (hasPassedQuiz)
 					containers[i].getElementsByTagName("i")[0].className = "fas fa-check-circle";
 				else

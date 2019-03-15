@@ -40,16 +40,17 @@ function openChildWindow(pageUrl, windowIcon = "./assets/icon.ico") {
 function createWindow() {
 	var windowState = {};
 	try {
-		windowState = global.nodeStorage.getItem("WindowState") || {};
+		windowState = global.nodeStorage.getItem("WindowState");
+		windowState = windowState ? windowState : {};
 	} catch (err) {
 		global.nodeStorage.setItem("WindowState", {});
 		windowState = {};
 	}
 
 	try {
-		let temp = global.nodeStorage.getItem("Profile") || {};
-		username = temp["username"];
-		allQuizzes = temp["quiz"];
+		let temp = global.nodeStorage.getItem("Profile");
+		username = temp ? temp["username"] : "";
+		allQuizzes = temp ? temp["quiz"] : {};
 	} catch (err) {
 		global.nodeStorage.setItem("Profile", {});
 		username = "";
@@ -178,7 +179,7 @@ ipcMain.on("save-quiz", (event, quiz) => {
 });
 
 ipcMain.on("get-quiz", (event, quizName) => {
-	event.returnValue = allQuizzes[quizName] || false;
+	event.returnValue = allQuizzes[quizName] ? allQuizzes[quizName] : false;
 });
 
 ipcMain.on("get-user", (event) => {
