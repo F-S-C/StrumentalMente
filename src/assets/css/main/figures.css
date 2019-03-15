@@ -4,6 +4,7 @@ figure {
 	border: thin silver solid;
 	margin: 1em;
 	padding: 0.5em;
+	cursor: pointer;
 }
 
 figure.left {
