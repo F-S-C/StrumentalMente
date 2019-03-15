@@ -56,6 +56,7 @@
 
 		#username {
 			color: var(--main-color);
+			background-color: transparent;
 			font-weight: 500;
 			font-size: 20px;
 			text-transform: capitalize;
@@ -69,10 +70,11 @@
 		#username+.fa-pen {
 			font-family: "Font Awesome 5 Free";
 			position: absolute;
-			right: 0;
+			right: 5px;
 			top: 10px;
 			font-size: x-small;
 			color: lightgray;
+			z-index: -1;
 		}
 
 		.quiz-results-container {
@@ -111,6 +113,10 @@
 
 		.fa-times-circle {
 			color: #CC0000;
+		}
+
+		.fa-circle {
+			color: #e55100;
 		}
 
 		.user-container {
@@ -267,7 +273,6 @@
 		openOnKeyboardShortcut("F1", "./helpers/help-home.html", true);
 
 		window.onload = () => {
-
 			let usernameContainer = document.getElementById("username");
 			usernameContainer.value = getUsername();
 			let changeProfileImage = () => {
@@ -277,14 +282,23 @@
 			};
 			changeProfileImage();
 			usernameContainer.onchange = () => { setUsername(usernameContainer.value); changeProfileImage(); };
+			usernameContainer.onkeypress = (e) => {
+				if (e.key == "Enter") {
+					usernameContainer.blur();
+					return false;
+				}
+			};
 			let containers = document.getElementsByClassName("quiz-result");
 
 			for (var i = 0; i < containers.length; i++) {
 				let hasPassedQuiz = getQuiz(containers[i].id);
-				if (hasPassedQuiz)
+				if (hasPassedQuiz == true)
 					containers[i].getElementsByTagName("i")[0].className = "fas fa-check-circle";
-				else
+				else if (hasPassedQuiz != undefined)
 					containers[i].getElementsByTagName("i")[0].className = "fas fa-times-circle";
+				else
+					containers[i].getElementsByTagName("i")[0].className = "fas fa-circle";
+
 			}
 		};
 	</script>
