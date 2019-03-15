@@ -168,7 +168,7 @@ function initialize(initial, base = "./") {
 			}
 		}
 		else {
-			if (currentSection === numberOfSections - 1) {
+			if (currentSection === numberOfSections - 1 && numberOfSections !== 1) {
 				nextSlideButton.style.display = "inline-block";
 				nextTopicButton.style.display = "none";
 			}
