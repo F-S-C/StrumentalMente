@@ -12,6 +12,7 @@
  * - L'apertura di finestra secondarie 
  */
 
+require("v8-compile-cache");
 const { app, BrowserWindow, ipcMain } = require("electron");
 const JSONStorage = require('node-localstorage').JSONStorage;
 const storageLocation = app.getPath('userData');

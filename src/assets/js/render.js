@@ -103,7 +103,7 @@ const remote = require('electron').remote; // Riferimento a Electron
 	Mousetrap.bind("f11", () => { win.setFullScreen(!win.isFullScreen()); });
 
 	// Un piccolo easter egg da parte degli FSC :)!
-	require("mousetrap").bind("up up down down left right left right b a enter", () => {
+	Mousetrap.bind("up up down down left right left right b a enter", () => {
 		const { ipcRenderer } = require("electron");
 
 		var answer = ipcRenderer.sendSync("prompt", {
