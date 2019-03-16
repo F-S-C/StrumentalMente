@@ -1,126 +1,126 @@
 @import url("./titlebar.css");
 nav.main-navigation {
-    width: 15vw;
-    z-index: 1;
-    flex: 1 0 auto;
-    background-color: #333;
-    overflow-x: hidden;
-    padding-top: 20px;
-    line-height: 1.5;
-    font-family: var(--font-title);
-    display: flex;
-    flex-direction: column;
+	width: 15vw;
+	z-index: 1;
+	flex: 1 0 auto;
+	background-color: #333;
+	overflow-x: hidden;
+	padding-top: 20px;
+	line-height: 1.5;
+	font-family: var(--font-title);
+	display: flex;
+	flex-direction: column;
 }
 
 nav.main-navigation ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    flex: 1 0 auto;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	flex: 1 0 auto;
 }
 
 nav.main-navigation li {
-    float: none;
+	float: none;
 }
 
 nav.main-navigation li button {
-    background-color: #333;
-    border: none;
-    cursor: pointer;
-    width: 100%;
+	background-color: #333;
+	border: none;
+	cursor: pointer;
+	width: 100%;
 }
 
 nav.main-navigation li a, nav.main-navigation li button {
-    display: block;
-    color: white;
-    text-align: left;
-    padding: 8px 10px;
-    font: inherit;
-    text-decoration: none;
+	display: block;
+	color: white;
+	text-align: left;
+	padding: 8px 10px;
+	font: inherit;
+	text-decoration: none;
 }
 
 nav.main-navigation li:not(.active):not(.logo) a:hover, nav.main-navigation li:not(.active):not(.logo) button:hover {
-    background-color: #111;
+	background-color: #111;
 }
 
 nav.main-navigation .active {
-    background-color: var(--main-color);
+	background-color: var(--main-color);
 }
 
 @keyframes gradually-show {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 
 nav.main-navigation .dropdown {
-    position: relative;
+	position: relative;
 }
 
 nav.main-navigation .dropdown ul {
-    display: none;
-    background-color: #404040;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    width: initial;
-    position: relative;
-    box-shadow: none;
+	display: none;
+	background-color: #404040;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	width: initial;
+	position: relative;
+	box-shadow: none;
 }
 
 nav.main-navigation .dropdown ul.show {
-    display: block;
-    animation: gradually-show 0.25s linear 0s 1 normal;
+	display: block;
+	animation: gradually-show 0.25s linear 0s 1 normal;
 }
 
 nav.main-navigation .dropdown ul.reverse {
-    display: block;
-    animation: gradually-show 0.25s linear 0s 1 reverse;
+	display: block;
+	animation: gradually-show 0.25s linear 0s 1 reverse;
 }
 
 nav.main-navigation .dropdown li {
-    float: none;
+	float: none;
 }
 
 nav.main-navigation .dropdown li a {
-    color: white;
-    padding: 8px 10px 8px 5em;
-    text-decoration: none;
-    display: block;
-    text-align: left;
+	color: white;
+	padding: 8px 10px 8px 5em;
+	text-decoration: none;
+	display: block;
+	text-align: left;
 }
 
 nav.main-navigation .dropdown li a.active {
-    background-color: #555555;
+	background-color: #555555;
 }
 
 nav.main-navigation .dropdown>a::after, nav.main-navigation .dropdown>button::after {
-    font-family: "Font Awesome 5 Free";
-    color: rgba(255, 255, 255, .9);
-    font-weight: 900;
-    content: "\f0d7";
-    position: absolute;
-    right: 0;
-    top: 2px;
-    padding: 8px 10px;
+	font-family: "Font Awesome 5 Free";
+	color: rgba(255, 255, 255, .9);
+	font-weight: 900;
+	content: "\f0d7";
+	position: absolute;
+	right: 0;
+	top: 2px;
+	padding: 8px 10px;
 }
 
 nav.main-navigation .dropdown>a.open::after, nav.main-navigation .dropdown>button.open::after {
-    content: "\f0d8";
+	content: "\f0d8";
 }
 
 nav.main-navigation .dropdown li a:hover {
-    color: white;
+	color: white;
 }
 
 nav.main-navigation li i.fas {
-    display: inline-block;
-    border-radius: 60px;
-    width: 1em;
-    padding: 0.5em 0.6em;
-    margin-right: .5vw;
+	display: inline-block;
+	border-radius: 60px;
+	width: 1em;
+	padding: 0.5em 0.6em;
+	margin-right: .5vw;
 }
 
 /*nav.main-navigation .dropdown:hover ul {
@@ -128,68 +128,68 @@ nav.main-navigation li i.fas {
 }*/
 
 nav.main-navigation .logo a {
-    text-decoration: none;
-    background-color: transparent;
-    display: block;
-    text-align: center;
-    padding: 14px 0;
+	text-decoration: none;
+	background-color: transparent;
+	display: block;
+	text-align: center;
+	padding: 14px 0;
 }
 
 nav.main-navigation .logo img {
-    border-style: none;
-    vertical-align: top !important;
-    width: 48px;
-    height: 48px;
-    clear: both;
-    float: none;
+	border-style: none;
+	vertical-align: top !important;
+	width: 48px;
+	height: 48px;
+	clear: both;
+	float: none;
 }
 
 nav.main-navigation .logo h1 {
-    font-size: 15pt;
-    font-family: var(--font-title);
-    font-weight: normal;
+	font-size: 15pt;
+	font-family: var(--font-title);
+	font-weight: normal;
 }
 
 nav.main-navigation .logo h1 span {
-    font-weight: 600;
+	font-weight: 600;
 }
 
 nav.main-navigation+#sidebar-controller {
-    position: sticky;
-    top: 32px;
-    display: none;
-    background-color: #333;
-    border: none;
-    cursor: pointer;
-    color: white;
-    text-align: center;
-    font: inherit;
-    text-decoration: none;
-    border-radius: 50%;
-    width: 2em;
-    height: 2em;
+	position: sticky;
+	top: 32px;
+	display: none;
+	background-color: #333;
+	border: none;
+	cursor: pointer;
+	color: white;
+	text-align: center;
+	font: inherit;
+	text-decoration: none;
+	border-radius: 50%;
+	width: 2em;
+	height: 2em;
 }
 
 nav.main-navigation+#sidebar-controller:hover, nav.main-navigation+#sidebar-controller:active {
-    background-color: #111;
+	background-color: #111;
 }
 
 @media only screen and (max-width: 992px) {
-    nav.main-navigation {
-        width: 25vw;
-    }
+	nav.main-navigation {
+		width: 25vw;
+	}
 }
 
 /* navigation bar per schermi piccoli */
 
 @media only screen and (max-width: 768px) {
-    nav.main-navigation {
-        display: none;
-    }
-    nav.main-navigation+#sidebar-controller {
-        display: block;
-    }
-    nav.main-navigation.responsive {
-        display: flex;
-    }
+	nav.main-navigation {
+		display: none;
+	}
+	nav.main-navigation+#sidebar-controller {
+		display: block;
+	}
+	nav.main-navigation.responsive {
+		display: flex;
+	}
 }

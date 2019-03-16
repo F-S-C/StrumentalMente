@@ -63,12 +63,15 @@ figure.modal img {
 	margin: auto;
 	display: block;
 	width: 80%;
+	background-color: white;
 	max-width: 700px;
 	max-height: 90%;
 	position: absolute;
 	top: calc(50% - 32px);
 	left: 50%;
 	transform: translate(-50%, -50%);
+	animation-name: zoom;
+	animation-duration: 0.6s;
 }
 
 figure.modal figcaption {
@@ -80,11 +83,6 @@ figure.modal figcaption {
 	color: #ccc;
 	padding: 10px 0;
 	height: 150px;
-}
-
-figure.modal img {
-	animation-name: zoom;
-	animation-duration: 0.6s;
 }
 
 figure.modal .close-btn {
