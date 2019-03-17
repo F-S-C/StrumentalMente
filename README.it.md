@@ -1,8 +1,8 @@
 # StrumentalMente<!-- omit in toc -->
 
-[![License](https://img.shields.io/github/license/F-S-C/StrumentalMente.svg?style=for-the-badge)](https://github.com/F-S-C/StrumentalMente/blob/master/LICENSE)
-[![Not yet released](https://img.shields.io/badge/release-non%20ancora%20rilasciato-orange.svg?style=for-the-badge)](https://github.com/F-S-C/StrumentalMente/releases)
-<!--[![Latest release](https://img.shields.io/github/release/F-S-C/StrumentalMente.svg?style=for-the-badge)](https://github.com/F-S-C/StrumentalMente/releases)-->
+[![Licenza](https://img.shields.io/github/license/F-S-C/StrumentalMente.svg?style=for-the-badge)](https://github.com/F-S-C/StrumentalMente/blob/master/LICENSE)
+[![Non ancora rilasciato](https://img.shields.io/badge/release-non%20ancora%20rilasciato-orange.svg?style=for-the-badge)](https://github.com/F-S-C/StrumentalMente/releases)
+<!--[![Ultima release](https://img.shields.io/github/release/F-S-C/StrumentalMente.svg?style=for-the-badge)](https://github.com/F-S-C/StrumentalMente/releases)-->
 
 _Leggi questo file in altre lingue: [English](https://github.com/F-S-C/StrumentalMente/blob/master/README.md)_
 
@@ -82,4 +82,11 @@ Il progetto è rilasciato sotto la [**licenza Apache 2.0**](https://github.com/F
 
 ### I tools e le librerie utilizate
 
-Non è stato utilizzato alcun _tool_ e alcuna libreria esterna.
+L'applicazione è realizzata tramite [Node.js](https://nodejs.org/) (utilizzando [yarn](https://yarnpkg.com/) come _package manager_) e i seguenti moduli:
+
+- [Electron](https://electronjs.org/) ([Licenza](https://github.com/electron/electron/blob/master/LICENSE))
+- [Mousetrap](https://www.npmjs.com/package/mousetrap) ([Licenza](https://github.com/ccampbell/mousetrap/blob/master/LICENSE))
+- [electron-builder](https://www.electron.build/) ([Licenza](https://github.com/electron-userland/electron-builder/blob/master/LICENSE))
+- [node-localstorage](https://www.npmjs.com/package/node-localstorage) ([Licenza](https://github.com/lmaccherone/node-localstorage#mit-license))
+
+Maggiori informazioni sulle licenze dei moduli possono essere trovate visitando i rispettivi link.

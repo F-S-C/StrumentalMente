@@ -82,4 +82,11 @@ This project is released under the [**Apache 2.0 License**](https://github.com/F
 
 ### Used Tools Libraries
 
-No external tool or library was used.
+The application is built using [Node.js](https://nodejs.org/) (using [yarn](https://yarnpkg.com/) as package manager) and the following modules:
+
+- [Electron](https://electronjs.org/) ([License](https://github.com/electron/electron/blob/master/LICENSE))
+- [Mousetrap](https://www.npmjs.com/package/mousetrap) ([License](https://github.com/ccampbell/mousetrap/blob/master/LICENSE))
+- [electron-builder](https://www.electron.build/) ([License](https://github.com/electron-userland/electron-builder/blob/master/LICENSE))
+- [node-localstorage](https://www.npmjs.com/package/node-localstorage) ([License](https://github.com/lmaccherone/node-localstorage#mit-license))
+
+More information about the licenses of those modules can be found following the links.
