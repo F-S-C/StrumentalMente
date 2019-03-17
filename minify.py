@@ -73,7 +73,7 @@ if __name__ == "__main__":
     copyfile("src/assets/js/main.js", "src/assets/js/main_not-minified.js")
     copyfile("src/assets/js/render.js", "src/assets/js/render_not-minified.js")
 
-    for currentFile in ["src/app.js", "src/assets/js/main.js", "src/assets/js/render.js"]:
+    for currentFile in ["src/app.js", "src/assets/js/main.js", "src/assets/js/render.js", "src/assets/js/quiz.js", "src/assets/js/accordo.js"]:
         with open(currentFile, "r") as js_file:
             minified = jsmin(js_file.read())
         with open(currentFile, "w") as js_file:
