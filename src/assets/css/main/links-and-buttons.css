@@ -216,19 +216,17 @@ classi aventi i seguenti stili:
 }
 
 .buttons-container {
-	position: fixed;
-	bottom: 0;
-	/* 40px è lo spessore dei due padding */
-	width: calc(99% - 17vw - 46px);
-	display: grid;
-	padding-bottom: 20px;
-	grid-template-columns: 33.33% 33.33% 33.33%;
+    width: calc(100% - 46px);
+    margin: 0 auto;
+    display: grid;
+    padding-bottom: 20px;
+    grid-template-columns: 33.33% 33.33% 33.33%;
 }
 
 @media only screen and (max-width: 992px) {
 	.buttons-container {
 		/* 40px è lo spessore dei due padding */
-		width: calc(100% - 25vw - 40px);
+		width: calc(100% - 40px);
 	}
 }
 
