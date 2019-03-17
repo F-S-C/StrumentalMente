@@ -51,6 +51,9 @@ section.hide {
 	padding: 16px 0 16px 8px;
 	grid-template-columns: calc(20% - 16px) calc(20% - 16px) calc(20% - 16px) calc(20% - 16px) calc(20% - 16px);
 	grid-template-rows: calc(25% - 8px) calc(25% - 8px) calc(25% - 8px) calc(25% - 8px);
+}
+
+#list:not(.chords-list) section .row {
 	counter-reset: topic-counter;
 }
 
@@ -76,11 +79,11 @@ section.hide {
 	transform: translate(-50%, -50%);
 }
 
-#list section .row .card-topic span {
+#list:not(.chords-list) section .row .card-topic span {
 	counter-increment: topic-counter;
 }
 
-#list section .row .card-topic span::before {
+#list:not(.chords-list) section .row .card-topic span::before {
 	content: counter(topic-counter) ". ";
 	display: contents;
 }
