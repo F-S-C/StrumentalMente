@@ -25,10 +25,12 @@ per consentire un eventuale eccessivo ridimensionamento della finestra.
 \item[{ \protect\hyperlink{drop}{drop(name, {[}defaultLinkClass{]})} }]
 Permette, alla pressione di un bottone, di aprire una sottolista della
 navbar.
-\item[{ \protect\hyperlink{setLinks}{setLinks(links)} }]
+\item[{ \protect\hyperlink{setLinks}{setLinks(firstSlideNumber, links)}
+}]
 Cambia i link e i nomi dell'argomento precedente e quello successivo a
 quello attuale
-\item[{ \protect\hyperlink{initialize}{initialize(initial, base)} }]
+\item[{ \protect\hyperlink{initialize}{initialize(initial, base,
+totalNumberOfSlides)} }]
 Funzione che, al caricamento della pagina, si occupa di impostare il
 numero di tag section presenti all'interno della pagina nella memoria
 locale del browser, di impostare come sezione visibile corrente la prima
@@ -59,6 +61,12 @@ Apre un link nel browser predefinito.
 \item[{ \protect\hyperlink{openModal}{openModal(content, {[}options{]},
 {[}windowIcon{]})} }]
 Apre una finestra modale mostrante il contenuto richiesto.
+\item[{ \protect\hyperlink{getUsername}{getUsername()} }]
+Ritorna l'username collegato a StrumentalMente.
+\item[{ \protect\hyperlink{setUsername}{setUsername(newUsername)} }]
+Imposta l'username dell'utente.
+\item[{ \protect\hyperlink{getQuiz}{getQuiz(id)} }]
+Ottiene il risultato del quiz scelto
 \item[{
 \protect\hyperlink{openOnKeyboardShortcut}{openOnKeyboardShortcut(shortcut,
 content, {[}openAsModal{]})} }]
@@ -67,9 +75,6 @@ contenuto richiesto.
 \item[{ \protect\hyperlink{script_load}{script\_load()} }]
 Seleziona un numero casuale compreso tra 1 e 7 e ne imposta l'accordo da
 richiedere all'utente.
-\item[{ \protect\hyperlink{replace_selected}{replace\_selected()} }]
-Ripristina le checkbox selezionate dall'utente e il nome dell'accordo
-richiesto durante il quiz.
 \item[{ \protect\hyperlink{verify_and_store}{verify\_and\_store()} }]
 Verifica che le selezioni effettuate dall'utente siano corrette in base
 all'accordo presentatogli e memorizza: se la selezione è corretta (1) o
@@ -218,8 +223,9 @@ bottone\tabularnewline
 
 \protect\hypertarget{setLinks}{}{}
 
-\hypertarget{setlinkslinks}{%
-\subsection{setLinks(links)}\label{setlinkslinks}}
+\hypertarget{setlinksfirstslidenumber-links}{%
+\subsection{setLinks(firstSlideNumber,
+links)}\label{setlinksfirstslidenumber-links}}
 
 Cambia i link e i nomi dell'argomento precedente e quello successivoa
 quello attuale
@@ -237,6 +243,13 @@ Description\strut
 \end{minipage}\tabularnewline
 \midrule
 \endhead
+\begin{minipage}[t]{0.30\columnwidth}\raggedright
+firstSlideNumber\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+\texttt{number}\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+Il numero della prima slide dell'argomento corrente\strut
+\end{minipage}\tabularnewline
 \begin{minipage}[t]{0.30\columnwidth}\raggedright
 links\strut
 \end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
@@ -279,8 +292,9 @@ l'estensione)\strut
 
 \protect\hypertarget{initialize}{}{}
 
-\hypertarget{initializeinitial-base}{%
-\subsection{initialize(initial, base)}\label{initializeinitial-base}}
+\hypertarget{initializeinitial-base-totalnumberofslides}{%
+\subsection{initialize(initial, base,
+totalNumberOfSlides)}\label{initializeinitial-base-totalnumberofslides}}
 
 Funzione che, al caricamento della pagina, si occupa di impostare il
 numero di tag section presenti all'interno della pagina nella memoria
@@ -321,6 +335,15 @@ base\strut
 \end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
 La cartella in cui sono situati i file degli argomenti (default:
 \texttt{./})\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.22\columnwidth}\raggedright
+totalNumberOfSlides\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
+\texttt{number}\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
+Il numero totale di pagine per la sezione.\strut
 \end{minipage}\tabularnewline
 \bottomrule
 \end{tabularx}
@@ -559,6 +582,51 @@ L'icona della finestra modale\tabularnewline
 \bottomrule
 \end{tabularx}
 
+\protect\hypertarget{getUsername}{}{}
+
+\hypertarget{getusername}{%
+\subsection{getUsername()}\label{getusername}}
+
+Ritorna l'username collegato a StrumentalMente.
+
+\textbf{Kind}: global function\\
+\protect\hypertarget{setUsername}{}{}
+
+\hypertarget{setusernamenewusername}{%
+\subsection{setUsername(newUsername)}\label{setusernamenewusername}}
+
+Imposta l'username dell'utente.
+
+\textbf{Kind}: global function
+
+\begin{tabularx}{\textwidth}{XXX}
+\toprule
+Param & Type & Description\tabularnewline
+\midrule
+\endhead
+newUsername & \texttt{String} & Il nuovo username.\tabularnewline
+\bottomrule
+\end{tabularx}
+
+\protect\hypertarget{getQuiz}{}{}
+
+\hypertarget{getquizid}{%
+\subsection{getQuiz(id)}\label{getquizid}}
+
+Ottiene il risultato del quiz scelto
+
+\textbf{Kind}: global function
+
+\begin{tabularx}{\textwidth}{XXX}
+\toprule
+Param & Type & Description\tabularnewline
+\midrule
+\endhead
+id & \texttt{String} & L'id del quiz di cui interessa il
+risultato.\tabularnewline
+\bottomrule
+\end{tabularx}
+
 \protect\hypertarget{openOnKeyboardShortcut}{}{}
 
 \hypertarget{openonkeyboardshortcutshortcut-content-openasmodal}{%
@@ -621,15 +689,6 @@ aperta nella stessa finestra.\strut
 
 Seleziona un numero casuale compreso tra 1 e 7 e ne imposta l'accordo da
 richiedere all'utente.
-
-\textbf{Kind}: global function\\
-\protect\hypertarget{replace_selected}{}{}
-
-\hypertarget{replace_selected}{%
-\subsection{replace\_selected()}\label{replace_selected}}
-
-Ripristina le checkbox selezionate dall'utente e il nome dell'accordo
-richiesto durante il quiz.
 
 \textbf{Kind}: global function\\
 \protect\hypertarget{verify_and_store}{}{}

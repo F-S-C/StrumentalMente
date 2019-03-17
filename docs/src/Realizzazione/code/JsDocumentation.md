@@ -26,11 +26,11 @@ consentire un eventuale eccessivo ridimensionamento della finestra.</p>
 <dd><p>Permette, alla pressione di un bottone, di aprire una sottolista
 della navbar.</p>
 </dd>
-<dt><a href="#setLinks">setLinks(links)</a></dt>
+<dt><a href="#setLinks">setLinks(firstSlideNumber, links)</a></dt>
 <dd><p>Cambia i link e i nomi dell&#39;argomento precedente e quello successivo
 a quello attuale</p>
 </dd>
-<dt><a href="#initialize">initialize(initial, base)</a></dt>
+<dt><a href="#initialize">initialize(initial, base, totalNumberOfSlides)</a></dt>
 <dd><p>Funzione che, al caricamento della pagina, si occupa di impostare il numero 
 di tag section presenti all&#39;interno della pagina nella memoria locale del browser, di
 impostare come sezione visibile corrente la prima (sempre all&#39;interno della memoria locale)
@@ -63,15 +63,21 @@ e di nascondere tutti i tag section successivi al primo.</p>
 <dt><a href="#openModal">openModal(content, [options], [windowIcon])</a></dt>
 <dd><p>Apre una finestra modale mostrante il contenuto richiesto.</p>
 </dd>
+<dt><a href="#getUsername">getUsername()</a></dt>
+<dd><p>Ritorna l&#39;username collegato a StrumentalMente.</p>
+</dd>
+<dt><a href="#setUsername">setUsername(newUsername)</a></dt>
+<dd><p>Imposta l&#39;username dell&#39;utente.</p>
+</dd>
+<dt><a href="#getQuiz">getQuiz(id)</a></dt>
+<dd><p>Ottiene il risultato del quiz scelto</p>
+</dd>
 <dt><a href="#openOnKeyboardShortcut">openOnKeyboardShortcut(shortcut, content, [openAsModal])</a></dt>
 <dd><p>Apre, tramite una shortcut da tastiera,
 una finestra mostrante il contenuto richiesto.</p>
 </dd>
 <dt><a href="#script_load">script_load()</a></dt>
 <dd><p>Seleziona un numero casuale compreso tra 1 e 7 e ne imposta l&#39;accordo da richiedere all&#39;utente.</p>
-</dd>
-<dt><a href="#replace_selected">replace_selected()</a></dt>
-<dd><p>Ripristina le checkbox selezionate dall&#39;utente e il nome dell&#39;accordo richiesto durante il quiz.</p>
 </dd>
 <dt><a href="#verify_and_store">verify_and_store()</a></dt>
 <dd><p>Verifica che le selezioni effettuate dall&#39;utente siano corrette in base all&#39;accordo presentatogli e
@@ -151,13 +157,14 @@ Permette, alla pressione di un bottone, di aprire una sottolistadella navbar.
 
 <a name="setLinks"></a>
 
-# setLinks(links)
+# setLinks(firstSlideNumber, links)
 Cambia i link e i nomi dell'argomento precedente e quello successivoa quello attuale
 
 **Kind**: global function  
 
 | Param | Type | Description |
 | --- | --- | --- |
+| firstSlideNumber | <code>number</code> | Il numero della prima slide dell'argomento corrente |
 | links | <code>Object</code> | Le nuove impostazioni e link |
 | links.previous | <code>String</code> | Il nome della pagina precedente |
 | links.previousLink | <code>String</code> | Il link della pagina precedente (il nome del file *senza* l'estensione) |
@@ -166,7 +173,7 @@ Cambia i link e i nomi dell'argomento precedente e quello successivoa quello at
 
 <a name="initialize"></a>
 
-# initialize(initial, base)
+# initialize(initial, base, totalNumberOfSlides)
 Funzione che, al caricamento della pagina, si occupa di impostare il numero di tag section presenti all'interno della pagina nella memoria locale del browser, diimpostare come sezione visibile corrente la prima (sempre all'interno della memoria locale)e di nascondere tutti i tag section successivi al primo.
 
 **Kind**: global function  
@@ -175,6 +182,7 @@ Funzione che, al caricamento della pagina, si occupa di impostare il numero di 
 | --- | --- | --- | --- |
 | initial | <code>String</code> |  | Il primo argomento |
 | base | <code>String</code> | <code>./</code> | La cartella in cui sono situati i file degli argomenti (default: `./`) |
+| totalNumberOfSlides | <code>number</code> |  | Il numero totale di pagine per la sezione. |
 
 <a name="initialize..changeSlide"></a>
 
@@ -283,6 +291,34 @@ Apre una finestra modale mostrante il contenuto richiesto.
 | [options] | <code>Object</code> |  | Le opzioni della nuova finestra |
 | [windowIcon] | <code>String</code> | <code>./assets/icon.ico</code> | L'icona della finestra modale |
 
+<a name="getUsername"></a>
+
+# getUsername()
+Ritorna l'username collegato a StrumentalMente.
+
+**Kind**: global function  
+<a name="setUsername"></a>
+
+# setUsername(newUsername)
+Imposta l'username dell'utente.
+
+**Kind**: global function  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| newUsername | <code>String</code> | Il nuovo username. |
+
+<a name="getQuiz"></a>
+
+# getQuiz(id)
+Ottiene il risultato del quiz scelto
+
+**Kind**: global function  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| id | <code>String</code> | L'id del quiz di cui interessa il risultato. |
+
 <a name="openOnKeyboardShortcut"></a>
 
 # openOnKeyboardShortcut(shortcut, content, [openAsModal])
@@ -300,12 +336,6 @@ Apre, tramite una shortcut da tastiera,una finestra mostrante il contenuto rich
 
 # script\_load()
 Seleziona un numero casuale compreso tra 1 e 7 e ne imposta l'accordo da richiedere all'utente.
-
-**Kind**: global function  
-<a name="replace_selected"></a>
-
-# replace\_selected()
-Ripristina le checkbox selezionate dall'utente e il nome dell'accordo richiesto durante il quiz.
 
 **Kind**: global function  
 <a name="verify_and_store"></a>
