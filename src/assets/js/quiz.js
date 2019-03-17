@@ -19,7 +19,7 @@ function generateRandomQuestions() {
 				v[i] = temp;
 				i++;
 			}
-			
+
 		}
 		if (elements.getElementsByClassName("box").length < 1) {
 			input[v[0] - 1].style.gridArea = "a";
@@ -46,7 +46,7 @@ function quizLoad(id) {
 
 function quizVerify() {
 	answersCheck();
-	if (document.getElementById("chord") != undefined)
+	if (document.getElementsByName("chord")[0] != undefined)
 		verify_and_store();
 	showQuizDialog(quiz_id, sessionStorage.getItem('score'), sessionStorage.getItem('score_max'));
 }
@@ -76,10 +76,8 @@ function quizCompare() {
 			verify.disabled = "true";
 		}
 	}
-	if (document.getElementById("chord") != undefined) {
-		replace_selected();
-		if (sessionStorage.getItem("correct") == "false")
-			correct_chord();
+	if (document.getElementsByName("chord")[0] != undefined) {
+		correct_chord();
 	}
 }
 
