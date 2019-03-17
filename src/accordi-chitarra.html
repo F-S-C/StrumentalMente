@@ -11,14 +11,12 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="description" content="StrumentalMente - Dove la musica diventa semplice." />
-	<meta name="keywords"
-		content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
+	<meta name="keywords" content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
 	<meta name="author" content="FSC" />
 	<meta name="robots" content="index, follow">
 </head>
 
-<body
-    onload="initialize( 'accordi' , 'accordi/chitarra/');">
+<body onload="initialize( 'accordi' , 'accordi/chitarra/');">
 	<header>
 		<div id="titlebar">
 			<div id="drag-region">
@@ -55,6 +53,7 @@
 					</a>
 				</li>
 				<li><a href="./home.html"><i class="fas fa-home"></i> Home</a></li>
+				<li><a href="./profile.html" title="Mostra il profilo dell'utente (Alt+P)"><i class="fas fa-user-circle"></i> Profilo</a></li>
 				<li class="dropdown">
 					<button type="button" onclick="drop('sub1')" id="sub1-link">
 						<i class="fas fa-book"></i> Teoria
@@ -80,7 +79,7 @@
 					</button>
 				</li>
 				<li>
-					<button type="button" onclick="openModal('./helpers/help-strumenti.html');" title="Mostra l'aiuto (F1)">
+					<button type="button" onclick="openModal('./helpers/help-accordi.html');" title="Mostra l'aiuto (F1)">
 						<i class="fas fa-question"></i> Aiuto
 					</button>
 				</li>
@@ -97,11 +96,9 @@
 			</ul>
 
 			<footer>
-				<p>Copyright &copy; 2019, <a class="external" onclick="openInBrowser('https:\/\/f-s-c.github.io\/');"
-						href="javascript:void(0);">FSC</a>.
+				<p>Copyright &copy; 2019, <a class="external" onclick="openInBrowser('https:\/\/f-s-c.github.io\/');" href="javascript:void(0);">FSC</a>.
 					Rilasciato sotto la
-					licenza <a class="external" onclick="openInBrowser('https:\/\/www.apache.org\/licenses\/LICENSE-2.0');"
-						href="javascript:void(0);">Apache
+					licenza <a class="external" onclick="openInBrowser('https:\/\/www.apache.org\/licenses\/LICENSE-2.0');" href="javascript:void(0);">Apache
 						2.0</a>.</p>
 				<img src="./assets/images/fsc-logo-svg.svg" />
 			</footer>
@@ -118,15 +115,14 @@
 				<div class="buttons-container">
 					<div class="first-column">
 						<button type="button" id="back-topic" class="btn-outlined" style="display: none;">
-						  Accordo precedente <i class="btn-icon left fas fa-arrow-alt-circle-left"></i>
+							Accordo precedente <i class="btn-icon left fas fa-arrow-alt-circle-left"></i>
 						</button>
 						<button type="button" id="back" class="btn-outlined" disabled>
 							Indietro <i class="btn-icon left fas fa-arrow-alt-circle-left"></i>
 						</button>
 					</div>
 					<div class="second-column">
-						<button type="button" id="back-to-list" title="Torna all'elenco argomenti"
-							class="btn-text" onclick="changeTopic('argomenti', './strumenti/chitarra/')" style="display: none;">
+						<button type="button" id="back-to-list" title="Torna all'elenco argomenti" class="btn-text" onclick="changeTopic('argomenti', './strumenti/chitarra/')" style="display: none;">
 							Torna all'elenco degli accordi <i class="btn-icon fas fa-home"></i>
 						</button>
 					</div>
@@ -146,7 +142,7 @@
 	<script type="text/javascript" src="./assets/js/main.js"></script>
 	<script type="text/javascript" src="./assets/js/render.js"></script>
 	<script>
-		openOnKeyboardShortcut("F1", "./helpers/help-teoria.html", true);
+		openOnKeyboardShortcut("F1", "./helpers/help-accordi.html", true);
 		require("mousetrap").bind("ctrl+backspace", () => changeTopic('argomenti', './strumenti/chitarra/'));
 	</script>
 </body>

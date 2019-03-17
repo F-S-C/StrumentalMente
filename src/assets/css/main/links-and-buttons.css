@@ -273,7 +273,7 @@ header .blind-audio-buttons .btn-audio {
 	outline: none;
 	border: none;
 	font-family: var(--font-text);
-	display: inline-block;
+	display: block;
 	border-radius: 4px;
 	background-color: transparent;
 	color: var(--main-color);
