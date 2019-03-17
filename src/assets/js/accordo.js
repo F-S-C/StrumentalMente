@@ -1,5 +1,5 @@
-var selezionato = 0;
-
+var selezionato = new Array();
+var corretto = new Array(5);
 /**
  * Classe accordo.
  * @param {String} nome Stringa che indica il nome dell'accordo
@@ -64,28 +64,15 @@ var accordi = [
  * Seleziona un numero casuale compreso tra 1 e 7 e ne imposta l'accordo da richiedere all'utente.
  */
 function script_load() {
-	selezionato = Math.floor((Math.random() * 7) + 1);
-	document.getElementById("chord_name").innerHTML = "Accordo di " + accordi[selezionato - 1].nome; //NAME OF SELECTED CHORD
-	for (var i = 0; i < 4; i++) //TABS OF SELECTED CHORD
-		document.getElementsByClassName("num_tasto")[i].innerHTML = (i + accordi[selezionato - 1].tasto_iniziale) + "° Tasto";
-}
-
-/**
- * Ripristina le checkbox selezionate dall'utente e il nome dell'accordo richiesto durante il quiz.
- */
-function replace_selected() {
-	var item = JSON.parse(sessionStorage.getItem("selected_checkbox")); //LOAD SELECTED CHECKBOX
-	var elements = document.getElementById("chord");
-	selezionato = sessionStorage.getItem("quiz_chord");//LOAD QUIZ CHORD
-	for (var i = 0; i < 4; i++) //TABS OF SELECTED CHORD
-		document.getElementsByClassName("num_tasto")[i].innerHTML = (i + accordi[selezionato - 1].tasto_iniziale) + "° Tasto";
-	for (var i = 0; i < 24; i++) {
-		if (item[i] == true)
-			elements.getElementsByTagName("input")[i].checked = true; //CHECK CHECKBOX
-		else
-			elements.getElementsByTagName("input")[i].checked = false; //UNCHECK CHECKBOX
-		elements.getElementsByTagName("input")[i].disabled = true;//DISABLE SELECTED CHECKBOX
+	for (var i = 0; i < document.getElementsByName("chord").length; i++) {
+		var k = Math.floor((Math.random() * (7 - i)) + 1);
+		document.getElementsByName("chord_name")[i].innerHTML = "Accordo di " + accordi[k - 1].nome; //NAME OF SELECTED CHORD
+		for (var j = 0; j < 4; j++) //TABS OF SELECTED CHORD
+			document.getElementsByName("chord")[i].getElementsByClassName("num_tasto")[j].innerHTML = (j + accordi[k - 1].tasto_iniziale) + "° Tasto";
+		selezionato.push(accordi[k - 1]);
+		accordi.splice(k - 1, 1);
 	}
+	accordi.splice(0, accordi.length);
 }
 
 /**
@@ -94,23 +81,19 @@ function replace_selected() {
  * l'accordo che l'utente doveva riprodurre.
  */
 function verify_and_store() {
-	var corretto = true;
-	var item = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
-	var elements = document.getElementById("chord");
-	for (var i = 0; i < 24; i++) {
-		if (accordi[selezionato - 1].dita[i] != elements.getElementsByTagName("input")[i].checked)
-			corretto = false;
+	for (var j = 0; j < document.getElementsByName("chord").length; j++) {
+		corretto[j] = true;
+		var elements = document.getElementsByName("chord")[j];
+		for (var i = 0; i < 24; i++) {
+			if (selezionato[j].dita[i] != elements.getElementsByTagName("input")[i].checked)
+				corretto[j] = false;
 
-		if (elements.getElementsByTagName("input")[i].checked == true)
-			item[i] = true;
-		else
-			item[i] = false;
+			elements.getElementsByTagName("input")[i].disabled = true;
+		}
+
+		if (corretto[j])
+			sessionStorage.setItem("score", JSON.parse(sessionStorage.getItem("score")) + 1);
 	}
-	sessionStorage.setItem("quiz_chord",selezionato);
-	sessionStorage.setItem("selected_checkbox", JSON.stringify(item));
-	sessionStorage.setItem("correct", JSON.stringify(corretto));
-	if(corretto)
-		sessionStorage.setItem("score",JSON.parse(sessionStorage.getItem("score"))+1);
 }
 
 /**
@@ -118,15 +101,18 @@ function verify_and_store() {
  * corretta nello schema.
  */
 function correct_chord() {
-	var selected = sessionStorage.getItem("quiz_chord");
-	var elements = document.getElementById("correct_chord");
-	elements.style.display = "block";
-	document.getElementById("errato").innerHTML = "Inserito";
-	for (var i = 0; i < 24; i++) {
-		if (accordi[selected - 1].dita[i] == true)
-			elements.getElementsByTagName("input")[i].checked = true;
-		else
-			elements.getElementsByTagName("input")[i].checked = false;
-		elements.getElementsByTagName("input")[i].disabled = true;
+	for (var j = 0; j < document.getElementsByName("chord").length; j++) {
+		var elements = document.getElementsByName("correct_chord")[j];
+		if (corretto[j] == false) {
+			elements.style.display = "block";
+			document.getElementsByName("errato")[j].innerHTML = "Inserito";
+			for (var i = 0; i < 24; i++) {
+				if (selezionato[j].dita[i] == true)
+					elements.getElementsByTagName("input")[i].checked = true;
+				else
+					elements.getElementsByTagName("input")[i].checked = false;
+				elements.getElementsByTagName("input")[i].disabled = true;
+			}
+		}
 	}
 }
