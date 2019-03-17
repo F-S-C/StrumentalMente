@@ -113,6 +113,7 @@ function correct_chord() {
 					elements.getElementsByTagName("input")[i].checked = false;
 				elements.getElementsByTagName("input")[i].disabled = true;
 			}
-		}
+		} else
+			document.getElementsByName("errato")[j].innerHTML = "Corretto";
 	}
 }
