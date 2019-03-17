@@ -115,3 +115,55 @@ section.hide {
 	opacity: 0;
 	transition: visibility 0s, opacity 0.15s linear;
 }
+
+/* Breadcrumbs */
+
+.breadcrumbs-container {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+}
+
+.breadcrumbs-container .breadcrumbs {
+	flex: 1 1 auto;
+}
+
+.breadcrumbs-container .page-container {
+	flex: 0 1 auto;
+}
+
+.breadcrumbs .breadcrumb {
+	color: rgba(0, 0, 0, 0.7);
+	text-decoration: none;
+	transition: 0.2s all;
+	font-size: 12pt;
+	border: none;
+	background: none;
+	font-family: var(--font-text);
+	padding: 0;
+	margin: 0;
+}
+
+.breadcrumbs .breadcrumb:last-child {
+	color: black;
+}
+
+.breadcrumbs a.breadcrumb, .breadcrumbs button.breadcrumb {
+	color: rgba(0, 0, 0, 0.5);
+	cursor: pointer;
+}
+
+.breadcrumbs a.breadcrumb:hover, .breadcrumbs button.breadcrumb:hover {
+	color: rgba(0, 0, 0, 0.5);
+}
+
+.breadcrumbs .breadcrumb:not(:first-child)::before {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 600;
+	content: "\f054";
+	color: rgba(0, 0, 0, 0.7);
+	vertical-align: baseline;
+	display: inline-block;
+	font-size: 10pt;
+	margin: 0 10px 0 8px;
+}

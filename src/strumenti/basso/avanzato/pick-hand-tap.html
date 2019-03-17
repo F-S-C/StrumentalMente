@@ -11,36 +11,41 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="description" content="StrumentalMente - Dove la musica diventa semplice." />
-	<meta name="keywords"
-		content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
+	<meta name="keywords" content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
 	<meta name="author" content="FSC" />
 	<meta name="robots" content="index, follow">
 </head>
 
-<body
-	onload="window.parent.setLinks({ previous: 'Thumb and Pluck', previousLink: 'avanzato/thumb-pluck', next: 'Quiz', nextLink: 'quiz' });">
-
-
+<body onload="window.parent.setLinks(20, { previous: 'Thumb and Pluck', previousLink: 'avanzato/thumb-pluck', next: 'Quiz', nextLink: 'quiz' });">
 	<div class="sub-wrapper">
-
-
 		<div class="content">
 			<article>
 				<header>
 					<h1>Pick Hand Tap</h1>
 					<h2>La tecnica del "martellare"</h2>
+					<div class="breadcrumbs-container">
+						<div class="breadcrumbs">
+							<button type="button" class="breadcrumb" onclick="window.parent.location.href = '../../home-strumenti.html';">Strumenti</button>
+							<button type="button" class="breadcrumb" onclick="window.parent.changeTopic('./argomenti', './strumenti/basso/')">Basso</button>
+							<span class="breadcrumb">Avanzato</span>
+							<span class="breadcrumb">Pick Hand Tap (pag. <span id="current-topic-slide">1</span> di <span id="max-topic-slides">1</span>)</span>
+						</div>
+						<div class="page-container">
+							Pag. <span id="current-slide-number">1</span> / <span id="total-slides-number">20</span>
+						</div>
+					</div>
 					<hr />
-					<section class="hide">
-						<p>Un’altra tecnica particolarmente interessante è quella del <strong>pick hand tap</strong>,
-							che consiste nel martellamento sulla tastiera delle corde da parte di entrambe le mani per
-							produrre un caratteristico effetto timbrico – percussivo.</p>
-						<p>Le dita della mano sinistra picchiettano normalmente la nota fondamentale e la quinta
-							dell’accordo, mentre quelle della mano destra martellano sulla tastiera estensioni della
-							triade.</p>
-
-					</section>
-
 				</header>
+				<section class="hide">
+					<p>Un’altra tecnica particolarmente interessante è quella del <strong>pick hand tap</strong>,
+						che consiste nel martellamento sulla tastiera delle corde da parte di entrambe le mani per
+						produrre un caratteristico effetto timbrico – percussivo.</p>
+					<p>Le dita della mano sinistra picchiettano normalmente la nota fondamentale e la quinta
+						dell’accordo, mentre quelle della mano destra martellano sulla tastiera estensioni della
+						triade.</p>
+
+				</section>
+
 			</article>
 		</div>
 	</div>

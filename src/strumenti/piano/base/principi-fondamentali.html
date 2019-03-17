@@ -11,15 +11,13 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="description" content="StrumentalMente - Dove la musica diventa semplice." />
-	<meta name="keywords"
-		content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
+	<meta name="keywords" content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
 	<meta name="author" content="FSC" />
 	<meta name="robots" content="index, follow">
 	<meta property="og:image" content="https://f-s-c.github.io/StrumentalMente/logo/2048x2048.png">
 </head>
 
-<body
-	onload="window.parent.setLinks({ previous: 'Introduzione', previousLink: 'base/introduzione-piano', next: 'posizione della mano', nextLink: 'base/posizione-mano' });">
+<body onload="window.parent.setLinks(5, { previous: 'Introduzione', previousLink: 'base/introduzione-piano', next: 'posizione della mano', nextLink: 'base/posizione-mano' });">
 
 
 	<div class="sub-wrapper">
@@ -30,9 +28,21 @@
 				<header>
 					<h1>Principi fondamentali del pianoforte</h1>
 					<h2>Come diventare pianisti</h2>
+					<div class="breadcrumbs-container">
+						<div class="breadcrumbs">
+							<button type="button" class="breadcrumb" onclick="window.parent.location.href = '../../home-strumenti.html';">Strumenti</button>
+							<button type="button" class="breadcrumb" onclick="window.parent.changeTopic('./argomenti', './strumenti/piano/')">Pianoforte</button>
+							<span class="breadcrumb">Base</span>
+							<span class="breadcrumb">Principi fondamentali del pianoforte (pag. <span id="current-topic-slide">1</span> di <span id="max-topic-slides">1</span>)</span>
+						</div>
+						<div class="page-container">
+							Pag. <span id="current-slide-number">1</span> / <span id="total-slides-number">19</span>
+						</div>
+					</div>
 					<hr />
-					
-					<section class="hide">
+				</header>
+
+				<section class="hide">
 					<p>L’esecuzione pianistica si basa su pochissimi principi fondamentali ed essenziali di grande
 						semplicità.</p>
 					<p>Il primo principio consiste nel considerare la tecnica pianistica come la conseguenza di una pura
@@ -46,8 +56,7 @@
 					<p>Un terzo principio, non meno importante dei precedenti, è quello di educare sin dall’inizio il
 						proprio orecchio ad ascoltare ciò che si fa con le mani. Quindi, bisogna sviluppare al massimo
 						la facoltà di ascoltarsi durante ogni istante di esecuzione.</p>
-					</section>
-				</header>
+				</section>
 			</article>
 		</div>
 	</div>

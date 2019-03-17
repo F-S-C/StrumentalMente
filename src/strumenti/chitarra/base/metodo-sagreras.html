@@ -11,42 +11,47 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="description" content="StrumentalMente - Dove la musica diventa semplice." />
-	<meta name="keywords"
-		content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
+	<meta name="keywords" content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
 	<meta name="author" content="FSC" />
 	<meta name="robots" content="index, follow">
 </head>
 
-<body
-	onload="window.parent.setLinks({ previous: 'Conoscenza delle note', previousLink: 'base/conoscenza-note', next: 'Il Metronomo', nextLink: 'intermedio/metronomo' });">
-
-
+<body onload="window.parent.setLinks(10, { previous: 'Conoscenza delle note', previousLink: 'base/conoscenza-note', next: 'Il Metronomo', nextLink: 'intermedio/metronomo' });">
 	<div class="sub-wrapper">
-
-
 		<div class="content">
 			<article>
 				<header>
 					<h1>Il metodo Sagreras</h1>
 					<h2> Cos'è il metodo Sagreras</h2>
+					<div class="breadcrumbs-container">
+						<div class="breadcrumbs">
+							<button type="button" class="breadcrumb" onclick="window.parent.location.href = '../../home-strumenti.html';">Strumenti</button>
+							<button type="button" class="breadcrumb" onclick="window.parent.changeTopic('./argomenti', './strumenti/chitarra/')">Chitarra</button>
+							<span class="breadcrumb">Base</span>
+							<span class="breadcrumb">Il metodo Sagreras (pag. <span id="current-topic-slide">1</span> di <span id="max-topic-slides">1</span>)</span>
+						</div>
+						<div class="page-container">
+							Pag. <span id="current-slide-number">1</span> / <span id="total-slides-number">21</span>
+						</div>
+					</div>
 					<hr />
-					<section>
-						<p>Sagreras, è stato un chitarrista che ha dato molto alla didattica scrivendo la sua collezione
-							di sette libri composti da esercizi e brani di repertorio. </p>
-						<p>Il suo metodo consiste nel saper riconoscere le note scritte sul pentagramma e riportarle
-							sulla chitarra. Lui aggiungerà alla nota in alto una <strong>lettera</strong> che andrà ad
-							indicare il dito della mano destra, in basso alla nota un <strong>numero cerchiato</strong>
-							che andrà ad indicare il numero della corda da suonare. Sotto ad esso, ci sarà un altro
-							<strong>numero</strong> che andrà ad indicare il dito della mano sinistra.</p>
-						<p>L’obiettivo finale, della sua collezione, sarà quello di conoscere e ricordare le note sul
-							pentagramma senza l’ausilio del numero cerchiato.</p>
-						<p>Viene riportato di seguito, un estratto della collezione di Sagreras per esercitarsi.</p>
-
-						<figure>
-							<img src="../../../assets/images/sagreras.jpg" alt="metodo sagreras" style="height:200px;">
-						</figure>
-					</section>
 				</header>
+				<section>
+					<p>Sagreras, è stato un chitarrista che ha dato molto alla didattica scrivendo la sua collezione
+						di sette libri composti da esercizi e brani di repertorio. </p>
+					<p>Il suo metodo consiste nel saper riconoscere le note scritte sul pentagramma e riportarle
+						sulla chitarra. Lui aggiungerà alla nota in alto una <strong>lettera</strong> che andrà ad
+						indicare il dito della mano destra, in basso alla nota un <strong>numero cerchiato</strong>
+						che andrà ad indicare il numero della corda da suonare. Sotto ad esso, ci sarà un altro
+						<strong>numero</strong> che andrà ad indicare il dito della mano sinistra.</p>
+					<p>L’obiettivo finale, della sua collezione, sarà quello di conoscere e ricordare le note sul
+						pentagramma senza l’ausilio del numero cerchiato.</p>
+					<p>Viene riportato di seguito, un estratto della collezione di Sagreras per esercitarsi.</p>
+
+					<figure>
+						<img src="../../../assets/images/sagreras.jpg" alt="metodo sagreras" style="height:200px;">
+					</figure>
+				</section>
 			</article>
 		</div>
 	</div>

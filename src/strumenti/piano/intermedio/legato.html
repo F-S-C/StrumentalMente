@@ -11,36 +11,41 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="description" content="StrumentalMente - Dove la musica diventa semplice." />
-	<meta name="keywords"
-		content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
+	<meta name="keywords" content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
 	<meta name="author" content="FSC" />
 	<meta name="robots" content="index, follow">
 	<meta property="og:image" content="https://f-s-c.github.io/StrumentalMente/logo/2048x2048.png">
 </head>
 
-<body
-	onload="window.parent.setLinks({ previous: 'Scale', previousLink: 'intermedio/scale', next: 'Staccato', nextLink: 'intermedio/staccato' });">
-
-
+<body onload="window.parent.setLinks(10, { previous: 'Scale', previousLink: 'intermedio/scale', next: 'Staccato', nextLink: 'intermedio/staccato' });">
 	<div class="sub-wrapper">
-
-
 		<div class="content">
 			<article>
 				<header>
 					<h1>Legato</h1>
 					<h2>Che cos'è il legato</h2>
+					<div class="breadcrumbs-container">
+						<div class="breadcrumbs">
+							<button type="button" class="breadcrumb" onclick="window.parent.location.href = '../../home-strumenti.html';">Strumenti</button>
+							<button type="button" class="breadcrumb" onclick="window.parent.changeTopic('./argomenti', './strumenti/piano/')">Pianoforte</button>
+							<span class="breadcrumb">Intermedio</span>
+							<span class="breadcrumb">Legato (pag. <span id="current-topic-slide">1</span> di <span id="max-topic-slides">1</span>)</span>
+						</div>
+						<div class="page-container">
+							Pag. <span id="current-slide-number">1</span> / <span id="total-slides-number">19</span>
+						</div>
+					</div>
 					<hr />
-					<section class="hide">
-
-						<p>Quando si deve collegare uno dopo l’altro una successione di suoni, si ha l’esigenza di
-							creare<strong> il legato</strong>. Il legato si ottiene fondamentalmente tenendo la mano
-							aderente alla tastiera, senza lasciare alcuna pausa tra una nota e l’altra. Creare un
-							passaggio legato non è così semplice, poiché l’errore più comune è quello di accavallare i
-							suoni anche solo per una frazione di secondo. È invece importante fare attenzione al fatto
-							che ogni dito venga sollevato non appena suoni il successivo.</p>
-					</section>
 				</header>
+				<section class="hide">
+
+					<p>Quando si deve collegare uno dopo l’altro una successione di suoni, si ha l’esigenza di
+						creare<strong> il legato</strong>. Il legato si ottiene fondamentalmente tenendo la mano
+						aderente alla tastiera, senza lasciare alcuna pausa tra una nota e l’altra. Creare un
+						passaggio legato non è così semplice, poiché l’errore più comune è quello di accavallare i
+						suoni anche solo per una frazione di secondo. È invece importante fare attenzione al fatto
+						che ogni dito venga sollevato non appena suoni il successivo.</p>
+				</section>
 			</article>
 		</div>
 	</div>

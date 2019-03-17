@@ -16,7 +16,7 @@
 	<meta name="robots" content="index, follow">
 </head>
 
-<body onload="initialize('argomenti', 'teoria/avanzata/');">
+<body onload="initialize('argomenti', 'teoria/avanzata/', 11);">
 	<header>
 		<div id="titlebar">
 			<div id="drag-region">
@@ -140,7 +140,7 @@
 	<script type="text/javascript" src="./assets/js/render.js"></script>
 	<script>
 		openOnKeyboardShortcut("F1", "./helpers/help-teoria.html", true);
-		require("mousetrap").bind("ctrl+backspace", () => changeTopic('argomenti', './teoria/base/'));
+		require("mousetrap").bind("ctrl+backspace", () => changeTopic('argomenti', './teoria/avanzata/'));
 	</script>
 </body>
 

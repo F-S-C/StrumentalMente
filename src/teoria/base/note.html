@@ -155,7 +155,7 @@
 	</style>
 </head>
 
-<body onload="window.parent.setLinks({ previous: 'Il suono', previousLink: 'suono', next: 'Il rigo', nextLink: 'rigo' });">
+<body onload="window.parent.setLinks(6, { previous: 'Il suono', previousLink: 'suono', next: 'Il rigo', nextLink: 'rigo' });">
 
 
 
@@ -167,6 +167,16 @@
 				<header>
 					<h1>Le Note</h1>
 					<h2>Cosa sono le note</h2>
+					<div class="breadcrumbs-container">
+						<div class="breadcrumbs">
+							<span class="breadcrumb">Teoria</span>
+							<button type="button" class="breadcrumb" onclick="window.parent.changeTopic('./argomenti', './teoria/base/')">Base</button>
+							<span class="breadcrumb">Le note (pag. <span id="current-topic-slide">1</span> di <span id="max-topic-slides">1</span>)</span>
+						</div>
+						<div class="page-container">
+							Pag. <span id="current-slide-number">1</span> / <span id="total-slides-number">19</span>
+						</div>
+					</div>
 					<hr />
 				</header>
 				<section class="hide">

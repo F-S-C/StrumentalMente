@@ -24,7 +24,7 @@
 	</style>
 </head>
 
-<body onload="window.parent.setLinks({ previous: '', previousLink: '', next: 'Do', nextLink: 'accordi/do' });">
+<body onload="window.parent.setLinks(1, { previous: '', previousLink: '', next: 'Do', nextLink: 'accordi/do' });">
 	<div class="sub-wrapper">
 		<div class="content">
 			<article class="chords-list" id="list">
@@ -32,6 +32,16 @@
 					<header>
 						<h1>Accordi della chitarra</h1>
 						<h2>Tutto ciò che serve per conoscere gli accordi della chitarra</h2>
+						<div class="breadcrumbs-container">
+							<div class="breadcrumbs">
+								<button type="button" class="breadcrumb" onclick="window.parent.location.href = '../../home-accordi.html';">Accordi</button>
+								<button type="button" class="breadcrumb" onclick="window.parent.changeTopic('./accordi', './accordi/chitarra/')">Chitarra</button>
+								<span class="breadcrumb">Indice (pag. <span id="current-topic-slide">1</span> di <span id="max-topic-slides">1</span>)</span>
+							</div>
+							<div class="page-container">
+								Pag. <span id="current-slide-number">1</span> / <span id="total-slides-number">25</span>
+							</div>
+						</div>
 						<hr />
 					</header>
 					<div class="row">
@@ -152,7 +162,7 @@
 	<script type="text/javascript" src="../../assets/js/render.js"></script>
 	<script>
 		var lastPressed = { button: null, container: null };
-		
+
 		openOnKeyboardShortcut("F1", "../../helpers/help-accordi.html", true);
 
 		function hideSubButtons(mainButton, containerId) {

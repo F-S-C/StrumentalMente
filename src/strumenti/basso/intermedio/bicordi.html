@@ -11,35 +11,40 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="description" content="StrumentalMente - Dove la musica diventa semplice." />
-	<meta name="keywords"
-		content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
+	<meta name="keywords" content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
 	<meta name="author" content="FSC" />
 	<meta name="robots" content="index, follow">
 </head>
 
-<body
-onload="window.parent.setLinks({ previous: 'Smanicamento', previousLink: 'intermedio/smanicamento', next: 'Triadi', nextLink: 'intermedio/triadi' });">
-	
+<body onload="window.parent.setLinks(12, { previous: 'Smanicamento', previousLink: 'intermedio/smanicamento', next: 'Triadi', nextLink: 'intermedio/triadi' });">
+	<div class="sub-wrapper">
+		<div class="content">
+			<article>
+				<header>
+					<h1>Bicordi</h1>
+					<h2>Accordi senza identità</h2>
+					<div class="breadcrumbs-container">
+						<div class="breadcrumbs">
+							<button type="button" class="breadcrumb" onclick="window.parent.location.href = '../../home-strumenti.html';">Strumenti</button>
+							<button type="button" class="breadcrumb" onclick="window.parent.changeTopic('./argomenti', './strumenti/basso/')">Basso</button>
+							<span class="breadcrumb">Intermedio</span>
+							<span class="breadcrumb">Bicordi (pag. <span id="current-topic-slide">1</span> di <span id="max-topic-slides">1</span>)</span>
+						</div>
+						<div class="page-container">
+							Pag. <span id="current-slide-number">1</span> / <span id="total-slides-number">20</span>
+						</div>
+					</div>
+					<hr />
+				</header>
+				<section class="hide">
+					<p>Il <strong>bicordo</strong> è un accordo formato da <strong>due sole note</strong>, la cui esecuzione sul basso viene effettuata dalla mano destra pizzicando la nota sulla corda superiore in due modi: con il pollice oppure con l’indice.</p>
+					<p>Per sua natura il bicordo non è un accordo completo, in quanto la nota mancante può essere la terza nota, oppure la quinta o addirittura la fondamentale.</p>
 
-		<div class="sub-wrapper">
+				</section>
 
-
-			<div class="content">
-				<article>
-					<header>
-						<h1>Bicordi</h1>
-						<h2>Accordi senza identità</h2>
-						<hr />
-						<section class="hide">
-							<p>Il <strong>bicordo</strong> è un accordo formato da <strong>due sole note</strong>, la cui esecuzione sul basso viene effettuata dalla mano destra pizzicando la nota sulla corda superiore in due modi: con il pollice oppure con l’indice.</p>
-							<p>Per sua natura il bicordo non è un accordo completo, in quanto la nota mancante può essere la terza nota, oppure la quinta o addirittura la fondamentale.</p>
-									
-						</section>
-												
-					</header>
-				</article>
-			</div>
+			</article>
 		</div>
+	</div>
 	</div>
 
 	<script type="text/javascript" src="../../../assets/js/main.js"></script>

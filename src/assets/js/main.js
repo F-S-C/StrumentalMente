@@ -59,13 +59,15 @@ var canChangeSlide = true;
  * Cambia i link e i nomi dell'argomento precedente e quello successivo
  * a quello attuale
  * 
+ * @param {number} firstSlideNumber Il numero della prima slide dell'argomento corrente
  * @param {Object} links Le nuove impostazioni e link
  * @param {String} links.previous Il nome della pagina precedente
  * @param {String} links.previousLink Il link della pagina precedente (il nome del file *senza* l'estensione)
  * @param {String} links.next Il nome della pagina successiva
  * @param {String} links.nextLink Il link della pagina successiva (il nome del file *senza* l'estensione)
  */
-function setLinks(links) {
+function setLinks(firstSlideNumber, links) {
+	sessionStorage.currentSlide = firstSlideNumber;
 	pagesName = links;
 	initialize(initialPage, baseFolder);
 }
@@ -78,8 +80,9 @@ function setLinks(links) {
  * 
  * @param {String} initial Il primo argomento
  * @param {String} base La cartella in cui sono situati i file degli argomenti (default: `./`)
+ * @param {number} totalNumberOfSlides Il numero totale di pagine per la sezione.
  */
-function initialize(initial, base = "./") {
+function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 	initialPage = initial;
 	baseFolder = base;
 	currentSection = 0;
@@ -89,12 +92,29 @@ function initialize(initial, base = "./") {
 	numberOfSections = iFrameDocument.document.getElementsByTagName("section").length;
 
 	iFrameDocument.document.getElementsByTagName("section")[0].className = "show";
+	iFrameDocument.document.getElementById("max-topic-slides").innerHTML = numberOfSections;
+	iFrameDocument.document.getElementById("current-topic-slide").innerHTML = currentSection + 1;
+	let updateCurrentSlide = (direction) => {
+		sessionStorage.currentSlide = Number(sessionStorage.currentSlide) + direction;
+		iFrameDocument.document.getElementById("current-slide-number").innerHTML = sessionStorage.currentSlide;
+	};
+	updateCurrentSlide(0);
 
 	var previousTopicButton = document.getElementById("back-topic"),
 		previousSlideButton = document.getElementById("back"),
 		returnToListButton = document.getElementById("back-to-list"),
 		nextSlideButton = document.getElementById("next"),
 		nextTopicButton = document.getElementById("next-topic");
+
+	if (totalNumberOfSlides != undefined) {
+		sessionStorage.totalNumberOfSlides = totalNumberOfSlides;
+		sessionStorage.currentSlide = 1;
+	}
+	else {
+		totalNumberOfSlides = sessionStorage.totalNumberOfSlides;
+	}
+
+	iFrameDocument.document.getElementById("total-slides-number").innerHTML = totalNumberOfSlides;
 
 	if (iFrame.src.includes(base + initial + ".html")) {
 		numberOfSections = 1;
@@ -151,6 +171,7 @@ function initialize(initial, base = "./") {
 	 * @param {numer} slide Il numero della slide da aprire.
 	 */
 	function changeSlide(slide) {
+		updateCurrentSlide(slide - currentSection);
 		iFrameDocument.document.getElementsByTagName("section")[currentSection].className = "hide";
 		canChangeSlide = false;
 		if (slide > currentSection) {
@@ -184,6 +205,7 @@ function initialize(initial, base = "./") {
 
 		setTimeout(() => {
 			iFrameDocument.document.getElementsByTagName("section")[currentSection].className = "show";
+			iFrameDocument.document.getElementById("current-topic-slide").innerHTML = currentSection + 1;
 			canChangeSlide = true;
 		}, 100);
 	}
@@ -200,8 +222,9 @@ function initialize(initial, base = "./") {
 			changeSlide(currentSection - 1);
 	};
 	let openNextSlide = (e) => {
-		if (canChangeSlide)
+		if (canChangeSlide) {
 			changeSlide(currentSection + 1);
+		}
 	};
 	let openNextTopic = (e) => {
 		if (canChangeSlide)

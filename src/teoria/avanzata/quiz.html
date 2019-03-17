@@ -14,9 +14,6 @@
 	<meta name="keywords" content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
 	<meta name="author" content="FSC" />
 	<meta name="robots" content="index, follow">
-	<sctipt>
-
-	</sctipt>
 </head>
 
 <body name="quiz-page" onload="initializeQuiz()">
@@ -108,6 +105,13 @@
 				<header>
 					<h1>Titolo del Quiz</h1>
 					<h2>Un eventuale sottotitolo un po' più lungo</h2>
+					<div class="breadcrumbs-container">
+						<div class="breadcrumbs">
+							<span class="breadcrumb">Teoria</span>
+							<button type="button" class="breadcrumb" onclick="showExitFromQuizDialog('./teoria-base.html');">Avanzata</button>
+							<span class="breadcrumb">Quiz</span>
+						</div>
+					</div>
 					<hr />
 				</header>
 				<section class="show">

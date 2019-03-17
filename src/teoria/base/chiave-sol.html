@@ -17,18 +17,23 @@
 	<meta name="robots" content="index, follow">
 </head>
 
-<body onload="window.parent.setLinks({ previous: 'La chiave di Do', previousLink: 'chiave-do', next: 'La chiave di Fa', nextLink: 'chiave-fa' });">
-
-
-
+<body onload="window.parent.setLinks(12, { previous: 'La chiave di Do', previousLink: 'chiave-do', next: 'La chiave di Fa', nextLink: 'chiave-fa' });">
 	<div class="sub-wrapper">
-
-
 		<div class="content">
 			<article>
 				<header>
 					<h1>La chiave di Sol</h1>
 					<h2>Cos'è la chiave di Sol</h2>
+					<div class="breadcrumbs-container">
+						<div class="breadcrumbs">
+							<span class="breadcrumb">Teoria</span>
+							<button type="button" class="breadcrumb" onclick="window.parent.changeTopic('./argomenti', './teoria/base/')">Base</button>
+							<span class="breadcrumb">La chiave di sol (pag. <span id="current-topic-slide">1</span> di <span id="max-topic-slides">1</span>)</span>
+						</div>
+						<div class="page-container">
+							Pag. <span id="current-slide-number">1</span> / <span id="total-slides-number">19</span>
+						</div>
+					</div>
 					<hr />
 				</header>
 				<section>

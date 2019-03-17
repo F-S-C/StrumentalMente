@@ -11,37 +11,42 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="description" content="StrumentalMente - Dove la musica diventa semplice." />
-	<meta name="keywords"
-		content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
+	<meta name="keywords" content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
 	<meta name="author" content="FSC" />
 	<meta name="robots" content="index, follow">
 	<meta property="og:image" content="https://f-s-c.github.io/StrumentalMente/logo/2048x2048.png">
 </head>
 
-<body
-	onload="window.parent.setLinks({ previous: 'Legato', previousLink: 'intermedio/legato', next: 'Tocco', nextLink: 'intermedio/tocco' });">
-
-
+<body onload="window.parent.setLinks(11, { previous: 'Legato', previousLink: 'intermedio/legato', next: 'Tocco', nextLink: 'intermedio/tocco' });">
 	<div class="sub-wrapper">
-
-
 		<div class="content">
 			<article>
 				<header>
 					<h1>Staccato</h1>
 					<h2>Che cos'è lo staccato</h2>
+					<div class="breadcrumbs-container">
+						<div class="breadcrumbs">
+							<button type="button" class="breadcrumb" onclick="window.parent.location.href = '../../home-strumenti.html';">Strumenti</button>
+							<button type="button" class="breadcrumb" onclick="window.parent.changeTopic('./argomenti', './strumenti/piano/')">Pianoforte</button>
+							<span class="breadcrumb">Intermedio</span>
+							<span class="breadcrumb">Staccato (pag. <span id="current-topic-slide">1</span> di <span id="max-topic-slides">1</span>)</span>
+						</div>
+						<div class="page-container">
+							Pag. <span id="current-slide-number">1</span> / <span id="total-slides-number">19</span>
+						</div>
+					</div>
 					<hr />
-					<section class="hide">
-						<p>Se il legato è base essenziale della tecnica pianistica, non è meno importante lo
-							<strong>staccato</strong>. Esso si suddivide in due specie: quello che si ottiene col
-							semplice movimento del dito, facendogli abbandonare il tasto appena suonato, ma senza
-							intervento della mano che rimane immobile. Lo <strong>staccato normale</strong>, invece, è
-							quello cosiddetto di polso, il quale viene ottenuto rialzando subito la mano con un leggero
-							movimento del polso. Una terza e utilissima forma di staccato è quella che risulta dalla
-							combinazione delle due precedenti: ritiro immediato del dito dal tasto e contemporaneo
-							rialzo della mano.</p>
-					</section>
 				</header>
+				<section class="hide">
+					<p>Se il legato è base essenziale della tecnica pianistica, non è meno importante lo
+						<strong>staccato</strong>. Esso si suddivide in due specie: quello che si ottiene col
+						semplice movimento del dito, facendogli abbandonare il tasto appena suonato, ma senza
+						intervento della mano che rimane immobile. Lo <strong>staccato normale</strong>, invece, è
+						quello cosiddetto di polso, il quale viene ottenuto rialzando subito la mano con un leggero
+						movimento del polso. Una terza e utilissima forma di staccato è quella che risulta dalla
+						combinazione delle due precedenti: ritiro immediato del dito dal tasto e contemporaneo
+						rialzo della mano.</p>
+				</section>
 			</article>
 		</div>
 	</div>

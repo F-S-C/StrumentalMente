@@ -11,50 +11,55 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="description" content="StrumentalMente - Dove la musica diventa semplice." />
-	<meta name="keywords"
-		content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
+	<meta name="keywords" content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
 	<meta name="author" content="FSC" />
 	<meta name="robots" content="index, follow">
 </head>
 
-<body
-	onload="window.parent.setLinks({ previous: 'Mano destra e sinistra', previousLink: 'base/mano-destra-sinistra', next: 'Il Metodo Sagreras', nextLink: 'base/metodo-sagreras' });">
-
-
+<body onload="window.parent.setLinks(8, { previous: 'Mano destra e sinistra', previousLink: 'base/mano-destra-sinistra', next: 'Il Metodo Sagreras', nextLink: 'base/metodo-sagreras' });">
 	<div class="sub-wrapper">
-
-
 		<div class="content">
 			<article>
 				<header>
 					<h1>Conoscenza delle note</h1>
 					<h2> La conoscenza delle note</h2>
+					<div class="breadcrumbs-container">
+						<div class="breadcrumbs">
+							<button type="button" class="breadcrumb" onclick="window.parent.location.href = '../../home-strumenti.html';">Strumenti</button>
+							<button type="button" class="breadcrumb" onclick="window.parent.changeTopic('./argomenti', './strumenti/chitarra/')">Chitarra</button>
+							<span class="breadcrumb">Base</span>
+							<span class="breadcrumb">Conoscenza delle note (pag. <span id="current-topic-slide">1</span> di <span id="max-topic-slides">1</span>)</span>
+						</div>
+						<div class="page-container">
+							Pag. <span id="current-slide-number">1</span> / <span id="total-slides-number">21</span>
+						</div>
+					</div>
 					<hr />
-					<section class="hide">
-						<p>La prima cosa, da mettere in chiaro, è la corrispondenza fra la scala musicale di sette note
-							e la corrispondenza internazionale, utile per suonare la chitarra. Quindi, si ha:</p>
-						<p>Do – <strong>C</strong>; Re – <strong>D</strong>; Mi – <strong>E</strong>, Fa –
-							<strong>F</strong>; Sol – <strong>G</strong>; La – <strong>A</strong>; Si –
-							<strong>B</strong> </p>
-						<p>Dal basso verso l’alto, si contano le corde della chitarra nel seguente modo:</p>
-						<p><strong>Mi cantino – Si – Sol – Re – La – Mi </strong></p>
-						<p>La corrispondenza con il pentagramma è la seguente:</p>
-						<img src="../../../assets/images/pentagramma.jpg" alt="pentagramma">
-						<p>È chiaro che premendo le corde in corrispondenza dei vari tasti, si ottengono altre note. Per
-							esempio, premendo la corda La, al terzo tasto, si ottiene un Do, mentre, premendo la corda
-							Re, sempre al terzo tasto, si ottiene un Fa etc. Da questo si evince che: una stessa nota,
-							ad esempio Do, può essere suonata premendo le corde in tasti differenti sulla tastiera della
-							chitarra.</p>
-					</section>
-					<section class="hide">
-						<p>Per trovare un <strong>diesis</strong> basta spostarsi un <strong>tasto avanti</strong>, per un
-							<strong>bemolle</strong>, invece, basta spostarsi un <strong>tasto indietro</strong>, a
-							eccezione degli intervalli fra Mi – Fa e fra Si – Do. La distanza fra ogni tasto della chitarra
-							è di un <strong>semitono</strong>.</p>
-						<img src="../../../assets/images/le note.jpg" alt="note" style="height:400px;float:center;">
-
-					</section>
 				</header>
+				<section class="hide">
+					<p>La prima cosa, da mettere in chiaro, è la corrispondenza fra la scala musicale di sette note
+						e la corrispondenza internazionale, utile per suonare la chitarra. Quindi, si ha:</p>
+					<p>Do – <strong>C</strong>; Re – <strong>D</strong>; Mi – <strong>E</strong>, Fa –
+						<strong>F</strong>; Sol – <strong>G</strong>; La – <strong>A</strong>; Si –
+						<strong>B</strong> </p>
+					<p>Dal basso verso l’alto, si contano le corde della chitarra nel seguente modo:</p>
+					<p><strong>Mi cantino – Si – Sol – Re – La – Mi </strong></p>
+					<p>La corrispondenza con il pentagramma è la seguente:</p>
+					<img src="../../../assets/images/pentagramma.jpg" alt="pentagramma">
+					<p>È chiaro che premendo le corde in corrispondenza dei vari tasti, si ottengono altre note. Per
+						esempio, premendo la corda La, al terzo tasto, si ottiene un Do, mentre, premendo la corda
+						Re, sempre al terzo tasto, si ottiene un Fa etc. Da questo si evince che: una stessa nota,
+						ad esempio Do, può essere suonata premendo le corde in tasti differenti sulla tastiera della
+						chitarra.</p>
+				</section>
+				<section class="hide">
+					<p>Per trovare un <strong>diesis</strong> basta spostarsi un <strong>tasto avanti</strong>, per un
+						<strong>bemolle</strong>, invece, basta spostarsi un <strong>tasto indietro</strong>, a
+						eccezione degli intervalli fra Mi – Fa e fra Si – Do. La distanza fra ogni tasto della chitarra
+						è di un <strong>semitono</strong>.</p>
+					<img src="../../../assets/images/le note.jpg" alt="note" style="height:400px;float:center;">
+
+				</section>
 			</article>
 		</div>
 	</div>

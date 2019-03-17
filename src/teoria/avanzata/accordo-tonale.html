@@ -17,13 +17,23 @@
 	<meta name="robots" content="index, follow">
 </head>
 
-<body onload="window.parent.setLinks({ previous: 'La tonalità e il modo', previousLink: './tonalita-e-modo', next: 'Quiz', nextLink: 'quiz' });">
+<body onload="window.parent.setLinks(10, { previous: 'La tonalità e il modo', previousLink: './tonalita-e-modo', next: 'Quiz', nextLink: 'quiz' });">
 	<div class="sub-wrapper">
 		<div class="content">
 			<article>
 				<header>
-					<h1> Accordo tonale</h1>
+					<h1>Accordo tonale</h1>
 					<h2>Accordo tonale maggiore e minore</h2>
+					<div class="breadcrumbs-container">
+						<div class="breadcrumbs">
+							<span class="breadcrumb">Teoria</span>
+							<button type="button" class="breadcrumb" onclick="window.parent.changeTopic('./argomenti', './teoria/avanzata/')">Avanzata</button>
+							<span class="breadcrumb">Accordo tonale (pag. <span id="current-topic-slide">1</span> di <span id="max-topic-slides">1</span>)</span>
+						</div>
+						<div class="page-container">
+							Pag. <span id="current-slide-number">1</span> / <span id="total-slides-number">11</span>
+						</div>
+					</div>
 					<hr />
 				</header>
 				<section class="hide">

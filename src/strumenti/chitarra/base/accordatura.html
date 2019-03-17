@@ -11,60 +11,65 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="description" content="StrumentalMente - Dove la musica diventa semplice." />
-	<meta name="keywords"
-		content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
+	<meta name="keywords" content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
 	<meta name="author" content="FSC" />
 	<meta name="robots" content="index, follow">
 </head>
 
-<body
-	onload="window.parent.setLinks({ previous: 'Chitarra elettrica e acustica', previousLink: 'base/differenza-elettrica-acustica', next: 'Mano destra e sinistra', nextLink: 'base/mano-destra-sinistra' });">
-
-
+<body onload="window.parent.setLinks(5, { previous: 'Chitarra elettrica e acustica', previousLink: 'base/differenza-elettrica-acustica', next: 'Mano destra e sinistra', nextLink: 'base/mano-destra-sinistra' });">
 	<div class="sub-wrapper">
-
-
 		<div class="content">
 			<article>
 				<header>
 					<h1>Accordatura</h1>
 					<h2>Cos'è l'accordatura</h2>
+					<div class="breadcrumbs-container">
+						<div class="breadcrumbs">
+							<button type="button" class="breadcrumb" onclick="window.parent.location.href = '../../home-strumenti.html';">Strumenti</button>
+							<button type="button" class="breadcrumb" onclick="window.parent.changeTopic('./argomenti', './strumenti/chitarra/')">Chitarra</button>
+							<span class="breadcrumb">Base</span>
+							<span class="breadcrumb">Accordatura (pag. <span id="current-topic-slide">1</span> di <span id="max-topic-slides">1</span>)</span>
+						</div>
+						<div class="page-container">
+							Pag. <span id="current-slide-number">1</span> / <span id="total-slides-number">21</span>
+						</div>
+					</div>
 					<hr />
-					<section class="hide">
-						<p>L’accordatura è, probabilmente, l’ostacolo più grande che si incontra quando si inizia lo
-							studio della chitarra. Ciò è dovuto al fatto che l’orecchio musicale non ha ben inquadrato e
-							memorizzato il suono emesso da ciascuna singola corda. L’<strong>orecchio musicale</strong>
-							è un qualcosa che si acquisisce con il tempo e con l’esperienza. Prima di vedere un metodo
-							semplice di accordatura, si riporta di seguito alcuni suggerimenti pratici:</p>
-						<ol>
-							<li> Le meccaniche devono essere usate per alzare l’accordatura e non per abbassarla. Di
-								conseguenza, se ci si rende conto di aver tirato troppo la corda, bisogna allentarla più
-								del necessario per poi procedere nel tirarla nuovamente e gradualmente fino ad ottenere
-								l’accordatura voluta.</li>
-							<li> Quando vengono montate le corde nuove, l’accordatura è particolarmente instabile. In
-								questo caso, conviene riaccordarla. </li>
-							<li> Bisogna evitare improvvisi sbalzi di temperatura che incidono negativamente
-								sull’accordatura.</li>
-							<li> Ogni seduta di studio deve essere sempre preceduta dall’accordatura dello strumento.
-							</li>
-						</ol>
-					</section>
-					<section class="hide">
-						<p>Il metodo più rapido e che dà i migliori risultati, in termini di perfezione
-							dell’accordatura, è quello di utilizzare l’<strong>accordatore elettronico</strong>. Gli
-							accordatori elettronici sono dotati sia di microfono, per le chitarre acustiche, che di
-							ingresso per il jack, della chitarra elettrica o elettro-acustica. Escono dalla fabbrica
-							tarati ad una frequenza di 440Hz. Di conseguenza, è opportuno non modificare questo valore
-							in quanto si corre il rischio di non essere accordati con eventuali altri musicisti. </p>
-						<p>Nell’accordatura, le sei corde dovranno essere riprodotte in ordine decrescente di spessore:
-							Mi basso, La, Re, Sol, Si, Mi cantino. A questo punto, bisogna posizionare l’accordatore
-							elettrico vicino allo strumento e cominciare a suonare una corda per volta. L’accordatore
-							risponderà mostrando la nota che si sta suonando e quanto si è vicini attraverso una
-							lancetta. Quindi, si dovrà suonare la corda e, con la mano sinistra, ruotare la meccanica
-							corrispondente, allentando e tenendo la corda fino a che sul display dell’accordatore non si
-							vedrà la lancetta perfettamente al centro, ovvero sia la nota desiderata</p>
-					</section>
 				</header>
+				<section class="hide">
+					<p>L’accordatura è, probabilmente, l’ostacolo più grande che si incontra quando si inizia lo
+						studio della chitarra. Ciò è dovuto al fatto che l’orecchio musicale non ha ben inquadrato e
+						memorizzato il suono emesso da ciascuna singola corda. L’<strong>orecchio musicale</strong>
+						è un qualcosa che si acquisisce con il tempo e con l’esperienza. Prima di vedere un metodo
+						semplice di accordatura, si riporta di seguito alcuni suggerimenti pratici:</p>
+					<ol>
+						<li> Le meccaniche devono essere usate per alzare l’accordatura e non per abbassarla. Di
+							conseguenza, se ci si rende conto di aver tirato troppo la corda, bisogna allentarla più
+							del necessario per poi procedere nel tirarla nuovamente e gradualmente fino ad ottenere
+							l’accordatura voluta.</li>
+						<li> Quando vengono montate le corde nuove, l’accordatura è particolarmente instabile. In
+							questo caso, conviene riaccordarla. </li>
+						<li> Bisogna evitare improvvisi sbalzi di temperatura che incidono negativamente
+							sull’accordatura.</li>
+						<li> Ogni seduta di studio deve essere sempre preceduta dall’accordatura dello strumento.
+						</li>
+					</ol>
+				</section>
+				<section class="hide">
+					<p>Il metodo più rapido e che dà i migliori risultati, in termini di perfezione
+						dell’accordatura, è quello di utilizzare l’<strong>accordatore elettronico</strong>. Gli
+						accordatori elettronici sono dotati sia di microfono, per le chitarre acustiche, che di
+						ingresso per il jack, della chitarra elettrica o elettro-acustica. Escono dalla fabbrica
+						tarati ad una frequenza di 440Hz. Di conseguenza, è opportuno non modificare questo valore
+						in quanto si corre il rischio di non essere accordati con eventuali altri musicisti. </p>
+					<p>Nell’accordatura, le sei corde dovranno essere riprodotte in ordine decrescente di spessore:
+						Mi basso, La, Re, Sol, Si, Mi cantino. A questo punto, bisogna posizionare l’accordatore
+						elettrico vicino allo strumento e cominciare a suonare una corda per volta. L’accordatore
+						risponderà mostrando la nota che si sta suonando e quanto si è vicini attraverso una
+						lancetta. Quindi, si dovrà suonare la corda e, con la mano sinistra, ruotare la meccanica
+						corrispondente, allentando e tenendo la corda fino a che sul display dell’accordatore non si
+						vedrà la lancetta perfettamente al centro, ovvero sia la nota desiderata</p>
+				</section>
 			</article>
 		</div>
 	</div>

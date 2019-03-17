@@ -38,6 +38,10 @@ header h1+h2 {
 	margin-top: -1em;
 }
 
+header hr {
+	clear: both;
+}
+
 aside {
 	font-style: italic;
 }

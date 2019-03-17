@@ -17,7 +17,7 @@
 	<meta name="robots" content="index, follow">
 </head>
 
-<body onload="window.parent.setLinks({ previous: '', previousLink: '', next: 'Introduzione', nextLink: 'base/introduzione-batteria' });">
+<body onload="window.parent.setLinks(1, { previous: '', previousLink: '', next: 'Introduzione', nextLink: 'base/introduzione-batteria' });">
 	<div class="sub-wrapper">
 		<div class="content">
 			<article id="list">
@@ -25,6 +25,16 @@
 					<header>
 						<h1>La teoria sulla batteria</h1>
 						<h2>Tutto ciò che serve per conoscere la batteria</h2>
+						<div class="breadcrumbs-container">
+							<div class="breadcrumbs">
+								<button type="button" class="breadcrumb" onclick="window.parent.location.href = '../../home-strumenti.html';">Strumenti</button>
+								<button type="button" class="breadcrumb" onclick="window.parent.changeTopic('./argomenti', './strumenti/batteria/')">Batteria</button>
+								<span class="breadcrumb">Indice (pag. <span id="current-topic-slide">1</span> di <span id="max-topic-slides">1</span>)</span>
+							</div>
+							<div class="page-container">
+								Pag. <span id="current-slide-number">1</span> / <span id="total-slides-number">20</span>
+							</div>
+						</div>
 						<hr />
 					</header>
 					<div class="row">
