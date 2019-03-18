@@ -56,10 +56,10 @@
 								<span>Do#</span>
 							</button>
 							<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('do', './accordi/chitarra/accordi/');">
-								<span>Do m</span>
+								<span>Dom</span>
 							</button>
 							<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('do', './accordi/chitarra/accordi/');">
-								<span>Do# m</span>
+								<span>Do#m</span>
 							</button>
 						</div>
 						<button type="button" class="btn-text card-topic" onclick="showSubButtons(this, 'd-chord');">
@@ -73,10 +73,10 @@
 								<span>Re#</span>
 							</button>
 							<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('do', './accordi/chitarra/accordi/');">
-								<span>Re m</span>
+								<span>Rem</span>
 							</button>
 							<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('do', './accordi/chitarra/accordi/');">
-								<span>Re# m</span>
+								<span>Re#m</span>
 							</button>
 						</div>
 						<button type="button" class="btn-text card-topic" onclick="showSubButtons(this, 'e-chord');">
@@ -87,7 +87,7 @@
 								<span>Mi</span>
 							</button>
 							<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('do', './accordi/chitarra/accordi/');" style="grid-row: 1; grid-row-end: 3;">
-								<span>Mi m</span>
+								<span>Mim</span>
 							</button>
 						</div>
 						<button type="button" class="btn-text card-topic" onclick="showSubButtons(this, 'f-chord');">
@@ -101,10 +101,10 @@
 								<span>Fa#</span>
 							</button>
 							<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('do', './accordi/chitarra/accordi/');">
-								<span>Fa m</span>
+								<span>Fam</span>
 							</button>
 							<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('do', './accordi/chitarra/accordi/');">
-								<span>Fa# m</span>
+								<span>Fa#m</span>
 							</button>
 						</div>
 						<button type="button" class="btn-text card-topic" onclick="showSubButtons(this, 'g-chord');">
@@ -118,10 +118,10 @@
 								<span>Sol#</span>
 							</button>
 							<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('do', './accordi/chitarra/accordi/');">
-								<span>Sol m</span>
+								<span>Solm</span>
 							</button>
 							<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('do', './accordi/chitarra/accordi/');">
-								<span>Sol# m</span>
+								<span>Sol#m</span>
 							</button>
 						</div>
 						<button type="button" class="btn-text card-topic" onclick="showSubButtons(this, 'a-chord');">
@@ -135,10 +135,10 @@
 								<span>La#</span>
 							</button>
 							<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('do', './accordi/chitarra/accordi/');">
-								<span>La m</span>
+								<span>Lam</span>
 							</button>
 							<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('do', './accordi/chitarra/accordi/');">
-								<span>La# m</span>
+								<span>La#m</span>
 							</button>
 						</div>
 						<button type="button" class="btn-text card-topic" onclick="showSubButtons(this, 'b-chord');">
@@ -149,7 +149,7 @@
 								<span>Si</span>
 							</button>
 							<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('do', './accordi/chitarra/accordi/');" style="grid-row: 1; grid-row-end: 3;">
-								<span>Si m</span>
+								<span>Sim</span>
 							</button>
 						</div>
 					</div>
@@ -161,40 +161,7 @@
 	<script type="text/javascript" src="../../assets/js/main.js"></script>
 	<script type="text/javascript" src="../../assets/js/render.js"></script>
 	<script>
-		var lastPressed = { button: null, container: null };
-
 		openOnKeyboardShortcut("F1", "../../helpers/help-accordi.html", true);
-
-		function hideSubButtons(mainButton, containerId) {
-			lastPressed = { button: null, container: null };
-
-			let container = document.getElementById(containerId);
-			container.style.visibility = "hidden";
-			container.style.opacity = 0;
-			setTimeout(() => {
-				container.style.display = "none";
-				mainButton.style.display = "";
-				mainButton.style.visibility = "visible";
-				mainButton.style.opacity = 1;
-
-			}, 150);
-		}
-
-		function showSubButtons(mainButton, containerId) {
-			if (lastPressed.button && lastPressed.container)
-				hideSubButtons(lastPressed.button, lastPressed.container);
-			lastPressed = { button: mainButton, container: containerId };
-
-			mainButton.style.visibility = "hidden";
-			mainButton.style.opacity = 0;
-			setTimeout(() => {
-				mainButton.style.display = "none";
-				let container = document.getElementById(containerId);
-				container.style.display = "";
-				container.style.visibility = "visible";
-				container.style.opacity = 1;
-			}, 150);
-		}
 	</script>
 </body>
 

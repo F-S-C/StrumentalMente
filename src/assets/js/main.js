@@ -416,6 +416,39 @@ function playStopAudio(audioTagId, buttonRef, stopButtonId) {
 	};
 }
 
+var lastPressed = { button: null, container: null };
+
+function hideSubButtons(mainButton, containerId) {
+	lastPressed = { button: null, container: null };
+
+	let container = document.getElementById(containerId);
+	container.style.visibility = "hidden";
+	container.style.opacity = 0;
+	setTimeout(() => {
+		container.style.display = "none";
+		mainButton.style.display = "";
+		mainButton.style.visibility = "visible";
+		mainButton.style.opacity = 1;
+
+	}, 150);
+}
+
+function showSubButtons(mainButton, containerId) {
+	if (lastPressed.button && lastPressed.container)
+		hideSubButtons(lastPressed.button, lastPressed.container);
+	lastPressed = { button: mainButton, container: containerId };
+
+	mainButton.style.visibility = "hidden";
+	mainButton.style.opacity = 0;
+	setTimeout(() => {
+		mainButton.style.display = "none";
+		let container = document.getElementById(containerId);
+		container.style.display = "";
+		container.style.visibility = "visible";
+		container.style.opacity = 1;
+	}, 150);
+}
+
 (function () {
 	let figures = Array.prototype.slice.call(document.getElementsByTagName("figure"));
 
