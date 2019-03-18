@@ -127,6 +127,25 @@
 			margin-top: 10px;
 		}
 	</style>
+	<script>
+		function showResetDialog() {
+			const { ipcRenderer } = require("electron");
+
+			var answer = ipcRenderer.sendSync("prompt", {
+				title: "Reset del profilo",
+				label: "Sei sicuro di voler resettare il tuo profilo? Perderai tutti i risultati dei quiz che hai fatto.",
+				yes: "Si",
+				yesReturn: true,
+				no: "No",
+				noReturn: false
+			});
+
+			if (answer) {
+				ipcRenderer.sendSync("save-quiz", { id: "*", passed: undefined });
+				window.location.reload();
+			}
+		}
+	</script>
 </head>
 
 <body>
@@ -261,6 +280,11 @@
 						<div class="quiz-result" id="accordi-piano">
 							<p><i class="fas fa-check-circle"></i> Accordi - Pianoforte</p>
 						</div>
+					</div>
+					<div style="margin: 15px 0; text-align: center;">
+						<button type="button" class="btn-text" onclick="showResetDialog();">
+							Reset del profilo
+						</button>
 					</div>
 				</section>
 			</article>

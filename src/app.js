@@ -168,7 +168,10 @@ ipcMain.on("prompt", (event, options) => {
 });
 
 ipcMain.on("save-quiz", (event, quiz) => {
-	allQuizzes[quiz.id] = quiz.passed;
+	if (quiz.id == "*" && quiz.passed == undefined)
+		allQuizzes = {};
+	else
+		allQuizzes[quiz.id] = quiz.passed;
 
 	let temp = {};
 	temp.username = username;
