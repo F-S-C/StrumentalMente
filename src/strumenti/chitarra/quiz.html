@@ -49,7 +49,7 @@
 		<nav class="main-navigation" id="main-nav">
 			<ul>
 				<li class="logo">
-					<a href="../../home.html">
+					<a href="javascript:void(0);" onclick="showExitFromQuizDialog('./home.html');">
 						<img src="../../assets/icon.ico" width="" height="" alt="">
 						<h1>Strumental<wbr /><span>Mente</span></h1>
 					</a>
@@ -119,12 +119,9 @@
 					<h2>Domande sulla chitarra</h2>
 					<div class="breadcrumbs-container">
 						<div class="breadcrumbs">
-							<button type="button" class="breadcrumb" onclick="window.parent.location.href = '../../home-strumenti.html';">Strumenti</button>
-							<button type="button" class="breadcrumb" onclick="window.parent.changeTopic('./argomenti', './strumenti/chitarra/')">Chitarra</button>
-							<span class="breadcrumb">Indice (pag. <span id="current-topic-slide">1</span> di <span id="max-topic-slides">1</span>)</span>
-						</div>
-						<div class="page-container">
-							Pag. <span id="current-slide-number">1</span> / <span id="total-slides-number">16</span>
+							<button type="button" class="breadcrumb" onclick="showExitFromQuizDialog('./home-strumenti.html');">Strumenti</button>
+							<button type="button" class="breadcrumb" onclick="showExitFromQuizDialog('./teoria-chitarra.html');">Chitarra</button>
+							<span class="breadcrumb">Quiz</span>
 						</div>
 					</div>
 					<hr />

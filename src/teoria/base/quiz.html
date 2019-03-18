@@ -50,7 +50,7 @@
 		<nav class="main-navigation" id="main-nav">
 			<ul>
 				<li class="logo">
-					<a href="../../home.html">
+					<a href="javascript:void(0);" onclick="showExitFromQuizDialog('./home.html');">
 						<img src="../../assets/icon.ico" width="" height="" alt="">
 						<h1>Strumental<wbr /><span>Mente</span></h1>
 					</a>
@@ -81,8 +81,13 @@
 					</button>
 				</li>
 				<li>
-					<button type="button" onclick="openModal('../../help.html');" title="Mostra l'aiuto (F1)">
+					<button type="button" onclick="openModal('helpers/help-quiz.html');" title="Mostra l'aiuto (F1)">
 						<i class="fas fa-question"></i> Aiuto
+					</button>
+				</li>
+				<li>
+					<button type="button" onclick="showExitFromQuizDialog('./teoria-piano.html');">
+						<i class="fas fa-arrow-circle-left"></i> Torna alla home
 					</button>
 				</li>
 				<li>
@@ -158,6 +163,9 @@
 
 	<script type="text/javascript" src="../../assets/js/main.js"></script>
 	<script type="text/javascript" src="../../assets/js/render.js"></script>
+	<script>
+		openOnKeyboardShortcut("F1", "helpers/help-quiz.html", true);
+	</script>
 </body>
 
 </html>
