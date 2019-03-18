@@ -87,7 +87,79 @@ var accordi = [
 		true, false, true, false,
 		true, false, true, false,
 		true, false, true, false,
-		true, false, false, false], 1)
+		true, false, false, false], 1),
+	new accordo("Do#-", [true, false, false, false,
+		true, false, false, false,
+		true, false, true, false,
+		true, false, true, false,
+		true, true, false, false,
+		true, false, false, false], 4),
+	new accordo("Re#-", [true, false, false, false,
+		true, false, false, false,
+		true, false, true, false,
+		true, false, true, false,
+		true, true, false, false,
+		true, false, false, false], 6),
+	new accordo("Fa#-", [true, false, false, false,
+		true, false, true, false,
+		true, false, true, false,
+		true, false, false, false,
+		true, false, false, false,
+		true, false, false, false], 2),
+	new accordo("Sol#-", [true, false, false, false,
+		true, false, true, false,
+		true, false, true, false,
+		true, false, false, false,
+		true, false, false, false,
+		true, false, false, false], 4),
+	new accordo("La#-", [true, false, false, false,
+		true, false, false, false,
+		true, false, true, false,
+		true, false, true, false,
+		true, true, false, false,
+		true, false, false, false], 1),
+	new accordo("Do-", [true, false, false, false,
+		true, false, false, false,
+		true, false, true, false,
+		true, false, true, false,
+		true, true, false, false,
+		true, false, false, false], 3),
+	new accordo("Re-", [false, false, false, false,
+		false, false, false, false,
+		false, false, false, false,
+		false, true, false, false,
+		false, false, true, false,
+		true, false, false, false], 1),
+	new accordo("Mi-", [false, false, false, false,
+		false, false, false, false,
+		false, false, false, false,
+		false, true, false, false,
+		false, true, false, false,
+		false, false, false, false], 1),
+	new accordo("Fa-", [true, false, false, false,
+		true, false, true, false,
+		true, false, true, false,
+		true, false, false, false,
+		true, false, false, false,
+		true, false, false, false], 1),
+	new accordo("Sol-", [true, false, false, false,
+		true, false, true, false,
+		true, false, true, false,
+		true, false, false, false,
+		true, false, false, false,
+		true, false, false, false], 3),
+	new accordo("La-", [false, false, false, false,
+		false, false, false, false,
+		false, true, false, false,
+		false, true, false, false,
+		true, false, false, false,
+		false, false, false, false], 1),
+	new accordo("Si-", [true, false, false, false,
+		true, false, false, false,
+		true, false, true, false,
+		true, false, true, false,
+		true, true, false, false,
+		true, false, false, false], 2)
 ];
 
 /**
@@ -95,10 +167,13 @@ var accordi = [
  */
 function script_load() {
 	for (var i = 0; i < document.getElementsByName("chord").length; i++) {
-		var k = Math.floor((Math.random() * (7 - i)) + 1);
+		var k = Math.floor((Math.random() * (accordi.length - i)) + 1);
 		document.getElementsByName("chord_name")[i].innerHTML = "Accordo di " + accordi[k - 1].nome; //NAME OF SELECTED CHORD
 		for (var j = 0; j < 4; j++) //TABS OF SELECTED CHORD
+		{
 			document.getElementsByName("chord")[i].getElementsByClassName("num_tasto")[j].innerHTML = (j + accordi[k - 1].tasto_iniziale) + "° Tasto";
+			document.getElementsByName("correct_chord")[i].getElementsByClassName("num_tasto")[j].innerHTML = (j + accordi[k - 1].tasto_iniziale) + "° Tasto";
+		}
 		selezionato.push(accordi[k - 1]);
 		accordi.splice(k - 1, 1);
 	}
