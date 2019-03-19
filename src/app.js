@@ -182,7 +182,7 @@ ipcMain.on("save-quiz", (event, quiz) => {
 });
 
 ipcMain.on("get-quiz", (event, quizName) => {
-	event.returnValue = allQuizzes[quizName];
+	event.returnValue = allQuizzes? allQuizzes[quizName] : undefined;
 });
 
 ipcMain.on("get-user", (event) => {
