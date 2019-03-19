@@ -434,6 +434,8 @@ function hideSubButtons(mainButton, containerId) {
 }
 
 function showSubButtons(mainButton, containerId) {
+	parent.document.activeElement.blur();
+
 	if (lastPressed.button && lastPressed.container)
 		hideSubButtons(lastPressed.button, lastPressed.container);
 	lastPressed = { button: mainButton, container: containerId };
