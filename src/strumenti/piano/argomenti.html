@@ -37,49 +37,61 @@
 						</div>
 						<hr />
 					</header>
-					<div class="row">
-						<div class="card-topic">
-							<h3>Livello base</h3>
+					<div class="topic-row">
+						<div class="topic-level">
+							<button type="button" class="btn-text card-topic" onclick="showSubButtons(this, 'basic');">
+								<h3><span>Livello base</span></h3>
+							</button>
+							<div class="topic-level-container" id="basic" style="display: none;">
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./introduzione-piano', './strumenti/piano/base/');">
+									<span>Introduzione allo strumento</span>
+								</button>
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./principi-fondamentali', './strumenti/piano/base/');">
+									<span>Principi fondamentali</span>
+								</button>
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./posizione-mano', './strumenti/piano/base/');">
+									<span>La posizione della mano</span>
+								</button>
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./indipendenza-e-articolazione', './strumenti/piano/base/');">
+									<span>Indipendenza e articolazione</span>
+								</button>
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./diteggiatura', './strumenti/piano/base/');">
+									<span>La diteggiatura</span>
+								</button>
+							</div>
 						</div>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./introduzione-piano', './strumenti/piano/base/');">
-							<span>Introduzione allo strumento</span>
-						</button>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./principi-fondamentali', './strumenti/piano/base/');">
-							<span>Principi fondamentali</span>
-						</button>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./posizione-mano', './strumenti/piano/base/');">
-							<span>La posizione della mano</span>
-						</button>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./indipendenza-e-articolazione', './strumenti/piano/base/');">
-							<span>Indipendenza e articolazione</span>
-						</button>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./diteggiatura', './strumenti/piano/base/');">
-							<span>La diteggiatura</span>
-						</button>
-						<div class="card-topic">
-							<h3>Livello intermedio</h3>
+						<div class="topic-level">
+							<button type="button" class="btn-text card-topic" onclick="showSubButtons(this, 'medium');">
+								<h3><span>Livello intermedio</span></h3>
+							</button>
+							<div class="topic-level-container" id="medium" style="display: none;">
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./scale' , './strumenti/piano/intermedio/');">
+									<span>Le scale</span>
+								</button>
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic( './legato' , './strumenti/piano/intermedio/');">
+									<span>Il legato</span>
+								</button>
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./staccato' , './strumenti/piano/intermedio/');">
+									<span>Lo staccato</span>
+								</button>
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./tocco' , './strumenti/piano/intermedio/');">
+									<span>Il tocco</span>
+								</button>
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic( './rivolti', './strumenti/piano/intermedio/');">
+									<span>I rivolti</span>
+								</button>
+							</div>
 						</div>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./scale' , './strumenti/piano/intermedio/');">
-							<span>Le scale</span>
-						</button>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic( './legato' , './strumenti/piano/intermedio/');">
-							<span>Il legato</span>
-						</button>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./staccato' , './strumenti/piano/intermedio/');">
-							<span>Lo staccato</span>
-						</button>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./tocco' , './strumenti/piano/intermedio/');">
-							<span>Il tocco</span>
-						</button>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic( './rivolti', './strumenti/piano/intermedio/');">
-							<span>I rivolti</span>
-						</button>
-						<div class="card-topic">
-							<h3>Livello avanzato</h3>
+						<div class="topic-level">
+							<button type="button" class="btn-text card-topic" onclick="showSubButtons(this, 'advanced');">
+								<h3><span>Livello avanzato</span></h3>
+							</button>
+							<div class="topic-level-container" id="advanced" style="display: none;">
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic( './arpeggi', './strumenti/piano/avanzato/');">
+									<span>Gli arpeggi</span>
+								</button>
+							</div>
 						</div>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic( './arpeggi', './strumenti/piano/avanzato/');">
-							<span>Gli arpeggi</span>
-						</button>
 					</div>
 				</section>
 			</article>

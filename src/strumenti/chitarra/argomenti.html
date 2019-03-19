@@ -36,61 +36,73 @@
 						</div>
 						<hr />
 					</header>
-					<div class="row">
-						<div class="card-topic">
-							<h3>Livello base</h3>
+					<div class="topic-row">
+						<div class="topic-level">
+							<button type="button" class="btn-text card-topic" onclick="showSubButtons(this, 'basic');">
+								<h3><span>Livello base</span></h3>
+							</button>
+							<div class="topic-level-container" id="basic" style="display: none;">
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('introduzione', './strumenti/chitarra/base/');">
+									<span>Introduzione</span>
+								</button>
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('differenza-elettrica-acustica', './strumenti/chitarra/base/');">
+									<span>Differenza tra chitarra elettrica ed acustica</span>
+								</button>
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('accordatura', './strumenti/chitarra/base/');">
+									<span>Accordatura</span>
+								</button>
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('mano-destra-sinistra', './strumenti/chitarra/base/');">
+									<span>Utilizzo mano destra e sinistra</span>
+								</button>
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('conoscenza-note', './strumenti/chitarra/base/');">
+									<span>Conoscenza delle note</span>
+								</button>
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('metodo-sagreras', './strumenti/chitarra/base/');">
+									<span>Il metodo Sagreras</span>
+								</button>
+							</div>
 						</div>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('introduzione', './strumenti/chitarra/base/');">
-							<span>Introduzione</span>
-						</button>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('differenza-elettrica-acustica', './strumenti/chitarra/base/');">
-							<span>Differenza tra chitarra elettrica ed acustica</span>
-						</button>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('accordatura', './strumenti/chitarra/base/');">
-							<span>Accordatura</span>
-						</button>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('mano-destra-sinistra', './strumenti/chitarra/base/');">
-							<span>Utilizzo mano destra e sinistra</span>
-						</button>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('conoscenza-note', './strumenti/chitarra/base/');">
-							<span>Conoscenza delle note</span>
-						</button>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('metodo-sagreras', './strumenti/chitarra/base/');">
-							<span>Il metodo Sagreras</span>
-						</button>
-						<div class="card-topic">
-							<h3>Livello intermedio</h3>
+						<div class="topic-level">
+							<button type="button" class="btn-text card-topic" onclick="showSubButtons(this, 'medium');">
+								<h3><span>Livello intermedio</span></h3>
+							</button>
+							<div class="topic-level-container" id="medium" style="display: none;">
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('metronomo', './strumenti/chitarra/intermedio/');">
+									<span>Utilizzo del metronomo</span>
+								</button>
+							</div>
 						</div>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('metronomo', './strumenti/chitarra/intermedio/');">
-							<span>Utilizzo del metronomo</span>
-						</button>
-						<div class="card-topic">
-							<h3>Livello avanzato</h3>
+						<div class="topic-level">
+							<button type="button" class="btn-text card-topic" onclick="showSubButtons(this, 'advanced');">
+								<h3><span>Livello avanzato</span></h3>
+							</button>
+							<div class="topic-level-container" id="advanced" style="display: none;">
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('introduzione', './strumenti/chitarra/avanzato/');">
+									<span>Introduzione avanzata</span>
+								</button>
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('barre', './strumenti/chitarra/avanzato/');">
+									<span>Il barrè</span>
+								</button>
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('accordi-m-M', './strumenti/chitarra/avanzato/');">
+									<span>Accordi m ed M</span>
+								</button>
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('giri-armonici', './strumenti/chitarra/avanzato/');">
+									<span>Giri armonici</span>
+								</button>
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('scale-pentatoniche', './strumenti/chitarra/avanzato/');">
+									<span>Le scale pentatoniche</span>
+								</button>
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('strumming', './strumenti/chitarra/avanzato/');">
+									<span>Lo Strumming</span>
+								</button>
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('fingerstyle', './strumenti/chitarra/avanzato/');">
+									<span>Il Fingerstyle</span>
+								</button>
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('arpeggi', './strumenti/chitarra/avanzato/');">
+									<span>Gli Arpeggi</span>
+								</button>
+							</div>
 						</div>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('introduzione', './strumenti/chitarra/avanzato/');">
-							<span>Introduzione avanzata</span>
-						</button>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('barre', './strumenti/chitarra/avanzato/');">
-							<span>Il barrè</span>
-						</button>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('accordi-m-M', './strumenti/chitarra/avanzato/');">
-							<span>Accordi m ed M</span>
-						</button>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('giri-armonici', './strumenti/chitarra/avanzato/');">
-							<span>Giri armonici</span>
-						</button>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('scale-pentatoniche', './strumenti/chitarra/avanzato/');">
-							<span>Le scale pentatoniche</span>
-						</button>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('strumming', './strumenti/chitarra/avanzato/');">
-							<span>Lo Strumming</span>
-						</button>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('fingerstyle', './strumenti/chitarra/avanzato/');">
-							<span>Il Fingerstyle</span>
-						</button>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('arpeggi', './strumenti/chitarra/avanzato/');">
-							<span>Gli Arpeggi</span>
-						</button>
 					</div>
 				</section>
 			</article>
