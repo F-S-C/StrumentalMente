@@ -37,49 +37,61 @@
 						</div>
 						<hr />
 					</header>
-					<div class="row">
-						<div class="card-topic">
-							<h3>Livello base</h3>
+					<div class="topic-row">
+						<div class="topic-level">
+							<button type="button" class="btn-text card-topic" onclick="showSubButtons(this, 'basic');">
+								<h3><span>Livello base</span></h3>
+							</button>
+							<div class="topic-level-container" id="basic" style="display: none;">
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./introduzione-batteria', './strumenti/batteria/base/');">
+									<span>Introduzione</span>
+								</button>
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./accordatura', './strumenti/batteria/base/');">
+									<span>Accordatura</span>
+								</button>
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./coordinazione-indipendenza', './strumenti/batteria/base/');">
+									<span>Coordinazione e indipendenza</span>
+								</button>
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./impugnatura', './strumenti/batteria/base/');">
+									<span>Impugnatura</span>
+								</button>
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./rudimenti', './strumenti/batteria/base/');">
+									<span>Rudimenti</span>
+								</button>
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./accenti', './strumenti/batteria/base/');">
+									<span>Accenti</span>
+								</button>
+							</div>
 						</div>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./introduzione-batteria', './strumenti/batteria/base/');">
-							<span>Introduzione</span>
-						</button>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./accordatura', './strumenti/batteria/base/');">
-							<span>Accordatura</span>
-						</button>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./coordinazione-indipendenza', './strumenti/batteria/base/');">
-							<span>Coordinazione e indipendenza</span>
-						</button>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./impugnatura', './strumenti/batteria/base/');">
-							<span>Impugnatura</span>
-						</button>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./rudimenti', './strumenti/batteria/base/');">
-							<span>Rudimenti</span>
-						</button>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./accenti', './strumenti/batteria/base/');">
-							<span>Accenti</span>
-						</button>
-						<div class="card-topic">
-							<h3>Livello intermedio</h3>
+						<div class="topic-level">
+							<button type="button" class="btn-text card-topic" onclick="showSubButtons(this, 'medium');">
+								<h3><span>Livello intermedio</span></h3>
+							</button>
+							<div class="topic-level-container" id="medium" style="display: none;">
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./velocita-controllo' , './strumenti/batteria/intermedio/');">
+									<span>Velocità e controllo</span>
+								</button>
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic( './paradiddle' , './strumenti/batteria/intermedio/');">
+									<span>Variazioni paraddidle</span>
+								</button>
+							</div>
 						</div>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./velocita-controllo' , './strumenti/batteria/intermedio/');">
-							<span>Velocità e controllo</span>
-						</button>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic( './paradiddle' , './strumenti/batteria/intermedio/');">
-							<span>Variazioni paraddidle</span>
-						</button>
-						<div class="card-topic">
-							<h3>Livello avanzato</h3>
+						<div class="topic-level">
+							<button type="button" class="btn-text card-topic" onclick="showSubButtons(this, 'advanced');">
+								<h3><span>Livello avanzato</span></h3>
+							</button>
+							<div class="topic-level-container" id="advanced" style="display: none;">
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic( './poliritmia', './strumenti/batteria/avanzato/');">
+									<span>Poliritmia</span>
+								</button>
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic( './cross-rhythm', './strumenti/batteria/avanzato/');">
+									<span>Cross rhythm</span>
+								</button>
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./illusione-ritmica', './strumenti/batteria/avanzato/');">
+									<span>Illusione ritmica</span>
+								</button>
+							</div>
 						</div>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic( './poliritmia', './strumenti/batteria/avanzato/');">
-							<span>Poliritmia</span>
-						</button>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic( './cross-rhythm', './strumenti/batteria/avanzato/');">
-							<span>Cross rhythm</span>
-						</button>
-						<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./illusione-ritmica', './strumenti/batteria/avanzato/');">
-							<span>Illusione ritmica</span>
-						</button>
 					</div>
 				</section>
 			</article>
