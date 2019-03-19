@@ -266,7 +266,7 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 function changeTopic(topicName, base = "./") {
 	var iFrame = document.getElementById("content-frame");
 	currentSection = 0;
-	document.activeElement.blur();
+	parent.document.activeElement.blur();
 	if (topicName !== "quiz") {
 		iFrame.src = base + topicName + ".html";
 	}
@@ -420,17 +420,20 @@ var lastPressed = { button: null, container: null };
 
 function hideSubButtons(mainButton, containerId) {
 	lastPressed = { button: null, container: null };
+	
+	mainButton.parentElement.classList.toggle("clicked");
+	mainButton.childNodes[1].style.visibility = "visible";
 
 	let container = document.getElementById(containerId);
-	container.style.visibility = "hidden";
-	container.style.opacity = 0;
 	setTimeout(() => {
+		container.style.visibility = "hidden";
+		container.style.opacity = 0;
 		container.style.display = "none";
 		mainButton.style.display = "";
 		mainButton.style.visibility = "visible";
 		mainButton.style.opacity = 1;
 
-	}, 150);
+	}, 300);
 }
 
 function showSubButtons(mainButton, containerId) {
@@ -440,15 +443,19 @@ function showSubButtons(mainButton, containerId) {
 		hideSubButtons(lastPressed.button, lastPressed.container);
 	lastPressed = { button: mainButton, container: containerId };
 
-	mainButton.style.visibility = "hidden";
-	mainButton.style.opacity = 0;
+	mainButton.parentElement.classList.toggle("clicked");
+
+	mainButton.childNodes[1].style.visibility = "hidden";
+
 	setTimeout(() => {
+		mainButton.style.visibility = "hidden";
+		mainButton.style.opacity = 0;
 		mainButton.style.display = "none";
 		let container = document.getElementById(containerId);
 		container.style.display = "";
 		container.style.visibility = "visible";
 		container.style.opacity = 1;
-	}, 150);
+	}, 300);
 }
 
 (function () {
