@@ -104,6 +104,10 @@ section.hide {
 	text-align: center;
 }
 
+.chords-list .row {
+	filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.14));
+}
+
 .chords-container {
 	height: 100%;
 	width: 100%;
