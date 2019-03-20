@@ -106,7 +106,7 @@ classi aventi i seguenti stili:
 }
 
 .btn-text:hover, .btn-text:focus {
-	background-color: var(--main-color-transparent);
+	background-color: var(--main-color-on-white);
 }
 
 .btn-text:before {
@@ -163,7 +163,7 @@ classi aventi i seguenti stili:
 }
 
 .btn-outlined:hover, .btn-outlined:focus {
-	background-color: var(--main-color-transparent);
+	background-color: var(--main-color-on-white);
 }
 
 .btn-outlined:before {
@@ -287,7 +287,7 @@ header .blind-audio-buttons .btn-audio.btn-accessibility {
 }
 
 header .blind-audio-buttons .btn-audio:hover, header .blind-audio-buttons .btn-audio:focus {
-	background-color: var(--main-color-transparent);
+	background-color: var(--main-color-on-white);
 }
 
 header .blind-audio-buttons .btn-audio:before {
