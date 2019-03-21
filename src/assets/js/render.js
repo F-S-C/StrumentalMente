@@ -294,8 +294,7 @@ window.addEventListener("load", () => {
 		const Mousetrap = require("mousetrap");
 
 		Mousetrap.bind("alt+h", () => { remote.getCurrentWindow().loadFile("./home.html"); });
-		Mousetrap.bind("alt+t b", () => { remote.getCurrentWindow().loadFile("./teoria-base.html"); });
-		Mousetrap.bind("alt+t a", () => { remote.getCurrentWindow().loadFile("./teoria-avanzata.html"); });
+		Mousetrap.bind("alt+t", () => { remote.getCurrentWindow().loadFile("./home-teoria.html"); });
 		Mousetrap.bind("alt+s s", () => { remote.getCurrentWindow().loadFile("./home-strumenti.html"); });
 		Mousetrap.bind("alt+s c", () => { remote.getCurrentWindow().loadFile("./teoria-chitarra.html"); });
 		Mousetrap.bind("alt+s b", () => { remote.getCurrentWindow().loadFile("./teoria-basso.html"); });
