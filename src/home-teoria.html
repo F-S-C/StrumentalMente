@@ -16,13 +16,13 @@
 	<meta name="robots" content="index, follow">
 </head>
 
-<body onload="initialize('argomenti', 'teoria/base/', 19);">
+<body onload="initialize('argomenti', 'teoria/', 19);">
 	<header>
 		<div id="titlebar">
 			<div id="drag-region">
 				<div id="window-title">
 					<img id="window-title-image" src="./assets/icon.ico" alt="Icona" />
-					<span id="window-title-text">Teoria base</span>
+					<span id="window-title-text">Teoria</span>
 				</div>
 				<div id="window-controls">
 					<div class="button" id="min-button">
@@ -54,23 +54,7 @@
 				</li>
 				<li><a href="./home.html"><i class="fas fa-home"></i> Home</a></li>
 				<li><a href="./profile.html" title="Mostra il profilo dell'utente (Alt+P)"><i class="fas fa-user-circle"></i> Profilo</a></li>
-				<li class="dropdown">
-					<button type="button" class="active open" onclick="drop('sub1', 'active')" id="sub1-link">
-						<i class="fas fa-book"></i> Teoria
-					</button>
-					<ul id="sub1" class="show">
-						<li>
-							<a class="active" href="./teoria-base.html" title="La teoria: le basi (Alt+T B)">
-								Basi
-							</a>
-						</li>
-						<li>
-							<a href="./teoria-avanzata.html" title="La teoria avanzata (Alt+T A)">
-								Avanzata
-							</a>
-						</li>
-					</ul>
-				</li>
+				<li><a class="active" href="./home-teoria.html" title="Apri la lista argomenti della teoria (Alt+T)"><i class="fas fa-book"></i>Teoria</a></li>
 				<li><a href="./home-strumenti.html" title="Apri la lista di srumenti (Alt+S S)"><i class="fas fa-guitar"></i> Strumenti</a></li>
 				<li><a title="Apri la lista di strumenti per vederne gli accordi (Alt+A A)" href="./home-accordi.html"><i class="fas fa-music"></i> Accordi</a></li>
 
@@ -109,7 +93,7 @@
 		</button>
 
 		<div class="content">
-			<iframe id="content-frame" src="./teoria/base/argomenti.html" class="slide-container"></iframe>
+			<iframe id="content-frame" src="./teoria/argomenti.html" class="slide-container"></iframe>
 			<div class="buttons-container">
 				<div class="first-column">
 					<button type="button" id="back-topic" class="btn-outlined" style="display: none;">
@@ -120,7 +104,7 @@
 					</button>
 				</div>
 				<div class="second-column">
-					<button type="button" id="back-to-list" title="Torna all'elenco di argomenti (CTRL + Backspace)" class="btn-text" onclick="changeTopic('argomenti', './teoria/base/')" style="display: none;">
+					<button type="button" id="back-to-list" title="Torna all'elenco di argomenti (CTRL + Backspace)" class="btn-text" onclick="changeTopic('argomenti', './teoria/')" style="display: none;">
 						Torna all'elenco <i class="btn-icon fas fa-home"></i>
 					</button>
 				</div>
@@ -140,7 +124,7 @@
 	<script type="text/javascript" src="./assets/js/render.js"></script>
 	<script>
 		openOnKeyboardShortcut("F1", "./helpers/help-teoria.html", true);
-		require("mousetrap").bind("ctrl+backspace", () => document.getElementById("back-to-list").click());
+		require("mousetrap").bind("ctrl+backspace", () => changeTopic('argomenti', './teoria/'));
 	</script>
 </body>
 
