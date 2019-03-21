@@ -127,11 +127,11 @@
 						</button>
 					</div>
 					<div class="third-column">
-						<button type="button" id="next" class="btn" style="display: none;">
+						<button type="button" id="next" class="btn" style="display: none;" >
 							Avanti <i class="btn-icon fas fa-arrow-circle-right"></i>
 						</button>
 						<button type="button" id="next-topic" class="btn">
-							Re <i class="btn-icon fas fa-arrow-circle-right"></i>
+							Do <i class="btn-icon fas fa-arrow-circle-right"></i>
 						</button>
 					</div>
 				</div>
@@ -143,7 +143,7 @@
 	<script type="text/javascript" src="./assets/js/render.js"></script>
 	<script>
 		openOnKeyboardShortcut("F1", "./helpers/help-accordi.html", true);
-		require("mousetrap").bind("ctrl+backspace", () => changeTopic('argomenti', './strumenti/chitarra/'));
+		require("mousetrap").bind("ctrl+backspace", () => document.getElementById("back-to-list").click());
 	</script>
 </body>
 

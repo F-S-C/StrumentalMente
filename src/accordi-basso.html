@@ -2,7 +2,7 @@
 <html lang="it">
 
 <head>
-	<title>Strumenti - Teoria basso</title>
+	<title>Accordi basso</title>
 	<link rel="icon" href="./assets/icon.ico" />
 	<link href="./assets/css/style.css" rel="stylesheet" />
 	<!-- FontAwesome -->
@@ -16,13 +16,13 @@
 	<meta name="robots" content="index, follow">
 </head>
 
-<body onload="initialize('argomenti', 'strumenti/basso/', 20);">
+<body onload="initialize('accordi' , 'accordi/basso/', 25);">
 	<header>
 		<div id="titlebar">
 			<div id="drag-region">
 				<div id="window-title">
 					<img id="window-title-image" src="./assets/icon.ico" alt="Icona" />
-					<span id="window-title-text">Strumenti - Teoria basso</span>
+					<span id="window-title-text">Accordi chitarra</span>
 				</div>
 				<div id="window-controls">
 					<div class="button" id="min-button">
@@ -71,16 +71,15 @@
 						</li>
 					</ul>
 				</li>
-				<li><a class="active" href="./home-strumenti.html" title="Apri la lista di srumenti (Alt+S S)"><i class="fas fa-guitar"></i> Strumenti</a></li>
-				<li><a title="Apri la lista di strumenti per vederne gli accordi (Alt+A A)" href="./home-accordi.html"><i class="fas fa-music"></i> Accordi</a></li>
-
+				<li><a href="./home-strumenti.html" title="Apri la lista di srumenti (Alt+S S)"><i class="fas fa-guitar"></i> Strumenti</a></li>
+				<li><a title="Apri la lista di strumenti per vederne gli accordi (Alt+A A)" class="active" href="./home-accordi.html"><i class="fas fa-music"></i> Accordi</a></li>
 				<li>
 					<button type="button" onclick="openModal('./map.html');" title="Mostra la mappa (Alt+M)">
 						<i class="fas fa-map"></i> Mappa
 					</button>
 				</li>
 				<li>
-					<button type="button" onclick="openModal('./helpers/help-strumenti.html');" title="Mostra l'aiuto (F1)">
+					<button type="button" onclick="openModal('./helpers/help-accordi.html');" title="Mostra l'aiuto (F1)">
 						<i class="fas fa-question"></i> Aiuto
 					</button>
 				</li>
@@ -108,29 +107,33 @@
 			<i class="fas fa-bars"></i>
 		</button>
 
-		<div class="content">
-			<iframe id="content-frame" src="./strumenti/basso/argomenti.html" class="slide-container"></iframe>
-			<div class="buttons-container">
-				<div class="first-column">
-					<button type="button" id="back-topic" class="btn-outlined" style="display: none;">
-						Argomento Precedente <i class="btn-icon left fas fa-arrow-alt-circle-left"></i>
-					</button>
-					<button type="button" id="back" class="btn-outlined" disabled>
-						Indietro <i class="btn-icon left fas fa-arrow-alt-circle-left"></i>
-					</button>
-				</div>
-				<div class="second-column">
-					<button type="button" id="back-to-list" title="Torna all'elenco di argomenti (CTRL + Backspace)" class="btn-text" onclick="changeTopic('argomenti', './strumenti/basso/');" style="display: none;">
-						Torna all'elenco <i class="btn-icon fas fa-home"></i>
-					</button>
-				</div>
-				<div class="third-column">
-					<button type="button" id="next" class="btn">
-						Avanti <i class="btn-icon fas fa-arrow-circle-right"></i>
-					</button>
-					<button type="button" id="next-topic" class="btn">
-						Introduzione <i class="btn-icon fas fa-arrow-circle-right"></i>
-					</button>
+		<div class="sub-wrapper">
+
+
+			<div class="content">
+				<iframe id="content-frame" src="./accordi/basso/accordi.html" class="slide-container"></iframe>
+				<div class="buttons-container">
+					<div class="first-column">
+						<button type="button" id="back-topic" class="btn-outlined" style="display: none;">
+							Accordo precedente <i class="btn-icon left fas fa-arrow-alt-circle-left"></i>
+						</button>
+						<button type="button" id="back" class="btn-outlined" disabled>
+							Indietro <i class="btn-icon left fas fa-arrow-alt-circle-left"></i>
+						</button>
+					</div>
+					<div class="second-column">
+						<button type="button" id="back-to-list" title="Torna all'elenco degli accordi" class="btn-text" onclick="changeTopic('./accordi', './accordi/chitarra/')" style="display: none;">
+							Torna all'elenco degli accordi <i class="btn-icon fas fa-home"></i>
+						</button>
+					</div>
+					<div class="third-column">
+						<button type="button" id="next" class="btn" style="display: none;">
+							Avanti <i class="btn-icon fas fa-arrow-circle-right"></i>
+						</button>
+						<button type="button" id="next-topic" class="btn">
+							Re <i class="btn-icon fas fa-arrow-circle-right"></i>
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -139,7 +142,7 @@
 	<script type="text/javascript" src="./assets/js/main.js"></script>
 	<script type="text/javascript" src="./assets/js/render.js"></script>
 	<script>
-		openOnKeyboardShortcut("F1", "./helpers/help-strumenti.html", true);
+		openOnKeyboardShortcut("F1", "./helpers/help-accordi.html", true);
 		require("mousetrap").bind("ctrl+backspace", () => document.getElementById("back-to-list").click());
 	</script>
 </body>
