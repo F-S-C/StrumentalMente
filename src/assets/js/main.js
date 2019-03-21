@@ -269,7 +269,7 @@ function changeTopic(topicName, base = "./") {
 	var iFrame = document.getElementById("content-frame");
 	currentSection = 0;
 	parent.document.activeElement.blur();
-	if (topicName !== "quiz") {
+	if (!topicName.includes("quiz")) {
 		iFrame.src = base + topicName + ".html";
 	}
 	else
