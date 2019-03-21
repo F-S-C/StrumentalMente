@@ -126,11 +126,13 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 		nextTopicButton.style.display = "inline-block";
 
 		returnToListButton.style.display = "none";
+		returnToListButton.toggleAttribute("disabled", true);
 	}
 	else {
 		iFrameDocument.document.getElementsByTagName("section")[0].className = "show";
 		previousSlideButton.toggleAttribute("disabled", false);
 		returnToListButton.style.display = "inline-block";
+		returnToListButton.toggleAttribute("disabled", false);
 
 		if (currentSection === 0) {
 			previousTopicButton.style.display = "inline-block";
