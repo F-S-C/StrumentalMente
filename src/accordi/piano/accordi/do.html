@@ -2,7 +2,7 @@
 <html lang="it">
 
 <head>
-	<title>Strumenti - Accordi chitarra</title>
+	<title>Accordi pianoforte</title>
 	<link rel="icon" href="../../../assets/icon.ico" />
 	<link href="../../../assets/css/style.css" rel="stylesheet" />
 	<!-- FontAwesome -->
@@ -16,33 +16,43 @@
 	<meta name="robots" content="index, follow">
 </head>
 
-<body onload="window.parent.setLinks(2, { previous: 'Accordi', previousLink: 'accordi', next: 'Re', nextLink: 'accordi/re' });">
+<body onload="window.parent.setLinks(2, { previous: 'Accordi', previousLink: 'accordi', next: 'Do<span class=\'minimize\'>m</span>', nextLink: 'accordi/do-minore' });">
 	<div class="sub-wrapper">
 		<div class="content">
 			<article>
 				<header>
-					<h1>Accordi della chitarra</h1>
-					<h2>Come si fa l'accordo di Do Maggiore</h2>
+					<h1>Accordi del pianoforte</h1>
+					<h2>Come si fa l'accordo di Do</h2>
 					<div class="breadcrumbs-container">
 						<div class="breadcrumbs">
-							<span class="breadcrumb">Teoria</span>
-							<a class="breadcrumb" href="#">Base</a>
-							<span class="breadcrumb">Indice (pag. <span id="current-topic-slide">1</span> di <span id="max-topic-slides">1</span>)</span>
+							<button type="button" class="breadcrumb" onclick="window.parent.location.href = '../../../home-accordi.html';">Accordi</button>
+							<button type="button" class="breadcrumb" onclick="window.parent.changeTopic('./accordi', './accordi/pianoforte/')">pianoforte</button>
+							<span class="breadcrumb">Do (pag. <span id="current-topic-slide">1</span> di <span id="max-topic-slides">1</span>)</span>
 						</div>
 						<div class="page-container">
-							Pag. <span id="current-slide-number">1</span> / <span id="total-slides-number">25</span>
+							Pag. <span id="current-slide-number">2</span> / <span id="total-slides-number">25</span>
 						</div>
 					</div>
 					<hr />
 				</header>
-				<section class="hide">
+				<section class="show">
 					<div class="multiple-figures">
-						<figure class="center" style="width: 30%;">
-							<img src="../../../assets/images/schemi_accordi_chitarra/C.svg" alt="Schema dell' accordo di do maggiore" />
+						<figure class="center" style="width: 37%;">
+							<img src="../../../assets/images/schemi_accordi_piano/Maggiori/C.png" alt="Schema dell' accordo di Do maggiore" />
 						</figure>
-						<figure class="center" style="width: 45%;">
-							<img src="../../../assets/images/accordi-chitarra/Do.JPG" alt="Foto dell'accordo di do maggiore" />
-						</figure>
+						<video class="center" width="550" height="300" controls poster="../../../assets/videos/accordi_pianoforte/maggiori/C.png">
+							<source src="../../../assets/videos/accordi_pianoforte/maggiori/C.mp4" type="video/mp4">
+							<source src="../../../assets/videos/accordi_pianoforte/maggiori/C.webm" type="video/webm">
+							Il tag video non è supportato dalla versione in uso di Chromium.
+						  </video>
+					</div>
+					<div style="text-align: center; margin: 32px 0;">
+						<audio controls>
+							<source src="" type="audio/ogg" />
+							<source src="" type="audio/mpeg" />
+							<source src="../../../assets/audios/accordi_pianoforte/Maggiori/C.wav" type="audio/wav" />
+							Il tag audio non è supportato dalla versione in uso di Chromium.
+						</audio>
 					</div>
 				</section>
 			</article>
