@@ -103,7 +103,7 @@ table th {
 }
 
 table.highlight.rows tbody tr:hover {
-	background-color: #faa;
+	background-color: rgba(0, 0, 0, 0.05);
 }
 
 table.highlight td:hover::after, table.highlight thead th:not(:empty):hover::after, table.highlight td:focus::after, table.highlight thead th:not(:empty):focus::after, table.highlight td:hover::after, table.highlight thead th:not(:empty):hover::after, table.highlight td:focus::after, table.highlight thead th:not(:empty):focus::after {
@@ -122,4 +122,9 @@ table.highlight.cols td:hover::after, table.highlight.cols th:hover::after {
 
 h1.center, h2.center, h3.center, h4.center, h5.center, h6.center {
 	text-align: center;
+}
+
+table .note-cell {
+	text-align: center;
+	font-size: x-large;
 }
