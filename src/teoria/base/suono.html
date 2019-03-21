@@ -22,8 +22,20 @@
 		<div class="content">
 			<article>
 				<header>
+					<div class="blind-audio-buttons">
+						<button type="button" onclick="playStopAudio('blind-audio', this, 'stop-blind-audio');" class="btn-audio btn-accessibility">
+							<i class="fas fa-universal-access"></i>
+						</button>
+						<button type="button" id="stop-blind-audio" class="btn-audio audio-reload" style="display: none;">
+							<i class="fas fa-undo"></i>
+						</button>
+					</div>
 					<h1>Il suono</h1>
 					<h2>La base della musica</h2>
+					<audio id="blind-audio">
+						<source src="./assets/audios/vocals/teoria/base/suono.ogg" type="audio/ogg" />
+						<source src="./assets/audios/vocals/teoria/base/suono.wav" type="audio/wav" />
+					</audio>
 					<div class="breadcrumbs-container">
 						<div class="breadcrumbs">
 							<span class="breadcrumb">Teoria</span>
