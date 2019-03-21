@@ -18,7 +18,7 @@
 	<meta name="robots" content="index, follow">
 </head>
 
-<body name="quiz-page" onload="quizLoad('pianoforte');">
+<body name="quiz-page" onload="quizLoad('piano');">
 	<header>
 		<div id="titlebar">
 			<div id="drag-region">
@@ -80,16 +80,6 @@
 					</button>
 				</li>
 				<li>
-					<button type="button" class="question-link" onclick="changeQuizSlide(5)">
-						6° Domanda
-					</button>
-				</li>
-				<li>
-					<button type="button" class="question-link" onclick="changeQuizSlide(6)">
-						7° Domanda
-					</button>
-				</li>
-				<li>
 					<button type="button" onclick="openModal('helpers/help-quiz.html');" title="Mostra l'aiuto (F1)">
 						<i class="fas fa-question"></i> Aiuto
 					</button>
@@ -132,16 +122,16 @@
 					<hr />
 				</header>
 				<section class="show">
-					<h2>Quali sono i principi fondamentali per suonare un pianoforte?</h2>
+					<h2>In cosa consiste il tocco metallico?</h2>
 					<form>
 						<input type="radio" id="d1" style="grid-area: a;" name="domanda1" value="1"></input>
-						<label for="d1" style="grid-area: a;">Considerare la tecnica pianistica come attività spirituale, raggiungere una tecnica naturale e abituare l’orecchio ad ascoltare</label>
+						<label for="d1" style="grid-area: a;">Il tasto viene abbassato con estrema violenza</label>
 						<input type="radio" id="d2" style="grid-area: b;" name="domanda1" value="0"></input>
-						<label for="d2" style="grid-area: b;">Considerare la tecnica pianistica come schematica</label>
+						<label for="d2" style="grid-area: b;">Il tasto viene abbassato con estrema delicatezza</label>
 						<input type="radio" id="d3" style="grid-area: c;" name="domanda1" value="0"></input>
-						<label for="d3" style="grid-area: c;">Abituare l’orecchio ad ascoltare</label>
+						<label for="d3" style="grid-area: c;">Il tasto non viene abbassato proprio</label>
 						<input type="radio" id="d4" style="grid-area: d;" name="domanda1" value="0"></input>
-						<label for="d4" style="grid-area: d;">Avere agilità nelle mani</label>
+						<label for="d4" style="grid-area: d;">Il tasto viene abbassato con poca violenza</label>
 					</form>
 				</section>
 				<section class="hide">
@@ -194,32 +184,6 @@
 						<label for="d16" style="grid-area: c;">Rimbalzo della mano con un leggero e lento movimento di polso</label>
 						<input type="radio" id="d20" style="grid-area: d;" name="domanda5" value="0"></input>
 						<label for="d20" style="grid-area: d;">Rimbalzo della mano con un pesato e lento movimento di polso</label>
-					</form>
-				</section>
-				<section class="hide">
-					<h2>Quali sono le specie di tocco?</h2>
-					<form>
-						<input type="radio" id="d21" style="grid-area: a;" name="domanda6" value="1"></input>
-						<label for="d21" style="grid-area: a;">Normale - brillante - metallico</label>
-						<input type="radio" id="d22" style="grid-area: b;" name="domanda6" value="0"></input>
-						<label for="d22" style="grid-area: b;">Anormale - spento - morbido</label>
-						<input type="radio" id="d23" style="grid-area: c;" name="domanda6" value="0"></input>
-						<label for="d23" style="grid-area: c;">Normale - spento - metallico</label>
-						<input type="radio" id="d24" style="grid-area: d;" name="domanda6" value="0"></input>
-						<label for="d24" style="grid-area: d;">Anormale - brillante - metallico</label>
-					</form>
-				</section>
-				<section class="hide">
-					<h2>Quali sono gli scopi dei rivolti?</h2>
-					<form>
-						<input type="radio" id="d25" style="grid-area: a;" name="domanda7" value="1"></input>
-						<label for="d25" style="grid-area: a;">Avere sonorità differenti e rendere agevole il cambio di accordi</label>
-						<input type="radio" id="d26" style="grid-area: b;" name="domanda7" value="0"></input>
-						<label for="d26" style="grid-area: b;">Avere stesse sonorità e agilità di cambio accordi</label>
-						<input type="radio" id="d27" style="grid-area: c;" name="domanda7" value="0"></input>
-						<label for="d27" style="grid-area: c;">Avere sonorità differenti e rendere scomodo il cambio di accordi</label>
-						<input type="radio" id="d28" style="grid-area: d;" name="domanda7" value="0"></input>
-						<label for="d28" style="grid-area: d;">Avere stesse sonorità e rendere scomodo il cambio di accordi</label>
 					</form>
 				</section>
 			</article>
