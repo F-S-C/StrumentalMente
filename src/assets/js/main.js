@@ -422,7 +422,7 @@ var lastPressed = { button: null, container: null };
 
 function hideSubButtons(mainButton, containerId) {
 	lastPressed = { button: null, container: null };
-	
+
 	mainButton.parentElement.classList.toggle("clicked");
 	mainButton.childNodes[1].style.visibility = "visible";
 
@@ -460,6 +460,23 @@ function showSubButtons(mainButton, containerId) {
 	}, 300);
 }
 
+/**
+ * Corregge alcuni errori nell'ottenimento del focus da parte di un iframe.
+ */
+(function () {
+	let a = parent.document.getElementById("content-frame");
+	if (a) {
+		var doc = a.contentWindow.document || a.contentDocument;
+		doc.childNodes.forEach(node => {
+			node.addEventListener("click", () => parent.document.activeElement.blur());
+		})
+	}
+})();
+
+/**
+ * Associa a tutte le figure presenti nel documento un evento "click" che
+ * consente di visualizzarle in una finestra modale.
+ */
 (function () {
 	let figures = Array.prototype.slice.call(document.getElementsByTagName("figure"));
 
