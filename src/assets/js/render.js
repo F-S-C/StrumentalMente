@@ -167,8 +167,10 @@ function showExitFromQuizDialog(toOpen) {
  * @param {String} nomeQuiz Il nome del quiz.
  * @param {number} score Il punteggio ottenuto.
  * @param {number} total Il punteggio totale possibile.
+ * @param {String} return_link  Il file da aprire se è cliccato il tasto
+ * 'Ok'. Il percorso è relativo rispetto alla cartella principale.
  */
-function showQuizDialog(nomeQuiz, score, total) {
+function showQuizDialog(nomeQuiz, score, total, return_link) {
 	const { ipcRenderer } = require("electron");
 
 	var answer = ipcRenderer.sendSync("prompt", {
@@ -188,7 +190,7 @@ function showQuizDialog(nomeQuiz, score, total) {
 	if (answer)
 		quizCompare();
 	else
-		window.location.href = '../../home-strumenti.html';
+		window.location.href = '../../' + return_link + '.html';
 }
 
 /**
