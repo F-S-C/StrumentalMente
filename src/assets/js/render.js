@@ -309,5 +309,25 @@ window.addEventListener("load", () => {
 		Mousetrap.bind("alt+p", () => { remote.getCurrentWindow().loadFile("./profile.html"); });
 		Mousetrap.bind("alt+m", () => { openModal("./map.html"); });
 		Mousetrap.bind("alt+i", () => { openModal("./about.html"); });
+
+		// Audio per i non vedenti
+		Mousetrap.bind("ctrl+space", () => {
+			let btn = document.getElementById("play-blind-audio");
+			if (!btn) {
+				let iFrame = document.getElementById("content-frame");
+				let iFrameDocument = iFrame.contentWindow || iFrame.contentDocument;
+				btn = iFrameDocument.document.getElementById("play-blind-audio");
+			}
+			btn && btn.click();
+		});
+		Mousetrap.bind("ctrl+alt+space", () => {
+			let btn = document.getElementById("stop-blind-audio");
+			if (!btn) {
+				let iFrame = document.getElementById("content-frame");
+				let iFrameDocument = iFrame.contentWindow || iFrame.contentDocument;
+				btn = iFrameDocument.document.getElementById("stop-blind-audio");
+			}
+			btn && btn.click();
+		});
 	}
 });

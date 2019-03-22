@@ -23,7 +23,7 @@
 			<article>
 				<header>
 					<div class="blind-audio-buttons">
-						<button type="button" onclick="playStopAudio('blind-audio', this, 'stop-blind-audio');" class="btn-audio btn-accessibility">
+						<button type="button" id="play-blind-audio" onclick="playStopAudio('blind-audio', this, 'stop-blind-audio');" class="btn-audio btn-accessibility">
 							<i class="fas fa-universal-access"></i>
 						</button>
 						<button type="button" id="stop-blind-audio" class="btn-audio audio-reload" style="display: none;">
@@ -32,10 +32,7 @@
 					</div>
 					<h1>Il suono</h1>
 					<h2>La base della musica</h2>
-					<audio id="blind-audio">
-						<source src="./assets/audios/vocals/teoria/base/suono.ogg" type="audio/ogg" />
-						<source src="./assets/audios/vocals/teoria/base/suono.wav" type="audio/wav" />
-					</audio>
+					<audio id="blind-audio" src="./assets/audios/vocals/teoria/base/suono.wav"></audio>
 					<div class="breadcrumbs-container">
 						<div class="breadcrumbs">
 							<button type="button" class="breadcrumb" onclick="window.parent.location.href = '../../home-teoria.html';">Teoria</button>

@@ -23,7 +23,7 @@
 			<article>
 				<header>
 					<div class="blind-audio-buttons">
-						<button type="button" onclick="playStopAudio('blind-audio', this, 'stop-blind-audio');" class="btn-audio btn-accessibility">
+						<button type="button" id="play-blind-audio" onclick="playStopAudio('blind-audio', this, 'stop-blind-audio');" class="btn-audio btn-accessibility">
 							<i class="fas fa-universal-access"></i>
 						</button>
 						<button type="button" id="stop-blind-audio" class="btn-audio audio-reload" style="display: none;">
@@ -32,10 +32,7 @@
 					</div>
 					<h1>Le chiavi</h1>
 					<h2>Cosa e quali sono le chiavi</h2>
-					<audio id="blind-audio">
-						<source src="./assets/audios/vocals/base/chiavi.ogg" type="audio/ogg" />
-						<source src="./assets/audios/vocals/base/chiavi.wav" type="audio/wav" />
-					</audio>
+					<audio id="blind-audio" src="../../assets/audios/vocals/base/chiavi.wav"></audio>
 					<div class="breadcrumbs-container">
 						<div class="breadcrumbs">
 							<button type="button" class="breadcrumb" onclick="window.parent.location.href = '../../home-teoria.html';">Teoria</button>
@@ -49,6 +46,7 @@
 					<hr />
 				</header>
 				<section class="hide">
+					<audio src="../../assets/audios/vocals/base/chiavi.wav"></audio>
 					<p>Tramite la chiave si definisce la corrispondenza di linee e spazi del pentagramma alle altezze
 						musicali.
 						Indicata all’inizio di ogni pentagramma, la chiave sviluppa il proprio effetto fino alla
@@ -77,6 +75,7 @@
 						per l’esecuzione.</p>
 				</section>
 				<section class="hide">
+					<audio src="../../assets/audios/vocals/base/chiavi.wav"></audio>
 					<h2>La chiave di Do</h2>
 					<p>Nel doppio pentagramma la chiave di <strong>do</strong> è posta al centro dei due pentagrammi e
 						fissa la posizione del <strong>do centrale</strong>. Viene chiamato do centrale perché questa
@@ -104,6 +103,7 @@
 				</section>
 				<section class="hide">
 					<h2>La chiave di Sol</h2>
+					<audio src="../../assets/audios/vocals/base/chiavi.wav"></audio>
 					<p>La <em>chiave di sol</em> o <em>di violino</em> fissa la posizione della nota
 						<strong>sol</strong>, che è posta sulla seconda linea del pentagramma semplice e corrisponde alla
 						quinta nota ascendente del do centrale.</p>
@@ -126,6 +126,7 @@
 				</section>
 				<section class="hide">
 					<h2>La chiave di Fa</h2>
+					<audio src="../../assets/audios/vocals/base/chiavi.wav"></audio>
 					<p>La <em>chiave di fa</em> o <em>di basso</em> fissa la posizione della nota Fa, che è posta sulla quarta
 						linea del
 						pentagramma semplice e corrisponde alla quinta nota discendente del do centrale.</p>

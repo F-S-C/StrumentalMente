@@ -28,7 +28,7 @@
 			<article>
 				<header>
 					<div class="blind-audio-buttons">
-						<button type="button" onclick="playStopAudio('blind-audio', this, 'stop-blind-audio');" class="btn-audio btn-accessibility">
+						<button type="button" id="play-blind-audio" onclick="playStopAudio('blind-audio', this, 'stop-blind-audio');" class="btn-audio btn-accessibility">
 							<i class="fas fa-universal-access"></i>
 						</button>
 						<button type="button" id="stop-blind-audio" class="btn-audio audio-reload" style="display: none;">
@@ -37,9 +37,7 @@
 					</div>
 					<h1>I valori e le pause</h1>
 					<h2>Cosa sono pause, battute e legature.</h2>
-					<audio id="blind-audio">
-						<source src="../../assets/audios/vocals/teoria/base/valori-pause.ogg" type="audio/ogg" />
-						<source src="../../assets/audios/vocals/teoria/base/valori-pause.wav" type="audio/wav" />
+					<audio id="blind-audio" src="../../assets/audios/vocals/teoria/base/valori-pause.wav">
 					</audio>
 					<div class="breadcrumbs-container">
 						<div class="breadcrumbs">
@@ -54,6 +52,8 @@
 					<hr />
 				</header>
 				<section class="hide">
+						<audio src="../../assets/audios/vocals/teoria/base/valori-pause.wav">
+						</audio>
 					<table class="values-table highlight rows" style="float: right;">
 						<thead>
 							<tr>
@@ -146,6 +146,8 @@
 						figura e ogni pausa vale infatti la metà della figura o pausa precedente.</p>
 				</section>
 				<section class="hide">
+					<audio src="../../assets/audios/vocals/teoria/base/ritmo.wav">
+					</audio>
 					<h2>La misura e le stanghette</h2>
 					<p>Per facilitare la lettura ritmica ogni brano musicale viene diviso in tante parti di eguale
 						durata chiamate <strong>misure o battute</strong>. La misura o la battuta è lo spazio esistente
@@ -180,6 +182,8 @@
 					</table>
 				</section>
 				<section class="hide">
+					<audio src="../../assets/audios/vocals/teoria/base/valori-pause.wav">
+					</audio>
 					<h2>I segni di prolungazione del suono</h2>
 					<p>Per aumentare il valore delle note oltre la durata della figura ci si serve della
 						<strong>legatura di valore</strong> e del <strong>punto di valore</strong>.</p>

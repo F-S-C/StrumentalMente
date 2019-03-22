@@ -23,7 +23,7 @@
 			<article>
 				<header>
 					<div class="blind-audio-buttons">
-						<button type="button" onclick="playStopAudio('blind-audio', this, 'stop-blind-audio');" class="btn-audio btn-accessibility">
+						<button type="button" id="play-blind-audio" onclick="playStopAudio('blind-audio', this, 'stop-blind-audio');" class="btn-audio btn-accessibility">
 							<i class="fas fa-universal-access"></i>
 						</button>
 						<button type="button" id="stop-blind-audio" class="btn-audio audio-reload" style="display: none;">
@@ -32,10 +32,7 @@
 					</div>
 					<h1>Il Ritmo</h1>
 					<h2>Cos'è il ritmo</h2>
-					<audio id="blind-audio">
-						<source src="../../assets/audios/vocals/teoria/base/ritmo.ogg" type="audio/ogg" />
-						<source src="../../assets/audios/vocals/teoria/base/ritmo.wav" type="audio/wav" />
-					</audio>
+					<audio id="blind-audio" src="../../assets/audios/vocals/teoria/base/ritmo.wav"></audio>
 					<div class="breadcrumbs-container">
 						<div class="breadcrumbs">
 							<button type="button" class="breadcrumb" onclick="window.parent.location.href = '../../home-teoria.html';">Teoria</button>

@@ -25,7 +25,7 @@ function openMobileNavigation() {
 var numberOfSections = 0, currentSection = 0;
 var returnToLast = false;
 var initialPage = "", baseFolder = "./";
-var sectionList;
+var audioSourcesList = [];
 var pagesName = {
 	previous: "Argomento Precedente",
 	previousLink: "argomento-successivo",
@@ -51,6 +51,38 @@ function setLinks(firstSlideNumber, links) {
 	initialize(initialPage, baseFolder);
 }
 
+let isBlindAudioEnded = false;
+/**
+ * Aggiorna la sorgente dell'audio per ciechi in base alla sezione corrente.
+ * 
+ * Il comportamento che segue è il seguente (descritto in pseudocodice):
+ * 
+ * if è_in_pausa AND cambia_slide then pausa()
+ * elseif è_in_play AND cambia_slide then play()
+ * elseif è_finito AND non_stoppato AND cambia_slide then play()
+ * elseif cambia_argomento then pausa()
+ * 
+ * @param {String} newSource La nuova sorgente per l'audio
+ */
+function updateBlindAudio(newSource) {
+	let iFrame = parent.document.getElementById("content-frame");
+	let iFrameDocument = iFrame.contentWindow || iFrame.contentDocument;
+	let audio = iFrameDocument.document.getElementById("blind-audio");
+	let paused = audio.paused && !audio.ended;
+	audio.pause();
+	audio.src = newSource ? newSource : audio.src;
+	audio.load();
+	if (!paused || isBlindAudioEnded) {
+		audio.currentTime = 0;
+		audio.play();
+		isBlindAudioEnded = false;
+	}
+}
+
+function endBlindAudio() {
+	isBlindAudioEnded = true;
+}
+
 /**
  * Funzione che, al caricamento della pagina, si occupa di impostare il numero 
  * di tag section presenti all'interno della pagina nella memoria locale del browser, di
@@ -65,10 +97,17 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 	initialPage = initial;
 	baseFolder = base;
 	currentSection = 0;
+	audioSourcesList = [];
 
 	var iFrame = document.getElementById("content-frame");
 	var iFrameDocument = iFrame.contentWindow || iFrame.contentDocument;
-	numberOfSections = iFrameDocument.document.getElementsByTagName("section").length;
+
+	var sections = iFrameDocument.document.getElementsByTagName("section");
+	numberOfSections = sections.length;
+	for (var i = 0; i < numberOfSections; i++) {
+		let element = sections[i].getElementsByTagName("audio")[0];
+		element && audioSourcesList.push(element.src);
+	}
 
 	iFrameDocument.document.getElementsByTagName("section")[0].className = "show";
 	iFrameDocument.document.getElementById("max-topic-slides").innerHTML = numberOfSections;
@@ -188,6 +227,8 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 			iFrameDocument.document.getElementsByTagName("section")[currentSection].className = "show";
 			iFrameDocument.document.getElementById("current-topic-slide").innerHTML = currentSection + 1;
 			canChangeSlide = true;
+			if (audioSourcesList.length > 0)
+				updateBlindAudio(audioSourcesList[currentSection]);
 		}, 100);
 	}
 
@@ -196,6 +237,7 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 			changeTopic(pagesName.previousLink, baseFolder);
 			if (pagesName.previousLink !== initialPage)
 				returnToLast = true;
+
 		}
 	};
 	let openPreviousSlide = (e) => {
@@ -208,8 +250,9 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 		}
 	};
 	let openNextTopic = (e) => {
-		if (canChangeSlide)
+		if (canChangeSlide) {
 			changeTopic(pagesName.nextLink, baseFolder);
+		}
 	};
 
 	previousTopicButton.removeEventListener("click", openPreviousTopic);
@@ -325,7 +368,6 @@ function changeQuizSlide(finalSlide) {
 	sectionsList[currentSection].className = "hide";
 
 	var questionsInNavbar = document.getElementsByClassName("question-link");
-	console.log(questionsInNavbar);
 	questionsInNavbar[currentSection].className = "question-link";
 
 	currentSection = finalSlide;
@@ -370,6 +412,7 @@ function playStopAudio(audioTagId, buttonRef, stopButtonId) {
 	var audio = document.getElementById(audioTagId);
 	buttonRef.blur();
 
+	audio.onended = endBlindAudio;
 	buttonRef.className = "btn-audio";
 	document.getElementById(stopButtonId).style.display = "inline-block";
 
@@ -384,16 +427,11 @@ function playStopAudio(audioTagId, buttonRef, stopButtonId) {
 		buttonRef.className = buttonRef.className.replace("audio-playing", "audio-stopped");
 	}
 
-	audio.addEventListener("ended", () => {
-		buttonRef.innerHTML = "<i class=\"fas fa-play\"></i>";
-		audio.pause();
-		audio.currentTime = 0;
-	});
-
 	document.getElementById(stopButtonId).onclick = () => {
 		buttonRef.innerHTML = "<i class=\"fas fa-play\"></i>";
 		audio.pause();
 		audio.currentTime = 0;
+		isBlindAudioEnded = false;
 	};
 }
 
