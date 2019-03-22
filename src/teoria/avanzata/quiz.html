@@ -2,10 +2,9 @@
 <html lang="it">
 
 <head>
-	<title>Strumenti - Quiz pianoforte</title>
+	<title>Teoria Avanzata - Quiz</title>
 	<link rel="icon" href="../../assets/icon.ico" />
 	<link href="../../assets/css/style.css" rel="stylesheet" />
-	<link href="../../assets/css/main/tab_chitarra.css" rel="stylesheet" />
 	<link href="../../assets/css/main/quiz.css" rel="stylesheet" />
 	<!-- FontAwesome -->
 	<link href="../../assets/css/fontawesome/css/all.min.css" rel="stylesheet" />
@@ -18,13 +17,13 @@
 	<meta name="robots" content="index, follow">
 </head>
 
-<body name="quiz-page" onload="quizLoad('piano');">
+<body name="quiz-page" onload="quizLoad('avanzata');">
 	<header>
 		<div id="titlebar">
 			<div id="drag-region">
 				<div id="window-title">
 					<img id="window-title-image" src="../../assets/icon.ico" alt="Icona" />
-					<span id="window-title-text">Strumenti - Quiz pianoforte</span>
+					<span id="window-title-text">Teoria Avanzata - Quiz</span>
 				</div>
 				<div id="window-controls">
 					<div class="button" id="min-button">
@@ -49,7 +48,7 @@
 		<nav class="main-navigation" id="main-nav">
 			<ul>
 				<li class="logo">
-					<a href="javascript:void(0);" onclick="showExitFromQuizDialog('./teoria-piano.html');">
+					<a href="javascript:void(0);" onclick="showExitFromQuizDialog('./home-teoria.html');">
 						<img src="../../assets/icon.ico" width="" height="" alt="">
 						<h1>Strumental<wbr /><span>Mente</span></h1>
 					</a>
@@ -85,7 +84,7 @@
 					</button>
 				</li>
 				<li>
-					<button type="button" onclick="showExitFromQuizDialog('./teoria-piano.html');">
+					<button type="button" onclick="showExitFromQuizDialog('./home-teoria.html');">
 						<i class="fas fa-arrow-circle-left"></i> Torna alla home
 					</button>
 				</li>
@@ -110,80 +109,79 @@
 		<div class="content">
 			<article id="quiz_container">
 				<header>
-					<h1>Pianoforte</h1>
-					<h2>Domande sul pianoforte</h2>
+					<h1>Teoria Avanzata</h1>
+					<h2>Domande sulla Teoria Avanzata</h2>
 					<div class="breadcrumbs-container">
 						<div class="breadcrumbs">
-							<button type="button" class="breadcrumb" onclick="showExitFromQuizDialog('./home-strumenti.html');">Strumenti</button>
-							<button type="button" class="breadcrumb" onclick="showExitFromQuizDialog('./teoria-piano.html');">Pianoforte</button>
-							<span class="breadcrumb">Quiz</span>
+							<button type="button" class="breadcrumb" onclick="showExitFromQuizDialog('./home-teoria.html');">Teoria</button>
+							<span class="breadcrumb">Quiz - Teoria Avanzata</span>
 						</div>
 					</div>
 					<hr />
 				</header>
 				<section class="show">
-					<h2>In cosa consiste il tocco metallico?</h2>
+					<h2>Cosa è la distanza?</h2>
 					<form>
 						<input type="radio" id="d1" style="grid-area: a;" name="domanda1" value="1"></input>
-						<label for="d1" style="grid-area: a;">Il tasto viene abbassato con estrema violenza</label>
+						<label for="d1" style="grid-area: a;">La diversità di altezza</label>
 						<input type="radio" id="d2" style="grid-area: b;" name="domanda1" value="0"></input>
-						<label for="d2" style="grid-area: b;">Il tasto viene abbassato con estrema delicatezza</label>
+						<label for="d2" style="grid-area: b;">La diversità di intensità</label>
 						<input type="radio" id="d3" style="grid-area: c;" name="domanda1" value="0"></input>
-						<label for="d3" style="grid-area: c;">Il tasto non viene abbassato proprio</label>
+						<label for="d3" style="grid-area: c;">La diversità di durata</label>
 						<input type="radio" id="d4" style="grid-area: d;" name="domanda1" value="0"></input>
-						<label for="d4" style="grid-area: d;">Il tasto viene abbassato con poca violenza</label>
+						<label for="d4" style="grid-area: d;">La diversità di timbro</label>
 					</form>
 				</section>
 				<section class="hide">
-					<h2>Su cosa si basa il sistema articolatorio?</h2>
+					<h2>Da cosa è formato un tono?</h2>
 					<form>
 						<input type="radio" id="d5" style="grid-area: a;" name="domanda2" value="1"></input>
-						<label for="d5" style="grid-area: a;">Indipendenza delle dita</label>
+						<label for="d5" style="grid-area: a;">Da due semitoni</label>
 						<input type="radio" id="d6" style="grid-area: b;" name="domanda2" value="0"></input>
-						<label for="d6" style="grid-area: b;">Indipendenza dei piedi</label>
+						<label for="d6" style="grid-area: b;">Da tre semitoni</label>
 						<input type="radio" id="d7" style="grid-area: c;" name="domanda2" value="0"></input>
-						<label for="d7" style="grid-area: c;">Indipendenza di mani e piedi</label>
+						<label for="d7" style="grid-area: c;">Da un semitono e mezzo</label>
 						<input type="radio" id="d8" style="grid-area: d;" name="domanda2" value="0"></input>
-						<label for="d8" style="grid-area: d;">Indipendenza dall’orecchio musicale</label>
+						<label for="d8" style="grid-area: d;">Da quattro semitoni</label>
 					</form>
 				</section>
 				<section class="hide">
-					<h2>Nella diteggiatura pianistica, a cosa corrisponde il medio?</h2>
+					<h2>Cosa è un semitono?</h2>
 					<form>
 						<input type="radio" id="d9" style="grid-area: a;" name="domanda3" value="1"></input>
-						<label for="d9" style="grid-area: a;">3</label>
+						<label for="d9" style="grid-area: a;">È l’intervallo più piccolo fra due gradi congiunti</label>
 						<input type="radio" id="d10" style="grid-area: b;" name="domanda3" value="0"></input>
-						<label for="d10" style="grid-area: b;">4</label>
+						<label for="d10" style="grid-area: b;">È l’intervallo più piccolo fra tre gradi congiunti</label>
 						<input type="radio" id="d11" style="grid-area: c;" name="domanda3" value="0"></input>
-						<label for="d11" style="grid-area: c;">2</label>
+						<label for="d11" style="grid-area: c;">È l’intervallo fra due gradi congiunti</label>
 						<input type="radio" id="d12" style="grid-area: d;" name="domanda3" value="0"></input>
-						<label for="d12" style="grid-area: d;">1</label>
+						<label for="d12" style="grid-area: d;">È l’intervallo più grande fra due gradi congiunti</label>
 					</form>
 				</section>
 				<section class="hide">
-					<h2>In cosa consiste il legato?</h2>
+					<h2>Come si dividono le alterazioni?</h2>
 					<form>
 						<input type="radio" id="d13" style="grid-area: a;" name="domanda4" value="1"></input>
-						<label for="d13" style="grid-area: a;">Tra una nota e l’altra non esiste una pausa</label>
+						<label for="d13" style="grid-area: a;">Alterazioni semplici – Alterazioni doppie</label>
 						<input type="radio" id="d14" style="grid-area: b;" name="domanda4" value="0"></input>
-						<label for="d14" style="grid-area: b;">Tra una nota e l’altra esiste una pausa di un secondo</label>
+						<label for="d14" style="grid-area: b;">Diesis – Doppio diesis</label>
 						<input type="radio" id="d15" style="grid-area: c;" name="domanda4" value="0"></input>
-						<label for="d15" style="grid-area: c;">Tra una nota e l’altra esiste una pausa di tre secondi</label>
+						<label for="d15" style="grid-area: c;">Bemolle - Doppio bemolle</label>
 						<input type="radio" id="d16" style="grid-area: d;" name="domanda4" value="0"></input>
-						<label for="d16" style="grid-area: d;">Tra una nota e l’altra esiste una pausa di due secondi</label>
+						<label for="d16" style="grid-area: d;">Diesis, bemolle – Doppio diesis, doppio bemolle</label>
 					</form>
 				</section>
 				<section class="hide">
-					<h2>In cosa consiste lo staccato normale?</h2>
+					<h2>Quando si dice che un intervallo è melodico?</h2>
 					<form>
 						<input type="radio" id="d17" style="grid-area: a;" name="domanda5" value="1"></input>
-						<label for="d17" style="grid-area: a;">Ribalzo della mano con un leggero e veloce movimento di polso</label>
+						<label for="d17" style="grid-area: a;">Quando le note che lo compongono sono eseguite successivamente</label>
 						<input type="radio" id="d18" style="grid-area: b;" name="domanda5" value="0"></input>
-						<label for="d18" style="grid-area: b;">Rimbalzo della mano con un pesante e veloce movimento di polso</label>
+						<label for="d18" style="grid-area: b;">Quando le note che lo compongono sono eseguite in modo alternato</label>
 						<input type="radio" id="d16" style="grid-area: c;" name="domanda5" value="0"></input>
-						<label for="d16" style="grid-area: c;">Rimbalzo della mano con un leggero e lento movimento di polso</label>
+						<label for="d16" style="grid-area: c;">Quando le note che lo compongono sono eseguite simultaneamente</label>
 						<input type="radio" id="d20" style="grid-area: d;" name="domanda5" value="0"></input>
-						<label for="d20" style="grid-area: d;">Rimbalzo della mano con un pesato e lento movimento di polso</label>
+						<label for="d20" style="grid-area: d;">Quanto le note che lo compongono sono eseguite a due a due</label>
 					</form>
 				</section>
 			</article>
@@ -197,10 +195,10 @@
 					<button type="button" id="next" class="btn">
 						Avanti <i class="btn-icon fas fa-arrow-circle-right"></i>
 					</button>
-					<button type="button" id="end" class="btn" onclick="quizVerify('teoria-piano');" style="display: none;">
+					<button type="button" id="end" class="btn" onclick="quizVerify('home-teoria');" style="display: none;">
 						Verifica <i class="fas fa-check-circle"></i>
 					</button>
-					<a id="exit" class="btn" href="./teoria-piano.html" style="display: none;">
+					<a id="exit" class="btn" href="../../home-teoria.html" style="display: none;">
 						Esci <i class="btn-icon fas fa-running"></i>
 					</a>
 				</div>

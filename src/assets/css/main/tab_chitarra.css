@@ -67,6 +67,7 @@
 .box {
 	float: left;
 	width: 400px;
+	margin-left: 10px;
 }
 
 .diagramma .riga {

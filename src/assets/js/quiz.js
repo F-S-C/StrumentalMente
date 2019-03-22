@@ -44,11 +44,11 @@ function quizLoad(id) {
 	initializeQuiz();
 }
 
-function quizVerify() {
+function quizVerify(return_link) {
 	answersCheck();
 	if (document.getElementsByName("chord")[0] != undefined)
 		verify_and_store();
-	showQuizDialog(quiz_id, sessionStorage.getItem('score'), sessionStorage.getItem('score_max'));
+	showQuizDialog(quiz_id, sessionStorage.getItem('score'), sessionStorage.getItem('score_max'), return_link);
 }
 
 function quizCompare() {

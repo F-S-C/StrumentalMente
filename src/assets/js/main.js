@@ -22,27 +22,6 @@ function openMobileNavigation() {
 	}
 }
 
-/**
- * Permette, alla pressione di un bottone, di aprire una sottolista
- * della navbar.
- * 
- * @param {String} name L'ID della lista che si vuole controllare
- * @param {String} [defaultLinkClass] La classe iniziale del bottone
- */
-function drop(name, defaultLinkClass = "") {
-	var el = document.getElementById(name), link = document.getElementById(name + "-link");
-	var i = 0;
-	if (el.className !== "show") {
-		el.className = "show";
-		link.className += " open";
-	}
-	else {
-		el.className = "";
-		link.className = defaultLinkClass;
-	}
-}
-
-
 var numberOfSections = 0, currentSection = 0;
 var returnToLast = false;
 var initialPage = "", baseFolder = "./";
@@ -269,7 +248,7 @@ function changeTopic(topicName, base = "./") {
 	var iFrame = document.getElementById("content-frame");
 	currentSection = 0;
 	parent.document.activeElement.blur();
-	if (topicName !== "quiz") {
+	if (!topicName.includes("quiz")) {
 		iFrame.src = base + topicName + ".html";
 	}
 	else

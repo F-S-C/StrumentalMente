@@ -187,7 +187,7 @@
 				</li>
 				<li><a href="./home.html"><i class="fas fa-home"></i> Home</a></li>
 				<li><a class="active" href="#" title="Mostra il profilo dell'utente (Alt+P)"><i class="fas fa-user-circle"></i> Profilo</a></li>
-				<li><a href="./home-teoria.html" title="Apri la lista degli argomenti (Alt+T)"><i class="fas fa-book"></i>Teoria</a></li>
+				<li><a href="./home-teoria.html" title="Apri la lista degli argomenti (Alt+T)"><i class="fas fa-book"></i> Teoria</a></li>
 				<li><a href="./home-strumenti.html" title="Apri la lista di srumenti (Alt+S S)"><i class="fas fa-guitar"></i> Strumenti</a></li>
 				<li><a title="Apri la lista di strumenti per vederne gli accordi (Alt+A A)" href="./home-accordi.html"><i class="fas fa-music"></i> Accordi</a></li>
 				<li>
@@ -196,7 +196,7 @@
 					</button>
 				</li>
 				<li>
-					<button type="button" onclick="openModal('./helpers/help-home.html');" title="Mostra l'aiuto (F1)">
+					<button type="button" onclick="openModal('./helpers/help-profilo.html');" title="Mostra l'aiuto (F1)">
 						<i class="fas fa-question"></i> Aiuto
 					</button>
 				</li>
@@ -279,7 +279,7 @@
 	<script src="./assets/js/main.js"></script>
 	<script src="./assets/js/render.js"></script>
 	<script>
-		openOnKeyboardShortcut("F1", "./helpers/help-home.html", true);
+		openOnKeyboardShortcut("F1", "./helpers/help-profilo.html", true);
 
 		window.onload = () => {
 			let usernameContainer = document.getElementById("username");
