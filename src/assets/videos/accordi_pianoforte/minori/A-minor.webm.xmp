@@ -1,23 +1,23 @@
 <?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
-<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.6-c145 79.163499, 2018/08/13-16:40:22        " rdfhash="676FEBE11913D316DC3B61127EC19B50" merged="0">
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.6-c145 79.163499, 2018/08/13-16:40:22        " rdfhash="DA6A7D3A20C334A7AA3C2AE08C0EAC22" merged="0">
  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
   <rdf:Description rdf:about=""
     xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/"
     xmlns:stEvt="http://ns.adobe.com/xap/1.0/sType/ResourceEvent#"
     xmlns:stRef="http://ns.adobe.com/xap/1.0/sType/ResourceRef#"
     xmlns:xmp="http://ns.adobe.com/xap/1.0/"
-    xmlns:xmpDM="http://ns.adobe.com/xmp/1.0/DynamicMedia/"
     xmlns:tiff="http://ns.adobe.com/tiff/1.0/"
+    xmlns:xmpDM="http://ns.adobe.com/xmp/1.0/DynamicMedia/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
     xmlns:creatorAtom="http://ns.adobe.com/creatorAtom/1.0/"
     xmlns:stDim="http://ns.adobe.com/xap/1.0/sType/Dimensions#"
-    xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmpMM:InstanceID="xmp.iid:24f85746-2219-054b-88ff-ab869ab5b61c"
-   xmpMM:DocumentID="b5f3bff0-67c8-91b8-109d-251f0000003b"
-   xmpMM:OriginalDocumentID="xmp.did:5c124309-7496-194a-8e82-2329c01391bc"
-   xmp:MetadataDate="2019-02-15T00:52:43+01:00"
-   xmp:ModifyDate="2019-02-15T00:52:43+01:00"
+   xmpMM:InstanceID="xmp.iid:d3cc6b19-ae0f-cd44-bcc6-c7899daf2ad4"
+   xmpMM:DocumentID="c21af8a0-7269-6aa8-d04d-4fa500000043"
+   xmpMM:OriginalDocumentID="xmp.did:a98980cd-386e-9048-8646-a100929fa254"
+   xmp:MetadataDate="2019-03-22T17:33:13+01:00"
+   xmp:ModifyDate="2019-03-22T17:33:13+01:00"
    xmp:CreatorTool="Adobe Premiere Pro CC 2019.0 (Windows)"
-   xmp:CreateDate="2019-02-15T00:49:43+01:00"
+   xmp:CreateDate="2019-03-22T17:31:02+01:00"
    xmpDM:videoFrameRate="25.000000"
    xmpDM:videoFieldOrder="Progressive"
    xmpDM:videoPixelAspectRatio="1/1"
@@ -31,25 +31,25 @@
     <rdf:Seq>
      <rdf:li
       stEvt:action="saved"
-      stEvt:instanceID="76e75688-724f-9d37-7d33-88f400000068"
-      stEvt:when="2019-02-15T00:52:43+01:00"
+      stEvt:instanceID="1209b8ab-bfdb-0acb-bd46-e2ee00000070"
+      stEvt:when="2019-03-22T17:33:13+01:00"
       stEvt:softwareAgent="Adobe Premiere Pro CC 2019.0 (Windows)"
       stEvt:changed="/"/>
      <rdf:li
       stEvt:action="created"
-      stEvt:instanceID="xmp.iid:499896ca-64a0-5948-b1bf-67e61aa2ffab"
-      stEvt:when="2019-02-15T00:49:21+01:00"
+      stEvt:instanceID="xmp.iid:f398c6e8-bebc-e64a-a440-066c8ec103f9"
+      stEvt:when="2019-03-22T17:31:08+01:00"
       stEvt:softwareAgent="Adobe Premiere Pro CC 2019.0 (Windows)"/>
      <rdf:li
       stEvt:action="saved"
-      stEvt:instanceID="xmp.iid:c9ddf123-40ed-ed42-b298-f23d11b8d1ed"
-      stEvt:when="2019-02-15T00:52:43+01:00"
+      stEvt:instanceID="xmp.iid:1136d364-8db7-1e46-b7bf-67f48ba27546"
+      stEvt:when="2019-03-22T17:33:13+01:00"
       stEvt:softwareAgent="Adobe Premiere Pro CC 2019.0 (Windows)"
       stEvt:changed="/"/>
      <rdf:li
       stEvt:action="saved"
-      stEvt:instanceID="xmp.iid:24f85746-2219-054b-88ff-ab869ab5b61c"
-      stEvt:when="2019-02-15T00:52:43+01:00"
+      stEvt:instanceID="xmp.iid:d3cc6b19-ae0f-cd44-bcc6-c7899daf2ad4"
+      stEvt:when="2019-03-22T17:33:13+01:00"
       stEvt:softwareAgent="Adobe Premiere Pro CC 2019.0 (Windows)"
       stEvt:changed="/metadata"/>
     </rdf:Seq>
@@ -57,25 +57,25 @@
    <xmpMM:Ingredients>
     <rdf:Bag>
      <rdf:li
-      stRef:instanceID="3a7568f7-1b47-3461-d194-ac4c000000b6"
-      stRef:documentID="a8bfe654-065b-c087-4d1d-b8a600000089"
-      stRef:fromPart="time:193052160000f254016000000d2651927040000f254016000000"
-      stRef:toPart="time:0d2651927040000f254016000000"
-      stRef:filePath="Untitled Project render #1 [track 10] - la-.wav"
+      stRef:instanceID="d6b9118b-07c3-a2ed-d755-fe5e0000006e"
+      stRef:documentID="a2f6a51a-a5f5-82cb-6be6-5a8400000041"
+      stRef:fromPart="time:0d2082931200000f254016000000"
+      stRef:toPart="time:568995840000f254016000000d2082931200000f254016000000"
+      stRef:filePath="A-minor.mp3"
       stRef:maskMarkers="None"/>
      <rdf:li
-      stRef:instanceID="780422e2-b3a9-5c22-1629-2ae800000066"
-      stRef:documentID="a878d982-39bb-6c8d-e32d-855000000039"
-      stRef:fromPart="time:60963840000f254016000000d2651927040000f254016000000"
+      stRef:instanceID="dd9f922b-fd18-239a-c11b-e03b0000006e"
+      stRef:documentID="2a226443-2b63-c99a-4577-385800000041"
+      stRef:fromPart="time:0d2651927040000f254016000000"
       stRef:toPart="time:0d2651927040000f254016000000"
-      stRef:filePath="La-.MOV"
+      stRef:filePath="A-minor.mp4"
       stRef:maskMarkers="None"/>
      <rdf:li
-      stRef:instanceID="780422e2-b3a9-5c22-1629-2ae800000066"
-      stRef:documentID="a878d982-39bb-6c8d-e32d-855000000039"
-      stRef:fromPart="time:60963840000f254016000000d2651927040000f254016000000"
+      stRef:instanceID="dd9f922b-fd18-239a-c11b-e03b0000006e"
+      stRef:documentID="2a226443-2b63-c99a-4577-385800000041"
+      stRef:fromPart="time:0d2651927040000f254016000000"
       stRef:toPart="time:0d2651927040000f254016000000"
-      stRef:filePath="La-.MOV"
+      stRef:filePath="A-minor.mp4"
       stRef:maskMarkers="None"/>
     </rdf:Bag>
    </xmpMM:Ingredients>
@@ -109,9 +109,6 @@
        xmpMM:InstanceID="780422e2-b3a9-5c22-1629-2ae800000066"
        xmpMM:DocumentID="a878d982-39bb-6c8d-e32d-855000000039"
        xmpMM:OriginalDocumentID="xmp.did:9408a39d-5a7b-3f45-bfbe-8d3a7e2cf076">
-      <xmpDM:duration
-       xmpDM:value="292000"
-       xmpDM:scale="1/25000"/>
       <xmpMM:History>
        <rdf:Seq>
         <rdf:li
@@ -122,18 +119,156 @@
          stEvt:changed="/"/>
        </rdf:Seq>
       </xmpMM:History>
+      <xmpDM:duration
+       xmpDM:value="292000"
+       xmpDM:scale="1/25000"/>
+      </rdf:Description>
+     </rdf:li>
+     <rdf:li>
+      <rdf:Description
+       xmpDM:artist="StrumentalMente"
+       xmpDM:album="Accordi Pianoforte"
+       xmp:CreateDate="2019"
+       xmp:MetadataDate="2019-03-22T17:29:08+01:00"
+       xmp:ModifyDate="2019-03-22T17:29:08+01:00"
+       xmpMM:InstanceID="d6b9118b-07c3-a2ed-d755-fe5e0000006e"
+       xmpMM:DocumentID="a2f6a51a-a5f5-82cb-6be6-5a8400000041"
+       xmpMM:OriginalDocumentID="xmp.did:d2a094d2-4714-1e4d-85e8-811752d44ba9">
+      <dc:title>
+       <rdf:Alt>
+        <rdf:li xml:lang="x-default">Accordo di La-</rdf:li>
+       </rdf:Alt>
+      </dc:title>
+      <xmpMM:History>
+       <rdf:Seq>
+        <rdf:li
+         stEvt:action="saved"
+         stEvt:instanceID="d6b9118b-07c3-a2ed-d755-fe5e0000006e"
+         stEvt:when="2019-03-22T17:29:08+01:00"
+         stEvt:softwareAgent="Adobe Premiere Pro CC 2019.0 (Windows)"
+         stEvt:changed="/"/>
+       </rdf:Seq>
+      </xmpMM:History>
+      </rdf:Description>
+     </rdf:li>
+     <rdf:li>
+      <rdf:Description
+       xmp:CreateDate="2019-02-14T23:55:44Z"
+       xmp:ModifyDate="2019-03-22T17:29:08+01:00"
+       xmp:MetadataDate="2019-03-22T17:29:08+01:00"
+       xmp:CreatorTool="Adobe Premiere Pro CC 2019.0 (Windows)"
+       xmpDM:videoFrameRate="25.000000"
+       xmpDM:videoFieldOrder="Progressive"
+       xmpDM:videoPixelAspectRatio="1/1"
+       xmpDM:audioSampleRate="48000"
+       xmpDM:audioSampleType="16Int"
+       xmpDM:audioChannelType="Stereo"
+       xmpDM:startTimeScale="25"
+       xmpDM:startTimeSampleSize="1"
+       tiff:Orientation="1"
+       xmpMM:InstanceID="dd9f922b-fd18-239a-c11b-e03b0000006e"
+       xmpMM:DocumentID="2a226443-2b63-c99a-4577-385800000041"
+       xmpMM:OriginalDocumentID="xmp.did:c1ef3c0d-13a0-9546-8bfd-85d2922881e5"
+       dc:format="H.264">
+      <xmpDM:projectRef
+       xmpDM:type="movie"/>
+      <xmpDM:videoFrameSize
+       stDim:w="1920"
+       stDim:h="1080"
+       stDim:unit="pixel"/>
+      <xmpDM:startTimecode
+       xmpDM:timeFormat="25Timecode"
+       xmpDM:timeValue="00:00:00:00"/>
+      <xmpDM:altTimecode
+       xmpDM:timeValue="00:00:00:00"
+       xmpDM:timeFormat="25Timecode"/>
+      <xmpDM:duration
+       xmpDM:value="942720"
+       xmpDM:scale="1/90000"/>
+      <xmpMM:History>
+       <rdf:Seq>
+        <rdf:li
+         stEvt:action="saved"
+         stEvt:instanceID="14313653-6bb3-7950-c249-50c500000066"
+         stEvt:when="2019-02-15T00:55:44+01:00"
+         stEvt:softwareAgent="Adobe Premiere Pro CC 2019.0 (Windows)"
+         stEvt:changed="/"/>
+        <rdf:li
+         stEvt:action="created"
+         stEvt:instanceID="xmp.iid:f341a580-7d27-8842-9b66-d28543fa23e0"
+         stEvt:when="2019-02-15T00:55:21+01:00"
+         stEvt:softwareAgent="Adobe Premiere Pro CC 2019.0 (Windows)"/>
+        <rdf:li
+         stEvt:action="saved"
+         stEvt:instanceID="xmp.iid:474bd42b-2783-5045-8875-bb3378f41ed8"
+         stEvt:when="2019-02-15T00:55:44+01:00"
+         stEvt:softwareAgent="Adobe Premiere Pro CC 2019.0 (Windows)"
+         stEvt:changed="/"/>
+        <rdf:li
+         stEvt:action="saved"
+         stEvt:instanceID="xmp.iid:5901a381-3c1a-7e4d-8da8-c733008a8020"
+         stEvt:when="2019-02-15T00:55:44+01:00"
+         stEvt:softwareAgent="Adobe Premiere Pro CC 2019.0 (Windows)"
+         stEvt:changed="/metadata"/>
+        <rdf:li
+         stEvt:action="modified"
+         stEvt:parameters="unknown modifications"/>
+        <rdf:li
+         stEvt:action="saved"
+         stEvt:instanceID="dd9f922b-fd18-239a-c11b-e03b0000006e"
+         stEvt:when="2019-03-22T17:29:08+01:00"
+         stEvt:softwareAgent="Adobe Premiere Pro CC 2019.0 (Windows)"
+         stEvt:changed="/"/>
+       </rdf:Seq>
+      </xmpMM:History>
+      <xmpMM:Ingredients>
+       <rdf:Bag>
+        <rdf:li
+         stRef:instanceID="3a7568f7-1b47-3461-d194-ac4c000000b6"
+         stRef:documentID="a8bfe654-065b-c087-4d1d-b8a600000089"
+         stRef:fromPart="time:193052160000f254016000000d2651927040000f254016000000"
+         stRef:toPart="time:0d2651927040000f254016000000"
+         stRef:filePath="Untitled Project render #1 [track 10] - la-.wav"
+         stRef:maskMarkers="None"/>
+        <rdf:li
+         stRef:instanceID="780422e2-b3a9-5c22-1629-2ae800000066"
+         stRef:documentID="a878d982-39bb-6c8d-e32d-855000000039"
+         stRef:fromPart="time:60963840000f254016000000d2651927040000f254016000000"
+         stRef:toPart="time:0d2651927040000f254016000000"
+         stRef:filePath="La-.MOV"
+         stRef:maskMarkers="None"/>
+        <rdf:li
+         stRef:instanceID="780422e2-b3a9-5c22-1629-2ae800000066"
+         stRef:documentID="a878d982-39bb-6c8d-e32d-855000000039"
+         stRef:fromPart="time:60963840000f254016000000d2651927040000f254016000000"
+         stRef:toPart="time:0d2651927040000f254016000000"
+         stRef:filePath="La-.MOV"
+         stRef:maskMarkers="None"/>
+       </rdf:Bag>
+      </xmpMM:Ingredients>
+      <xmpMM:DerivedFrom
+       stRef:instanceID="xmp.iid:f341a580-7d27-8842-9b66-d28543fa23e0"
+       stRef:documentID="xmp.did:f341a580-7d27-8842-9b66-d28543fa23e0"
+       stRef:originalDocumentID="xmp.did:f341a580-7d27-8842-9b66-d28543fa23e0"/>
+      <creatorAtom:windowsAtom
+       creatorAtom:extension=".prproj"
+       creatorAtom:invocationFlags="/L"
+       creatorAtom:uncProjectPath="\\?\C:\Users\aanne\Desktop\Pianoforte\Senza titolo.prproj"/>
+      <creatorAtom:macAtom
+       creatorAtom:applicationCode="1347449455"
+       creatorAtom:invocationAppleEvent="1129468018"/>
       </rdf:Description>
      </rdf:li>
     </rdf:Bag>
    </xmpMM:Pantry>
    <xmpMM:DerivedFrom
-    stRef:instanceID="xmp.iid:499896ca-64a0-5948-b1bf-67e61aa2ffab"
-    stRef:documentID="xmp.did:499896ca-64a0-5948-b1bf-67e61aa2ffab"
-    stRef:originalDocumentID="xmp.did:499896ca-64a0-5948-b1bf-67e61aa2ffab"/>
+    stRef:instanceID="xmp.iid:f398c6e8-bebc-e64a-a440-066c8ec103f9"
+    stRef:documentID="xmp.did:f398c6e8-bebc-e64a-a440-066c8ec103f9"
+    stRef:originalDocumentID="xmp.did:f398c6e8-bebc-e64a-a440-066c8ec103f9"/>
    <creatorAtom:windowsAtom
     creatorAtom:extension=".prproj"
     creatorAtom:invocationFlags="/L"
-    creatorAtom:uncProjectPath="\\?\C:\Users\aanne\Desktop\Pianoforte\Senza titolo.prproj"/>
+    creatorAtom:uncProjectPath="\\?\C:\Users\aanne\Documents\Adobe\Premiere Pro\13.0\Correzione piano.prproj"/>
    <creatorAtom:macAtom
     creatorAtom:applicationCode="1347449455"
     creatorAtom:invocationAppleEvent="1129468018"/>
