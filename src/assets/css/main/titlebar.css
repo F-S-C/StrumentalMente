@@ -92,3 +92,7 @@
 	width: 16px;
 	margin-right: 138px;
 }
+
+#window-title-text {
+	font-family: var(--font-title);
+}
