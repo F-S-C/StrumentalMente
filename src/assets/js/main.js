@@ -265,6 +265,18 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 	nextTopicButton.removeEventListener("click", openNextTopic);
 	nextTopicButton.addEventListener("click", openNextTopic);
 
+	iFrameDocument.document.getElementById("blind-audio").addEventListener("ended", () => {
+		if (currentSection === numberOfSections - 1) {
+			nextTopicButton.click();
+			setTimeout(() => {
+				let iFrame2 = parent.document.getElementById("content-frame");
+				let iFrameDocument2 = iFrame2.contentWindow || iFrame2.contentDocument;
+				iFrameDocument2.document.getElementById("play-blind-audio").click();
+			}, 200);
+		}
+		else
+			nextSlideButton.click();
+	});
 
 	const Mousetrap = require("mousetrap");
 	Mousetrap.bind("right", () => {
@@ -412,7 +424,7 @@ function playStopAudio(audioTagId, buttonRef, stopButtonId) {
 	var audio = document.getElementById(audioTagId);
 	buttonRef.blur();
 
-	audio.onended = endBlindAudio;
+	audio.addEventListener("ended", endBlindAudio);
 	buttonRef.className = "btn-audio";
 	document.getElementById(stopButtonId).style.display = "inline-block";
 
