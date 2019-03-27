@@ -82,6 +82,10 @@ kbd {
   margin: 0px 3px 0px 3px;
 }
 
+aside h6, aside p {
+	display: inline;
+}
+
 table {
   border-collapse: collapse;
   overflow: hidden;
