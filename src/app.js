@@ -41,10 +41,10 @@ function createWindow() {
 	var windowState = {};
 	try {
 		windowState = global.nodeStorage.getItem("WindowState");
-		windowState = windowState ? windowState : {};
+		windowState = windowState ? windowState : { bounds: { width: 1066, height: 600 }, isMaximized: true };
 	} catch (err) {
 		global.nodeStorage.setItem("WindowState", {});
-		windowState = {};
+		windowState = { bounds: { width: 1066, height: 600 }, isMaximized: true };
 	}
 
 	try {
@@ -65,20 +65,22 @@ function createWindow() {
 		global.nodeStorage.setItem("Profile", temp);
 	}
 
-	if (!windowState)
-		windowState = { bounds: { width: 1066, height: 600 }, isMaximized: true };
-
 	win = new BrowserWindow({
 		width: windowState.bounds && windowState.bounds.width || 1066,
 		height: windowState.bounds && windowState.bounds.height || 600,
-		show: true,
+		show: false,
 		icon: "./assets/icon.ico",
 		frame: false,
 		center: true
 	});
 
-	if (windowState.isMaximized)
-		win.maximize();
+	win.on("ready-to-show", () => {
+		if (windowState.isMaximized)
+			win.maximize();
+		win.show();
+	});
+
+
 
 	win.loadFile("index.html");
 
@@ -133,11 +135,15 @@ function promptModal(parentWindow, options = {}, file = "./dialogs/exit-dialog.h
 		width: options.width || 400,
 		height: options.height || 250,
 		parent: parentWindow,
-		show: true,
+		show: false,
 		modal: true,
 		title: options.title,
 		frame: false,
 		autoHideMenuBar: true
+	});
+
+	promptWindow.on("ready-to-show", () => {
+		promptWindow.show();
 	});
 	promptWindow.on('closed', () => {
 		promptWindow = null;
@@ -182,7 +188,7 @@ ipcMain.on("save-quiz", (event, quiz) => {
 });
 
 ipcMain.on("get-quiz", (event, quizName) => {
-	event.returnValue = allQuizzes? allQuizzes[quizName] : undefined;
+	event.returnValue = allQuizzes ? allQuizzes[quizName] : undefined;
 });
 
 ipcMain.on("get-user", (event) => {
