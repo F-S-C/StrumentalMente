@@ -10,6 +10,28 @@
 
 const remote = require('electron').remote; // Riferimento a Electron
 
+function warnIfIncomplete(previousQuizId, previousQuizName, topicToOpenName, callback) {
+	const { ipcRenderer } = require("electron");
+	var result = ipcRenderer.sendSync("get-quiz", previousQuizId);
+	if (!result) {
+		let hasBeenAsked = JSON.parse(sessionStorage.getItem(`${topicToOpenName}-notdone-asked`));
+		sessionStorage.setItem(`${topicToOpenName}-notdone-asked`, "true");
+
+		var answer = hasBeenAsked || ipcRenderer.sendSync("prompt", {
+			title: "Attenzione!",
+			label: `Hai scelto di proseguire <em>${topicToOpenName}</em> senza aver completato il quiz di <em>${previousQuizName}</em>! Sei sicuro di voler continuare?`,
+			yes: "Sì",
+			yesReturn: true,
+			no: "No",
+			noReturn: false,
+			file: "./dialogs/exit-dialog.html"
+		});
+
+		if (answer)
+			callback();
+	}
+}
+
 /**
  * Gestisce gli eventi della titlebar.
  * 
