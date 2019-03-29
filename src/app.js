@@ -12,6 +12,39 @@
  * - L'apertura di finestra secondarie 
  */
 
+/** v. https://gist.github.com/paulcbetts/da85dd246db944c32427d72026192b41 */
+(function () {
+	// Include this at the very top of both your main and window processes, so that
+	// it loads as soon as possible.
+	//
+	// Why does this work? The node.js module system calls fs.realpathSync a _lot_
+	// to load stuff, which in turn, has to call fs.lstatSync a _lot_. While you
+	// generally can't cache stat() results because they change behind your back
+	// (i.e. another program opens a file, then you stat it, the stats change),
+	// caching it for a very short period of time is :ok: :gem:. These effects are
+	// especially apparent on Windows, where stat() is far more expensive - stat()
+	// calls often take more time in the perf graph than actually evaluating the
+	// code!!
+
+	// npm install lru-cache first
+	const LRU = require('lru-cache');
+	var lru = new LRU({ max: 256, maxAge: 250/*ms*/ });
+
+	var fs = require('fs');
+	var origLstat = fs.lstatSync.bind(fs);
+
+	// NB: The biggest offender of thrashing lstatSync is the node module system
+	// itself, which we can't get into via any sane means.
+	fs.lstatSync = function (p) {
+		let r = lru.get(p);
+		if (r) return r;
+
+		r = origLstat(p);
+		lru.set(p, r);
+		return r;
+	};
+})();
+
 const { app, BrowserWindow, ipcMain } = require("electron");
 const JSONStorage = require('node-localstorage').JSONStorage;
 const storageLocation = app.getPath('userData');
@@ -41,10 +74,10 @@ function createWindow() {
 	var windowState = {};
 	try {
 		windowState = global.nodeStorage.getItem("WindowState");
-		windowState = windowState ? windowState : {};
+		windowState = windowState ? windowState : { bounds: { width: 1066, height: 600 }, isMaximized: true };
 	} catch (err) {
 		global.nodeStorage.setItem("WindowState", {});
-		windowState = {};
+		windowState = { bounds: { width: 1066, height: 600 }, isMaximized: true };
 	}
 
 	try {
@@ -65,20 +98,22 @@ function createWindow() {
 		global.nodeStorage.setItem("Profile", temp);
 	}
 
-	if (!windowState)
-		windowState = { bounds: { width: 1066, height: 600 }, isMaximized: true };
-
 	win = new BrowserWindow({
 		width: windowState.bounds && windowState.bounds.width || 1066,
 		height: windowState.bounds && windowState.bounds.height || 600,
-		show: true,
+		show: false,
 		icon: "./assets/icon.ico",
 		frame: false,
 		center: true
 	});
 
-	if (windowState.isMaximized)
-		win.maximize();
+	win.on("ready-to-show", () => {
+		if (windowState.isMaximized)
+			win.maximize();
+		win.show();
+	});
+
+
 
 	win.loadFile("index.html");
 
@@ -133,11 +168,15 @@ function promptModal(parentWindow, options = {}, file = "./dialogs/exit-dialog.h
 		width: options.width || 400,
 		height: options.height || 250,
 		parent: parentWindow,
-		show: true,
+		show: false,
 		modal: true,
 		title: options.title,
 		frame: false,
 		autoHideMenuBar: true
+	});
+
+	promptWindow.on("ready-to-show", () => {
+		promptWindow.show();
 	});
 	promptWindow.on('closed', () => {
 		promptWindow = null;
@@ -182,7 +221,7 @@ ipcMain.on("save-quiz", (event, quiz) => {
 });
 
 ipcMain.on("get-quiz", (event, quizName) => {
-	event.returnValue = allQuizzes? allQuizzes[quizName] : undefined;
+	event.returnValue = allQuizzes ? allQuizzes[quizName] : undefined;
 });
 
 ipcMain.on("get-user", (event) => {
