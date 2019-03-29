@@ -325,9 +325,9 @@ window.addEventListener("load", () => {
 		Mousetrap.bind("alt+s shift+b", () => { warnIfIncomplete('base', 'teoria base', 'agli strumenti', () => { remote.getCurrentWindow().loadFile("./teoria-batteria.html"); }); });
 		Mousetrap.bind("alt+s p", () => { warnIfIncomplete('base', 'teoria base', 'agli strumenti', () => { remote.getCurrentWindow().loadFile("./teoria-piano.html"); }); });
 		Mousetrap.bind("alt+a a", () => { remote.getCurrentWindow().loadFile("./home-accordi.html"); });
-		Mousetrap.bind("alt+a c", () => { remote.getCurrentWindow().loadFile("./accordi-chitarra.html"); });
-		Mousetrap.bind("alt+a b", () => { remote.getCurrentWindow().loadFile("./accordi-basso.html"); });
-		Mousetrap.bind("alt+a p", () => { remote.getCurrentWindow().loadFile("./accordi-piano.html"); });
+		Mousetrap.bind("alt+a c", () => { warnIfIncomplete('chitarra', 'teoria della chitarra', 'agli accordi della chitarra', () => { remote.getCurrentWindow().loadFile("./accordi-chitarra.html"); }); });
+		Mousetrap.bind("alt+a b", () => { warnIfIncomplete('basso', 'teoria del basso', 'agli accordi del basso', () => { remote.getCurrentWindow().loadFile("./accordi-basso.html"); }); });
+		Mousetrap.bind("alt+a p", () => { warnIfIncomplete('piano', 'teoria del pianoforte', 'agli accordi del pianoforte', () => { remote.getCurrentWindow().loadFile("./accordi-piano.html"); }); });
 		Mousetrap.bind("alt+p", () => { remote.getCurrentWindow().loadFile("./profile.html"); });
 		Mousetrap.bind("alt+m", () => { openModal("./map.html"); });
 		Mousetrap.bind("alt+i", () => { openModal("./about.html"); });
