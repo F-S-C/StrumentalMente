@@ -248,13 +248,17 @@ function openModal(content, options = {}, windowIcon = "./assets/icon.ico") {
 		width: options.width || 1400,
 		height: options.height || 800,
 		parent: remote.getCurrentWindow(),
+		show: false,
 		modal: true,
 		icon: windowIcon,
 		frame: false
 	});
 
-	if (options.isMaximized)
-		win.maximize();
+	win.on("ready-to-show", () => {
+		if (options.isMaximized)
+			win.maximize();
+		win.show();
+	});
 
 	win.setMenu(null);
 	if (/^(f|ht)tp(s?):\/\//i.test(content))
