@@ -51,3 +51,6 @@ StrumentalMente-*/
 # Word temporary
 ~$*.doc*
 ~$*.dot*
+src/app.js
+*.map
+src/StrumentalMente.js
