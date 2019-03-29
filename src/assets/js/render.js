@@ -10,6 +10,17 @@
 
 const remote = require('electron').remote; // Riferimento a Electron
 
+/**
+ * Mostra un messaggio all'utente se il quiz propedeutico all'argomento scelto
+ * non è stato completato. Se l'utente conferma di voler proseguire, viene
+ * effettuata l'azione richiesta, altrimenti non si attua alcuna azione.
+ *
+ * @param {String} previousQuizId L'id del quiz propedeutico
+ * @param {String} previousQuizName Il nome del quiz (da comunicare all'utente)
+ * @param {String} topicToOpenName Il nome dell'argomento che si vuole aprire
+ * @param {*} callback La funzione da eseguire se l'utente accetta di
+ * proseguire.
+ */
 function warnIfIncomplete(previousQuizId, previousQuizName, topicToOpenName, callback) {
 	const { ipcRenderer } = require("electron");
 	var result = ipcRenderer.sendSync("get-quiz", previousQuizId);
