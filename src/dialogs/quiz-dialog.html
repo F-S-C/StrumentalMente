@@ -71,6 +71,7 @@
 		window.onload = function () {
 			var options = ipcRenderer.sendSync("openDialog", "");
 			var params = JSON.parse(options);
+			document.getElementById("window-title-text").innerHTML = params.title || document.getElementById("window-title-text").innerHTML;
 			document.getElementById("label").innerHTML = params.label;
 			document.getElementById("yes-btn").innerHTML = params.yes;
 			document.getElementById("no-btn").innerHTML = params.no;
