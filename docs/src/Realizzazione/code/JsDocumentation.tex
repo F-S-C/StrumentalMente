@@ -2,6 +2,9 @@
 \subsection{Classes}\label{classes}}
 
 \begin{description}
+\item[{ \protect\hyperlink{Main}{Main} }]
+\item[{ \protect\hyperlink{accordo}{accordo} }]
+Classe accordo.
 \item[{ \protect\hyperlink{accordo}{accordo} }]
 Classe accordo.
 \end{description}
@@ -10,21 +13,10 @@ Classe accordo.
 \section{Funzioni}\label{functions}}
 
 \begin{description}
-\item[{ \protect\hyperlink{openChildWindow}{openChildWindow(pageUrl,
-{[}windowIcon{]})} }]
-Apre una finestra ``figlia'' e modale.
-\item[{ \protect\hyperlink{createWindow}{createWindow()} }]
-Crea la finestra principale.
-\item[{ \protect\hyperlink{promptModal}{promptModal(parentWindow,
-{[}options{]}, callback)} }]
-Creazione della finestra di dialogo.
 \item[{ \protect\hyperlink{openMobileNavigation}{openMobileNavigation()}
 }]
 Apre la navbar in modalità ``mobile''. Questa funzione è mantenuta solo
 per consentire un eventuale eccessivo ridimensionamento della finestra.
-\item[{ \protect\hyperlink{drop}{drop(name, {[}defaultLinkClass{]})} }]
-Permette, alla pressione di un bottone, di aprire una sottolista della
-navbar.
 \item[{ \protect\hyperlink{setLinks}{setLinks(firstSlideNumber, links)}
 }]
 Cambia i link e i nomi dell'argomento precedente e quello successivo a
@@ -47,6 +39,13 @@ Cambia la slide del quiz attualmente mostrata.
 \item[{ \protect\hyperlink{playStopAudio}{playStopAudio(audioTagId,
 buttonRef, stopButtonId)} }]
 Permette di avviare, mettere in pausa o stoppare un audio.
+\item[{
+\protect\hyperlink{warnIfIncomplete}{warnIfIncomplete(previousQuizId,
+previousQuizName, topicToOpenName, callback)} }]
+Mostra un messaggio all'utente se il quiz propedeutico all'argomento
+scelto non è stato completato. Se l'utente conferma di voler proseguire,
+viene effettuata l'azione richiesta, altrimenti non si attua alcuna
+azione.
 \item[{ \protect\hyperlink{showExitDialog}{showExitDialog()} }]
 Mostra il dialogo di richiesta di conferma di uscita.
 \item[{
@@ -54,7 +53,7 @@ Mostra il dialogo di richiesta di conferma di uscita.
 }]
 Mostra il dialogo di richiesta di conferma di uscita dal quiz.
 \item[{ \protect\hyperlink{showQuizDialog}{showQuizDialog(nomeQuiz,
-score, total)} }]
+score, total, return\_link)} }]
 Mostra il dialogo con il punteggio dei quiz.
 \item[{ \protect\hyperlink{openInBrowser}{openInBrowser(link)} }]
 Apre un link nel browser predefinito.
@@ -83,7 +82,31 @@ l'utente doveva riprodurre.
 \item[{ \protect\hyperlink{correct_chord}{correct\_chord()} }]
 In base al numero di accordo che l'utente doveva riprodurre, ripristina
 la sequenza di selezioni corretta nello schema.
+\item[{ \protect\hyperlink{script_load}{script\_load()} }]
+Seleziona un numero casuale compreso tra 1 e 7 e ne imposta l'accordo da
+richiedere all'utente.
+\item[{ \protect\hyperlink{verify_and_store}{verify\_and\_store()} }]
+Verifica che le selezioni effettuate dall'utente siano corrette in base
+all'accordo presentatogli e memorizza: se la selezione è corretta (1) o
+non corretta (0), le checkbox selezionate (e non) e l'accordo che
+l'utente doveva riprodurre.
+\item[{ \protect\hyperlink{correct_chord}{correct\_chord()} }]
+In base al numero di accordo che l'utente doveva riprodurre, ripristina
+la sequenza di selezioni corretta nello schema.
 \end{description}
+
+\protect\hypertarget{Main}{}{}
+
+\hypertarget{main}{%
+\subsection{Main}\label{main}}
+
+\textbf{Kind}: global class\\
+\protect\hypertarget{new_Main_new}{}{}
+
+\hypertarget{new-main}{%
+\subsubsection{new Main()}\label{new-main}}
+
+La classe contenente la logica principale dell'applicazione.
 
 \protect\hypertarget{accordo}{}{}
 
@@ -92,7 +115,24 @@ la sequenza di selezioni corretta nello schema.
 
 Classe accordo.
 
-\textbf{Kind}: global class\\
+\textbf{Kind}: global class
+
+\begin{itemize}
+\tightlist
+\item
+  \protect\hyperlink{accordo}{accordo}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \protect\hyperlink{new_accordo_new}{new accordo(nome, dita,
+    tasto\_iniziale)}
+  \item
+    \protect\hyperlink{new_accordo_new}{new accordo(nome, dita,
+    tasto\_iniziale)}
+  \end{itemize}
+\end{itemize}
+
 \protect\hypertarget{new_accordo_new}{}{}
 
 \hypertarget{new-accordonome-dita-tasto_iniziale}{%
@@ -135,57 +175,154 @@ Indica il numero del capotasto iniziale dell'accordo\strut
 \bottomrule
 \end{tabularx}
 
-\protect\hypertarget{openChildWindow}{}{}
+\protect\hypertarget{new_accordo_new}{}{}
 
-\hypertarget{openchildwindowpageurl-windowicon}{%
-\subsection{openChildWindow(pageUrl,
-{[}windowIcon{]})}\label{openchildwindowpageurl-windowicon}}
-
-Apre una finestra ``figlia'' e modale.
-
-\textbf{Kind}: global function
-
-\begin{tabularx}{\textwidth}{XXXX}
-\toprule
-Param & Type & Default & Description\tabularnewline
-\midrule
-\endhead
-pageUrl & \texttt{String} & & L'URL della pagina da aprire (assoluto o
-relativo)\tabularnewline
-{[}windowIcon{]} & \texttt{String} & \texttt{./assets/icon.ico} &
-L'icona della finestra.\tabularnewline
-\bottomrule
-\end{tabularx}
-
-\protect\hypertarget{createWindow}{}{}
-
-\hypertarget{createwindow}{%
-\subsection{createWindow()}\label{createwindow}}
-
-Crea la finestra principale.
-
-\textbf{Kind}: global function\\
-\protect\hypertarget{promptModal}{}{}
-
-\hypertarget{promptmodalparentwindow-options-callback}{%
-\subsection{promptModal(parentWindow, {[}options{]},
-callback)}\label{promptmodalparentwindow-options-callback}}
-
-Creazione della finestra di dialogo.
-
-\textbf{Kind}: global function
+\hypertarget{new-accordonome-dita-tasto_iniziale-1}{%
+\subsubsection{new accordo(nome, dita,
+tasto\_iniziale)}\label{new-accordonome-dita-tasto_iniziale-1}}
 
 \begin{tabularx}{\textwidth}{XXX}
 \toprule
-Param & Type & Description\tabularnewline
+\begin{minipage}[b]{0.30\columnwidth}\raggedright
+Param\strut
+\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
+Type\strut
+\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
+Description\strut
+\end{minipage}\tabularnewline
 \midrule
 \endhead
-parentWindow & \texttt{BrowserWindow} & La finestra
-``genitore''\tabularnewline
-{[}options{]} & \texttt{Object} & Le opzioni della nuova
-finestra\tabularnewline
-callback & \texttt{*} & La funzione da richiamare alla chiusura della
-finestra\tabularnewline
+\begin{minipage}[t]{0.30\columnwidth}\raggedright
+nome\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+\texttt{String}\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+Stringa che indica il nome dell'accordo\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.30\columnwidth}\raggedright
+dita\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+\texttt{Boolean}\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+Sequenza di valori logici che indicano se la checkbox corrispondente è
+stata selezionata o meno\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.30\columnwidth}\raggedright
+tasto\_iniziale\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+\texttt{number}\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+Indica il numero del capotasto iniziale dell'accordo\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{tabularx}
+
+\protect\hypertarget{accordo}{}{}
+
+\hypertarget{accordo-1}{%
+\subsection{accordo}\label{accordo-1}}
+
+Classe accordo.
+
+\textbf{Kind}: global class
+
+\begin{itemize}
+\tightlist
+\item
+  \protect\hyperlink{accordo}{accordo}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \protect\hyperlink{new_accordo_new}{new accordo(nome, dita,
+    tasto\_iniziale)}
+  \item
+    \protect\hyperlink{new_accordo_new}{new accordo(nome, dita,
+    tasto\_iniziale)}
+  \end{itemize}
+\end{itemize}
+
+\protect\hypertarget{new_accordo_new}{}{}
+
+\hypertarget{new-accordonome-dita-tasto_iniziale-2}{%
+\subsubsection{new accordo(nome, dita,
+tasto\_iniziale)}\label{new-accordonome-dita-tasto_iniziale-2}}
+
+\begin{tabularx}{\textwidth}{XXX}
+\toprule
+\begin{minipage}[b]{0.30\columnwidth}\raggedright
+Param\strut
+\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
+Type\strut
+\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
+Description\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.30\columnwidth}\raggedright
+nome\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+\texttt{String}\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+Stringa che indica il nome dell'accordo\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.30\columnwidth}\raggedright
+dita\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+\texttt{Boolean}\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+Sequenza di valori logici che indicano se la checkbox corrispondente è
+stata selezionata o meno\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.30\columnwidth}\raggedright
+tasto\_iniziale\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+\texttt{number}\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+Indica il numero del capotasto iniziale dell'accordo\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{tabularx}
+
+\protect\hypertarget{new_accordo_new}{}{}
+
+\hypertarget{new-accordonome-dita-tasto_iniziale-3}{%
+\subsubsection{new accordo(nome, dita,
+tasto\_iniziale)}\label{new-accordonome-dita-tasto_iniziale-3}}
+
+\begin{tabularx}{\textwidth}{XXX}
+\toprule
+\begin{minipage}[b]{0.30\columnwidth}\raggedright
+Param\strut
+\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
+Type\strut
+\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
+Description\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.30\columnwidth}\raggedright
+nome\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+\texttt{String}\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+Stringa che indica il nome dell'accordo\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.30\columnwidth}\raggedright
+dita\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+\texttt{Boolean}\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+Sequenza di valori logici che indicano se la checkbox corrispondente è
+stata selezionata o meno\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.30\columnwidth}\raggedright
+tasto\_iniziale\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+\texttt{number}\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+Indica il numero del capotasto iniziale dell'accordo\strut
+\end{minipage}\tabularnewline
 \bottomrule
 \end{tabularx}
 
@@ -198,29 +335,6 @@ Apre la navbar in modalità ``mobile''. Questa funzione è mantenuta solo
 perconsentire un eventuale eccessivo ridimensionamento della finestra.
 
 \textbf{Kind}: global function\\
-\protect\hypertarget{drop}{}{}
-
-\hypertarget{dropname-defaultlinkclass}{%
-\subsection{drop(name,
-{[}defaultLinkClass{]})}\label{dropname-defaultlinkclass}}
-
-Permette, alla pressione di un bottone, di aprire una sottolistadella
-navbar.
-
-\textbf{Kind}: global function
-
-\begin{tabularx}{\textwidth}{XXX}
-\toprule
-Param & Type & Description\tabularnewline
-\midrule
-\endhead
-name & \texttt{String} & L'ID della lista che si vuole
-controllare\tabularnewline
-{[}defaultLinkClass{]} & \texttt{String} & La classe iniziale del
-bottone\tabularnewline
-\bottomrule
-\end{tabularx}
-
 \protect\hypertarget{setLinks}{}{}
 
 \hypertarget{setlinksfirstslidenumber-links}{%
@@ -480,6 +594,36 @@ L'ID del bottone di Stop.\strut
 \bottomrule
 \end{tabularx}
 
+\protect\hypertarget{warnIfIncomplete}{}{}
+
+\hypertarget{warnifincompletepreviousquizid-previousquizname-topictoopenname-callback}{%
+\subsection{warnIfIncomplete(previousQuizId, previousQuizName,
+topicToOpenName,
+callback)}\label{warnifincompletepreviousquizid-previousquizname-topictoopenname-callback}}
+
+Mostra un messaggio all'utente se il quiz propedeutico all'argomento
+sceltonon è stato completato. Se l'utente conferma di voler proseguire,
+vieneeffettuata l'azione richiesta, altrimenti non si attua alcuna
+azione.
+
+\textbf{Kind}: global function
+
+\begin{tabularx}{\textwidth}{XXX}
+\toprule
+Param & Type & Description\tabularnewline
+\midrule
+\endhead
+previousQuizId & \texttt{String} & L'id del quiz
+propedeutico\tabularnewline
+previousQuizName & \texttt{String} & Il nome del quiz (da comunicare
+all'utente)\tabularnewline
+topicToOpenName & \texttt{String} & Il nome dell'argomento che si vuole
+aprire\tabularnewline
+callback & \texttt{*} & La funzione da eseguire se l'utente accetta di
+proseguire.\tabularnewline
+\bottomrule
+\end{tabularx}
+
 \protect\hypertarget{showExitDialog}{}{}
 
 \hypertarget{showexitdialog}{%
@@ -521,9 +665,9 @@ rispetto alla cartella principale.\strut
 
 \protect\hypertarget{showQuizDialog}{}{}
 
-\hypertarget{showquizdialognomequiz-score-total}{%
-\subsection{showQuizDialog(nomeQuiz, score,
-total)}\label{showquizdialognomequiz-score-total}}
+\hypertarget{showquizdialognomequiz-score-total-return_link}{%
+\subsection{showQuizDialog(nomeQuiz, score, total,
+return\_link)}\label{showquizdialognomequiz-score-total-return_link}}
 
 Mostra il dialogo con il punteggio dei quiz.
 
@@ -531,12 +675,44 @@ Mostra il dialogo con il punteggio dei quiz.
 
 \begin{tabularx}{\textwidth}{XXX}
 \toprule
-Param & Type & Description\tabularnewline
+\begin{minipage}[b]{0.30\columnwidth}\raggedright
+Param\strut
+\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
+Type\strut
+\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
+Description\strut
+\end{minipage}\tabularnewline
 \midrule
 \endhead
-nomeQuiz & \texttt{String} & Il nome del quiz.\tabularnewline
-score & \texttt{number} & Il punteggio ottenuto.\tabularnewline
-total & \texttt{number} & Il punteggio totale possibile.\tabularnewline
+\begin{minipage}[t]{0.30\columnwidth}\raggedright
+nomeQuiz\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+\texttt{String}\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+Il nome del quiz.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.30\columnwidth}\raggedright
+score\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+\texttt{number}\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+Il punteggio ottenuto.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.30\columnwidth}\raggedright
+total\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+\texttt{number}\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+Il punteggio totale possibile.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.30\columnwidth}\raggedright
+return\_link\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+\texttt{String}\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+Il file da aprire se è cliccato il tasto `Ok'. Il percorso è relativo
+rispetto alla cartella principale.\strut
+\end{minipage}\tabularnewline
 \bottomrule
 \end{tabularx}
 
@@ -706,6 +882,35 @@ l'utente doveva riprodurre.
 
 \hypertarget{correct_chord}{%
 \subsection{correct\_chord()}\label{correct_chord}}
+
+In base al numero di accordo che l'utente doveva riprodurre, ripristina
+la sequenza di selezionicorretta nello schema.
+
+\textbf{Kind}: global function\\
+\protect\hypertarget{script_load}{}{}
+
+\hypertarget{script_load-1}{%
+\subsection{script\_load()}\label{script_load-1}}
+
+Seleziona un numero casuale compreso tra 1 e 7 e ne imposta l'accordo da
+richiedere all'utente.
+
+\textbf{Kind}: global function\\
+\protect\hypertarget{verify_and_store}{}{}
+
+\hypertarget{verify_and_store-1}{%
+\subsection{verify\_and\_store()}\label{verify_and_store-1}}
+
+Verifica che le selezioni effettuate dall'utente siano corrette in base
+all'accordo presentatogli ememorizza: se la selezione è corretta (1) o
+non corretta (0), le checkbox selezionate (e non) e l'accordo che
+l'utente doveva riprodurre.
+
+\textbf{Kind}: global function\\
+\protect\hypertarget{correct_chord}{}{}
+
+\hypertarget{correct_chord-1}{%
+\subsection{correct\_chord()}\label{correct_chord-1}}
 
 In base al numero di accordo che l'utente doveva riprodurre, ripristina
 la sequenza di selezionicorretta nello schema.

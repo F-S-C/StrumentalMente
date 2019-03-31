@@ -1,1 +1,37 @@
 \chapter{Installazione}
+\section{Da disco}
+Non è necessaria alcuna installazione per eseguire StrumentalMente da disco:
+basta inserire il CD ed eseguire l'applicazione.
+\section{Da installer}
+Per installare StrumentalMente tramite \textit{installer}, eseguire l'installer come un
+normale programma e seguire le istruzioni a video.
+\section{Da codice sorgente}
+Una volta scaricato il codice sorgente di StrumentalMente, assicurarsi di aver
+installato Node.js e che il comando \texttt{npm} stia disponibile, eseguendo il
+seguente comando
+\begin{lstlisting}
+	npm -v
+\end{lstlisting}
+Se non è stato precedentemente installato yarn, eseguire (all'interno della
+directory contenente i file della \textit{repository}) di GitHub il seguente
+comando:
+\begin{lstlisting}
+	make yarn-install
+\end{lstlisting}
+Una volta installate queste due dipendenze, installare le dipendenze del codice
+sorgente utilizzando il seguente comando
+\begin{lstlisting}
+	make install
+\end{lstlisting}
+In tale modo si sono installate tutte le dipendenze del codice sorgente di
+StrumentalMente. Eseguire, infine, il seguente comando per ottenere l'eseguibile
+\begin{lstlisting}
+	make deploy
+\end{lstlisting}
+Sarà disponibile nella sottocartella \texttt{src\textbackslash{}dist}
+l'eseguibile di StrumentalMente. In una macchina con sistema operativo Windows,
+sarà disponibile un \textit{installer} (\texttt{StrumentalMente.exe}) e un
+eseguibile, presente all'interno della sottocartella \texttt{win-unpacked} (il
+percorso completo è, partendo dalla cartella della repository,
+\texttt{src\textbackslash{}dist\textbackslash{}}
+\texttt{win-unpacked\textbackslash{}StrumentalMente.exe}).
