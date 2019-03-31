@@ -74,6 +74,8 @@ function warnIfIncomplete(previousQuizId, previousQuizName, topicToOpenName, cal
 		if (answer)
 			callback();
 	}
+	else
+		callback();
 }
 
 /**
