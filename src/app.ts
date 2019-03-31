@@ -7,11 +7,6 @@
  * l'applicazione.
  */
 
-import { app, BrowserWindow } from 'electron';
-import Main from './StrumentalMente';
-
-Main.main(app, BrowserWindow);
-
 (function () {
 	// Include this at the very top of both your main and window processes, so that
 	// it loads as soon as possible.
@@ -43,3 +38,8 @@ Main.main(app, BrowserWindow);
 		return r;
 	};
 })();
+
+import { app, BrowserWindow } from 'electron';
+import Main from './StrumentalMente';
+
+Main.main(app, BrowserWindow);
