@@ -51,3 +51,6 @@ StrumentalMente-*/
 # Word temporary
 ~$*.doc*
 ~$*.dot*
+
+# Rimozione file automaticamente convertiti in HTML
+docs/**/*.html
