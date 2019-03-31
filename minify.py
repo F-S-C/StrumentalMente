@@ -74,7 +74,8 @@ if __name__ == "__main__":
                         "src/assets/js/render.js",
                         "src/assets/js/quiz.js",
                         "src/assets/js/accordi_basso.js",
-                        "src/assets/js/accordi_chitarra.js"]:
+                        "src/assets/js/accordi_chitarra.js",
+						"src/assets/js/jquery.maphilight.js"]:
         copyfile(currentFile, currentFile[:-3] +
                  "_not-minified" + currentFile[-3:])
         with open(currentFile, "r") as js_file:

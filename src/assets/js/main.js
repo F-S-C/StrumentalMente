@@ -70,7 +70,8 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 	var iFrameDocument = iFrame.contentWindow || iFrame.contentDocument;
 	numberOfSections = iFrameDocument.document.getElementsByTagName("section").length;
 
-	iFrameDocument.document.getElementsByTagName("section")[0].className = "show";
+	if (iFrameDocument.document.getElementById("list") == undefined)
+		iFrameDocument.document.getElementsByTagName("section")[0].className = "show";
 	iFrameDocument.document.getElementById("max-topic-slides").innerHTML = numberOfSections;
 	iFrameDocument.document.getElementById("current-topic-slide").innerHTML = currentSection + 1;
 	let updateCurrentSlide = (direction) => {
@@ -108,7 +109,8 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 		returnToListButton.toggleAttribute("disabled", true);
 	}
 	else {
-		iFrameDocument.document.getElementsByTagName("section")[0].className = "show";
+		if (iFrameDocument.document.getElementById("list") == undefined)
+			iFrameDocument.document.getElementsByTagName("section")[0].className = "show";
 		previousSlideButton.toggleAttribute("disabled", false);
 		returnToListButton.style.display = "inline-block";
 		returnToListButton.toggleAttribute("disabled", false);

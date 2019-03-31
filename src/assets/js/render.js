@@ -44,6 +44,39 @@
 const remote = require('electron').remote; // Riferimento a Electron
 
 /**
+ * Mostra un messaggio all'utente se il quiz propedeutico all'argomento scelto
+ * non è stato completato. Se l'utente conferma di voler proseguire, viene
+ * effettuata l'azione richiesta, altrimenti non si attua alcuna azione.
+ *
+ * @param {String} previousQuizId L'id del quiz propedeutico
+ * @param {String} previousQuizName Il nome del quiz (da comunicare all'utente)
+ * @param {String} topicToOpenName Il nome dell'argomento che si vuole aprire
+ * @param {*} callback La funzione da eseguire se l'utente accetta di
+ * proseguire.
+ */
+function warnIfIncomplete(previousQuizId, previousQuizName, topicToOpenName, callback) {
+	const { ipcRenderer } = require("electron");
+	var result = ipcRenderer.sendSync("get-quiz", previousQuizId);
+	if (!result) {
+		let hasBeenAsked = JSON.parse(sessionStorage.getItem(`${topicToOpenName}-notdone-asked`));
+		sessionStorage.setItem(`${topicToOpenName}-notdone-asked`, "true");
+
+		var answer = hasBeenAsked || ipcRenderer.sendSync("prompt", {
+			title: "Attenzione!",
+			label: `Hai scelto di proseguire <em>${topicToOpenName}</em> senza aver completato il quiz di <em>${previousQuizName}</em>! Sei sicuro di voler continuare?`,
+			yes: "Sì",
+			yesReturn: true,
+			no: "No",
+			noReturn: false,
+			file: "./dialogs/exit-dialog.html"
+		});
+
+		if (answer)
+			callback();
+	}
+}
+
+/**
  * Gestisce gli eventi della titlebar.
  * 
  * Questa funzione gestisce gli eventi (riduci a icona, massimizza/minimizza,
@@ -335,14 +368,14 @@ window.addEventListener("load", () => {
 		Mousetrap.bind("alt+h", () => { remote.getCurrentWindow().loadFile("./home.html"); });
 		Mousetrap.bind("alt+t", () => { remote.getCurrentWindow().loadFile("./home-teoria.html"); });
 		Mousetrap.bind("alt+s s", () => { remote.getCurrentWindow().loadFile("./home-strumenti.html"); });
-		Mousetrap.bind("alt+s c", () => { remote.getCurrentWindow().loadFile("./teoria-chitarra.html"); });
-		Mousetrap.bind("alt+s b", () => { remote.getCurrentWindow().loadFile("./teoria-basso.html"); });
-		Mousetrap.bind("alt+s shift+b", () => { remote.getCurrentWindow().loadFile("./teoria-batteria.html"); });
-		Mousetrap.bind("alt+s p", () => { remote.getCurrentWindow().loadFile("./teoria-piano.html"); });
+		Mousetrap.bind("alt+s c", () => { warnIfIncomplete('base', 'teoria base', 'agli strumenti', () => { remote.getCurrentWindow().loadFile("./teoria-chitarra.html"); }); });
+		Mousetrap.bind("alt+s b", () => { warnIfIncomplete('base', 'teoria base', 'agli strumenti', () => { remote.getCurrentWindow().loadFile("./teoria-basso.html"); }); });
+		Mousetrap.bind("alt+s shift+b", () => { warnIfIncomplete('base', 'teoria base', 'agli strumenti', () => { remote.getCurrentWindow().loadFile("./teoria-batteria.html"); }); });
+		Mousetrap.bind("alt+s p", () => { warnIfIncomplete('base', 'teoria base', 'agli strumenti', () => { remote.getCurrentWindow().loadFile("./teoria-piano.html"); }); });
 		Mousetrap.bind("alt+a a", () => { remote.getCurrentWindow().loadFile("./home-accordi.html"); });
-		Mousetrap.bind("alt+a c", () => { remote.getCurrentWindow().loadFile("./accordi-chitarra.html"); });
-		Mousetrap.bind("alt+a b", () => { remote.getCurrentWindow().loadFile("./accordi-basso.html"); });
-		Mousetrap.bind("alt+a p", () => { remote.getCurrentWindow().loadFile("./accordi-piano.html"); });
+		Mousetrap.bind("alt+a c", () => { warnIfIncomplete('chitarra', 'teoria della chitarra', 'agli accordi della chitarra', () => { remote.getCurrentWindow().loadFile("./accordi-chitarra.html"); }); });
+		Mousetrap.bind("alt+a b", () => { warnIfIncomplete('basso', 'teoria del basso', 'agli accordi del basso', () => { remote.getCurrentWindow().loadFile("./accordi-basso.html"); }); });
+		Mousetrap.bind("alt+a p", () => { warnIfIncomplete('piano', 'teoria del pianoforte', 'agli accordi del pianoforte', () => { remote.getCurrentWindow().loadFile("./accordi-piano.html"); }); });
 		Mousetrap.bind("alt+p", () => { remote.getCurrentWindow().loadFile("./profile.html"); });
 		Mousetrap.bind("alt+m", () => { openModal("./map.html"); });
 		Mousetrap.bind("alt+i", () => { openModal("./about.html"); });
