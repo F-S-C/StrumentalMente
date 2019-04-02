@@ -130,7 +130,7 @@
 	</style>
 	<script>
 		function showResetDialog() {
-			const { ipcRenderer } = require("electron");
+			const { ipcRenderer } = parent.require("electron");
 
 			var answer = ipcRenderer.sendSync("prompt", {
 				title: "Reset del profilo",
@@ -149,7 +149,7 @@
 	</script>
 </head>
 
-<body>
+<body onload="window.parent.setHelper('profilo');">
 	<div class="sub-wrapper">
 		<div class="content">
 			<article>
@@ -206,17 +206,16 @@
 	<script src="./assets/js/main.js"></script>
 	<script src="./assets/js/render.js"></script>
 	<script>
-		window.onload = () => {
-			window.parent.setHelper('profilo');
+		(function () {
 			let usernameContainer = document.getElementById("username");
-			usernameContainer.value = getUsername();
+			usernameContainer.value = parent.getUsername();
 			let changeProfileImage = () => {
 				let colors = Array("#E55100", "#E58B00", "#0C4D95", "#00976A");
 				document.getElementById("profile-img").style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
 				document.getElementById("initial").innerHTML = usernameContainer.value.charAt(0);
 			};
 			changeProfileImage();
-			usernameContainer.onchange = () => { setUsername(usernameContainer.value); changeProfileImage(); };
+			usernameContainer.onchange = () => { parent.setUsername(usernameContainer.value); changeProfileImage(); };
 			usernameContainer.onkeypress = (e) => {
 				if (e.key == "Enter") {
 					usernameContainer.blur();
@@ -226,7 +225,7 @@
 			let containers = document.getElementsByClassName("quiz-result");
 
 			for (var i = 0; i < containers.length; i++) {
-				let hasPassedQuiz = getQuiz(containers[i].id);
+				let hasPassedQuiz = parent.getQuiz(containers[i].id);
 				if (hasPassedQuiz == true)
 					containers[i].getElementsByTagName("i")[0].className = "fas fa-check-circle";
 				else if (hasPassedQuiz != undefined)
@@ -235,7 +234,7 @@
 					containers[i].getElementsByTagName("i")[0].className = "fas fa-circle";
 
 			}
-		};
+		})();
 	</script>
 </body>
 

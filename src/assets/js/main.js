@@ -441,18 +441,23 @@ function showSubButtons(mainButton, containerId) {
 	}, 300);
 }
 
-/**
- * Corregge alcuni errori nell'ottenimento del focus da parte di un iframe.
- */
-(function () {
-	let a = parent.document.getElementById("content-frame");
-	if (a) {
-		var doc = a.contentWindow.document || a.contentDocument;
-		doc.childNodes.forEach(node => {
-			node.addEventListener("click", () => parent.document.activeElement.blur());
-		})
-	}
-})();
+// /**
+//  * Corregge alcuni errori nell'ottenimento del focus da parte di un iframe.
+//  */
+// (function () {
+// 	let a = parent.document.getElementById("content-frame");
+// 	if (a) {
+// 		var doc = a.contentWindow.document || a.contentDocument;
+// 		doc.childNodes.forEach(node => {
+// 			//parent.document.activeElement.blur()
+// 			if (node.nodeName != "INPUT") {
+// 				node.addEventListener("click", () => node.style.color = "green");
+// 			}
+// 			else
+// 				window.alert("HEY MAN");
+// 		})
+// 	}
+// })();
 
 /**
  * Associa a tutte le figure presenti nel documento un evento "click" che
