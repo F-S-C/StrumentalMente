@@ -16,10 +16,10 @@
 	<meta name="robots" content="index, follow">
 </head>
 
-<body onload="window.parent.setHelper('teoria');initialize('argomenti', 'teoria/', 16);">
+<body onload="window.parent.setHelper('teoria'); initialize('argomenti', 'teoria/', 16);">
 	<div class="sub-wrapper">
 		<div class="content">
-			<iframe id="content-frame" src="./teoria/argomenti.html" class="slide-container"></iframe>
+			<iframe id="topic-frame" src="./teoria/argomenti.html" class="slide-container"></iframe>
 			<div class="buttons-container">
 				<div class="first-column">
 					<button type="button" id="back-topic" class="btn-outlined" style="display: none;">
@@ -48,9 +48,6 @@
 
 	<script type="text/javascript" src="./assets/js/main.js"></script>
 	<script type="text/javascript" src="./assets/js/render.js"></script>
-	<script>
-		require("mousetrap").bind("ctrl+backspace", () => changeTopic('argomenti', './teoria/'));
-	</script>
 </body>
 
 </html>
