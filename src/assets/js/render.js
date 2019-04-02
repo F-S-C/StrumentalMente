@@ -43,6 +43,13 @@
 
 const remote = require('electron').remote; // Riferimento a Electron
 
+function openPage(pageToOpen, buttonToSetActiveId) {
+	let iFrame = parent.document.getElementById("content-frame");
+	iFrame.src = pageToOpen;
+	document.querySelector("nav.main-navigation>ul li>button.active").classList.remove("active");
+	document.querySelector(`#${buttonToSetActiveId}-nav-link>button`).classList.add("active");
+}
+
 /**
  * Mostra un messaggio all'utente se il quiz propedeutico all'argomento scelto
  * non è stato completato. Se l'utente conferma di voler proseguire, viene
