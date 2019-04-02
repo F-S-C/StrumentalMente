@@ -380,28 +380,32 @@ function disableShortcuts() {
 	shortcutDisabled = true;
 }
 
-window.addEventListener("load", () => {
+function setShortcuts(doc = document) {
 	if (!shortcutDisabled) {
-		const Mousetrap = require("mousetrap");
+		const Mousetrap = parent.require("mousetrap")(doc);
 
-		Mousetrap.bind("alt+h", () => { document.querySelector("#home-nav-link>button").click(); });
-		Mousetrap.bind("alt+t", () => { document.querySelector("#theory-nav-link>button").click(); });
-		Mousetrap.bind("alt+s s", () => { document.querySelector("#instruments-nav-link>button").click(); });
-		Mousetrap.bind("alt+s c", () => { warnIfIncomplete('base', 'teoria base', 'agli strumenti', () => { document.querySelector("#teoria-chitarra-nav-link>button").click(); }); });
-		Mousetrap.bind("alt+s b", () => { warnIfIncomplete('base', 'teoria base', 'agli strumenti', () => { document.querySelector("#teoria-basso-nav-link>button").click(); }); });
-		Mousetrap.bind("alt+s shift+b", () => { warnIfIncomplete('base', 'teoria base', 'agli strumenti', () => { document.querySelector("#teoria-batteria-nav-link>button").click(); }); });
-		Mousetrap.bind("alt+s p", () => { warnIfIncomplete('base', 'teoria base', 'agli strumenti', () => { document.querySelector("#teoria-piano-nav-link>button").click(); }); });
-		Mousetrap.bind("alt+a a", () => { document.querySelector("#chords-nav-link>button").click(); });
-		Mousetrap.bind("alt+a c", () => { warnIfIncomplete('chitarra', 'teoria della chitarra', 'agli accordi della chitarra', () => { document.querySelector("#accordi-chitarra-nav-link>button").click(); }); });
-		Mousetrap.bind("alt+a b", () => { warnIfIncomplete('basso', 'teoria del basso', 'agli accordi del basso', () => { document.querySelector("#accordi-basso-nav-link>button").click(); }); });
-		Mousetrap.bind("alt+a p", () => { warnIfIncomplete('piano', 'teoria del pianoforte', 'agli accordi del pianoforte', () => { document.querySelector("#accordi-piano-nav-link>button").click(); }); });
-		Mousetrap.bind("alt+p", () => { document.querySelector("#profile-nav-link>button").click(); });
+		Mousetrap.bind("alt+h", () => { parent.document.querySelector("#home-nav-link>button").click(); });
+		Mousetrap.bind("alt+t", () => { parent.document.querySelector("#theory-nav-link>button").click(); });
+		Mousetrap.bind("alt+s s", () => { parent.document.querySelector("#instruments-nav-link>button").click(); });
+		Mousetrap.bind("alt+s c", () => { warnIfIncomplete('base', 'teoria base', 'agli strumenti', () => { parent.document.querySelector("#teoria-chitarra-nav-link>button").click(); }); });
+		Mousetrap.bind("alt+s b", () => { warnIfIncomplete('base', 'teoria base', 'agli strumenti', () => { parent.document.querySelector("#teoria-basso-nav-link>button").click(); }); });
+		Mousetrap.bind("alt+s shift+b", () => { warnIfIncomplete('base', 'teoria base', 'agli strumenti', () => { parent.document.querySelector("#teoria-batteria-nav-link>button").click(); }); });
+		Mousetrap.bind("alt+s p", () => { warnIfIncomplete('base', 'teoria base', 'agli strumenti', () => { parent.document.querySelector("#teoria-piano-nav-link>button").click(); }); });
+		Mousetrap.bind("alt+a a", () => { parent.document.querySelector("#chords-nav-link>button").click(); });
+		Mousetrap.bind("alt+a c", () => { warnIfIncomplete('chitarra', 'teoria della chitarra', 'agli accordi della chitarra', () => { parent.document.querySelector("#accordi-chitarra-nav-link>button").click(); }); });
+		Mousetrap.bind("alt+a b", () => { warnIfIncomplete('basso', 'teoria del basso', 'agli accordi del basso', () => { parent.document.querySelector("#accordi-basso-nav-link>button").click(); }); });
+		Mousetrap.bind("alt+a p", () => { warnIfIncomplete('piano', 'teoria del pianoforte', 'agli accordi del pianoforte', () => { parent.document.querySelector("#accordi-piano-nav-link>button").click(); }); });
+		Mousetrap.bind("alt+p", () => { parent.document.querySelector("#profile-nav-link>button").click(); });
 		Mousetrap.bind("alt+m", () => { openModal("./map.html"); });
 		Mousetrap.bind("alt+i", () => { openModal("./about.html"); });
-		Mousetrap.bind("f1", () => { document.querySelector("#help-nav-link>button").click(); });
+		Mousetrap.bind("f1", () => { parent.document.querySelector("#help-nav-link>button").click(); });
 
 		// Shortcut per debug
-		Mousetrap.bind("f5", () => location.reload());
+		Mousetrap.bind("f5", () => window.location.reload());
 		Mousetrap.bind("alt+backspace", () => window.history.back());
 	}
+}
+
+window.addEventListener("load", () => {
+	setShortcuts(document);
 });
