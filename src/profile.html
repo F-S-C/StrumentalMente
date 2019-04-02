@@ -154,7 +154,7 @@
 		<div class="content">
 			<article>
 				<header>
-					<div id="profile-img">
+					<div id="profile-img" style="background-color: #E55100;">
 						<span id="initial">U</span>
 					</div>
 					<div class="user-container">
@@ -206,9 +206,8 @@
 	<script src="./assets/js/main.js"></script>
 	<script src="./assets/js/render.js"></script>
 	<script>
-		openOnKeyboardShortcut("F1", "./helpers/help-profilo.html", true);
-
 		window.onload = () => {
+			window.parent.setHelper('profilo');
 			let usernameContainer = document.getElementById("username");
 			usernameContainer.value = getUsername();
 			let changeProfileImage = () => {

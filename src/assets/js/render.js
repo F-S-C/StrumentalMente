@@ -46,10 +46,17 @@ const remote = require('electron').remote; // Riferimento a Electron
 function openPage(pageToOpen, buttonToSetActiveId) {
 	const path = require("path");
 	let iFrame = parent.document.getElementById("content-frame");
+	iFrame.focus();
 	if (path.relative(path.join(__dirname, pageToOpen), iFrame.src.substring(8))) {
 		iFrame.src = pageToOpen;
 		document.querySelector("nav.main-navigation>ul li>button.active").classList.remove("active");
 		document.querySelector(`#${buttonToSetActiveId}-nav-link>button`).classList.add("active");
+	}
+}
+
+function setHelper(newHelper) {
+	document.querySelector("#help-nav-link>button").onclick = () => {
+		openModal(`./helpers/help-${newHelper}.html`);
 	}
 }
 
@@ -391,6 +398,7 @@ window.addEventListener("load", () => {
 		Mousetrap.bind("alt+p", () => { document.querySelector("#profile-nav-link>button").click(); });
 		Mousetrap.bind("alt+m", () => { openModal("./map.html"); });
 		Mousetrap.bind("alt+i", () => { openModal("./about.html"); });
+		Mousetrap.bind("f1", () => { document.querySelector("#help-nav-link>button").click(); });
 
 		// Shortcut per debug
 		Mousetrap.bind("f5", () => location.reload());

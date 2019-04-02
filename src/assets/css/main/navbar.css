@@ -127,7 +127,7 @@ nav.main-navigation li i.fas {
     display: block;
 }*/
 
-nav.main-navigation .logo a {
+nav.main-navigation .logo button {
 	text-decoration: none;
 	background-color: transparent;
 	display: block;
