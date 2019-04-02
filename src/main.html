@@ -63,9 +63,21 @@
 						<i class="fas fa-user-circle"></i> Profilo
 					</button>
 				</li>
-				<li><a href="./home-teoria.html" title="Apri la lista degli argomenti (Alt+T)"><i class="fas fa-book"></i> Teoria</a></li>
-				<li><a href="./home-strumenti.html" title="Apri la lista di strumenti (Alt+S S)"><i class="fas fa-guitar"></i> Strumenti</a></li>
-				<li><a title="Apri la lista di strumenti per vederne gli accordi (Alt+A A)" href="./home-accordi.html"><i class="fas fa-music"></i> Accordi</a></li>
+				<li id="theory-nav-link">
+					<button type="button" onclick="openPage('./home-teoria.html', 'theory');" title="Apri la lista degli argomenti (Alt+T)">
+						<i class="fas fa-book"></i> Teoria
+					</button>
+				</li>
+				<li id="instruments-nav-link">
+					<button type="button" onclick="openPage('./home-strumenti.html', 'instruments');" title="Apri la lista di strumenti (Alt+S S)">
+						<i class="fas fa-guitar"></i> Strumenti
+					</button>
+				</li>
+				<li id="chords-nav-link">
+					<button type="button" onclick="openPage('./home-accordi.html', 'chords');" title="Apri la lista di strumenti per vederne gli accordi (Alt+A A)">
+						<i class="fas fa-music"></i> Accordi
+					</button>
+				</li>
 				<li>
 					<button type="button" onclick="openModal('./map.html');" title="Mostra la mappa (Alt+M)">
 						<i class="fas fa-map"></i> Mappa
