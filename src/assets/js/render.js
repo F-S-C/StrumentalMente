@@ -23,10 +23,10 @@
 	// code!!
 
 	// npm install lru-cache first
-	const LRU = require('lru-cache');
+	const LRU = parent.require('lru-cache');
 	var lru = new LRU({ max: 256, maxAge: 250/*ms*/ });
 
-	var fs = require('fs');
+	var fs = parent.require('fs');
 	var origLstat = fs.lstatSync.bind(fs);
 
 	// NB: The biggest offender of thrashing lstatSync is the node module system
@@ -41,7 +41,7 @@
 	};
 })();
 
-const remote = require('electron').remote; // Riferimento a Electron
+const remote = parent.require('electron').remote; // Riferimento a Electron
 
 function openPage(pageToOpen, buttonToSetActiveId) {
 	const path = require("path");
@@ -181,14 +181,14 @@ function warnIfIncomplete(previousQuizId, previousQuizName, topicToOpenName, cal
 // Imposta tutte le scorciatoie da tastiera più importanti
 (function () {
 	let win = remote.getCurrentWindow();
-	const Mousetrap = require("mousetrap");
+	const Mousetrap = parent.require("mousetrap");
 
 	Mousetrap.bind("esc", showExitDialog);
 
 	Mousetrap.bind("f11", () => { win.setFullScreen(!win.isFullScreen()); });
 
 	// Un piccolo easter egg da parte degli FSC :)!
-	require("mousetrap").bind("up up down down left right left right b a enter", () => {
+	parent.require("mousetrap").bind("up up down down left right left right b a enter", () => {
 		const { ipcRenderer } = require("electron");
 
 		var answer = ipcRenderer.sendSync("prompt", {

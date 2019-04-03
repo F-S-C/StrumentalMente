@@ -183,6 +183,7 @@ export default class Main {
 		// makes the code easier to write tests for 
 		Main.BrowserWindow = browserWindow;
 		Main.application = app;
+		Main.application.commandLine.appendSwitch('enable-experimental-web-platform-features');
 		Main.nodeStorage = new JSONStorage(app.getPath('userData'));
 		Main.application.on('window-all-closed', Main.onWindowAllClosed);
 		Main.application.on('ready', Main.onReady);
