@@ -72,7 +72,7 @@ function setHelper(newHelper) {
  * proseguire.
  */
 function warnIfIncomplete(previousQuizId, previousQuizName, topicToOpenName, callback) {
-	const { ipcRenderer } = require("electron");
+	const { ipcRenderer } = parent.require("electron");
 	var result = ipcRenderer.sendSync("get-quiz", previousQuizId);
 	if (!result) {
 		let hasBeenAsked = JSON.parse(sessionStorage.getItem(`${topicToOpenName}-notdone-asked`));
