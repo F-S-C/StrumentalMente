@@ -3,7 +3,7 @@
 	position: fixed;
 	height: 32px;
 	width: 100%;
-	color: #FFF;
+	color: #fff;
 	background: #3f3f3f;
 	/* 
      * La titlebar deve essere sempre mostrata sopra ogni cosa, per cui
@@ -12,15 +12,36 @@
 	z-index: 10;
 }
 
-#titlebar #drag-region {
+#dialog-titlebar {
+	display: block;
+	position: fixed;
+	height: 32px;
+	color: #fff;
+	background: #3f3f3f;
+	/* 
+     * La titlebar deve essere sempre mostrata sopra ogni cosa, per cui
+     * si ha un valore z-index piuttosto elevato.
+     */
+	z-index: 10;
+}
+
+#titlebar #drag-region,
+#dialog-titlebar #dialog-drag-region {
 	width: 100%;
 	height: 100%;
-	-webkit-app-region: drag;
 	display: grid;
 	grid-template-columns: auto 138px;
 }
+#dialog-titlebar #dialog-drag-region {
+	grid-template-columns: auto 46px;
+}
 
-#window-controls {
+#titlebar #drag-region {
+	-webkit-app-region: drag;
+}
+
+#window-controls,
+#dialog-controls {
 	display: grid;
 	grid-template-columns: repeat(3, 46px);
 	position: absolute;
@@ -32,7 +53,12 @@
 	-webkit-app-region: no-drag;
 }
 
-#window-controls .button {
+#dialog-controls {
+	grid-template-columns: 46px;
+}
+
+#window-controls .button,
+#dialog-controls .button {
 	grid-row: 1 / span 1;
 	display: flex;
 	justify-content: center;
@@ -48,7 +74,8 @@
 	grid-column: 1;
 }
 
-#window-controls #max-button, #window-controls #restore-button {
+#window-controls #max-button,
+#window-controls #restore-button {
 	grid-column: 2;
 }
 
@@ -56,30 +83,40 @@
 	grid-column: 3;
 }
 
-#window-controls .button:hover {
+#dialog-controls #dialog-close-button {
+	grid-column: 1;
+}
+
+#window-controls .button:hover,
+#dialog-controls .button:hover {
 	background: rgba(255, 255, 255, 0.2);
 	opacity: 1;
 }
 
-#window-controls #close-button:hover {
-	background: #E81123;
+#window-controls #close-button:hover,
+#dialog-controls #dialog-close-button:hover {
+	background: #e81123;
 }
 
 #window-controls #restore-button {
 	display: none;
 }
 
-#window-title {
+#window-title,
+#dialog-title {
 	grid-column: 1;
 	display: flex;
 	align-items: center;
 	font-family: "Segoe UI", sans-serif;
 	font-size: 12px;
 	margin-left: 8px;
-	overflow-x: hidden;
+	overflow-x: visible;
 }
 
-#window-title span {
+#window-title span,
+#dialog-title span {
+	/*61 = 138/2 - 8*/
+	transform: translate(61px, 0);
 	overflow: hidden;
 	text-overflow: ellipsis;
 	line-height: 1.5;
@@ -87,12 +124,18 @@
 	text-align: center;
 }
 
-#window-title-image {
-	height: 16px;
-	width: 16px;
-	margin-right: 138px;
+#dialog-title span {
+	/*15 = 46/2 - 8*/
+	transform: translate(15px, 0);
 }
 
-#window-title-text {
+#window-title-image,
+#dialog-title-image {
+	height: 16px;
+	width: 16px;
+}
+
+#window-title-text,
+#dialog-title-text {
 	font-family: var(--font-title);
 }
