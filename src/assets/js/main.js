@@ -66,17 +66,18 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 	baseFolder = base;
 	currentSection = 0;
 
-	var iFrame = document.getElementById("content-frame");
-	var iFrameDocument = iFrame.contentWindow || iFrame.contentDocument;
-	numberOfSections = iFrameDocument.document.getElementsByTagName("section").length;
+	var iFrame = document.getElementById("topic-frame");
+	setShortcuts(iFrame.contentWindow);
+	var iFrameDocument = iFrame.contentWindow.document || iFrame.contentDocument;
+	numberOfSections = iFrameDocument.getElementsByTagName("section").length;
 
-	if (iFrameDocument.document.getElementById("list") == undefined)
-		iFrameDocument.document.getElementsByTagName("section")[0].className = "show";
-	iFrameDocument.document.getElementById("max-topic-slides").innerHTML = numberOfSections;
-	iFrameDocument.document.getElementById("current-topic-slide").innerHTML = currentSection + 1;
-	let updateCurrentSlide = (direction) => {
-		sessionStorage.currentSlide = Number(sessionStorage.currentSlide) + direction;
-		iFrameDocument.document.getElementById("current-slide-number").innerHTML = sessionStorage.currentSlide;
+	if (iFrameDocument.getElementById("list") == undefined)
+		iFrameDocument.getElementsByTagName("section")[0].className = "show";
+	iFrameDocument.getElementById("max-topic-slides").innerHTML = numberOfSections;
+	iFrameDocument.getElementById("current-topic-slide").innerHTML = currentSection + 1;
+	let updateCurrentSlide = (delta) => {
+		sessionStorage.currentSlide = Number(sessionStorage.currentSlide) + delta;
+		iFrameDocument.getElementById("current-slide-number").innerHTML = sessionStorage.currentSlide;
 	};
 	updateCurrentSlide(0);
 
@@ -94,7 +95,7 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 		totalNumberOfSlides = sessionStorage.totalNumberOfSlides;
 	}
 
-	iFrameDocument.document.getElementById("total-slides-number").innerHTML = totalNumberOfSlides;
+	iFrameDocument.getElementById("total-slides-number").innerHTML = totalNumberOfSlides;
 
 	if (iFrame.src.includes(base + initial + ".html")) {
 		numberOfSections = 1;
@@ -109,8 +110,8 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 		returnToListButton.toggleAttribute("disabled", true);
 	}
 	else {
-		if (iFrameDocument.document.getElementById("list") == undefined)
-			iFrameDocument.document.getElementsByTagName("section")[0].className = "show";
+		if (iFrameDocument.getElementById("list") == undefined)
+			iFrameDocument.getElementsByTagName("section")[0].className = "show";
 		previousSlideButton.toggleAttribute("disabled", false);
 		returnToListButton.style.display = "inline-block";
 		returnToListButton.toggleAttribute("disabled", false);
@@ -143,19 +144,17 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 	nextTopicButton.innerHTML = pagesName.next + " <i class=\"btn-icon fas fa-arrow-circle-right\"></i>";
 
 	/**
-	 * La funzione, in base al valore assunto da slide (true/false) cambia la sezione 
-	 * corrente in quella precedente (in caso di slide = false)
-	 * o in quella successiva (in caso di slide = true). Inoltre si occupa di aggiornare 
-	 * il numero della slide corrente nella memoria temporanea
-	 * del browser. Inoltre, in base al numero di slide, si occupa di rendere
-	 * visibili (o nascondere) i relativi pulsanti di spostamento
-	 * (avanti con id next, indietro con id back e quiz con id quiz).
+	 *  La funzione, in base al valore assunto da slide cambia la sezione corrente in
+	 * quella richiesta. Inoltre si occupa di aggiornare il numero della slide
+	 * corrente nella memoria temporanea del browser. Inoltre, in base al numero di
+	 * slide, si occupa di rendere visibili (o nascondere) i relativi pulsanti di
+	 * spostamento (avanti con id next, indietro con id back e quiz con id quiz).
 	 * 
 	 * @param {numer} slide Il numero della slide da aprire.
 	 */
 	function changeSlide(slide) {
 		updateCurrentSlide(slide - currentSection);
-		iFrameDocument.document.getElementsByTagName("section")[currentSection].className = "hide";
+		iFrameDocument.getElementsByTagName("section")[currentSection].className = "hide";
 		canChangeSlide = false;
 		if (slide > currentSection) {
 			if (currentSection == 0) {
@@ -177,7 +176,7 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 				nextTopicButton.style.display = "none";
 			}
 			if (currentSection > 0) {
-				if (currentSection - 1 == 0) {
+				if (currentSection - slide == 0) {
 					previousTopicButton.style.display = "inline-block";
 					previousSlideButton.style.display = "none";
 					previousSlideButton.toggleAttribute("disabled", true);
@@ -187,14 +186,14 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 		}
 
 		setTimeout(() => {
-			iFrameDocument.document.getElementsByTagName("section")[currentSection].className = "show";
-			iFrameDocument.document.getElementById("current-topic-slide").innerHTML = currentSection + 1;
+			iFrameDocument.getElementsByTagName("section")[currentSection].className = "show";
+			iFrameDocument.getElementById("current-topic-slide").innerHTML = currentSection + 1;
 			canChangeSlide = true;
 		}, 100);
 	}
 
 	let openPreviousTopic = (e) => {
-		if (canChangeSlide) {
+		if (canChangeSlide && pagesName.previousLink) {
 			changeTopic(pagesName.previousLink, baseFolder);
 			if (pagesName.previousLink !== initialPage)
 				returnToLast = true;
@@ -214,29 +213,31 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 			changeTopic(pagesName.nextLink, baseFolder);
 	};
 
-	previousTopicButton.removeEventListener("click", openPreviousTopic);
-	previousTopicButton.addEventListener("click", openPreviousTopic);
-	previousSlideButton.removeEventListener("click", openPreviousSlide);
-	previousSlideButton.addEventListener("click", openPreviousSlide);
+	previousTopicButton.onclick = openPreviousTopic;
+	previousSlideButton.onclick = openPreviousSlide;
 
-	nextSlideButton.removeEventListener("click", openNextSlide);
-	nextSlideButton.addEventListener("click", openNextSlide);
-	nextTopicButton.removeEventListener("click", openNextTopic);
-	nextTopicButton.addEventListener("click", openNextTopic);
+	nextSlideButton.onclick = openNextSlide;
+	nextTopicButton.onclick = openNextTopic;
 
-
-	const Mousetrap = require("mousetrap");
-	Mousetrap.bind("right", () => {
-		if (currentSection === numberOfSections - 1)
-			nextTopicButton.click();
-		else
-			nextSlideButton.click();
-	});
-	Mousetrap.bind("left", () => {
-		if (currentSection === 0 && !iFrame.src.includes(base + initial + ".html"))
-			previousTopicButton.click();
-		else if (!document.getElementById("back").hasAttribute("disabled"))
-			previousSlideButton.click();
+	[
+		parent.require("mousetrap")(iFrame.contentWindow),
+		parent.require("mousetrap")(document),
+		parent.require("mousetrap")(parent.document)
+	].forEach((Mousetrap) => {
+		Mousetrap.unbind("right");
+		Mousetrap.unbind("left");
+		Mousetrap.bind("right", () => {
+			if (currentSection === numberOfSections - 1)
+				nextTopicButton.click();
+			else
+				nextSlideButton.click();
+		});
+		Mousetrap.bind("left", () => {
+			if (currentSection === 0 && !iFrame.src.includes(base + initial + ".html"))
+				previousTopicButton.click();
+			else if (document.getElementById("back") && !document.getElementById("back").hasAttribute("disabled"))
+				previousSlideButton.click();
+		});
 	});
 }
 
@@ -247,14 +248,14 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
  * @param {String} [base] La cartella in cui è situato il file dell'argomento
  */
 function changeTopic(topicName, base = "./") {
-	var iFrame = document.getElementById("content-frame");
+	var iFrame = document.getElementById("topic-frame");
 	currentSection = 0;
 	parent.document.activeElement.blur();
 	if (!topicName.includes("quiz")) {
 		iFrame.src = base + topicName + ".html";
 	}
 	else
-		require("electron").remote.getCurrentWindow().loadFile(base + topicName + ".html");
+		parent.require("electron").remote.getCurrentWindow().loadFile(base + topicName + ".html");
 }
 
 /**
@@ -292,7 +293,7 @@ function initializeQuiz() {
 	nextSlideButton.removeEventListener("click", nextSlide);
 	nextSlideButton.addEventListener("click", nextSlide);
 
-	const Mousetrap = require("mousetrap");
+	const Mousetrap = require("mousetrap")(document);
 	Mousetrap.bind("right", () => {
 		if (currentSection === numberOfSections - 1) {
 			if (compare)
@@ -440,24 +441,6 @@ function showSubButtons(mainButton, containerId) {
 		container.style.opacity = 1;
 	}, 300);
 }
-
-// /**
-//  * Corregge alcuni errori nell'ottenimento del focus da parte di un iframe.
-//  */
-// (function () {
-// 	let a = parent.document.getElementById("content-frame");
-// 	if (a) {
-// 		var doc = a.contentWindow.document || a.contentDocument;
-// 		doc.childNodes.forEach(node => {
-// 			//parent.document.activeElement.blur()
-// 			if (node.nodeName != "INPUT") {
-// 				node.addEventListener("click", () => node.style.color = "green");
-// 			}
-// 			else
-// 				window.alert("HEY MAN");
-// 		})
-// 	}
-// })();
 
 /**
  * Associa a tutte le figure presenti nel documento un evento "click" che
