@@ -114,11 +114,11 @@ function warnIfIncomplete(previousQuizId, previousQuizName, topicToOpenName, cal
 	 */
 	function init() {
 		let window = remote.getCurrentWindow();
-		const minButton = document.getElementById('min-button'),
-			maxButton = document.getElementById('max-button'),
-			restoreButton = document.getElementById('restore-button'),
-			closeButton = document.getElementById('close-button'),
-			titleText = document.getElementById('window-title-text');
+		const minButton = parent.document.getElementById('min-button'),
+			maxButton = parent.document.getElementById('max-button'),
+			restoreButton = parent.document.getElementById('restore-button'),
+			closeButton = parent.document.getElementById('close-button'),
+			titleText = parent.document.getElementById('window-title-text');
 
 		titleText.innerHTML = remote.getCurrentWindow().getTitle();
 
@@ -211,18 +211,22 @@ function warnIfIncomplete(previousQuizId, previousQuizName, topicToOpenName, cal
  * Mostra il dialogo di richiesta di conferma di uscita.
  */
 function showExitDialog() {
-	const { ipcRenderer } = require("electron");
-
-	var answer = ipcRenderer.sendSync("prompt", {
-		title: "Sicuro?",
-		label: "Sicuro di voler uscire dall'applicazione?",
-		yes: "Sì",
-		yesReturn: true,
-		no: "No",
-		noReturn: false
+	const Dialog = parent.require("./assets/js/modal-dialog-module");
+	let exitDialog = new Dialog;
+	exitDialog.open({
+		title: 'Sicuro?',
+		content: "<p>Sicuro di voler uscire dall'applicazione?</p>",
+		buttons: {
+			"No": {
+				style: "btn-outlined",
+				callback: () => { exitDialog.close(); }
+			},
+			"Sì": {
+				style: "btn",
+				callback: () => { remote.app.quit(); }
+			}
+		}
 	});
-	if (answer)
-		remote.app.quit();
 }
 
 /**

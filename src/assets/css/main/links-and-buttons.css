@@ -37,17 +37,20 @@ classi aventi i seguenti stili:
 	display: inline-block;
 	padding: 12px 24px;
 	border-radius: 4px;
-	box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+	box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+		0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 	background-color: var(--main-color);
 	color: white;
 	text-decoration: none;
 	text-align: center;
-	transition: background-color .3s;
+	transition: background-color 0.3s;
 	font-weight: bold;
 }
 
-.btn:hover, .btn:focus {
-	box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+.btn:hover,
+.btn:focus {
+	box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+		0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 	background-color: var(--main-color-light);
 }
 
@@ -61,7 +64,7 @@ classi aventi i seguenti stili:
 	padding-top: 0;
 	border-radius: 100%;
 	/* animazione del click (v. linee guida Material Design) */
-	background-color: rgba(236, 240, 241, .3);
+	background-color: rgba(236, 240, 241, 0.3);
 	-webkit-transform: translate(-50%, -50%);
 	-moz-transform: translate(-50%, -50%);
 	-ms-transform: translate(-50%, -50%);
@@ -72,10 +75,11 @@ classi aventi i seguenti stili:
 .btn:active:before {
 	width: 120%;
 	padding-top: 120%;
-	transition: width .2s ease-out, padding-top .2s ease-out;
+	transition: width 0.2s ease-out, padding-top 0.2s ease-out;
 }
 
-.btn:disabled, .btn:disabled:hover {
+.btn:disabled,
+.btn:disabled:hover {
 	color: white;
 	background-color: var(--grey);
 	box-shadow: none;
@@ -102,10 +106,11 @@ classi aventi i seguenti stili:
 	font-weight: bold;
 	text-decoration: none;
 	text-align: center;
-	transition: background-color .3s;
+	transition: background-color 0.3s;
 }
 
-.btn-text:hover, .btn-text:focus {
+.btn-text:hover,
+.btn-text:focus {
 	background-color: var(--main-color-on-white);
 }
 
@@ -130,10 +135,11 @@ classi aventi i seguenti stili:
 .btn-text:active:before {
 	width: 120%;
 	padding-top: 120%;
-	transition: width .2s ease-out, padding-top .2s ease-out;
+	transition: width 0.2s ease-out, padding-top 0.2s ease-out;
 }
 
-.btn-text:disabled, .btn-text:disabled:hover {
+.btn-text:disabled,
+.btn-text:disabled:hover {
 	color: var(--grey-dark);
 	background-color: transparent;
 	cursor: not-allowed;
@@ -159,10 +165,11 @@ classi aventi i seguenti stili:
 	font-weight: bold;
 	text-decoration: none;
 	text-align: center;
-	transition: background-color .3s;
+	transition: background-color 0.3s;
 }
 
-.btn-outlined:hover, .btn-outlined:focus {
+.btn-outlined:hover,
+.btn-outlined:focus {
 	background-color: var(--main-color-on-white);
 }
 
@@ -187,10 +194,11 @@ classi aventi i seguenti stili:
 .btn-outlined:active:before {
 	width: 120%;
 	padding-top: 120%;
-	transition: width .2s ease-out, padding-top .2s ease-out;
+	transition: width 0.2s ease-out, padding-top 0.2s ease-out;
 }
 
-.btn-outlined:disabled, .btn-outlined:disabled:hover {
+.btn-outlined:disabled,
+.btn-outlined:disabled:hover {
 	color: var(--grey);
 	border-color: var(--grey);
 	background-color: transparent;
@@ -203,24 +211,28 @@ classi aventi i seguenti stili:
 
 /* Icone */
 
-.btn .btn-icon, .btn-text .btn-icon, .btn-outlined .btn-icon {
+.btn .btn-icon,
+.btn-text .btn-icon,
+.btn-outlined .btn-icon {
 	line-height: inherit;
 	float: right;
 	margin: 0 0 0 10px;
 }
 
-.btn .btn-icon.left, .btn-text .btn-icon.left, .btn-outlined .btn-icon.left {
+.btn .btn-icon.left,
+.btn-text .btn-icon.left,
+.btn-outlined .btn-icon.left {
 	line-height: inherit;
 	float: left;
 	margin: 0 10px 0 0;
 }
 
 .buttons-container {
-    width: calc(100% - 46px);
-    margin: 0 auto;
-    display: grid;
-    padding-bottom: 20px;
-    grid-template-columns: 33.33% 33.33% 33.33%;
+	width: calc(100% - 46px);
+	margin: 0 auto;
+	display: grid;
+	padding-bottom: 20px;
+	grid-template-columns: 33.33% 33.33% 33.33%;
 }
 
 @media only screen and (max-width: 992px) {
@@ -278,7 +290,7 @@ header .blind-audio-buttons .btn-audio {
 	font-weight: bold;
 	text-decoration: none;
 	text-align: center;
-	transition: background-color .3s;
+	transition: background-color 0.3s;
 }
 
 header .blind-audio-buttons .btn-audio.btn-accessibility {
@@ -286,7 +298,8 @@ header .blind-audio-buttons .btn-audio.btn-accessibility {
 	font-size: 15pt;
 }
 
-header .blind-audio-buttons .btn-audio:hover, header .blind-audio-buttons .btn-audio:focus {
+header .blind-audio-buttons .btn-audio:hover,
+header .blind-audio-buttons .btn-audio:focus {
 	background-color: var(--main-color-on-white);
 }
 
@@ -311,10 +324,11 @@ header .blind-audio-buttons .btn-audio:before {
 header .blind-audio-buttons .btn-audio:active:before {
 	width: 120%;
 	padding-top: 120%;
-	transition: width .2s ease-out, padding-top .2s ease-out;
+	transition: width 0.2s ease-out, padding-top 0.2s ease-out;
 }
 
-header .blind-audio-buttons .btn-audio:disabled, header .blind-audio-buttons .btn-audio:disabled:hover {
+header .blind-audio-buttons .btn-audio:disabled,
+header .blind-audio-buttons .btn-audio:disabled:hover {
 	color: var(--grey-dark);
 	background-color: transparent;
 	cursor: not-allowed;
@@ -324,7 +338,11 @@ a.external::after {
 	font-family: "Font Awesome 5 Free";
 	font-weight: 600;
 	content: "\f35d";
-	margin-left: .5em;
+	margin-left: 0.5em;
 	font-size: 5pt;
 	vertical-align: super;
+}
+
+.dialog-actions-container button:not(:first-of-type) {
+	margin-left: 2.5em;
 }

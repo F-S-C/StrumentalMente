@@ -1,0 +1,26 @@
+.dialog-box {
+	background-color: white;
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+	position: absolute;
+	z-index: 9999;
+	visibility: hidden;
+	opacity: 0;
+}
+
+.dialog-box #label {
+	color: black !important;
+}
+
+.dialog-box + .dialog-box-overlay {
+	background-color: black;
+	opacity: 0.5;
+	position: fixed !important;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 9997;
+	backdrop-filter: blur(5px);
+	display: none;
+}
