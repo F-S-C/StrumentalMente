@@ -1,7 +1,7 @@
 .num_tasto {
 	background: none;
 	color: #222;
-	font-family: 'Montserrat';
+	font-family: "Montserrat";
 	font-size: 10pt;
 	margin-left: 50px;
 	margin-right: -27px;
@@ -11,7 +11,7 @@
 .check {
 	display: block;
 	cursor: pointer;
-	background-image: url('../../images/schemi_base_chitarra/indicatore_vuoto.svg');
+	background-image: url("../../images/schemi_base_chitarra/indicatore_vuoto.svg");
 	background-repeat: no-repeat;
 	overflow: hidden;
 	position: relative;
@@ -33,29 +33,31 @@
 }
 
 .check:hover {
-	background-image: url('../../images/schemi_base_chitarra/indicatore_hover.svg');
+	background-image: url("../../images/schemi_base_chitarra/indicatore_hover.svg");
 }
 
 .check:checked {
-	background-image: url('../../images/schemi_base_chitarra/indicatore_pieno.svg');
+	background-image: url("../../images/schemi_base_chitarra/indicatore_pieno.svg");
 }
 
 .check:checked:hover {
-	background-image: url('../../images/schemi_base_chitarra/indicatore_pieno_hover.svg');
+	background-image: url("../../images/schemi_base_chitarra/indicatore_pieno_hover.svg");
 }
 
-.check:disabled, .check:disabled:hover {
-	background-image: url('../../images/schemi_base_chitarra/indicatore_vuoto.svg');
+.check:disabled,
+.check:disabled:hover {
+	background-image: url("../../images/schemi_base_chitarra/indicatore_vuoto.svg");
 	cursor: default;
 }
 
-.check:disabled:checked, .check:disabled:checked:hover {
-	background-image: url('../../images/schemi_base_chitarra/indicatore_pieno.svg');
+.check:disabled:checked,
+.check:disabled:checked:hover {
+	background-image: url("../../images/schemi_base_chitarra/indicatore_pieno.svg");
 	cursor: default;
 }
 
 .nome_accordo {
-	font-family: 'Montserrat';
+	font-family: "Montserrat";
 	font-size: 3rem;
 	margin: 10px 0 25px;
 	font-weight: bold;
@@ -65,9 +67,14 @@
 }
 
 .box {
+	max-width: -webkit-fill-available;
 	float: left;
 	width: 400px;
 	margin-left: 10px;
+}
+
+.diagramma {
+	position: relative;
 }
 
 .diagramma .riga {
@@ -118,9 +125,46 @@
 .diagramma .cella .nota.nome_corda {
 	background: none;
 	color: #222;
-	font-family: 'Montserrat';
+	font-family: "Montserrat";
 }
 
 .diagramma .cella .nota.nome_corda {
 	color: #666;
+}
+
+img.quiz-piano-keyboard {
+	width: 100%;
+}
+
+.diagramma .piano-white {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 14.3% 14.3% 14.3% 14.3% 14.3% 14.3% 14.3%;
+	position: absolute;
+	bottom: 3%;
+	left: 0;
+	right: 0;
+}
+.diagramma .piano-black {
+	width: 100%;
+    display: grid;
+    grid-template-columns: 9% 8.3% 8.8% 8.3% 16.7% 8% 8.3% 8.1% 8.3% 8.3%;
+    position: absolute;
+	top: 65%;
+	left: 0;
+	right: 0;
+}
+
+.diagramma .piano-black .spacer {
+	width: 100%;
+}
+
+.piano-white input.check.nota {
+    position: initial;
+    margin: 0 15px;
+}
+
+.piano-black input.check.nota {
+    position: initial;
+    margin: 0 3px;
 }
