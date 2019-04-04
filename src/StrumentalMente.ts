@@ -107,7 +107,10 @@ export default class Main {
 			show: false,
 			icon: "./assets/icon.ico",
 			frame: false,
-			center: true
+			center: true,
+			webPreferences: {
+				nodeIntegration: true
+			}
 		});
 		Main.mainWindow.loadURL('file://' + __dirname + '/index.html');
 		Main.mainWindow.setMenu(null);
@@ -156,7 +159,10 @@ export default class Main {
 			modal: true,
 			title: options.title,
 			frame: false,
-			autoHideMenuBar: true
+			autoHideMenuBar: true,
+			webPreferences: {
+				nodeIntegration: true
+			}
 		});
 
 		Main.promptWindow.on("ready-to-show", () => {
