@@ -1,4 +1,4 @@
-# StrumentalMente<!-- omit in toc -->
+# <img src="./logo/512x512.png" alt="Logo di StrumentalMente" width="50px"> StrumentalMente<!-- omit in toc -->
 
 [![Licenza](https://img.shields.io/github/license/F-S-C/StrumentalMente.svg?style=for-the-badge)](https://github.com/F-S-C/StrumentalMente/blob/master/LICENSE)
 [![Non ancora rilasciato](https://img.shields.io/badge/release-non%20ancora%20rilasciato-orange.svg?style=for-the-badge)](https://github.com/F-S-C/StrumentalMente/releases)
@@ -88,5 +88,7 @@ L'applicazione è realizzata tramite [Node.js](https://nodejs.org/) (utilizzando
 - [Mousetrap](https://www.npmjs.com/package/mousetrap) ([Licenza](https://github.com/ccampbell/mousetrap/blob/master/LICENSE))
 - [electron-builder](https://www.electron.build/) ([Licenza](https://github.com/electron-userland/electron-builder/blob/master/LICENSE))
 - [node-localstorage](https://www.npmjs.com/package/node-localstorage) ([Licenza](https://github.com/lmaccherone/node-localstorage#mit-license))
+- [jQuery](https://jquery.com/) ([Licenza](https://github.com/jquery/jquery/blob/master/LICENSE.txt))
+- [Maphilight](https://github.com/kemayo/maphilight) ([Licenza](https://github.com/kemayo/maphilight/blob/master/MIT-LICENSE.txt)) &mdash; Modificato da [Andrea Esposito](https://github.com/espositoandrea)
 
 Maggiori informazioni sulle licenze dei moduli possono essere trovate visitando i rispettivi link.

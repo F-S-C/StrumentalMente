@@ -28,7 +28,7 @@
 				<div id="window-controls">
 					<!-- Commentato in quanto finestra modale
                         <div class="button" id="min-button">
-                            <span><i class="fas fa-minus" style="font-size: 1.2em;"></i></span>
+							<span><i class="fas fa-minus" style="font-size: 1.2em;"></i></span>
                         </div>
                     -->
 					<div class="button" id="max-button">
@@ -53,61 +53,50 @@
 					<hr />
 				</header>
 				<div style="width:100%; text-align: center;">
-					<img id="img_ID" src="./assets/images/StrumentalMente-Sitemap.svg" usemap="#map" alt="" style="border:none; height:600px;" />
+					<img id="img_ID" src="./assets/images/StrumentalMente-Sitemap.svg" usemap="#map" alt="" style="position:relative;border:none; height:600px;" />
+					<map id="map_ID" name="map">
+						<area alt="Teoria del pianoforte" title="Teoria del pianoforte" href="javascript:alert('piano');" shape="rect" coords="139,525,225,589" />
+						<area alt="Teoria della chitarra" title="Teoria della chitarra" href="javascript:alert('chitarra');" shape="rect" coords="139,439,225,503" />
+						<area alt="Teoria della batteria" title="Teoria della batteria" href="javascript:alert('batteria');" shape="rect" coords="138,354,224,418" />
+						<area alt="Teoria del basso" title="Teoria del basso" href="javascript:alert('basso');" shape="rect" coords="139,268,225,332" />
+						<area alt="Gli strumenti" title="Gli strumenti" href="javascript:alert('strumenti')" shape="rect" coords="118,182,204,246" />
+						<area alt="Gli accordi" title="Gli accordi" href="javascript:alert('accordi')" shape="rect" coords="225,182,311,246" />
+						<area alt="Gli accordi del basso" title="Gli accordi del basso" href="javascript:alert('accordi-basso')" shape="rect" coords="246,267,332,331" />
+						<area alt="La teoria" title="La teoria" href="javascript:alert('teoria')" shape="rect" coords="11,182,97,246" />
+						<area alt="Gli accordi della chitarra" title="Gli accordi della chitarra" href="javascript:alert('accordi-chitarra')" shape="rect" coords="247,354,333,418" />
+						<area alt="Gli accordi del pianoforte" title="Gli accordi del pianoforte" href="javascript:alert('accordi-piano')" shape="rect" coords="246,439,332,503" />
+						<area alt="Informazioni su StrumentalMente" title="Informazioni su StrumentalMente" href="javascript:alert('about')" shape="rect" coords="417,182,503,246" />
+						<area alt="Il tuo profilo" title="Il tuo profilo" href="javascript:alert('profilo')" shape="rect" coords="610,182,696,246" />
+						<area alt="La pagina iniziale" title="La pagina iniziale" href="javascript:alert('home')" shape="rect" coords="311,96,397,160" />
+					</map>
 				</div>
-				<map id="map_ID" name="map">
-					<area alt="Home" title="Home" href="javascript:window.alert('home.html');" coords="259,95,342,159" shape="rect">
-					<area alt="Strumenti" title="Strumenti" href="javascript:window.alert('strumenti.html');" coords="116,180,200,243" shape="rect">
-					<area alt="Accordi" title="Accordi" href="javascript:window.alert('Accordi.html');" coords="223,180,307,244" shape="rect">
-					<area alt="Teoria base" title="Teoria base" href="javascript:window.alert('Teoria base');" shape="rect" coords="32,267,119,332" />
-					<area alt="Accordi basso" title="Accordi basso" href="javascript:window.alert('Accordi basso');" shape="rect" coords="246,267,333,332" />
-					<area alt="Teoria batteria" title="Teoria batteria" href="javascript:window.alert('Teoria batteria');" shape="rect" coords="138,268,225,333" />
-					<area alt="Teoria avanzata" title="Teoria avanzata" href="javascript:window.alert('Teoria avanzata');" shape="rect" coords="32,353,119,418" />
-					<area alt="Teoria basso" title="Teoria basso" href="javascript:window.alert('Teoria basso');" shape="rect" coords="138,353,225,418" />
-					<area alt="Teoria chitarra" title="Teoria chitarra" href="javascript:window.alert('Teoria chitarra');" shape="rect" coords="139,439,226,504" />
-					<area alt="Teoria pianoforte" title="Teoria pianoforte" href="javascript:window.alert('Teoria pianoforte');" shape="rect" coords="139,524,226,589" />
-					<area alt="Accordi pianoforte" title="Accordi pianoforte" href="javascript:window.alert('Accordi pianoforte');" shape="rect" coords="246,439,333,504" />
-					<area alt="Accordi chitarra" title="Accordi chitarra" href="javascript:window.alert('Accordi chitarra');" shape="rect" coords="246,353,333,418" />
-				</map>
 			</section>
 		</div>
 	</div>
 
 	<script src="./assets/js/main.js"></script>
 	<script src="./assets/js/render.js"></script>
+	<script src="./assets/js/jquery-3.3.1.min.js"></script>
+	<script src="./assets/js/jquery.maphilight.js"></script>
+	<!-- <script src="./assets/js/jquery.rwdImageMaps.min.js"></script> -->
 	<script>
+		var resizeEvt;
 
-		window.onload = function () {
-			var ImageMap = function (map, img) {
-				var n,
-					areas = map.getElementsByTagName('area'),
-					len = areas.length,
-					coords = [],
-					previousWidth = 611;
-				for (n = 0; n < len; n++) {
-					coords[n] = areas[n].coords.split(',');
-				}
-				this.resize = function () {
-					var n, m, clen,
-						x = img.offsetWidth / previousWidth;
-					for (n = 0; n < len; n++) {
-						clen = coords[n].length;
-						for (m = 0; m < clen; m++) {
-							coords[n][m] *= x;
-						}
-						areas[n].coords = coords[n].join(',');
-					}
-					previousWidth = document.body.clientWidth;
-					return true;
-				};
-				window.onresize = this.resize;
-			},
-				imageMap = new ImageMap(document.getElementById('map_ID'), document.getElementById('img_ID'));
-			imageMap.resize();
-			return;
-		}
+		(function ($) {
+			require('electron').remote.getCurrentWindow().openDevTools();
+			$(document).ready(function () {
+				$('img[usemap]').maphilight();
+				$('img[usemap]').rwdImageMaps();
+			});
 
+			$(window).resize(function () {
+				clearTimeout(resizeEvt);
+				resizeEvt = setTimeout(function () {
+					$('img[usemap]').maphilight();
+				}, 200);
+			});
 
+		})(require('jquery'));
 	</script>
 </body>
 

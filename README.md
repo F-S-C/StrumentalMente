@@ -1,4 +1,4 @@
-# StrumentalMente<!-- omit in toc -->
+# <img src="./logo/512x512.png" alt="StrumentalMente's logo" width="50px"> StrumentalMente<!-- omit in toc -->
 
 [![License](https://img.shields.io/github/license/F-S-C/StrumentalMente.svg?style=for-the-badge)](https://github.com/F-S-C/StrumentalMente/blob/master/LICENSE)
 [![Not yet released](https://img.shields.io/badge/release-not%20yet%20released-orange.svg?style=for-the-badge)](https://github.com/F-S-C/StrumentalMente/releases)
@@ -13,13 +13,13 @@ _StrumentalMente_ is an e-learning multimedia system planned and designed follow
 ## Table of Contents<!-- omit in toc -->
 
 - [Preface](#preface)
-  - [The Authors](#the-authors)
-  - [The Exam](#the-exam)
+	- [The Authors](#the-authors)
+	- [The Exam](#the-exam)
 - [Information About the System](#information-about-the-system)
-  - [The Repository](#the-repository)
-    - [The Structure of this Repository](#the-structure-of-this-repository)
+	- [The Repository](#the-repository)
+		- [The Structure of this Repository](#the-structure-of-this-repository)
 - [Copyright and Licenses](#copyright-and-licenses)
-  - [Used Tools Libraries](#used-tools-libraries)
+	- [Used Tools and Libraries](#used-tools-and-libraries)
 
 ## Preface
 
@@ -80,7 +80,7 @@ StrumentalMente
 
 This project is released under the [**Apache 2.0 License**](https://github.com/F-S-C/StrumentalMente/blob/master/LICENSE) (see the [`LICENSE`](https://github.com/F-S-C/StrumentalMente/blob/master/LICENSE) file for more information). So, any use of the source code requires a copyright notice containing the source of the code and its original authors. To show the original authors of the code a notation like `F.S.C. (Alessandro Annese, Davide De Salvo, Andrea Esposito, Graziano Montanaro, Regina Zaccaria)` is preferred (it can be used another notation where are shown _both_ the group name _and_ its components).
 
-### Used Tools Libraries
+### Used Tools and Libraries
 
 The application is built using [Node.js](https://nodejs.org/) (using [yarn](https://yarnpkg.com/) as package manager) and the following modules:
 
@@ -88,5 +88,7 @@ The application is built using [Node.js](https://nodejs.org/) (using [yarn](http
 - [Mousetrap](https://www.npmjs.com/package/mousetrap) ([License](https://github.com/ccampbell/mousetrap/blob/master/LICENSE))
 - [electron-builder](https://www.electron.build/) ([License](https://github.com/electron-userland/electron-builder/blob/master/LICENSE))
 - [node-localstorage](https://www.npmjs.com/package/node-localstorage) ([License](https://github.com/lmaccherone/node-localstorage#mit-license))
+- [jQuery](https://jquery.com/) ([License](https://github.com/jquery/jquery/blob/master/LICENSE.txt))
+- [Maphilight](https://github.com/kemayo/maphilight) ([License](https://github.com/kemayo/maphilight/blob/master/MIT-LICENSE.txt)) &mdash; Modified by [Andrea Esposito](https://github.com/espositoandrea)
 
 More information about the licenses of those modules can be found following the links.
