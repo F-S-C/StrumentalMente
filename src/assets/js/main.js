@@ -227,16 +227,26 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 		Mousetrap.unbind("right");
 		Mousetrap.unbind("left");
 		Mousetrap.bind("right", () => {
-			if (currentSection === numberOfSections - 1)
+			if (currentSection === numberOfSections - 1) {
 				nextTopicButton.click();
-			else
+			}
+			else {
 				nextSlideButton.click();
+			}
 		});
 		Mousetrap.bind("left", () => {
-			if (currentSection === 0 && !iFrame.src.includes(base + initial + ".html"))
+			if (currentSection === 0 && !iFrame.src.includes(base + initial + ".html")) {
 				previousTopicButton.click();
-			else if (document.getElementById("back") && !document.getElementById("back").hasAttribute("disabled"))
+			}
+			else if (document.getElementById("back") && !document.getElementById("back").hasAttribute("disabled")) {
 				previousSlideButton.click();
+			}
+		});
+
+		Mousetrap.bind("ctrl+backspace", () => {
+			if (document.getElementById("back") && !document.getElementById("back").hasAttribute("disabled")) {
+				returnToListButton.click();
+			}
 		});
 	});
 }
@@ -251,8 +261,9 @@ function changeTopic(topicName, base = "./") {
 	var iFrame = document.getElementById("topic-frame");
 	currentSection = 0;
 	parent.document.activeElement.blur();
+	const path = parent.require("path");
 	if (!topicName.includes("quiz")) {
-		iFrame.src = base + topicName + ".html";
+		iFrame.src = `file:\\\\\\${path.join(path.resolve("."), base, `${topicName}.html`)}`;
 	}
 	else
 		parent.require("electron").remote.getCurrentWindow().loadFile(base + topicName + ".html");
