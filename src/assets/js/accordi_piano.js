@@ -30,7 +30,19 @@ var accordi = [
 	new accordo("Re#", [false, false, false, false, true, false, false,
 		false, true, false, false, true]),
 	new accordo("Re#-", [false, false, false, false, false, false, false,
-		false, true, true, false, true])
+		false, true, true, false, true]),
+	new accordo("Mi", [false, false, true, false, false, false, true,
+		false, false, false, true, false]),
+	new accordo("Mi-", [false, false, true, false, true, false, true,
+		false, false, false, false, false]),
+	new accordo("Fa", [true, false, false, true, false, true, false,
+		false, false, false, false, false]),
+	new accordo("Fa-", [true, false, false, true, false, false, false,
+		false, false, false, true, false]),
+	new accordo("Fa#", [false, false, false, false, false, false, false,
+		true, false, true, false, true]),
+	new accordo("Fa#-", [false, false, false, false, false, true, false,
+		true, false, true, false, false]),
 ];
 
 /**
