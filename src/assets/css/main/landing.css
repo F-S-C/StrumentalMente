@@ -1,0 +1,45 @@
+#landing-container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: #000;
+	width: 100vw;
+	height: 100vh;
+	z-index: 9;
+	/* transition: all 0.4s ease-in-out; */
+	clip-path: circle(100% at center);
+}
+
+@keyframes remove-landing {
+	0% {
+		clip-path: circle(100% at center);
+	}
+	100% {
+		clip-path: circle(0% at center);
+	}
+}
+
+#landing-container.removing {
+	animation: remove-landing 0.4s linear;
+}
+
+#landing-container .slideshow span {
+	box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.65);
+}
+
+#landing-container .site-name {
+	text-align: center;
+	color: white;
+	margin: 20px 0;
+}
+
+#landing-container .site-name h1 {
+	margin: 0 0 0.5em 0;
+	font-size: xx-large;
+}
+
+#landing-container .site-name h2 {
+	margin: 0;
+	color: #ddd;
+	font-size: larger;
+}
