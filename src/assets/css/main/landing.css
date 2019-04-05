@@ -21,6 +21,7 @@
 
 #landing-container.removing {
 	animation: remove-landing 0.4s linear;
+	clip-path: circle(0% at center);
 }
 
 #landing-container .slideshow span {
