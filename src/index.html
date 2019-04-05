@@ -164,7 +164,23 @@
 		else
 			require("mousetrap").bind("enter", () => { document.querySelector("#landing-container .start-button").click(); });
 
-		
+		if (params.has("topic")) {
+			let generalTopic = (key => {
+				if (key.match(/teoria-.*/i))
+					return "home-strumenti";
+				else if (key.match(/accordi-*/i))
+					return "home-accordi";
+				else
+					return key;
+			})(params.get("topic"));
+
+			let navbutton = Array.from(document.getElementsByTagName("button"))
+				.filter(btn => btn.getAttribute("onclick").includes("openPage") && btn.getAttribute("onclick").includes(generalTopic))[0];
+			navbutton && navbutton.click();
+
+			if (params.get("to-home") == "false")
+				document.getElementById("content-frame").src = params.get("topic");
+		}
 
 		function startApp() {
 			landingContainer.classList.add("removing");

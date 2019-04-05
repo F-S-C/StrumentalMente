@@ -282,7 +282,7 @@ function showQuizDialog(nomeQuiz, score, total, return_link) {
 		buttons: {
 			"Ok": {
 				style: "btn-outlined",
-				callback: () => { window.location.href = `../../index.html?started=true&topic=${return_link}`; }
+				callback: () => { window.location.href = `../../index.html?started=true&topic=${return_link}&to-home=true`; }
 			},
 			"Verifica": {
 				style: "btn",
