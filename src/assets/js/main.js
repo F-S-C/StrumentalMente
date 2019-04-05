@@ -299,10 +299,8 @@ function initializeQuiz() {
 	verifyButton.style.display = "none";
 	previousSlideButton.toggleAttribute("disabled", true);
 
-	previousSlideButton.removeEventListener("click", previousSlide);
-	previousSlideButton.addEventListener("click", previousSlide);
-	nextSlideButton.removeEventListener("click", nextSlide);
-	nextSlideButton.addEventListener("click", nextSlide);
+	previousSlideButton.onclick= previousSlide;
+	nextSlideButton.onclick= nextSlide;
 
 	const Mousetrap = require("mousetrap")(document);
 	Mousetrap.bind("right", () => {
@@ -494,7 +492,7 @@ function showSubButtons(mainButton, containerId) {
 					realDocument.activeElement.blur();
 				};
 
-				closeButton.addEventListener("click", closeModal);
+				closeButton.onclick = closeModal;
 				fig.className += " modal";
 				fig.removeEventListener("click", showImageModal);
 				fig.addEventListener("click", closeModal);

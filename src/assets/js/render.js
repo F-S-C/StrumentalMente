@@ -161,8 +161,10 @@ function warnIfIncomplete(previousQuizId, previousQuizName, topicToOpenName, cal
          */
 		if (minButton && restoreButton) {
 			toggleMaxRestoreButtons();
-			window.on('maximize', toggleMaxRestoreButtons);
-			window.on('unmaximize', toggleMaxRestoreButtons);
+			window.removeEventListener('maximize', toggleMaxRestoreButtons);
+			window.addEventListener('maximize', toggleMaxRestoreButtons);
+			window.removeEventListener('unmaximize', toggleMaxRestoreButtons);
+			window.addEventListener('unmaximize', toggleMaxRestoreButtons);
 		}
 
 		closeButton.onclick = close;
@@ -425,6 +427,6 @@ function setShortcuts(doc = document) {
 	}
 }
 
-window.addEventListener("load", () => {
-	setShortcuts(document);
-});
+let onLoadCallback = () => { setShortcuts(document); }
+window.removeEventListener("load", onLoadCallback);
+window.addEventListener("load", onLoadCallback);

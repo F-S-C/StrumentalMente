@@ -183,10 +183,6 @@ export default class Main {
 	 * @param browserWindow Riferimento alla finestra principale
 	 */
 	static main(app: Electron.App, browserWindow: typeof BrowserWindow) {
-		// we pass the Electron.App object and the  
-		// Electron.BrowserWindow into Main function 
-		// so Main class has no dependencies. Main 
-		// makes the code easier to write tests for 
 		Main.BrowserWindow = browserWindow;
 		Main.application = app;
 		Main.application.commandLine.appendSwitch('enable-experimental-web-platform-features');
