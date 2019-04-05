@@ -241,18 +241,24 @@ function showExitDialog() {
  * 'Sì'. Il percorso è relativo rispetto alla cartella principale.
  */
 function showExitFromQuizDialog(toOpen) {
-	const { ipcRenderer } = require("electron");
-
-	var answer = ipcRenderer.sendSync("prompt", {
-		title: "Sicuro?",
-		label: "Sicuro di voler uscire dal quiz?",
-		yes: "Sì",
-		yesReturn: true,
-		no: "No",
-		noReturn: false
+	const path = require("path");
+	const Dialog = require(path.join(path.resolve("./"), "./assets/js/modal-dialog-module"));
+	let exitQuizDialog = new Dialog;
+	exitQuizDialog.open({
+		icon: path.join(path.resolve("./"), "./assets/icon.ico"),
+		title: 'Sicuro?',
+		content: "Sicuro di voler uscire dal quiz?",
+		buttons: {
+			"No": {
+				style: "btn-outlined",
+				callback: () => { exitQuizDialog.close(); }
+			},
+			"Sì": {
+				style: "btn",
+				callback: () => { window.location.href = `../../index.html?started=true&topic=${toOpen}&to-home=false`; }
+			}
+		}
 	});
-	if (answer)
-		remote.getCurrentWindow().loadFile(toOpen);
 }
 
 /**
@@ -265,7 +271,7 @@ function showExitFromQuizDialog(toOpen) {
  * 'Ok'. Il percorso è relativo rispetto alla cartella principale.
  */
 function showQuizDialog(nomeQuiz, score, total, return_link) {
-	let path = require("path");
+	const path = require("path");
 	const Dialog = require(path.join(path.resolve("./"), "./assets/js/modal-dialog-module"));
 	let quizDialog = new Dialog;
 	quizDialog.open({
