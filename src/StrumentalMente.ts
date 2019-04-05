@@ -195,26 +195,6 @@ export default class Main {
 		Main.application.on('ready', Main.onReady);
 		Main.application.on('activate', Main.onActivate);
 
-		/** Chiamata dalla finestra del dialogo per ottenere i suoi parametri */
-		ipcMain.on("openDialog", (event, data) => {
-			event.returnValue = JSON.stringify(Main.promptOptions, null, '');
-		});
-
-		/** Chiamata dalla finestra del dialogo alla sua chiusura */
-		ipcMain.on("closeDialog", (event, data) => {
-			Main.promptAnswer = data;
-		});
-
-		/** Chiamata dall'applicazione per aprire la finestra di dialogo */
-		ipcMain.on("prompt", (event, options) => {
-			if (!Main.promptWindow)
-				Main.promptModal(Main.mainWindow, options, options.file || "./dialogs/exit-dialog.html", (data) => {
-					event.returnValue = data;
-				});
-			else
-				event.returnValue = undefined;
-		});
-
 		/** Salva i/il quiz */
 		ipcMain.on("save-quiz", (event, quiz) => {
 			if (quiz.id == "*" && quiz.passed == undefined)
