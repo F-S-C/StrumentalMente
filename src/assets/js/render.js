@@ -194,21 +194,24 @@ function warnIfIncomplete(previousQuizId, previousQuizName, topicToOpenName, cal
 
 	// Un piccolo easter egg da parte degli FSC :)!
 	parent.require("mousetrap").bind("up up down down left right left right b a enter", () => {
-		const { ipcRenderer } = require("electron");
-
-		var answer = ipcRenderer.sendSync("prompt", {
-			title: "Wow!",
-			label: "Wow! Fai anche tu parte del ristretto club di giocatori NES?!<br />\
-                    Siamo onorati di averti come nostro utente!<br />\
-                    <i>&mdash; by FSC</i>",
-			yes: "Wow!",
-			yesReturn: false,
-			no: "Ehm... Ok",
-			noReturn: false,
-			width: 600,
+		const Dialog = parent.require("./assets/js/modal-dialog-module");
+		let bonusDialog = new Dialog;
+		bonusDialog.open({
+			title: 'Wow!',
+			content: `<p>Wow! Fai anche tu parte del ristretto club di giocatori NES?!<br />
+			Siamo onorati di averti come nostro utente!<br />
+			<i>&mdash; by FSC</i></p>`,
+			buttons: {
+				"Ehm... Ok": {
+					style: "btn-outlined",
+					callback: () => { bonusDialog.close(); }
+				},
+				"Wow!": {
+					style: "btn",
+					callback: () => { bonusDialog.close(); }
+				}
+			}
 		});
-		if (answer)
-			remote.app.quit();
 	});
 })();
 
