@@ -267,8 +267,8 @@ function showExitFromQuizDialog(toOpen) {
 function showQuizDialog(nomeQuiz, score, total, return_link) {
 	let path = require("path");
 	const Dialog = require(path.join(path.resolve("./"), "./assets/js/modal-dialog-module"));
-	let warningDialog = new Dialog;
-	warningDialog.open({
+	let quizDialog = new Dialog;
+	quizDialog.open({
 		icon: path.join(path.resolve("./"), "./assets/icon.ico"),
 		title: 'Quiz - Risultato',
 		content: `<p>Hai ottenuto in punteggio di:</p>
@@ -280,7 +280,7 @@ function showQuizDialog(nomeQuiz, score, total, return_link) {
 			},
 			"Verifica": {
 				style: "btn",
-				callback: () => { quizCompare(); warningDialog.close(); }
+				callback: () => { quizCompare(); quizDialog.close(); }
 			}
 		}
 	});
