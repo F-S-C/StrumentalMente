@@ -78,17 +78,26 @@ function warnIfIncomplete(previousQuizId, previousQuizName, topicToOpenName, cal
 		let hasBeenAsked = JSON.parse(sessionStorage.getItem(`${topicToOpenName}-notdone-asked`));
 		sessionStorage.setItem(`${topicToOpenName}-notdone-asked`, "true");
 
-		var answer = hasBeenAsked || ipcRenderer.sendSync("prompt", {
-			title: "Attenzione!",
-			label: `Hai scelto di proseguire <em>${topicToOpenName}</em> senza aver completato il quiz di <em>${previousQuizName}</em>! Sei sicuro di voler continuare?`,
-			yes: "Sì",
-			yesReturn: true,
-			no: "No",
-			noReturn: false,
-			file: "./dialogs/exit-dialog.html"
-		});
-
-		if (answer)
+		let answer = hasBeenAsked;
+		if (!answer) {
+			const Dialog = parent.require("./assets/js/modal-dialog-module");
+			let warningDialog = new Dialog;
+			warningDialog.open({
+				title: 'Attenzione!',
+				content: `<p>Hai scelto di proseguire <em>${topicToOpenName}</em> senza aver completato il quiz di <em>${previousQuizName}</em>! Sei sicuro di voler continuare?</p>`,
+				buttons: {
+					"No": {
+						style: "btn-outlined",
+						callback: () => { warningDialog.close(); }
+					},
+					"Sì": {
+						style: "btn",
+						callback: () => { callback(); warningDialog.close(); }
+					}
+				}
+			});
+		}
+		else
 			callback();
 	}
 	else
