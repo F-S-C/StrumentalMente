@@ -276,7 +276,7 @@ function showQuizDialog(nomeQuiz, score, total, return_link) {
 		buttons: {
 			"Ok": {
 				style: "btn-outlined",
-				callback: () => { window.location.href = '../../' + return_link + '.html'; }
+				callback: () => { window.location.href = `../../index.html?started=true&topic=${return_link}`; }
 			},
 			"Verifica": {
 				style: "btn",
@@ -411,7 +411,7 @@ function setShortcuts(doc = document) {
 		Mousetrap.bind("f1", () => { parent.document.querySelector("#help-nav-link>button").click(); });
 
 		// Shortcut per debug
-		Mousetrap.bind("f5", () => window.location.reload());
+		Mousetrap.bind("f5", () => { window.location.reload(); });
 		Mousetrap.bind("alt+backspace", () => window.history.back());
 	}
 }

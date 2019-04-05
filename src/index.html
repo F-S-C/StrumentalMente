@@ -154,12 +154,22 @@
 	<script src="./assets/js/render.js"></script>
 	<script src="./assets/js/main.js"></script>
 	<script>
-		require("mousetrap").bind("enter", () => { document.querySelector("#landing-container .start-button").click(); });
+		let landingContainer = document.getElementById("landing-container");
+
+		var params = (new URL(location.href)).searchParams;
+
+		if (params.get("started")) {
+			landingContainer.parentNode.removeChild(landingContainer);
+		}
+		else
+			require("mousetrap").bind("enter", () => { document.querySelector("#landing-container .start-button").click(); });
+
+		
 
 		function startApp() {
-			let landingContainer = document.getElementById("landing-container");
 			landingContainer.classList.add("removing");
 			setTimeout(() => {
+				window.history.replaceState(null, null, "?started=true");
 				landingContainer.parentNode.removeChild(landingContainer);
 			}, 400);
 		}
