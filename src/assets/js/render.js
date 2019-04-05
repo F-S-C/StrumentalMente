@@ -265,26 +265,27 @@ function showExitFromQuizDialog(toOpen) {
  * 'Ok'. Il percorso è relativo rispetto alla cartella principale.
  */
 function showQuizDialog(nomeQuiz, score, total, return_link) {
-	const { ipcRenderer } = require("electron");
-
-	var answer = ipcRenderer.sendSync("prompt", {
-		title: "Quiz - Risultato",
-		label: "Hai ottenuto un punteggio di:",
-		yes: "Verifica",
-		yesReturn: true,
-		no: "Ok",
-		noReturn: false,
-		scored: score,
-		totalScore: total,
-		file: "./dialogs/quiz-dialog.html"
+	let path = require("path");
+	const Dialog = require(path.join(path.resolve("./"), "./assets/js/modal-dialog-module"));
+	let warningDialog = new Dialog;
+	warningDialog.open({
+		icon: path.join(path.resolve("./"), "./assets/icon.ico"),
+		title: 'Quiz - Risultato',
+		content: `<p>Hai ottenuto in punteggio di:</p>
+		<p><strong style="font-size: x-large;"><span id="score">${score}</span> / <span id="total">${total}</span></strong></p>`,
+		buttons: {
+			"Ok": {
+				style: "btn-outlined",
+				callback: () => { window.location.href = '../../' + return_link + '.html'; }
+			},
+			"Verifica": {
+				style: "btn",
+				callback: () => { quizCompare(); warningDialog.close(); }
+			}
+		}
 	});
 
 	ipcRenderer.sendSync("save-quiz", { id: nomeQuiz, passed: (score >= ((total / 2) + 1)) });
-
-	if (answer)
-		quizCompare();
-	else
-		window.location.href = '../../' + return_link + '.html';
 }
 
 /**

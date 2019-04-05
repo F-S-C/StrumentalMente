@@ -46,13 +46,15 @@ class Dialog {
 			dialog_close = dialog.querySelector('#dialog-close-button'),
 			dialog_content = dialog.children[1].children[0].children[0].children[0],
 			dialog_action = dialog.children[1].children[0].children[1],
-			dialog_overlay = dialog.nextSibling;
+			dialog_overlay = dialog.nextSibling,
+			dialog_icon = dialog.querySelector('#dialog-title-image');
 		var selected = null, // Object of the element to be moved
 			x_pos = 0,
 			y_pos = 0, // Stores x & y coordinates of the mouse pointer
 			x_elem = 0,
 			y_elem = 0, // Stores top, left values (edge) of the element
 			defaults = {
+				icon: "./assets/icon.ico",
 				title: dialog_title.innerHTML,
 				content: dialog_content.innerHTML,
 				width: 400,
@@ -116,6 +118,7 @@ class Dialog {
 		dialog_content.innerHTML = defaults.content;
 		dialog_action.innerHTML = "";
 		dialog_overlay.style.display = (set == "open" && defaults.overlay) ? "block" : "none";
+		dialog_icon.src = defaults.icon;
 
 		if (defaults.buttons) {
 			for (var j in defaults.buttons) {
