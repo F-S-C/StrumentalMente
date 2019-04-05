@@ -142,18 +142,15 @@ function warnIfIncomplete(previousQuizId, previousQuizName, topicToOpenName, cal
 		};
 
 		if (minButton) {
-			minButton.removeEventListener("click", minimize);
-			minButton.addEventListener("click", minimize);
+			minButton.onclick = minimize;
 		}
 
 		if (maxButton) {
-			maxButton.removeEventListener("click", maximize);
-			maxButton.addEventListener("click", maximize);
+			maxButton.onclick = maximize;
 		}
 
 		if (restoreButton) {
-			restoreButton.removeEventListener("click", restore);
-			restoreButton.addEventListener("click", restore);
+			restoreButton.onclick = restore;
 		}
 
         /* 
@@ -168,8 +165,7 @@ function warnIfIncomplete(previousQuizId, previousQuizName, topicToOpenName, cal
 			window.on('unmaximize', toggleMaxRestoreButtons);
 		}
 
-		closeButton.removeEventListener("click", close);
-		closeButton.addEventListener("click", close);
+		closeButton.onclick = close;
 
 		/**
 		 * Cicla tra i bottoni di massimizzazione e di
