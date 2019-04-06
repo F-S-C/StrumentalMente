@@ -69,11 +69,15 @@ if __name__ == "__main__":
     for filename in glob.glob("src/teoria/avanzata/*.html"):
         one_line(filename)
 
-    copyfile("src/app.js", "src/app_not-minified.js")
-    copyfile("src/assets/js/main.js", "src/assets/js/main_not-minified.js")
-    copyfile("src/assets/js/render.js", "src/assets/js/render_not-minified.js")
-
-    for currentFile in ["src/app.js", "src/assets/js/main.js", "src/assets/js/render.js", "src/assets/js/quiz.js", "src/assets/js/accordo.js"]:
+    for currentFile in ["src/app.js",
+                        "src/assets/js/main.js",
+                        "src/assets/js/render.js",
+                        "src/assets/js/quiz.js",
+                        "src/assets/js/accordi_basso.js",
+                        "src/assets/js/accordi_chitarra.js",
+						"src/assets/js/jquery.maphilight.js"]:
+        copyfile(currentFile, currentFile[:-3] +
+                 "_not-minified" + currentFile[-3:])
         with open(currentFile, "r") as js_file:
             minified = jsmin(js_file.read())
         with open(currentFile, "w") as js_file:

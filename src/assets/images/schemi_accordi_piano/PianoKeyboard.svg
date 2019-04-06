@@ -1,0 +1,28 @@
+<svg id="Livello_1" data-name="Livello 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 396.91489 296.09185">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-1, .cls-2 {
+        stroke: #000;
+      }
+    </style>
+  </defs>
+  <title>PianoKeyboard</title>
+  <g>
+    <rect class="cls-1" x="0.5" y="0.5" width="56.55927" height="295.09185"/>
+    <rect class="cls-1" x="57.05927" y="0.5" width="56.55927" height="295.09185"/>
+    <rect class="cls-1" x="113.61854" y="0.5" width="56.55927" height="295.09185"/>
+    <rect class="cls-1" x="170.17781" y="0.5" width="56.55927" height="295.09185"/>
+    <rect class="cls-1" x="226.73708" y="0.5" width="56.55927" height="295.09185"/>
+    <rect class="cls-1" x="283.29635" y="0.5" width="56.55927" height="295.09185"/>
+    <rect class="cls-1" x="339.85562" y="0.5" width="56.55927" height="295.09185"/>
+    <rect class="cls-2" x="35.74707" y="0.5" width="31.96828" height="196.7279"/>
+    <rect class="cls-2" x="102.96243" y="0.5" width="31.96828" height="196.7279"/>
+    <rect class="cls-2" x="202.76087" y="0.5" width="31.96828" height="196.7279"/>
+    <rect class="cls-2" x="266.69744" y="0.5" width="31.96828" height="196.7279"/>
+    <rect class="cls-2" x="331.86355" y="0.5" width="31.96828" height="196.7279"/>
+  </g>
+</svg>

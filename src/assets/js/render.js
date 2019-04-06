@@ -8,7 +8,75 @@
  * Electron.
  */
 
+/** v. https://gist.github.com/paulcbetts/da85dd246db944c32427d72026192b41 */
+(function () {
+	// Include this at the very top of both your main and window processes, so that
+	// it loads as soon as possible.
+	//
+	// Why does this work? The node.js module system calls fs.realpathSync a _lot_
+	// to load stuff, which in turn, has to call fs.lstatSync a _lot_. While you
+	// generally can't cache stat() results because they change behind your back
+	// (i.e. another program opens a file, then you stat it, the stats change),
+	// caching it for a very short period of time is :ok: :gem:. These effects are
+	// especially apparent on Windows, where stat() is far more expensive - stat()
+	// calls often take more time in the perf graph than actually evaluating the
+	// code!!
+
+	// npm install lru-cache first
+	const LRU = require('lru-cache');
+	var lru = new LRU({ max: 256, maxAge: 250/*ms*/ });
+
+	var fs = require('fs');
+	var origLstat = fs.lstatSync.bind(fs);
+
+	// NB: The biggest offender of thrashing lstatSync is the node module system
+	// itself, which we can't get into via any sane means.
+	fs.lstatSync = function (p) {
+		let r = lru.get(p);
+		if (r) return r;
+
+		r = origLstat(p);
+		lru.set(p, r);
+		return r;
+	};
+})();
+
 const remote = require('electron').remote; // Riferimento a Electron
+
+/**
+ * Mostra un messaggio all'utente se il quiz propedeutico all'argomento scelto
+ * non è stato completato. Se l'utente conferma di voler proseguire, viene
+ * effettuata l'azione richiesta, altrimenti non si attua alcuna azione.
+ *
+ * @param {String} previousQuizId L'id del quiz propedeutico
+ * @param {String} previousQuizName Il nome del quiz (da comunicare all'utente)
+ * @param {String} topicToOpenName Il nome dell'argomento che si vuole aprire
+ * @param {*} callback La funzione da eseguire se l'utente accetta di
+ * proseguire.
+ */
+function warnIfIncomplete(previousQuizId, previousQuizName, topicToOpenName, callback) {
+	const { ipcRenderer } = require("electron");
+	var result = ipcRenderer.sendSync("get-quiz", previousQuizId);
+	if (!result) {
+		let hasBeenAsked = JSON.parse(sessionStorage.getItem(`${topicToOpenName}-notdone-asked`));
+		sessionStorage.setItem(`${topicToOpenName}-notdone-asked`, "true");
+
+		var answer = hasBeenAsked || ipcRenderer.sendSync("prompt", {
+			title: "Attenzione!",
+			label: `Hai scelto di proseguire <em>${topicToOpenName}</em> senza aver completato il quiz di <em>${previousQuizName}</em>! Sei sicuro di voler continuare?`,
+			yes: "Sì",
+			yesReturn: true,
+			no: "No",
+			noReturn: false,
+			file: "./dialogs/exit-dialog.html"
+		});
+
+		if (answer)
+			callback();
+	}
+	else
+		callback();
+}
 
 /**
  * Gestisce gli eventi della titlebar.
@@ -215,13 +283,17 @@ function openModal(content, options = {}, windowIcon = "./assets/icon.ico") {
 		width: options.width || 1400,
 		height: options.height || 800,
 		parent: remote.getCurrentWindow(),
+		show: false,
 		modal: true,
 		icon: windowIcon,
 		frame: false
 	});
 
-	if (options.isMaximized)
-		win.maximize();
+	win.on("ready-to-show", () => {
+		if (options.isMaximized)
+			win.maximize();
+		win.show();
+	});
 
 	win.setMenu(null);
 	if (/^(f|ht)tp(s?):\/\//i.test(content))
@@ -298,14 +370,14 @@ window.addEventListener("load", () => {
 		Mousetrap.bind("alt+h", () => { remote.getCurrentWindow().loadFile("./home.html"); });
 		Mousetrap.bind("alt+t", () => { remote.getCurrentWindow().loadFile("./home-teoria.html"); });
 		Mousetrap.bind("alt+s s", () => { remote.getCurrentWindow().loadFile("./home-strumenti.html"); });
-		Mousetrap.bind("alt+s c", () => { remote.getCurrentWindow().loadFile("./teoria-chitarra.html"); });
-		Mousetrap.bind("alt+s b", () => { remote.getCurrentWindow().loadFile("./teoria-basso.html"); });
-		Mousetrap.bind("alt+s shift+b", () => { remote.getCurrentWindow().loadFile("./teoria-batteria.html"); });
-		Mousetrap.bind("alt+s p", () => { remote.getCurrentWindow().loadFile("./teoria-piano.html"); });
+		Mousetrap.bind("alt+s c", () => { warnIfIncomplete('base', 'teoria base', 'agli strumenti', () => { remote.getCurrentWindow().loadFile("./teoria-chitarra.html"); }); });
+		Mousetrap.bind("alt+s b", () => { warnIfIncomplete('base', 'teoria base', 'agli strumenti', () => { remote.getCurrentWindow().loadFile("./teoria-basso.html"); }); });
+		Mousetrap.bind("alt+s shift+b", () => { warnIfIncomplete('base', 'teoria base', 'agli strumenti', () => { remote.getCurrentWindow().loadFile("./teoria-batteria.html"); }); });
+		Mousetrap.bind("alt+s p", () => { warnIfIncomplete('base', 'teoria base', 'agli strumenti', () => { remote.getCurrentWindow().loadFile("./teoria-piano.html"); }); });
 		Mousetrap.bind("alt+a a", () => { remote.getCurrentWindow().loadFile("./home-accordi.html"); });
-		Mousetrap.bind("alt+a c", () => { remote.getCurrentWindow().loadFile("./accordi-chitarra.html"); });
-		Mousetrap.bind("alt+a b", () => { remote.getCurrentWindow().loadFile("./accordi-basso.html"); });
-		Mousetrap.bind("alt+a p", () => { remote.getCurrentWindow().loadFile("./accordi-piano.html"); });
+		Mousetrap.bind("alt+a c", () => { warnIfIncomplete('chitarra', 'teoria della chitarra', 'agli accordi della chitarra', () => { remote.getCurrentWindow().loadFile("./accordi-chitarra.html"); }); });
+		Mousetrap.bind("alt+a b", () => { warnIfIncomplete('basso', 'teoria del basso', 'agli accordi del basso', () => { remote.getCurrentWindow().loadFile("./accordi-basso.html"); }); });
+		Mousetrap.bind("alt+a p", () => { warnIfIncomplete('piano', 'teoria del pianoforte', 'agli accordi del pianoforte', () => { remote.getCurrentWindow().loadFile("./accordi-piano.html"); }); });
 		Mousetrap.bind("alt+p", () => { remote.getCurrentWindow().loadFile("./profile.html"); });
 		Mousetrap.bind("alt+m", () => { openModal("./map.html"); });
 		Mousetrap.bind("alt+i", () => { openModal("./about.html"); });

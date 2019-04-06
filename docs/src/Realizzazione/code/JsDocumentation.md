@@ -1,6 +1,11 @@
 # Classes
 
 <dl>
+<dt><a href="#Main">Main</a></dt>
+<dd></dd>
+<dt><a href="#accordo">accordo</a></dt>
+<dd><p>Classe accordo.</p>
+</dd>
 <dt><a href="#accordo">accordo</a></dt>
 <dd><p>Classe accordo.</p>
 </dd>
@@ -9,22 +14,9 @@
 # Functions
 
 <dl>
-<dt><a href="#openChildWindow">openChildWindow(pageUrl, [windowIcon])</a></dt>
-<dd><p>Apre una finestra &quot;figlia&quot; e modale.</p>
-</dd>
-<dt><a href="#createWindow">createWindow()</a></dt>
-<dd><p>Crea la finestra principale.</p>
-</dd>
-<dt><a href="#promptModal">promptModal(parentWindow, [options], callback)</a></dt>
-<dd><p>Creazione della finestra di dialogo.</p>
-</dd>
 <dt><a href="#openMobileNavigation">openMobileNavigation()</a></dt>
 <dd><p>Apre la navbar in modalità &quot;mobile&quot;. Questa funzione è mantenuta solo per
 consentire un eventuale eccessivo ridimensionamento della finestra.</p>
-</dd>
-<dt><a href="#drop">drop(name, [defaultLinkClass])</a></dt>
-<dd><p>Permette, alla pressione di un bottone, di aprire una sottolista
-della navbar.</p>
 </dd>
 <dt><a href="#setLinks">setLinks(firstSlideNumber, links)</a></dt>
 <dd><p>Cambia i link e i nomi dell&#39;argomento precedente e quello successivo
@@ -48,13 +40,18 @@ e di nascondere tutti i tag section successivi al primo.</p>
 <dt><a href="#playStopAudio">playStopAudio(audioTagId, buttonRef, stopButtonId)</a></dt>
 <dd><p>Permette di avviare, mettere in pausa o stoppare un audio.</p>
 </dd>
+<dt><a href="#warnIfIncomplete">warnIfIncomplete(previousQuizId, previousQuizName, topicToOpenName, callback)</a></dt>
+<dd><p>Mostra un messaggio all&#39;utente se il quiz propedeutico all&#39;argomento scelto
+non è stato completato. Se l&#39;utente conferma di voler proseguire, viene
+effettuata l&#39;azione richiesta, altrimenti non si attua alcuna azione.</p>
+</dd>
 <dt><a href="#showExitDialog">showExitDialog()</a></dt>
 <dd><p>Mostra il dialogo di richiesta di conferma di uscita.</p>
 </dd>
 <dt><a href="#showExitFromQuizDialog">showExitFromQuizDialog(toOpen)</a></dt>
 <dd><p>Mostra il dialogo di richiesta di conferma di uscita dal quiz.</p>
 </dd>
-<dt><a href="#showQuizDialog">showQuizDialog(nomeQuiz, score, total)</a></dt>
+<dt><a href="#showQuizDialog">showQuizDialog(nomeQuiz, score, total, return_link)</a></dt>
 <dd><p>Mostra il dialogo con il punteggio dei quiz.</p>
 </dd>
 <dt><a href="#openInBrowser">openInBrowser(link)</a></dt>
@@ -88,7 +85,28 @@ l&#39;accordo che l&#39;utente doveva riprodurre.</p>
 <dd><p>In base al numero di accordo che l&#39;utente doveva riprodurre, ripristina la sequenza di selezioni
 corretta nello schema.</p>
 </dd>
+<dt><a href="#script_load">script_load()</a></dt>
+<dd><p>Seleziona un numero casuale compreso tra 1 e 7 e ne imposta l&#39;accordo da richiedere all&#39;utente.</p>
+</dd>
+<dt><a href="#verify_and_store">verify_and_store()</a></dt>
+<dd><p>Verifica che le selezioni effettuate dall&#39;utente siano corrette in base all&#39;accordo presentatogli e
+memorizza: se la selezione è corretta (1) o non corretta (0), le checkbox selezionate (e non) e 
+l&#39;accordo che l&#39;utente doveva riprodurre.</p>
+</dd>
+<dt><a href="#correct_chord">correct_chord()</a></dt>
+<dd><p>In base al numero di accordo che l&#39;utente doveva riprodurre, ripristina la sequenza di selezioni
+corretta nello schema.</p>
+</dd>
 </dl>
+
+<a name="Main"></a>
+
+# Main
+**Kind**: global class  
+<a name="new_Main_new"></a>
+
+## new Main()
+La classe contenente la logica principale dell'applicazione.
 
 <a name="accordo"></a>
 
@@ -96,6 +114,11 @@ corretta nello schema.</p>
 Classe accordo.
 
 **Kind**: global class  
+
+* [accordo](#accordo)
+    * [new accordo(nome, dita, tasto_iniziale)](#new_accordo_new)
+    * [new accordo(nome, dita, tasto_iniziale)](#new_accordo_new)
+
 <a name="new_accordo_new"></a>
 
 ## new accordo(nome, dita, tasto_iniziale)
@@ -106,36 +129,46 @@ Classe accordo.
 | dita | <code>Boolean</code> | Sequenza di valori logici che indicano se la checkbox corrispondente è stata selezionata o meno |
 | tasto_iniziale | <code>number</code> | Indica il numero del capotasto iniziale dell'accordo |
 
-<a name="openChildWindow"></a>
+<a name="new_accordo_new"></a>
 
-# openChildWindow(pageUrl, [windowIcon])
-Apre una finestra "figlia" e modale.
-
-**Kind**: global function  
-
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| pageUrl | <code>String</code> |  | L'URL della pagina da aprire (assoluto o relativo) |
-| [windowIcon] | <code>String</code> | <code>./assets/icon.ico</code> | L'icona della finestra. |
-
-<a name="createWindow"></a>
-
-# createWindow()
-Crea la finestra principale.
-
-**Kind**: global function  
-<a name="promptModal"></a>
-
-# promptModal(parentWindow, [options], callback)
-Creazione della finestra di dialogo.
-
-**Kind**: global function  
+## new accordo(nome, dita, tasto_iniziale)
 
 | Param | Type | Description |
 | --- | --- | --- |
-| parentWindow | <code>BrowserWindow</code> | La finestra "genitore" |
-| [options] | <code>Object</code> | Le opzioni della nuova finestra |
-| callback | <code>\*</code> | La funzione da richiamare alla chiusura della finestra |
+| nome | <code>String</code> | Stringa che indica il nome dell'accordo |
+| dita | <code>Boolean</code> | Sequenza di valori logici che indicano se la checkbox corrispondente è stata selezionata o meno |
+| tasto_iniziale | <code>number</code> | Indica il numero del capotasto iniziale dell'accordo |
+
+<a name="accordo"></a>
+
+# accordo
+Classe accordo.
+
+**Kind**: global class  
+
+* [accordo](#accordo)
+    * [new accordo(nome, dita, tasto_iniziale)](#new_accordo_new)
+    * [new accordo(nome, dita, tasto_iniziale)](#new_accordo_new)
+
+<a name="new_accordo_new"></a>
+
+## new accordo(nome, dita, tasto_iniziale)
+
+| Param | Type | Description |
+| --- | --- | --- |
+| nome | <code>String</code> | Stringa che indica il nome dell'accordo |
+| dita | <code>Boolean</code> | Sequenza di valori logici che indicano se la checkbox corrispondente è stata selezionata o meno |
+| tasto_iniziale | <code>number</code> | Indica il numero del capotasto iniziale dell'accordo |
+
+<a name="new_accordo_new"></a>
+
+## new accordo(nome, dita, tasto_iniziale)
+
+| Param | Type | Description |
+| --- | --- | --- |
+| nome | <code>String</code> | Stringa che indica il nome dell'accordo |
+| dita | <code>Boolean</code> | Sequenza di valori logici che indicano se la checkbox corrispondente è stata selezionata o meno |
+| tasto_iniziale | <code>number</code> | Indica il numero del capotasto iniziale dell'accordo |
 
 <a name="openMobileNavigation"></a>
 
@@ -143,18 +176,6 @@ Creazione della finestra di dialogo.
 Apre la navbar in modalità "mobile". Questa funzione è mantenuta solo perconsentire un eventuale eccessivo ridimensionamento della finestra.
 
 **Kind**: global function  
-<a name="drop"></a>
-
-# drop(name, [defaultLinkClass])
-Permette, alla pressione di un bottone, di aprire una sottolistadella navbar.
-
-**Kind**: global function  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| name | <code>String</code> | L'ID della lista che si vuole controllare |
-| [defaultLinkClass] | <code>String</code> | La classe iniziale del bottone |
-
 <a name="setLinks"></a>
 
 # setLinks(firstSlideNumber, links)
@@ -237,6 +258,20 @@ Permette di avviare, mettere in pausa o stoppare un audio.
 | buttonRef | <code>HTMLElement</code> | Un riferimento al bottone che richiama questa funzione |
 | stopButtonId | <code>String</code> | L'ID del bottone di Stop. |
 
+<a name="warnIfIncomplete"></a>
+
+# warnIfIncomplete(previousQuizId, previousQuizName, topicToOpenName, callback)
+Mostra un messaggio all'utente se il quiz propedeutico all'argomento sceltonon è stato completato. Se l'utente conferma di voler proseguire, vieneeffettuata l'azione richiesta, altrimenti non si attua alcuna azione.
+
+**Kind**: global function  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| previousQuizId | <code>String</code> | L'id del quiz propedeutico |
+| previousQuizName | <code>String</code> | Il nome del quiz (da comunicare all'utente) |
+| topicToOpenName | <code>String</code> | Il nome dell'argomento che si vuole aprire |
+| callback | <code>\*</code> | La funzione da eseguire se l'utente accetta di proseguire. |
+
 <a name="showExitDialog"></a>
 
 # showExitDialog()
@@ -256,7 +291,7 @@ Mostra il dialogo di richiesta di conferma di uscita dal quiz.
 
 <a name="showQuizDialog"></a>
 
-# showQuizDialog(nomeQuiz, score, total)
+# showQuizDialog(nomeQuiz, score, total, return_link)
 Mostra il dialogo con il punteggio dei quiz.
 
 **Kind**: global function  
@@ -266,6 +301,7 @@ Mostra il dialogo con il punteggio dei quiz.
 | nomeQuiz | <code>String</code> | Il nome del quiz. |
 | score | <code>number</code> | Il punteggio ottenuto. |
 | total | <code>number</code> | Il punteggio totale possibile. |
+| return_link | <code>String</code> | Il file da aprire se è cliccato il tasto 'Ok'. Il percorso è relativo rispetto alla cartella principale. |
 
 <a name="openInBrowser"></a>
 
@@ -332,6 +368,24 @@ Apre, tramite una shortcut da tastiera,una finestra mostrante il contenuto rich
 | content | <code>String</code> |  | Il link (assoluto o relativo) da aprire |
 | [openAsModal] | <code>boolean</code> | <code>false</code> | Se è `true`, la finestra sarà aperta come modale,  altrimenti sarà aperta nella stessa finestra. |
 
+<a name="script_load"></a>
+
+# script\_load()
+Seleziona un numero casuale compreso tra 1 e 7 e ne imposta l'accordo da richiedere all'utente.
+
+**Kind**: global function  
+<a name="verify_and_store"></a>
+
+# verify\_and\_store()
+Verifica che le selezioni effettuate dall'utente siano corrette in base all'accordo presentatogli ememorizza: se la selezione è corretta (1) o non corretta (0), le checkbox selezionate (e non) e l'accordo che l'utente doveva riprodurre.
+
+**Kind**: global function  
+<a name="correct_chord"></a>
+
+# correct\_chord()
+In base al numero di accordo che l'utente doveva riprodurre, ripristina la sequenza di selezionicorretta nello schema.
+
+**Kind**: global function  
 <a name="script_load"></a>
 
 # script\_load()
