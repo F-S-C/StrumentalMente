@@ -88,10 +88,12 @@ function warnIfIncomplete(previousQuizId, previousQuizName, topicToOpenName, cal
 				buttons: {
 					"No": {
 						style: "btn-outlined",
+						autofocus: false,
 						callback: () => { warningDialog.close(); }
 					},
 					"Sì": {
 						style: "btn",
+						autofocus: true,
 						callback: () => { callback(); warningDialog.close(); }
 					}
 				}
@@ -206,10 +208,12 @@ function warnIfIncomplete(previousQuizId, previousQuizName, topicToOpenName, cal
 			buttons: {
 				"Ehm... Ok": {
 					style: "btn-outlined",
+					autofocus: false,
 					callback: () => { bonusDialog.close(); }
 				},
 				"Wow!": {
 					style: "btn",
+					autofocus: true,
 					callback: () => { bonusDialog.close(); }
 				}
 			}
@@ -229,10 +233,12 @@ function showExitDialog() {
 		buttons: {
 			"No": {
 				style: "btn-outlined",
+				autofocus: false,
 				callback: () => { exitDialog.close(); }
 			},
 			"Sì": {
 				style: "btn",
+				autofocus: true,
 				callback: () => { remote.app.quit(); }
 			}
 		}
@@ -256,10 +262,12 @@ function showExitFromQuizDialog(toOpen) {
 		buttons: {
 			"No": {
 				style: "btn-outlined",
+				autofocus: false,
 				callback: () => { exitQuizDialog.close(); }
 			},
 			"Sì": {
 				style: "btn",
+				autofocus: true,
 				callback: () => { window.location.href = `../../index.html?started=true&topic=${toOpen}&to-home=false`; }
 			}
 		}
@@ -287,10 +295,12 @@ function showQuizDialog(nomeQuiz, score, total, return_link) {
 		buttons: {
 			"Ok": {
 				style: "btn-outlined",
+				autofocus: false,
 				callback: () => { window.location.href = `../../index.html?started=true&topic=${return_link}&to-home=true`; }
 			},
 			"Verifica": {
 				style: "btn",
+				autofocus: true,
 				callback: () => { quizCompare(); quizDialog.close(); }
 			}
 		}
@@ -408,14 +418,14 @@ function setShortcuts(doc = document) {
 		Mousetrap.bind("alt+h", () => { parent.document.querySelector("#home-nav-link>button").click(); });
 		Mousetrap.bind("alt+t", () => { parent.document.querySelector("#theory-nav-link>button").click(); });
 		Mousetrap.bind("alt+s s", () => { parent.document.querySelector("#instruments-nav-link>button").click(); });
-		Mousetrap.bind("alt+s c", () => { warnIfIncomplete('base', 'teoria base', 'agli strumenti', () => { parent.document.querySelector("#teoria-chitarra-nav-link>button").click(); }); });
-		Mousetrap.bind("alt+s b", () => { warnIfIncomplete('base', 'teoria base', 'agli strumenti', () => { parent.document.querySelector("#teoria-basso-nav-link>button").click(); }); });
-		Mousetrap.bind("alt+s shift+b", () => { warnIfIncomplete('base', 'teoria base', 'agli strumenti', () => { parent.document.querySelector("#teoria-batteria-nav-link>button").click(); }); });
-		Mousetrap.bind("alt+s p", () => { warnIfIncomplete('base', 'teoria base', 'agli strumenti', () => { parent.document.querySelector("#teoria-piano-nav-link>button").click(); }); });
+		Mousetrap.bind("alt+s c", () => { warnIfIncomplete('base', 'teoria base', 'agli strumenti', () => { parent.window.location.href = "./index.html?started=true&topic=teoria-chitarra&to-home=false"; }); });
+		Mousetrap.bind("alt+s b", () => { warnIfIncomplete('base', 'teoria base', 'agli strumenti', () => { parent.window.location.href = "./index.html?started=true&topic=teoria-basso&to-home=false"; }); });
+		Mousetrap.bind("alt+s shift+b", () => { warnIfIncomplete('base', 'teoria base', 'agli strumenti', () => { parent.window.location.href = "./index.html?started=true&topic=teoria-batteria&to-home=false"; }); });
+		Mousetrap.bind("alt+s p", () => { warnIfIncomplete('base', 'teoria base', 'agli strumenti', () => { parent.window.location.href = "./index.html?started=true&topic=teoria-piano&to-home=false"; }); });
 		Mousetrap.bind("alt+a a", () => { parent.document.querySelector("#chords-nav-link>button").click(); });
-		Mousetrap.bind("alt+a c", () => { warnIfIncomplete('chitarra', 'teoria della chitarra', 'agli accordi della chitarra', () => { parent.document.querySelector("#accordi-chitarra-nav-link>button").click(); }); });
-		Mousetrap.bind("alt+a b", () => { warnIfIncomplete('basso', 'teoria del basso', 'agli accordi del basso', () => { parent.document.querySelector("#accordi-basso-nav-link>button").click(); }); });
-		Mousetrap.bind("alt+a p", () => { warnIfIncomplete('piano', 'teoria del pianoforte', 'agli accordi del pianoforte', () => { parent.document.querySelector("#accordi-piano-nav-link>button").click(); }); });
+		Mousetrap.bind("alt+a c", () => { warnIfIncomplete('chitarra', 'teoria della chitarra', 'agli accordi della chitarra', () => { parent.window.location.href = "./index.html?started=true&topic=accordi-chitarra&to-home=false"; }); });
+		Mousetrap.bind("alt+a b", () => { warnIfIncomplete('basso', 'teoria del basso', 'agli accordi del basso', () => { parent.window.location.href = "./index.html?started=true&topic=accordi-basso&to-home=false"; }); });
+		Mousetrap.bind("alt+a p", () => { warnIfIncomplete('piano', 'teoria del pianoforte', 'agli accordi del pianoforte', () => { parent.window.location.href = "./index.html?started=true&topic=accordi-piano&to-home=false"; }); });
 		Mousetrap.bind("alt+p", () => { parent.document.querySelector("#profile-nav-link>button").click(); });
 		Mousetrap.bind("alt+m", () => { openModal("./map.html"); });
 		Mousetrap.bind("alt+i", () => { openModal("./about.html"); });

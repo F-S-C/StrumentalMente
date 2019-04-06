@@ -64,12 +64,14 @@ class Dialog {
 				buttons: {
 					"Close": {
 						style: "btn-outlined",
+						autofocus: false,
 						callback: function () {
 							self._setDialog("close");
 						}
 					},
 					"Accept": {
 						style: "btn",
+						autofocus: true,
 						callback: function () {
 							self._setDialog("close");
 						}
@@ -127,6 +129,8 @@ class Dialog {
 				btn.className = defaults.buttons[j].style;
 				btn.innerHTML = j;
 				btn.onclick = defaults.buttons[j].callback;
+				if (defaults.buttons[j].autofocus)
+					btn.toggleAttribute("autofocus", true);
 				dialog_action.appendChild(btn);
 			}
 		} else {

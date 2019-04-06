@@ -139,10 +139,12 @@
 				buttons: {
 					"No": {
 						style: "btn-outlined",
+						autofocus: false,
 						callback: () => { resetDialog.close(); }
 					},
 					"Sì": {
 						style: "btn",
+						autofocus: true,
 						callback: () => {
 							ipcRenderer.sendSync("save-quiz", { id: "*", passed: undefined });
 							parent.document.getElementById("content-frame").contentWindow.location.reload(true);
