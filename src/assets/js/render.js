@@ -296,7 +296,7 @@ function showQuizDialog(nomeQuiz, score, total, return_link) {
 		}
 	});
 
-	ipcRenderer.sendSync("save-quiz", { id: nomeQuiz, passed: (score >= ((total / 2) + 1)) });
+	ipcRenderer.sendSync("save-quiz", { id: nomeQuiz, passed: (score >= (total / 2)) });
 }
 
 /**
