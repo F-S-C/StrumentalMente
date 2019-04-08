@@ -131,7 +131,7 @@ function warnIfIncomplete(previousQuizId, previousQuizName, topicToOpenName, cal
 			closeButton = parent.document.getElementById('close-button'),
 			titleText = parent.document.getElementById('window-title-text');
 
-		titleText.innerHTML = remote.getCurrentWindow().getTitle();
+		titleText.innerHTML = window.getTitle();
 
 		let minimize = event => window.minimize();
 		let maximize = event => { window.maximize(); toggleMaxRestoreButtons(); };
@@ -163,10 +163,8 @@ function warnIfIncomplete(previousQuizId, previousQuizName, topicToOpenName, cal
          */
 		if (minButton && restoreButton) {
 			toggleMaxRestoreButtons();
-			window.removeEventListener('maximize', toggleMaxRestoreButtons);
-			window.addEventListener('maximize', toggleMaxRestoreButtons);
-			window.removeEventListener('unmaximize', toggleMaxRestoreButtons);
-			window.addEventListener('unmaximize', toggleMaxRestoreButtons);
+			window.on('maximize', toggleMaxRestoreButtons);
+			window.on('unmaximize', toggleMaxRestoreButtons);
 		}
 
 		closeButton.onclick = close;
