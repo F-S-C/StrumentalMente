@@ -253,7 +253,7 @@ function showQuizDialog(nomeQuiz, score, total, return_link) {
 		file: "./dialogs/quiz-dialog.html"
 	});
 
-	ipcRenderer.sendSync("save-quiz", { id: nomeQuiz, passed: (score >= ((total / 2) + 1)) });
+	ipcRenderer.sendSync("save-quiz", { id: nomeQuiz, passed: (score >= (Math.floor(total / 2) + 1)) });
 
 	if (answer)
 		quizCompare();
