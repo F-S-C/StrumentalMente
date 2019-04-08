@@ -327,27 +327,25 @@ function openInBrowser(link) {
  * @param {String} [windowIcon] L'icona della finestra modale
  */
 function openModal(content, options = {}, windowIcon = "./assets/icon.ico") {
-	var win = new remote.BrowserWindow({
-		width: options.width || 1400,
-		height: options.height || 800,
-		parent: remote.getCurrentWindow(),
-		show: false,
-		modal: true,
-		icon: windowIcon,
-		frame: false
-	});
-
-	win.on("ready-to-show", () => {
-		if (options.isMaximized)
-			win.maximize();
-		win.show();
-	});
-
-	win.setMenu(null);
-	if (/^(f|ht)tp(s?):\/\//i.test(content))
-		win.loadURL(content);
-	else
-		win.loadFile(content);
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', content, true);
+	xhr.onreadystatechange = function () {
+		if (this.readyState !== 4) return;
+		if (this.status !== 200) return;
+		const Dialog = parent.require("./assets/js/modal-dialog-module");
+		let exitDialog = new Dialog;
+		let width = (options.width && options.width > window.innerWidth) ? window.innerWidth : options.width;
+		let height = (options.height && options.height > window.innerHeight) ? window.innerHeight : options.height;
+		exitDialog.open({
+			title: /<title>(.*?)<\/title>/gi.exec(this.responseText)[1],
+			width: width || 1400,
+			height: height || 800,
+			content: this.responseText,
+			buttons: {},
+			center: false,
+		});
+	};
+	xhr.send();
 }
 
 /**

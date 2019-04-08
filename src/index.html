@@ -153,6 +153,8 @@
 
 	<script src="./assets/js/render.js"></script>
 	<script src="./assets/js/main.js"></script>
+	<script src="./assets/js/jquery-3.3.1.min.js"></script>
+	<script src="./assets/js/jquery.maphilight.js"></script>
 	<script>
 		let landingContainer = document.getElementById("landing-container");
 
@@ -188,6 +190,18 @@
 				window.history.replaceState(null, null, "?started=true");
 				landingContainer.parentNode.removeChild(landingContainer);
 			}, 400);
+		}
+
+		function onMapImageLoad() {
+			let $ = require("jquery")
+			$('img[usemap]').maphilight();
+		}
+
+		var bibliographyHidden = true;
+		function summaryClicked() {
+			elem = document.getElementById("bibliography").getElementsByTagName("summary")[0];
+			bibliographyHidden = !bibliographyHidden;
+			elem.innerHTML = (bibliographyHidden) ? "Mostra la bibliografia." : "Nascondi la bibliografia.";
 		}
 	</script>
 </body>

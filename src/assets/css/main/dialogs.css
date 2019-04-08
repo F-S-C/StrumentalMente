@@ -5,6 +5,8 @@
 	z-index: 9999;
 	visibility: hidden;
 	opacity: 0;
+	overflow-y: auto;
+	resize: both;
 }
 
 .dialog-box #label {
@@ -23,4 +25,17 @@
 	z-index: 9997;
 	backdrop-filter: blur(5px);
 	display: none;
+}
+
+.dialog-box > .main-wrapper > div {
+	width: 100%;
+}
+
+.dialog-page-wrapper {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	text-align: center;
+	transform: translate(-50%, -50%);
+	width: 75%;
 }

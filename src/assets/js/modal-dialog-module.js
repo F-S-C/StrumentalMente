@@ -25,7 +25,7 @@ class Dialog {
 										</div>
 									</header>
 									<div class="main-wrapper">
-										<div class="landing-page-wrapper" style="width: 75%;">
+										<div>
 											<header class="site-name">
 												<p id="label">Sicuro di voler uscire dall'applicazione?</p>
 											</header>
@@ -78,6 +78,7 @@ class Dialog {
 					},
 				},
 				specialClass: "",
+				center: true,
 				fixed: true,
 				overlay: true
 			}; // Default options...
@@ -106,10 +107,16 @@ class Dialog {
 			selected = null;
 		}
 
-		dialog.className = "dialog-box " + (defaults.fixed ? 'fixed-dialog-box ' : '') + defaults.specialClass;
+		dialog.className = "dialog-box " + defaults.specialClass;
 		dialog.style.visibility = (set == "open") ? "visible" : "hidden";
 		dialog.style.opacity = (set == "open") ? 1 : 0;
 		dialog.querySelector("#dialog-titlebar").style.width = `${defaults.width}px`;
+		let observer = new MutationObserver(function (mutations) {
+			dialog.querySelector("#dialog-titlebar").style.width = dialog.style.width
+		});
+
+		let child = dialog;
+		observer.observe(child, { attributes: true });
 		dialog.style.width = defaults.width + 'px';
 		dialog.style.height = defaults.height + 'px';
 		dialog.style.top = (!defaults.top) ? "50%" : '0px';
@@ -121,6 +128,9 @@ class Dialog {
 		dialog_action.innerHTML = "";
 		dialog_overlay.style.display = (set == "open" && defaults.overlay) ? "block" : "none";
 		dialog_icon.src = defaults.icon;
+		if (defaults.center) {
+			dialog.children[1].children[0].classList.add("dialog-page-wrapper");
+		}
 
 		if (defaults.buttons) {
 			for (var j in defaults.buttons) {

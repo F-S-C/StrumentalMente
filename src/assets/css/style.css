@@ -11,6 +11,7 @@
 @import url("./main/cards.css");
 @import url("./main/html5-elements.css");
 @import url("./main/dialogs.css");
+@import url("./main/about-page.css");
 /* Regole semplici dell'intera applicazione che non sono classificabili: */
 
 body {
@@ -58,6 +59,22 @@ details {
 	width: 75vw;
 	display: flex;
 	flex-direction: column;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #555;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #333;
 }
 
 @media only screen and (max-width: 768px) {
