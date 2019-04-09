@@ -338,7 +338,7 @@ function openModal(content, options = {}, windowIcon = "./assets/icon.ico") {
 			title: /<title>(.*?)<\/title>/gi.exec(this.responseText)[1],
 			width: width || 1400,
 			height: height || 800,
-			content: this.responseText,
+			content: /<body>((?:.|\s)*?)<\/body>/gmi.exec(this.responseText)[1],
 			buttons: {},
 			center: false,
 		});
