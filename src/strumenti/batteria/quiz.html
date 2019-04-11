@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+	<title>Strumenti - Quiz batteria</title>
+	<link rel="icon" href="../../assets/icon.ico" />
+	<link href="../../assets/css/style.css" rel="stylesheet" />
+	<link href="../../assets/css/main/quiz.css" rel="stylesheet" />
+	<!-- FontAwesome -->
+	<link href="../../assets/css/fontawesome/css/all.min.css" rel="stylesheet" />
+
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="StrumentalMente - Dove la musica diventa semplice." />
+	<meta name="keywords" content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
+	<meta name="author" content="FSC" />
+	<meta name="robots" content="index, follow">
+</head>
+
+<body name="quiz-page" onload="quizLoad('batteria');">
+	<header>
+		<div id="titlebar">
+			<div id="drag-region">
+				<div id="window-title">
+					<img id="window-title-image" src="../../assets/icon.ico" alt="Icona" />
+					<span id="window-title-text">Strumenti - Quiz batteria</span>
+				</div>
+				<div id="window-controls">
+					<div class="button" id="min-button">
+						<span><i class="fas fa-minus" style="font-size: 125%;"></i></span>
+					</div>
+					<div class="button" id="max-button">
+						<span><i class="far fa-window-maximize" style="font-size: 125%;"></i></span>
+					</div>
+					<div class="button" id="restore-button">
+						<span><i class="far fa-window-restore" style="font-size: 125%;"></i></span>
+					</div>
+					<div class="button" id="close-button">
+						<span><i class="fas fa-times" style="font-size: 150%;"></i></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+
+	<div class="main-wrapper">
+		<nav class="main-navigation" id="main-nav">
+			<ul>
+				<li class="logo">
+					<a href="javascript:void(0);" onclick="showExitFromQuizDialog('./teoria-batteria.html');">
+						<img src="../../assets/icon.ico" width="" height="" alt="">
+						<h1>Strumental<wbr /><span>Mente</span></h1>
+					</a>
+				</li>
+				<li>
+					<button type="button" class="question-link active" onclick="changeQuizSlide(0)">
+						1° Domanda
+					</button>
+				</li>
+				<li>
+					<button type="button" class="question-link" onclick="changeQuizSlide(1)">
+						2° Domanda
+					</button>
+				</li>
+				<li>
+					<button type="button" class="question-link" onclick="changeQuizSlide(2)">
+						3° Domanda
+					</button>
+				</li>
+				<li>
+					<button type="button" class="question-link" onclick="changeQuizSlide(3)">
+						4° Domanda
+					</button>
+				</li>
+				<li>
+					<button type="button" class="question-link" onclick="changeQuizSlide(4)">
+						5° Domanda
+					</button>
+				</li>
+				<li>
+					<button type="button" onclick="openModal('helpers/help-quiz.html');" title="Mostra l'aiuto (F1)">
+						<i class="fas fa-question"></i> Aiuto
+					</button>
+				</li>
+				<li>
+					<button type="button" onclick="showExitFromQuizDialog('./teoria-batteria.html');">
+						<i class="fas fa-arrow-circle-left"></i> Torna alla home
+					</button>
+				</li>
+				<li>
+					<button type="button" onclick="showExitDialog();">
+						<i class="fas fa-sign-out-alt"></i> Esci
+					</button>
+				</li>
+			</ul>
+
+			<footer>
+				<p>Copyright &copy; 2016, <a class="external" onclick="openInBrowser('https:\/\/f-s-c.github.io\/');" href="javascript:void(0);">FSC</a>.
+					Rilasciato sotto la
+					licenza <a class="external" onclick="openInBrowser('https:\/\/www.apache.org\/licenses\/LICENSE-2.0');" href="javascript:void(0);">Apache 2.0</a>.</p>
+				<img src="../../assets/images/fsc-logo-svg.svg" />
+			</footer>
+		</nav>
+		<button type="button" id="sidebar-controller" onclick="openMobileNavigation();">
+			<i class="fas fa-bars"></i>
+		</button>
+
+		<div class="content">
+			<article id="quiz_container">
+				<header>
+					<h1>Batteria</h1>
+					<h2>Domande sulla batteria</h2>
+					<div class="breadcrumbs-container">
+						<div class="breadcrumbs">
+							<button type="button" class="breadcrumb" onclick="showExitFromQuizDialog('./home-strumenti.html');">Strumenti</button>
+							<button type="button" class="breadcrumb" onclick="showExitFromQuizDialog('./teoria-batteria.html');">Batteria</button>
+							<span class="breadcrumb">Quiz</span>
+						</div>
+					</div>
+					<hr />
+				</header>
+				<section class="show">
+					<h2>Che tipo di strumento musicale è la batteria?</h2>
+					<form>
+						<input type="radio" id="d1" style="grid-area: a;" name="domanda1" value="1"></input>
+						<label for="d1" style="grid-area: a;">Membranofono a percussioni e a sfregamento</label>
+						<input type="radio" id="d2" style="grid-area: b;" name="domanda1" value="0"></input>
+						<label for="d2" style="grid-area: b;">Membranofono a percussioni e a corde</label>
+						<input type="radio" id="d3" style="grid-area: c;" name="domanda1" value="0"></input>
+						<label for="d3" style="grid-area: c;">Membranofono a percussioni e a fiato</label>
+						<input type="radio" id="d4" style="grid-area: d;" name="domanda1" value="0"></input>
+						<label for="d4" style="grid-area: d;">Membranofono a corde e a fiato</label>
+					</form>
+				</section>
+				<section class="hide">
+					<h2>Le pelli in quali tipi si distinguono?</h2>
+					<form>
+						<input type="radio" id="d5" style="grid-area: a;" name="domanda2" value="1"></input>
+						<label for="d5" style="grid-area: a;">Battenti e risonanti </label>
+						<input type="radio" id="d6" style="grid-area: b;" name="domanda2" value="0"></input>
+						<label for="d6" style="grid-area: b;">Brillanti e risonanti</label>
+						<input type="radio" id="d7" style="grid-area: c;" name="domanda2" value="0"></input>
+						<label for="d7" style="grid-area: c;">Battenti e non suonanti</label>
+						<input type="radio" id="d8" style="grid-area: d;" name="domanda2" value="0"></input>
+						<label for="d8" style="grid-area: d;">Brillanti e non suonanti</label>
+					</form>
+				</section>
+				<section class="hide">
+					<h2>Nel mondo classico, quale dito della mano destra non è utilizzato?</h2>
+					<form>
+						<input type="radio" id="d9" style="grid-area: a;" name="domanda3" value="1"></input>
+						<label for="d9" style="grid-area: a;">Mignolo</label>
+						<input type="radio" id="d10" style="grid-area: b;" name="domanda3" value="0"></input>
+						<label for="d10" style="grid-area: b;">Pollice</label>
+						<input type="radio" id="d11" style="grid-area: c;" name="domanda3" value="0"></input>
+						<label for="d11" style="grid-area: c;">Indice</label>
+						<input type="radio" id="d12" style="grid-area: d;" name="domanda3" value="0"></input>
+						<label for="d12" style="grid-area: d;">Medio</label>
+					</form>
+				</section>
+				<section class="hide">
+					<h2>Nell’approccio ai rudimenti, cosa porta la mano destra?</h2>
+					<form>
+						<input type="radio" id="d13" style="grid-area: a;" name="domanda4" value="1"></input>
+						<label for="d13" style="grid-area: a;">Drive</label>
+						<input type="radio" id="d14" style="grid-area: b;" name="domanda4" value="0"></input>
+						<label for="d14" style="grid-area: b;">Fat-bit</label>
+						<input type="radio" id="d15" style="grid-area: c;" name="domanda4" value="0"></input>
+						<label for="d15" style="grid-area: c;">Back-bit</label>
+						<input type="radio" id="d16" style="grid-area: d;" name="domanda4" value="0"></input>
+						<label for="d16" style="grid-area: d;">Hit-Hat</label>
+					</form>
+				</section>
+				<section class="hide">
+					<h2>Qual è la combinazione corretta del paraddidle?</h2>
+					<form>
+						<input type="radio" id="d17" style="grid-area: a;" name="domanda5" value="1"></input>
+						<label for="d17" style="grid-area: a;">Due colpi singoli, una coppia di colpi doppi e un accento</label>
+						<input type="radio" id="d18" style="grid-area: b;" name="domanda5" value="0"></input>
+						<label for="d18" style="grid-area: b;">Tre colpi singoli, un colpo doppio e un accento</label>
+						<input type="radio" id="d16" style="grid-area: c;" name="domanda5" value="0"></input>
+						<label for="d16" style="grid-area: c;">Un colpo singolo, tre coppie di colpi doppi e un accento</label>
+						<input type="radio" id="d20" style="grid-area: d;" name="domanda5" value="0"></input>
+						<label for="d20" style="grid-area: d;">Un colpo singolo, uno colpo doppio e due accenti</label>
+					</form>
+				</section>
+			</article>
+			<div class="buttons-container">
+				<div class="first-column">
+					<button type="button" id="back" class="btn-outlined" disabled>
+						Indietro <i class="btn-icon left fas fa-arrow-alt-circle-left"></i>
+					</button>
+				</div>
+				<div class="third-column">
+					<button type="button" id="next" class="btn">
+						Avanti <i class="btn-icon fas fa-arrow-circle-right"></i>
+					</button>
+					<button type="button" id="end" class="btn" onclick="quizVerify('teoria-batteria');" style="display: none;">
+						Verifica <i class="fas fa-check-circle"></i>
+					</button>
+					<a id="exit" class="btn" href="../../teoria-batteria.html" style="display: none;">
+						Esci <i class="btn-icon fas fa-running"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="../../assets/js/main.js"></script>
+	<script type="text/javascript" src="../../assets/js/render.js"></script>
+	<script type="text/javascript" src="../../assets/js/quiz.js"></script>
+	<script type="text/javascript" src="../../assets/js/accordo.js"></script>
+	<script>
+		openOnKeyboardShortcut("F1", "helpers/help-quiz.html", true);
+	</script>
+</body>
+
+</html>
