@@ -70,11 +70,13 @@ if __name__ == "__main__":
         one_line(filename)
 
     for currentFile in ["src/app.js",
+                        "src/StrumentalMente.js",
                         "src/assets/js/main.js",
                         "src/assets/js/render.js",
                         "src/assets/js/quiz.js",
                         "src/assets/js/accordi_basso.js",
                         "src/assets/js/accordi_chitarra.js",
+						"src/assets/js/accordi_piano.js",
 						"src/assets/js/jquery.maphilight.js"]:
         copyfile(currentFile, currentFile[:-3] +
                  "_not-minified" + currentFile[-3:])
