@@ -25,13 +25,13 @@
 	z-index: 10;
 }
 
-#titlebar #drag-region,
-#dialog-titlebar #dialog-drag-region {
+#titlebar #drag-region, #dialog-titlebar #dialog-drag-region {
 	width: 100%;
 	height: 100%;
 	display: grid;
 	grid-template-columns: auto 138px;
 }
+
 #dialog-titlebar #dialog-drag-region {
 	grid-template-columns: auto 46px;
 }
@@ -40,8 +40,7 @@
 	-webkit-app-region: drag;
 }
 
-#window-controls,
-#dialog-controls {
+#window-controls, #dialog-controls {
 	display: grid;
 	grid-template-columns: repeat(3, 46px);
 	position: absolute;
@@ -57,8 +56,7 @@
 	grid-template-columns: 46px;
 }
 
-#window-controls .button,
-#dialog-controls .button {
+#window-controls .button, #dialog-controls .button {
 	grid-row: 1 / span 1;
 	display: flex;
 	justify-content: center;
@@ -74,8 +72,7 @@
 	grid-column: 1;
 }
 
-#window-controls #max-button,
-#window-controls #restore-button {
+#window-controls #max-button, #window-controls #restore-button {
 	grid-column: 2;
 }
 
@@ -87,14 +84,12 @@
 	grid-column: 1;
 }
 
-#window-controls .button:hover,
-#dialog-controls .button:hover {
+#window-controls .button:hover, #dialog-controls .button:hover {
 	background: rgba(255, 255, 255, 0.2);
 	opacity: 1;
 }
 
-#window-controls #close-button:hover,
-#dialog-controls #dialog-close-button:hover {
+#window-controls #close-button:hover, #dialog-controls #dialog-close-button:hover {
 	background: #e81123;
 }
 
@@ -102,8 +97,7 @@
 	display: none;
 }
 
-#window-title,
-#dialog-title {
+#window-title, #dialog-title {
 	grid-column: 1;
 	display: flex;
 	align-items: center;
@@ -113,8 +107,7 @@
 	overflow-x: visible;
 }
 
-#window-title span,
-#dialog-title span {
+#window-title span, #dialog-title span {
 	/*61 = 138/2 - 8*/
 	transform: translate(61px, 0);
 	overflow: hidden;
@@ -129,13 +122,11 @@
 	transform: translate(15px, 0);
 }
 
-#window-title-image,
-#dialog-title-image {
+#window-title-image, #dialog-title-image {
 	height: 16px;
 	width: 16px;
 }
 
-#window-title-text,
-#dialog-title-text {
+#window-title-text, #dialog-title-text {
 	font-family: var(--font-title);
 }

@@ -37,8 +37,7 @@ classi aventi i seguenti stili:
 	display: inline-block;
 	padding: 12px 24px;
 	border-radius: 4px;
-	box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14),
-		0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+	box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 	background-color: var(--main-color);
 	color: white;
 	text-decoration: none;
@@ -47,10 +46,8 @@ classi aventi i seguenti stili:
 	font-weight: bold;
 }
 
-.btn:hover,
-.btn:focus {
-	box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14),
-		0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+.btn:hover, .btn:focus {
+	box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 	background-color: var(--main-color-light);
 }
 
@@ -78,8 +75,7 @@ classi aventi i seguenti stili:
 	transition: width 0.2s ease-out, padding-top 0.2s ease-out;
 }
 
-.btn:disabled,
-.btn:disabled:hover {
+.btn:disabled, .btn:disabled:hover {
 	color: white;
 	background-color: var(--grey);
 	box-shadow: none;
@@ -109,8 +105,7 @@ classi aventi i seguenti stili:
 	transition: background-color 0.3s;
 }
 
-.btn-text:hover,
-.btn-text:focus {
+.btn-text:hover, .btn-text:focus {
 	background-color: var(--main-color-on-white);
 }
 
@@ -138,8 +133,7 @@ classi aventi i seguenti stili:
 	transition: width 0.2s ease-out, padding-top 0.2s ease-out;
 }
 
-.btn-text:disabled,
-.btn-text:disabled:hover {
+.btn-text:disabled, .btn-text:disabled:hover {
 	color: var(--grey-dark);
 	background-color: transparent;
 	cursor: not-allowed;
@@ -168,8 +162,7 @@ classi aventi i seguenti stili:
 	transition: background-color 0.3s;
 }
 
-.btn-outlined:hover,
-.btn-outlined:focus {
+.btn-outlined:hover, .btn-outlined:focus {
 	background-color: var(--main-color-on-white);
 }
 
@@ -197,8 +190,7 @@ classi aventi i seguenti stili:
 	transition: width 0.2s ease-out, padding-top 0.2s ease-out;
 }
 
-.btn-outlined:disabled,
-.btn-outlined:disabled:hover {
+.btn-outlined:disabled, .btn-outlined:disabled:hover {
 	color: var(--grey);
 	border-color: var(--grey);
 	background-color: transparent;
@@ -211,17 +203,13 @@ classi aventi i seguenti stili:
 
 /* Icone */
 
-.btn .btn-icon,
-.btn-text .btn-icon,
-.btn-outlined .btn-icon {
+.btn .btn-icon, .btn-text .btn-icon, .btn-outlined .btn-icon {
 	line-height: inherit;
 	float: right;
 	margin: 0 0 0 10px;
 }
 
-.btn .btn-icon.left,
-.btn-text .btn-icon.left,
-.btn-outlined .btn-icon.left {
+.btn .btn-icon.left, .btn-text .btn-icon.left, .btn-outlined .btn-icon.left {
 	line-height: inherit;
 	float: left;
 	margin: 0 10px 0 0;
@@ -298,8 +286,7 @@ header .blind-audio-buttons .btn-audio.btn-accessibility {
 	font-size: 15pt;
 }
 
-header .blind-audio-buttons .btn-audio:hover,
-header .blind-audio-buttons .btn-audio:focus {
+header .blind-audio-buttons .btn-audio:hover, header .blind-audio-buttons .btn-audio:focus {
 	background-color: var(--main-color-on-white);
 }
 
@@ -327,8 +314,7 @@ header .blind-audio-buttons .btn-audio:active:before {
 	transition: width 0.2s ease-out, padding-top 0.2s ease-out;
 }
 
-header .blind-audio-buttons .btn-audio:disabled,
-header .blind-audio-buttons .btn-audio:disabled:hover {
+header .blind-audio-buttons .btn-audio:disabled, header .blind-audio-buttons .btn-audio:disabled:hover {
 	color: var(--grey-dark);
 	background-color: transparent;
 	cursor: not-allowed;
