@@ -135,7 +135,7 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 		}
 	}
 
-	if (returnToLast) {
+	if (returnToLast && currentSection != numberOfSections - 1) {
 		changeSlide(numberOfSections - 1);
 		returnToLast = false;
 	}
