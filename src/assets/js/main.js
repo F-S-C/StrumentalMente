@@ -462,7 +462,7 @@ function showSubButtons(mainButton, containerId) {
 
 	figures.forEach(fig => {
 		let showImageModal = () => {
-			let realDocument = (parent.document !== document) ? parent.document : document;
+			let realDocument = (parent.document !== document) ? parent.parent.document : parent.document;
 
 			if (!/.*?modal.*?/i.test(fig.className)) {
 				var backupFig = fig.cloneNode(true);
