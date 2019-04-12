@@ -11,9 +11,10 @@
 
 .dialog-box #label {
 	color: black !important;
+	padding: 0 20px;
 }
 
-.dialog-box + .dialog-box-overlay {
+.dialog-box+.dialog-box-overlay {
 	background-color: black;
 	opacity: 0.5;
 	position: fixed !important;
@@ -27,7 +28,7 @@
 	display: none;
 }
 
-.dialog-box > .main-wrapper > div {
+.dialog-box>.main-wrapper>div {
 	width: 100%;
 }
 
