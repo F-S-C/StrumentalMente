@@ -391,7 +391,6 @@ function openModal(content, options = { width: 1400, height: 800 }, windowIcon =
 		let exitDialog = new Dialog;
 		let width = (options.width && options.width <= window.innerWidth - 20) ? options.width : window.innerWidth - 20;
 		let height = (options.height && options.height <= window.innerHeight - 20) ? options.height : window.innerHeight - 20;
-		window.alert(window.innerWidth);
 		exitDialog.open({
 			title: /<title>(.*?)<\/title>/gi.exec(this.responseText)[1],
 			width: width,

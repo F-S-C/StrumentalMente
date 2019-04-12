@@ -106,7 +106,7 @@ button.card-horizontal-alt {
 	filter: grayscale(0%);
 }
 
-.card-horizontal .card-stacked {
+.card-horizontal-alt .card-stacked {
 	display: flex;
 	flex-direction: column;
 	flex: 1;
@@ -161,4 +161,11 @@ button.card-horizontal-alt {
 	border-radius: 0 0 2px 2px;
 	padding: 5px 24px;
 	text-align: center;
+}
+
+.card-horizontal-alt .btn-text {
+	line-height: 1.5em;
+	height: 3em;
+	display: inline-flex !important;
+	align-items: center;
 }
