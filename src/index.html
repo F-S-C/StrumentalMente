@@ -179,8 +179,8 @@
 				.filter(btn => btn.getAttribute("onclick").includes("openPage") && btn.getAttribute("onclick").includes(generalTopic))[0];
 			navbutton && navbutton.click();
 
-			if (params.get("to-home") == "false")
-				document.getElementById("content-frame").src = params.get("topic") + ".html";
+			if (!params.has("to-home") || params.get("to-home") == "false")
+				document.getElementById("content-frame").src = params.get("topic");
 		}
 
 		function startApp() {
