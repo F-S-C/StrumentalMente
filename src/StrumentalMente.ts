@@ -9,7 +9,6 @@
  * - La chiusura dell'applicazione e le relative peculiarità di alcuni sistemi
  *     operativi (si pensi alla possibilità di ricreare la finestra appena
  *     chiusa su MacOS)
- * - L'apertura di finestre di dialogo
  * - L'apertura di finestra secondarie 
  */
 import { BrowserWindow, ipcMain } from 'electron';
@@ -141,40 +140,6 @@ export default class Main {
 	static promptOptions;
 	static promptAnswer;
 	static promptWindow = null;
-
-	/**
-	 * Creazione della finestra di dialogo.
-	 * 
-	 * @param {BrowserWindow} parentWindow La finestra "genitore"
-	 * @param {Object} [options] Le opzioni della nuova finestra
-	 * @param {*} callback La funzione da richiamare alla chiusura della finestra
-	 */
-	private static promptModal(parentWindow, options: { width: number, height: number, title: string }, file = "./dialogs/exit-dialog.html", callback) {
-		Main.promptOptions = options;
-		Main.promptWindow = new BrowserWindow({
-			width: options.width || 400,
-			height: options.height || 250,
-			parent: parentWindow,
-			show: false,
-			modal: true,
-			title: options.title,
-			frame: false,
-			autoHideMenuBar: true,
-			webPreferences: {
-				nodeIntegration: true
-			}
-		});
-
-		Main.promptWindow.on("ready-to-show", () => {
-			Main.promptWindow.show();
-		});
-		Main.promptWindow.on('closed', () => {
-			Main.promptWindow = null;
-			callback(Main.promptAnswer);
-		});
-
-		Main.promptWindow.loadFile(file);
-	}
 
 	/**
 	 * Contiene il _main_ dell'applicazione.
