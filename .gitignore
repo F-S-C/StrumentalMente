@@ -59,3 +59,5 @@ src/app.js
 *.map
 src/StrumentalMente.js
 
+*.pdf
+!docs/*.pdf
