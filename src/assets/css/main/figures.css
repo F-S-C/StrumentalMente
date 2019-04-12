@@ -2,6 +2,11 @@ video.right {
 	float: right;
 }
 
+video.center {
+	display: block;
+	margin-left: auto;
+}
+
 figure {
 	float: right;
 	width: 30%;
