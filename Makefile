@@ -16,6 +16,7 @@ deploy:
 	python minify.py
 	cd src && yarn dist
 	cd src\assets\css && copy /Y style_not-minified.css style.css && del style_not-minified.css
+	cd src\assets\js\vendor && copy /Y jquery.maphilight_not-minified.js jquery.maphilight.js && del jquery.maphilight_not-minified.js
 	cd src\assets\js && copy /Y render_not-minified.js render.js && del render_not-minified.js
 	cd src\assets\js && copy /Y main_not-minified.js main.js && del main_not-minified.js
 	cd src\assets\js && copy /Y quiz_not-minified.js quiz.js && del quiz_not-minified.js
