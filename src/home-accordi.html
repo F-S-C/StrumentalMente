@@ -35,7 +35,7 @@
 				<p>È necessario imparare a suonare insieme tutte le note di ogni accordo di tre, quattro o cinque suoni.</p>
 
 				<div class="row topic-buttons" style="grid-template-columns: 32% 32% 32%;">
-					<button class="card-horizontal-alt" style="grid-column: 1; grid-row: 1;" onclick="warnIfIncomplete('piano', 'teoria del pianoforte', 'agli accordi del pianoforte', () => { window.location.href='./accordi-piano.html'; });" title="Apri gli accordi del pianoforte (Alt+A P)">
+					<button class="card-horizontal-alt" style="grid-column: 1; grid-row: 1;" onclick="warnIfIncomplete('piano', 'teoria del pianoforte', 'agli accordi del pianoforte', () => { parent.window.history.replaceState(null,null,'?started=true&topic=./accordi-piano.html'); window.location.href='./accordi-piano.html'; });" title="Apri gli accordi del pianoforte (Alt+A P)">
 						<div class="card-stacked">
 							<div class="card-content">
 								<img src="./assets/images/piano11.jpg" />
@@ -45,7 +45,7 @@
 							</div>
 						</div>
 					</button>
-					<button class="card-horizontal-alt" style="grid-column: 2; grid-row: 1;" onclick="warnIfIncomplete('chitarra', 'teoria della chitarra', 'agli accordi della chitarra', () => { window.location.href='./accordi-chitarra.html'; });" title="Apri gli accordi della chitarra (Alt+A C)">
+					<button class="card-horizontal-alt" style="grid-column: 2; grid-row: 1;" onclick="warnIfIncomplete('chitarra', 'teoria della chitarra', 'agli accordi della chitarra', () => { parent.window.history.replaceState(null,null,'?started=true&topic=./accordi-chitarra.html'); window.location.href='./accordi-chitarra.html'; });" title="Apri gli accordi della chitarra (Alt+A C)">
 						<div class="card-stacked">
 							<div class="card-content">
 								<img src="./assets/images/chitarra11.jpg">
@@ -56,7 +56,7 @@
 						</div>
 					</button>
 
-					<button class="card-horizontal-alt" style="grid-column: 3; grid-row: 1;" onclick="warnIfIncomplete('basso', 'teoria del basso', 'agli accordi del basso', () => { window.location.href='./accordi-basso.html'; });" title="Apri gli accordi del basso (Alt+A B)">
+					<button class="card-horizontal-alt" style="grid-column: 3; grid-row: 1;" onclick="warnIfIncomplete('basso', 'teoria del basso', 'agli accordi del basso', () => { parent.window.history.replaceState(null,null,'?started=true&topic=./accordi-basso.html'); window.location.href='./accordi-basso.html'; });" title="Apri gli accordi del basso (Alt+A B)">
 						<div class="card-stacked">
 							<div class="card-content">
 								<img src="./assets/images/basso11.jpg">

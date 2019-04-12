@@ -47,10 +47,12 @@ function openPage(pageToOpen, buttonToSetActiveId) {
 	const path = require("path");
 	let iFrame = parent.document.getElementById("content-frame");
 	iFrame.focus();
-	if (path.relative(path.join(__dirname, pageToOpen), iFrame.src.substring(8))) {
+	var params = (new URL(location.href)).searchParams;
+	if (pageToOpen != params.get("topic")) {
 		iFrame.src = pageToOpen;
 		document.querySelector("nav.main-navigation>ul li>button.active").classList.remove("active");
 		document.querySelector(`#${buttonToSetActiveId}-nav-link>button`).classList.add("active");
+		window.history.replaceState(null, null, `?started=true&topic=${pageToOpen}`);
 	}
 }
 
