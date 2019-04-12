@@ -154,7 +154,8 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 	 */
 	function changeSlide(slide) {
 		updateCurrentSlide(slide - currentSection);
-		iFrameDocument.getElementsByTagName("section")[currentSection].className = "hide";
+		if (iFrameDocument.getElementsByClassName("multiple-figures").length < 1)
+			iFrameDocument.getElementsByTagName("section")[currentSection].className = "hide";
 		canChangeSlide = false;
 		if (slide > currentSection) {
 			if (currentSection == 0) {
@@ -186,7 +187,8 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 		}
 
 		setTimeout(() => {
-			iFrameDocument.getElementsByTagName("section")[currentSection].className = "show";
+			if (iFrameDocument.getElementsByClassName("multiple-figures").length < 1)
+				iFrameDocument.getElementsByTagName("section")[currentSection].className = "show";
 			iFrameDocument.getElementById("current-topic-slide").innerHTML = currentSection + 1;
 			canChangeSlide = true;
 		}, 100);
