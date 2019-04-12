@@ -191,9 +191,11 @@ function warnIfIncomplete(previousQuizId, previousQuizName, topicToOpenName, cal
  * Mostra il dialogo di richiesta di conferma di uscita.
  */
 function showExitDialog() {
-	const Dialog = parent.require("./assets/js/modal-dialog-module");
+	const path = require("path");
+	const Dialog = parent.require(path.join(path.resolve("."),"./assets/js/modal-dialog-module"));
 	let exitDialog = new Dialog;
 	exitDialog.open({
+		icon: path.join(path.resolve("."), "./assets/icon.ico"),
 		title: 'Sicuro?',
 		content: "<p>Sicuro di voler uscire dall'applicazione?</p>",
 		buttons: {
