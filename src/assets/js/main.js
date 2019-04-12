@@ -299,8 +299,8 @@ function initializeQuiz() {
 	verifyButton.style.display = "none";
 	previousSlideButton.toggleAttribute("disabled", true);
 
-	previousSlideButton.onclick= previousSlide;
-	nextSlideButton.onclick= nextSlide;
+	previousSlideButton.onclick = previousSlide;
+	nextSlideButton.onclick = nextSlide;
 
 	const Mousetrap = require("mousetrap")(document);
 	Mousetrap.bind("right", () => {

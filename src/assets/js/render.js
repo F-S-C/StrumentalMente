@@ -185,40 +185,6 @@ function warnIfIncomplete(previousQuizId, previousQuizName, topicToOpenName, cal
 	}
 })();
 
-// Imposta tutte le scorciatoie da tastiera più importanti
-(function () {
-	let win = remote.getCurrentWindow();
-	const Mousetrap = parent.require("mousetrap");
-
-	Mousetrap.bind("esc", showExitDialog);
-
-	Mousetrap.bind("f11", () => { win.setFullScreen(!win.isFullScreen()); });
-
-	// Un piccolo easter egg da parte degli FSC :)!
-	parent.require("mousetrap").bind("up up down down left right left right b a enter", () => {
-		const Dialog = parent.require("./assets/js/modal-dialog-module");
-		let bonusDialog = new Dialog;
-		bonusDialog.open({
-			title: 'Wow!',
-			content: `<p>Wow! Fai anche tu parte del ristretto club di giocatori NES?!<br />
-			Siamo onorati di averti come nostro utente!<br />
-			<i>&mdash; by FSC</i></p>`,
-			buttons: {
-				"Ehm... Ok": {
-					style: "btn-outlined",
-					autofocus: false,
-					callback: () => { bonusDialog.close(); }
-				},
-				"Wow!": {
-					style: "btn",
-					autofocus: true,
-					callback: () => { bonusDialog.close(); }
-				}
-			}
-		});
-	});
-})();
-
 /**
  * Mostra il dialogo di richiesta di conferma di uscita.
  */
@@ -318,35 +284,6 @@ function openInBrowser(link) {
 }
 
 /**
- * Apre una finestra modale mostrante il contenuto richiesto.
- * 
- * @param {String} content Il link (assoluto o relativo) da aprire 
- * @param {Object} [options] Le opzioni della nuova finestra
- * @param {String} [windowIcon] L'icona della finestra modale
- */
-function openModal(content, options = {}, windowIcon = "./assets/icon.ico") {
-	var xhr = new XMLHttpRequest();
-	xhr.open('GET', content, true);
-	xhr.onreadystatechange = function () {
-		if (this.readyState !== 4) return;
-		if (this.status !== 200) return;
-		const Dialog = parent.require("./assets/js/modal-dialog-module");
-		let exitDialog = new Dialog;
-		let width = (options.width && options.width > window.innerWidth) ? window.innerWidth : options.width;
-		let height = (options.height && options.height > window.innerHeight) ? window.innerHeight : options.height;
-		exitDialog.open({
-			title: /<title>(.*?)<\/title>/gi.exec(this.responseText)[1],
-			width: width || 1400,
-			height: height || 800,
-			content: /<body>((?:.|\s)*?)<\/body>/gmi.exec(this.responseText)[1],
-			buttons: {},
-			center: false,
-		});
-	};
-	xhr.send();
-}
-
-/**
  * Ritorna l'username collegato a StrumentalMente.
  */
 function getUsername() {
@@ -377,30 +314,6 @@ function getQuiz(id) {
 	return quiz;
 }
 
-/**
- * Apre, tramite una shortcut da tastiera,
- * una finestra mostrante il contenuto richiesto.
- * 
- * @param {String} shortcut La shortcut da utilizzare
- * @param {String} content Il link (assoluto o relativo) da aprire
- * @param {boolean} [openAsModal] Se è `true`, la finestra sarà aperta come modale, 
- * altrimenti sarà aperta nella stessa finestra.
- */
-function openOnKeyboardShortcut(shortcut, content, openAsModal = false) {
-	const Mousetrap = require("mousetrap");
-	Mousetrap.bind(shortcut.toLowerCase(), () => {
-		if (!openAsModal) {
-			if (/^(f|ht)tp(s?):\/\//i.test(content))
-				remote.getCurrentWindow().loadURL(content);
-			else
-				remote.getCurrentWindow().loadFile(content);
-		}
-		else {
-			openModal(content);
-		}
-	});
-}
-
 var shortcutDisabled = false;
 
 function disableShortcuts() {
@@ -426,6 +339,29 @@ function setShortcuts(doc = document) {
 		Mousetrap.bind("alt+m", () => { openModal("./map.html"); });
 		Mousetrap.bind("alt+i", () => { openModal("./about.html"); });
 		Mousetrap.bind("f1", () => { parent.document.querySelector("#help-nav-link>button").click(); });
+		Mousetrap.bind("esc", showExitDialog);
+		Mousetrap.bind("up up down down left right left right b a enter", () => {
+			const Dialog = parent.require("./assets/js/modal-dialog-module");
+			let bonusDialog = new Dialog;
+			bonusDialog.open({
+				title: 'Wow!',
+				content: `<p>Wow! Fai anche tu parte del ristretto club di giocatori NES?!<br />
+				Siamo onorati di averti come nostro utente!<br />
+				<i>&mdash; by FSC</i></p>`,
+				buttons: {
+					"Ehm... Ok": {
+						style: "btn-outlined",
+						autofocus: false,
+						callback: () => { bonusDialog.close(); }
+					},
+					"Wow!": {
+						style: "btn",
+						autofocus: true,
+						callback: () => { bonusDialog.close(); }
+					}
+				}
+			});
+		});
 
 		// Shortcut per debug
 		Mousetrap.bind("f5", () => { window.location.reload(); });
@@ -436,3 +372,32 @@ function setShortcuts(doc = document) {
 let onLoadCallback = () => { setShortcuts(document); }
 window.removeEventListener("load", onLoadCallback);
 window.addEventListener("load", onLoadCallback);
+
+/**
+ * Apre una finestra modale mostrante il contenuto richiesto.
+ * 
+ * @param {String} content Il link (assoluto o relativo) da aprire 
+ * @param {Object} [options] Le opzioni della nuova finestra
+ * @param {String} [windowIcon] L'icona della finestra modale
+ */
+function openModal(content, options = {}, windowIcon = "./assets/icon.ico") {
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', content, true);
+	xhr.onreadystatechange = function () {
+		if (this.readyState !== 4) return;
+		if (this.status !== 200) return;
+		const Dialog = parent.require("./assets/js/modal-dialog-module");
+		let exitDialog = new Dialog;
+		let width = (options.width && options.width > window.innerWidth) ? window.innerWidth : options.width;
+		let height = (options.height && options.height > window.innerHeight) ? window.innerHeight : options.height;
+		exitDialog.open({
+			title: /<title>(.*?)<\/title>/gi.exec(this.responseText)[1],
+			width: width || 1400,
+			height: height || 800,
+			content: /<body>((?:.|\s)*?)<\/body>/gmi.exec(this.responseText)[1],
+			buttons: {},
+			center: false,
+		});
+	};
+	xhr.send();
+}
