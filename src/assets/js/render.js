@@ -249,6 +249,8 @@ function showExitFromQuizDialog(toOpen) {
  */
 function showQuizDialog(nomeQuiz, score, total, return_link) {
 	const path = require("path");
+	const { ipcRenderer } = parent.require("electron");
+	ipcRenderer.sendSync("save-quiz", { id: nomeQuiz, passed: (score >= (total / 2)) });
 	const Dialog = require(path.join(path.resolve("./"), "./assets/js/modal-dialog-module"));
 	let quizDialog = new Dialog;
 	quizDialog.open({
@@ -270,7 +272,6 @@ function showQuizDialog(nomeQuiz, score, total, return_link) {
 		}
 	});
 
-	ipcRenderer.sendSync("save-quiz", { id: nomeQuiz, passed: (score >= (total / 2)) });
 }
 
 /**
