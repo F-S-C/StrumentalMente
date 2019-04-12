@@ -19,11 +19,9 @@ body {
 
 body {
 	margin: 0;
-	font-family: var(--font-text);
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
-	font-size: 12pt;
 }
 
 details {
