@@ -46,9 +46,11 @@
 .topic-level-container .card-topic:not(:first-of-type):not(:last-of-type) {
 	margin: 8px 0 !important;
 }
+
 .topic-level-container .card-topic:first-of-type {
 	margin-bottom: 8px !important;
 }
+
 .topic-level-container .card-topic:last-of-type {
 	margin-top: 8px !important;
 }
@@ -65,7 +67,7 @@
 
 .card-horizontal-alt {
 	border: none;
-    padding: 0;
+	padding: 0;
 	display: flex;
 	position: relative;
 	margin: 0.5rem auto 1rem auto;
@@ -73,10 +75,11 @@
 	transition: box-shadow 0.25s;
 	border-radius: 2px;
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+	width: 100%;
 	max-width: 350px;
 }
 
-button.card-horizontal-alt{
+button.card-horizontal-alt {
 	cursor: pointer;
 }
 
@@ -108,6 +111,10 @@ button.card-horizontal-alt{
 	flex-direction: column;
 	flex: 1;
 	position: relative;
+}
+
+.card-horizontal-alt .card-stacked {
+	width: 100%;
 }
 
 .card-horizontal .card-content {
