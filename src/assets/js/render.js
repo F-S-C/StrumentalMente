@@ -381,7 +381,7 @@ window.addEventListener("load", onLoadCallback);
  * @param {Object} [options] Le opzioni della nuova finestra
  * @param {String} [windowIcon] L'icona della finestra modale
  */
-function openModal(content, options = {}, windowIcon = "./assets/icon.ico") {
+function openModal(content, options = { width: 1400, height: 800 }, windowIcon = "./assets/icon.ico") {
 	var xhr = new XMLHttpRequest();
 	xhr.open('GET', content, true);
 	xhr.onreadystatechange = function () {
@@ -389,12 +389,13 @@ function openModal(content, options = {}, windowIcon = "./assets/icon.ico") {
 		if (this.status !== 200) return;
 		const Dialog = parent.require("./assets/js/modal-dialog-module");
 		let exitDialog = new Dialog;
-		let width = (options.width && options.width > window.innerWidth) ? window.innerWidth : options.width;
-		let height = (options.height && options.height > window.innerHeight) ? window.innerHeight : options.height;
+		let width = (options.width && options.width <= window.innerWidth - 20) ? options.width : window.innerWidth - 20;
+		let height = (options.height && options.height <= window.innerHeight - 20) ? options.height : window.innerHeight - 20;
+		window.alert(window.innerWidth);
 		exitDialog.open({
 			title: /<title>(.*?)<\/title>/gi.exec(this.responseText)[1],
-			width: width || 1400,
-			height: height || 800,
+			width: width,
+			height: height,
 			content: /<body>((?:.|\s)*?)<\/body>/gmi.exec(this.responseText)[1],
 			buttons: {},
 			center: false,
