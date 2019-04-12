@@ -9,6 +9,9 @@
 <dt><a href="#accordo">accordo</a></dt>
 <dd><p>Classe accordo.</p>
 </dd>
+<dt><a href="#accordo">accordo</a></dt>
+<dd><p>Classe accordo.</p>
+</dd>
 </dl>
 
 # Functions
@@ -57,9 +60,6 @@ effettuata l&#39;azione richiesta, altrimenti non si attua alcuna azione.</p>
 <dt><a href="#openInBrowser">openInBrowser(link)</a></dt>
 <dd><p>Apre un link nel browser predefinito.</p>
 </dd>
-<dt><a href="#openModal">openModal(content, [options], [windowIcon])</a></dt>
-<dd><p>Apre una finestra modale mostrante il contenuto richiesto.</p>
-</dd>
 <dt><a href="#getUsername">getUsername()</a></dt>
 <dd><p>Ritorna l&#39;username collegato a StrumentalMente.</p>
 </dd>
@@ -69,9 +69,20 @@ effettuata l&#39;azione richiesta, altrimenti non si attua alcuna azione.</p>
 <dt><a href="#getQuiz">getQuiz(id)</a></dt>
 <dd><p>Ottiene il risultato del quiz scelto</p>
 </dd>
-<dt><a href="#openOnKeyboardShortcut">openOnKeyboardShortcut(shortcut, content, [openAsModal])</a></dt>
-<dd><p>Apre, tramite una shortcut da tastiera,
-una finestra mostrante il contenuto richiesto.</p>
+<dt><a href="#openModal">openModal(content, [options], [windowIcon])</a></dt>
+<dd><p>Apre una finestra modale mostrante il contenuto richiesto.</p>
+</dd>
+<dt><a href="#script_load">script_load()</a></dt>
+<dd><p>Seleziona un numero casuale compreso tra 1 e 7 e ne imposta l&#39;accordo da richiedere all&#39;utente.</p>
+</dd>
+<dt><a href="#verify_and_store">verify_and_store()</a></dt>
+<dd><p>Verifica che le selezioni effettuate dall&#39;utente siano corrette in base all&#39;accordo presentatogli e
+memorizza: se la selezione è corretta (1) o non corretta (0), le checkbox selezionate (e non) e 
+l&#39;accordo che l&#39;utente doveva riprodurre.</p>
+</dd>
+<dt><a href="#correct_chord">correct_chord()</a></dt>
+<dd><p>In base al numero di accordo che l&#39;utente doveva riprodurre, ripristina la sequenza di selezioni
+corretta nello schema.</p>
 </dd>
 <dt><a href="#script_load">script_load()</a></dt>
 <dd><p>Seleziona un numero casuale compreso tra 1 e 7 e ne imposta l&#39;accordo da richiedere all&#39;utente.</p>
@@ -118,6 +129,17 @@ Classe accordo.
 * [accordo](#accordo)
     * [new accordo(nome, dita, tasto_iniziale)](#new_accordo_new)
     * [new accordo(nome, dita, tasto_iniziale)](#new_accordo_new)
+    * [new accordo(nome, dita, tasto_iniziale)](#new_accordo_new)
+
+<a name="new_accordo_new"></a>
+
+## new accordo(nome, dita, tasto_iniziale)
+
+| Param | Type | Description |
+| --- | --- | --- |
+| nome | <code>String</code> | Stringa che indica il nome dell'accordo |
+| dita | <code>Boolean</code> | Sequenza di valori logici che indicano se la checkbox corrispondente è stata selezionata o meno |
+| tasto_iniziale | <code>number</code> | Indica il numero del capotasto iniziale dell'accordo |
 
 <a name="new_accordo_new"></a>
 
@@ -149,6 +171,59 @@ Classe accordo.
 * [accordo](#accordo)
     * [new accordo(nome, dita, tasto_iniziale)](#new_accordo_new)
     * [new accordo(nome, dita, tasto_iniziale)](#new_accordo_new)
+    * [new accordo(nome, dita, tasto_iniziale)](#new_accordo_new)
+
+<a name="new_accordo_new"></a>
+
+## new accordo(nome, dita, tasto_iniziale)
+
+| Param | Type | Description |
+| --- | --- | --- |
+| nome | <code>String</code> | Stringa che indica il nome dell'accordo |
+| dita | <code>Boolean</code> | Sequenza di valori logici che indicano se la checkbox corrispondente è stata selezionata o meno |
+| tasto_iniziale | <code>number</code> | Indica il numero del capotasto iniziale dell'accordo |
+
+<a name="new_accordo_new"></a>
+
+## new accordo(nome, dita, tasto_iniziale)
+
+| Param | Type | Description |
+| --- | --- | --- |
+| nome | <code>String</code> | Stringa che indica il nome dell'accordo |
+| dita | <code>Boolean</code> | Sequenza di valori logici che indicano se la checkbox corrispondente è stata selezionata o meno |
+| tasto_iniziale | <code>number</code> | Indica il numero del capotasto iniziale dell'accordo |
+
+<a name="new_accordo_new"></a>
+
+## new accordo(nome, dita, tasto_iniziale)
+
+| Param | Type | Description |
+| --- | --- | --- |
+| nome | <code>String</code> | Stringa che indica il nome dell'accordo |
+| dita | <code>Boolean</code> | Sequenza di valori logici che indicano se la checkbox corrispondente è stata selezionata o meno |
+| tasto_iniziale | <code>number</code> | Indica il numero del capotasto iniziale dell'accordo |
+
+<a name="accordo"></a>
+
+# accordo
+Classe accordo.
+
+**Kind**: global class  
+
+* [accordo](#accordo)
+    * [new accordo(nome, dita, tasto_iniziale)](#new_accordo_new)
+    * [new accordo(nome, dita, tasto_iniziale)](#new_accordo_new)
+    * [new accordo(nome, dita, tasto_iniziale)](#new_accordo_new)
+
+<a name="new_accordo_new"></a>
+
+## new accordo(nome, dita, tasto_iniziale)
+
+| Param | Type | Description |
+| --- | --- | --- |
+| nome | <code>String</code> | Stringa che indica il nome dell'accordo |
+| dita | <code>Boolean</code> | Sequenza di valori logici che indicano se la checkbox corrispondente è stata selezionata o meno |
+| tasto_iniziale | <code>number</code> | Indica il numero del capotasto iniziale dell'accordo |
 
 <a name="new_accordo_new"></a>
 
@@ -208,7 +283,7 @@ Funzione che, al caricamento della pagina, si occupa di impostare il numero di 
 <a name="initialize..changeSlide"></a>
 
 ## initialize~changeSlide(slide)
-La funzione, in base al valore assunto da slide (true/false) cambia la sezione corrente in quella precedente (in caso di slide = false)o in quella successiva (in caso di slide = true). Inoltre si occupa di aggiornare il numero della slide corrente nella memoria temporaneadel browser. Inoltre, in base al numero di slide, si occupa di renderevisibili (o nascondere) i relativi pulsanti di spostamento(avanti con id next, indietro con id back e quiz con id quiz).
+La funzione, in base al valore assunto da slide cambia la sezione corrente inquella richiesta. Inoltre si occupa di aggiornare il numero della slidecorrente nella memoria temporanea del browser. Inoltre, in base al numero dislide, si occupa di rendere visibili (o nascondere) i relativi pulsanti dispostamento (avanti con id next, indietro con id back e quiz con id quiz).
 
 **Kind**: inner method of [<code>initialize</code>](#initialize)  
 
@@ -314,19 +389,6 @@ Apre un link nel browser predefinito.
 | --- | --- | --- |
 | link | <code>String</code> | Il link da aprire |
 
-<a name="openModal"></a>
-
-# openModal(content, [options], [windowIcon])
-Apre una finestra modale mostrante il contenuto richiesto.
-
-**Kind**: global function  
-
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| content | <code>String</code> |  | Il link (assoluto o relativo) da aprire |
-| [options] | <code>Object</code> |  | Le opzioni della nuova finestra |
-| [windowIcon] | <code>String</code> | <code>./assets/icon.ico</code> | L'icona della finestra modale |
-
 <a name="getUsername"></a>
 
 # getUsername()
@@ -355,19 +417,37 @@ Ottiene il risultato del quiz scelto
 | --- | --- | --- |
 | id | <code>String</code> | L'id del quiz di cui interessa il risultato. |
 
-<a name="openOnKeyboardShortcut"></a>
+<a name="openModal"></a>
 
-# openOnKeyboardShortcut(shortcut, content, [openAsModal])
-Apre, tramite una shortcut da tastiera,una finestra mostrante il contenuto richiesto.
+# openModal(content, [options], [windowIcon])
+Apre una finestra modale mostrante il contenuto richiesto.
 
 **Kind**: global function  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| shortcut | <code>String</code> |  | La shortcut da utilizzare |
 | content | <code>String</code> |  | Il link (assoluto o relativo) da aprire |
-| [openAsModal] | <code>boolean</code> | <code>false</code> | Se è `true`, la finestra sarà aperta come modale,  altrimenti sarà aperta nella stessa finestra. |
+| [options] | <code>Object</code> |  | Le opzioni della nuova finestra |
+| [windowIcon] | <code>String</code> | <code>./assets/icon.ico</code> | L'icona della finestra modale |
 
+<a name="script_load"></a>
+
+# script\_load()
+Seleziona un numero casuale compreso tra 1 e 7 e ne imposta l'accordo da richiedere all'utente.
+
+**Kind**: global function  
+<a name="verify_and_store"></a>
+
+# verify\_and\_store()
+Verifica che le selezioni effettuate dall'utente siano corrette in base all'accordo presentatogli ememorizza: se la selezione è corretta (1) o non corretta (0), le checkbox selezionate (e non) e l'accordo che l'utente doveva riprodurre.
+
+**Kind**: global function  
+<a name="correct_chord"></a>
+
+# correct\_chord()
+In base al numero di accordo che l'utente doveva riprodurre, ripristina la sequenza di selezionicorretta nello schema.
+
+**Kind**: global function  
 <a name="script_load"></a>
 
 # script\_load()
