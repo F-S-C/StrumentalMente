@@ -114,24 +114,25 @@ function warnIfIncomplete(previousQuizId, previousQuizName, topicToOpenName, cal
  * Questa funzione gestisce gli eventi (riduci a icona, massimizza/minimizza,
  * chiudi) che sono acessibili tramite la titlebar.
  */
-(function () {
+function setUpTitleBar() {
 	// Quando il documento ha terminato il caricamento, inizializza
-	document.onreadystatechange = () => {
-		if (document.readyState == "complete") {
+	parent.document.onreadystatechange = () => {
+		if (parent.document.readyState == "complete") {
 			init();
 		}
 	};
+
+	let window = remote.getCurrentWindow();
+	const minButton = parent.document.getElementById('min-button'),
+		maxButton = parent.document.getElementById('max-button'),
+		restoreButton = parent.document.getElementById('restore-button'),
+		closeButton = parent.document.getElementById('close-button'),
+		titleText = parent.document.getElementById('window-title-text');
 
 	/**
 	 * Inizializza la titlebar.
 	 */
 	function init() {
-		let window = remote.getCurrentWindow();
-		const minButton = parent.document.getElementById('min-button'),
-			maxButton = parent.document.getElementById('max-button'),
-			restoreButton = parent.document.getElementById('restore-button'),
-			closeButton = parent.document.getElementById('close-button'),
-			titleText = parent.document.getElementById('window-title-text');
 
 		titleText.innerHTML = window.getTitle();
 
@@ -165,34 +166,39 @@ function warnIfIncomplete(previousQuizId, previousQuizName, topicToOpenName, cal
          */
 		if (minButton && restoreButton) {
 			toggleMaxRestoreButtons();
-			window.on('maximize', toggleMaxRestoreButtons);
-			window.on('unmaximize', toggleMaxRestoreButtons);
 		}
 
 		closeButton.onclick = close;
+	}
 
-		/**
-		 * Cicla tra i bottoni di massimizzazione e di
-		 * minimizzazione della finestra alternativamente
-		 */
-		function toggleMaxRestoreButtons() {
-			if (window.isMaximized()) {
-				maxButton.style.display = "none";
-				restoreButton.style.display = "flex";
-			} else {
-				restoreButton.style.display = "none";
-				maxButton.style.display = "flex";
-			}
+	/**
+	 * Cicla tra i bottoni di massimizzazione e di
+	 * minimizzazione della finestra alternativamente
+	 */
+	function toggleMaxRestoreButtons() {
+		if (window.isMaximized()) {
+			maxButton.style.display = "none";
+			restoreButton.style.display = "flex";
+		} else {
+			restoreButton.style.display = "none";
+			maxButton.style.display = "flex";
 		}
 	}
-})();
+	setUpTitleBar.updateTitleBarButtons = toggleMaxRestoreButtons;
+}
+
+setUpTitleBar();
+
+function updateTitleBarButtons() {
+	setUpTitleBar.updateTitleBarButtons();
+}
 
 /**
  * Mostra il dialogo di richiesta di conferma di uscita.
  */
 function showExitDialog() {
 	const path = require("path");
-	const Dialog = parent.require(path.join(path.resolve("."),"./assets/js/modal-dialog-module"));
+	const Dialog = parent.require(path.join(path.resolve("."), "./assets/js/modal-dialog-module"));
 	let exitDialog = new Dialog;
 	exitDialog.open({
 		icon: path.join(path.resolve("."), "./assets/icon.ico"),

@@ -119,7 +119,7 @@ export default class Main {
 				Main.mainWindow.maximize();
 			Main.mainWindow.show();
 		});
-		['resize', 'move', 'close'].forEach((e: any) => {
+		['maximize', 'unmaximize', 'resize', 'move', 'close'].forEach((e: any) => {
 			Main.mainWindow.on(e, () => {
 				// Salvataggio delle impostazioni della finestra
 				Main.windowState.isMaximized = Main.mainWindow.isMaximized();
@@ -130,16 +130,15 @@ export default class Main {
 				Main.nodeStorage.setItem("WindowState", Main.windowState);
 			});
 		});
+
+		Main.mainWindow.on('maximize', () => Main.mainWindow.webContents.executeJavaScript("updateTitleBarButtons();"));
+		Main.mainWindow.on('unmaximize', () => Main.mainWindow.webContents.executeJavaScript("updateTitleBarButtons();"));
 	}
 
 	private static onActivate() {
 		if (Main.mainWindow === null)
 			Main.onReady();
 	}
-
-	static promptOptions;
-	static promptAnswer;
-	static promptWindow = null;
 
 	/**
 	 * Contiene il _main_ dell'applicazione.
@@ -155,6 +154,7 @@ export default class Main {
 		Main.application.on('window-all-closed', Main.onWindowAllClosed);
 		Main.application.on('ready', Main.onReady);
 		Main.application.on('activate', Main.onActivate);
+
 
 		/** Salva i/il quiz */
 		ipcMain.on("save-quiz", (event, quiz) => {
