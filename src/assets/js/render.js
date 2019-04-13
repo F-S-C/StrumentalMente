@@ -386,12 +386,13 @@ window.addEventListener("load", onLoadCallback);
  * @param {String} [windowIcon] L'icona della finestra modale
  */
 function openModal(content, options = { width: 1400, height: 800 }, windowIcon = "./assets/icon.ico") {
+	const path = require("path");
 	var xhr = new XMLHttpRequest();
-	xhr.open('GET', content, true);
+	xhr.open('GET', path.join(path.resolve("."), content), true);
 	xhr.onreadystatechange = function () {
 		if (this.readyState !== 4) return;
 		if (this.status !== 200) return;
-		const Dialog = parent.require("./assets/js/modal-dialog-module");
+		const Dialog = parent.require(path.join(path.resolve("."), "./assets/js/modal-dialog-module"));
 		let exitDialog = new Dialog;
 		let width = (options.width && options.width <= window.innerWidth - 20) ? options.width : window.innerWidth - 20;
 		let height = (options.height && options.height <= window.innerHeight - 20) ? options.height : window.innerHeight - 20;
