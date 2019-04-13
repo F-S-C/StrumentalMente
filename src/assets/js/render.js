@@ -44,7 +44,7 @@
 const remote = parent.require('electron').remote; // Riferimento a Electron
 
 function openPage(pageToOpen, buttonToSetActiveId) {
-	const path = require("path");
+	const path = parent.require("path");
 	let iFrame = parent.document.getElementById("content-frame");
 	iFrame.focus();
 	var params = (new URL(location.href)).searchParams;
@@ -197,7 +197,7 @@ function updateTitleBarButtons() {
  * Mostra il dialogo di richiesta di conferma di uscita.
  */
 function showExitDialog() {
-	const path = require("path");
+	const path = parent.require("path");
 	const Dialog = parent.require(path.join(path.resolve("."), "./assets/js/modal-dialog-module"));
 	let exitDialog = new Dialog;
 	exitDialog.open({
@@ -226,8 +226,8 @@ function showExitDialog() {
  * 'Sì'. Il percorso è relativo rispetto alla cartella principale.
  */
 function showExitFromQuizDialog(toOpen) {
-	const path = require("path");
-	const Dialog = require(path.join(path.resolve("./"), "./assets/js/modal-dialog-module"));
+	const path = parent.require("path");
+	const Dialog = parent.require(path.join(path.resolve("./"), "./assets/js/modal-dialog-module"));
 	let exitQuizDialog = new Dialog;
 	exitQuizDialog.open({
 		icon: path.join(path.resolve("./"), "./assets/icon.ico"),
@@ -258,10 +258,10 @@ function showExitFromQuizDialog(toOpen) {
  * 'Ok'. Il percorso è relativo rispetto alla cartella principale.
  */
 function showQuizDialog(nomeQuiz, score, total, return_link) {
-	const path = require("path");
+	const path = parent.require("path");
 	const { ipcRenderer } = parent.require("electron");
 	ipcRenderer.sendSync("save-quiz", { id: nomeQuiz, passed: (score >= (total / 2)) });
-	const Dialog = require(path.join(path.resolve("./"), "./assets/js/modal-dialog-module"));
+	const Dialog = parent.require(path.join(path.resolve("./"), "./assets/js/modal-dialog-module"));
 	let quizDialog = new Dialog;
 	quizDialog.open({
 		icon: path.join(path.resolve("./"), "./assets/icon.ico"),
@@ -298,7 +298,7 @@ function openInBrowser(link) {
  * Ritorna l'username collegato a StrumentalMente.
  */
 function getUsername() {
-	const { ipcRenderer } = require("electron");
+	const { ipcRenderer } = parent.require("electron");
 	let user = ipcRenderer.sendSync("get-user");
 	return user;
 }
@@ -309,7 +309,7 @@ function getUsername() {
  * @param {String} newUsername Il nuovo username. 
  */
 function setUsername(newUsername) {
-	const { ipcRenderer } = require("electron");
+	const { ipcRenderer } = parent.require("electron");
 	ipcRenderer.sendSync("save-user", newUsername);
 	console.log("done");
 }
@@ -320,7 +320,7 @@ function setUsername(newUsername) {
  * @param {String} id L'id del quiz di cui interessa il risultato.
  */
 function getQuiz(id) {
-	const { ipcRenderer } = require("electron");
+	const { ipcRenderer } = parent.require("electron");
 	let quiz = ipcRenderer.sendSync("get-quiz", id);
 	return quiz;
 }
@@ -392,7 +392,7 @@ window.addEventListener("load", onLoadCallback);
  * @param {String} [windowIcon] L'icona della finestra modale
  */
 function openModal(content, options = { width: 1400, height: 800 }, windowIcon = "./assets/icon.ico") {
-	const path = require("path");
+	const path = parent.require("path");
 	var xhr = new XMLHttpRequest();
 	xhr.open('GET', path.join(path.resolve("."), content), true);
 	xhr.onreadystatechange = function () {
