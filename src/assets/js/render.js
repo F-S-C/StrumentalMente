@@ -41,10 +41,10 @@
 	};
 })();
 
-const remote = parent.require('electron').remote; // Riferimento a Electron
+const remote = window.parent.require('electron').remote; // Riferimento a Electron
 
 function openPage(pageToOpen, buttonToSetActiveId) {
-	const path = parent.require("path");
+	const path = window.parent.require("path");
 	let iFrame = parent.document.getElementById("content-frame");
 	iFrame.focus();
 	var params = (new URL(location.href)).searchParams;
@@ -74,7 +74,7 @@ function setHelper(newHelper) {
  * proseguire.
  */
 function warnIfIncomplete(previousQuizId, previousQuizName, topicToOpenName, callback) {
-	const { ipcRenderer } = parent.require("electron");
+	const { ipcRenderer } = window.parent.require("electron");
 	var result = ipcRenderer.sendSync("get-quiz", previousQuizId);
 	if (!result) {
 		let hasBeenAsked = JSON.parse(sessionStorage.getItem(`${topicToOpenName}-notdone-asked`));
@@ -82,7 +82,7 @@ function warnIfIncomplete(previousQuizId, previousQuizName, topicToOpenName, cal
 
 		let answer = hasBeenAsked;
 		if (!answer) {
-			const Dialog = parent.require("./assets/js/modal-dialog-module");
+			const Dialog = window.parent.require("./assets/js/modal-dialog-module");
 			let warningDialog = new Dialog;
 			warningDialog.open({
 				title: 'Attenzione!',
@@ -116,11 +116,23 @@ function warnIfIncomplete(previousQuizId, previousQuizName, topicToOpenName, cal
  */
 function setUpTitleBar() {
 	// Quando il documento ha terminato il caricamento, inizializza
-	parent.document.onreadystatechange = () => {
+	let onStateListener = () => {
 		if (parent.document.readyState == "complete") {
 			init();
+			parent.document.removeEventListener("readystatechange", onStateListener);
 		}
-	};
+	}
+	parent.document.addEventListener("readystatechange", onStateListener);
+	// parent.document.onreadystatechange = () => {
+	// 	if (parent.document.readyState == "complete") {
+	// 		init();
+	// 	}
+	// };
+	// parent.document.onreadystatechange = () => {
+	// 	if (parent.document.readyState == "complete") {
+	// 		init();
+	// 	}
+	// };
 
 	let window = remote.getCurrentWindow();
 	const minButton = parent.document.getElementById('min-button'),
@@ -197,8 +209,8 @@ function updateTitleBarButtons() {
  * Mostra il dialogo di richiesta di conferma di uscita.
  */
 function showExitDialog() {
-	const path = parent.require("path");
-	const Dialog = parent.require(path.join(path.resolve("."), "./assets/js/modal-dialog-module"));
+	const path = window.parent.require("path");
+	const Dialog = window.parent.require(path.join(path.resolve("."), "./assets/js/modal-dialog-module"));
 	let exitDialog = new Dialog;
 	exitDialog.open({
 		icon: path.join(path.resolve("."), "./assets/icon.ico"),
@@ -226,8 +238,8 @@ function showExitDialog() {
  * 'Sì'. Il percorso è relativo rispetto alla cartella principale.
  */
 function showExitFromQuizDialog(toOpen) {
-	const path = parent.require("path");
-	const Dialog = parent.require(path.join(path.resolve("./"), "./assets/js/modal-dialog-module"));
+	const path = window.parent.require("path");
+	const Dialog = window.parent.require(path.join(path.resolve("./"), "./assets/js/modal-dialog-module"));
 	let exitQuizDialog = new Dialog;
 	exitQuizDialog.open({
 		icon: path.join(path.resolve("./"), "./assets/icon.ico"),
@@ -258,10 +270,10 @@ function showExitFromQuizDialog(toOpen) {
  * 'Ok'. Il percorso è relativo rispetto alla cartella principale.
  */
 function showQuizDialog(nomeQuiz, score, total, return_link) {
-	const path = parent.require("path");
-	const { ipcRenderer } = parent.require("electron");
+	const path = window.parent.require("path");
+	const { ipcRenderer } = window.parent.require("electron");
 	ipcRenderer.sendSync("save-quiz", { id: nomeQuiz, passed: (score >= (total / 2)) });
-	const Dialog = parent.require(path.join(path.resolve("./"), "./assets/js/modal-dialog-module"));
+	const Dialog = window.parent.require(path.join(path.resolve("./"), "./assets/js/modal-dialog-module"));
 	let quizDialog = new Dialog;
 	quizDialog.open({
 		icon: path.join(path.resolve("./"), "./assets/icon.ico"),
@@ -298,7 +310,7 @@ function openInBrowser(link) {
  * Ritorna l'username collegato a StrumentalMente.
  */
 function getUsername() {
-	const { ipcRenderer } = parent.require("electron");
+	const { ipcRenderer } = window.parent.require("electron");
 	let user = ipcRenderer.sendSync("get-user");
 	return user;
 }
@@ -309,7 +321,7 @@ function getUsername() {
  * @param {String} newUsername Il nuovo username. 
  */
 function setUsername(newUsername) {
-	const { ipcRenderer } = parent.require("electron");
+	const { ipcRenderer } = window.parent.require("electron");
 	ipcRenderer.sendSync("save-user", newUsername);
 	console.log("done");
 }
@@ -320,7 +332,7 @@ function setUsername(newUsername) {
  * @param {String} id L'id del quiz di cui interessa il risultato.
  */
 function getQuiz(id) {
-	const { ipcRenderer } = parent.require("electron");
+	const { ipcRenderer } = window.parent.require("electron");
 	let quiz = ipcRenderer.sendSync("get-quiz", id);
 	return quiz;
 }
@@ -333,7 +345,7 @@ function disableShortcuts() {
 
 function setShortcuts(doc = document) {
 	if (!shortcutDisabled) {
-		const Mousetrap = parent.require("mousetrap")(doc);
+		const Mousetrap = window.parent.require("mousetrap")(doc);
 
 		Mousetrap.bind("alt+h", () => { parent.document.querySelector("#home-nav-link>button").click(); });
 		Mousetrap.bind("alt+t", () => { parent.document.querySelector("#theory-nav-link>button").click(); });
@@ -352,7 +364,7 @@ function setShortcuts(doc = document) {
 		Mousetrap.bind("f1", () => { parent.document.querySelector("#help-nav-link>button").click(); });
 		Mousetrap.bind("esc", showExitDialog);
 		Mousetrap.bind("up up down down left right left right b a enter", () => {
-			const Dialog = parent.require("./assets/js/modal-dialog-module");
+			const Dialog = window.parent.require("./assets/js/modal-dialog-module");
 			let bonusDialog = new Dialog;
 			bonusDialog.open({
 				title: 'Wow!',
@@ -392,13 +404,13 @@ window.addEventListener("load", onLoadCallback);
  * @param {String} [windowIcon] L'icona della finestra modale
  */
 function openModal(content, options = { width: 1400, height: 800 }, windowIcon = "./assets/icon.ico") {
-	const path = parent.require("path");
+	const path = window.parent.require("path");
 	var xhr = new XMLHttpRequest();
 	xhr.open('GET', path.join(path.resolve("."), content), true);
 	xhr.onreadystatechange = function () {
 		if (this.readyState !== 4) return;
 		if (this.status !== 200) return;
-		const Dialog = parent.require(path.join(path.resolve("."), "./assets/js/modal-dialog-module"));
+		const Dialog = window.parent.require(path.join(path.resolve("."), "./assets/js/modal-dialog-module"));
 		let exitDialog = new Dialog;
 		let width = (options.width && options.width <= window.innerWidth - 20) ? options.width : window.innerWidth - 20;
 		let height = (options.height && options.height <= window.innerHeight - 20) ? options.height : window.innerHeight - 20;

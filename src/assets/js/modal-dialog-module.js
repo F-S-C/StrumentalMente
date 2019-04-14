@@ -171,8 +171,9 @@ class Dialog {
 		}
 	}
 
-	close(properties) {
-		this._setDialog('close', properties);
+	close() {
+		// Versione precedente (mantenuta per tracciabilità):
+		// this._setDialog('close', properties);
 		this._mainDiv.parentNode.removeChild(this._mainDiv);
 		this._overlayDiv.parentNode.removeChild(this._overlayDiv);
 		Dialog._isOpen = false;
