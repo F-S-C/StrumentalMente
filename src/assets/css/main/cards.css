@@ -5,12 +5,12 @@
 	margin: 0 auto;
 }
 
+.fill {
+	flex: 1 1 auto;
+}
+
 .row.topic-buttons {
-	position: absolute;
-	bottom: 20px;
-	left: 0;
-	right: 0;
-	width: 90%;
+	margin-bottom: 20px;
 }
 
 .topic-row {
