@@ -389,6 +389,7 @@ function setShortcuts(doc = document) {
 		// Shortcut per debug
 		Mousetrap.bind("f5", () => { window.location.reload(); });
 		Mousetrap.bind("alt+backspace", () => window.history.back());
+		Mousetrap.bind("ctrl+shift+i", () => remote.getCurrentWindow().toggleDevTools());
 	}
 }
 
