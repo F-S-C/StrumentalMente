@@ -7,6 +7,10 @@
 	overflow: hidden;
 }
 
+.main-wrapper .content {
+	padding: 0 40px;
+}
+
 section>form {
 	margin-top: 5em;
 	display: grid;
