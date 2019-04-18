@@ -15,10 +15,12 @@ function openMobileNavigation() {
 	if (nav.className === "main-navigation") {
 		nav.className += " responsive";
 		button.innerHTML = "<i class=\"fas fa-times\"></i>";
+		button.setAttribute("title", "Chiudi la sidebar");
 	}
 	else {
 		nav.className = "main-navigation";
 		button.innerHTML = "<i class=\"fas fa-bars\"></i>";
+		button.setAttribute("title", "Apri la sidebar");
 	}
 }
 
