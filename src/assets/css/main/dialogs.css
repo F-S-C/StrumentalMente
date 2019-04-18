@@ -5,8 +5,10 @@
 	z-index: 9999;
 	visibility: hidden;
 	opacity: 0;
-	overflow-y: auto;
+	overflow-y: hidden;
 	resize: both;
+	display: flex;
+	flex-direction: column;
 }
 
 .dialog-box #label {
@@ -28,7 +30,16 @@
 	display: none;
 }
 
+.dialog-box>.main-wrapper {
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
+	overflow: auto;
+}
+
 .dialog-box>.main-wrapper>div {
+	flex: 1 1 auto;
+	overflow: auto;
 	width: 100%;
 }
 
