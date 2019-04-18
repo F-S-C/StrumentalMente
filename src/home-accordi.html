@@ -19,55 +19,56 @@
 <body onload="window.parent.setHelper('accordi');">
 	<div class="topic-wrapper">
 		<div class="content">
-			<header>
-				<h1>Accordi</h1>
-				<h2>Come si suonano gli accordi</h2>
-				<hr />
-			</header>
-			<section>
-				<p>Non tutti gli strumenti si suonano con gli accordi, perché non tutti possono suonare più note
-					contemporaneamente (es. batteria). Invece, il piano e la chitarra sono strumenti che possono essere
-					suonati con gli accordi. </p>
-				<p>A differenza della chitarra però, il pianoforte ha una maggiore libertà. Nel
-					pianoforte possiamo anche eseguire gli <strong>accordi</strong> con la <strong>mano sinistra</strong>
-					come accompagnamento della <strong>mano destra</strong> che intanto esegue la <strong>melodia</strong>.
-				</p>
-				<p>È necessario imparare a suonare insieme tutte le note di ogni accordo di tre, quattro o cinque suoni.</p>
+			<article class="fill">
+				<header>
+					<h1>Accordi</h1>
+					<h2>Come si suonano gli accordi</h2>
+					<hr />
+				</header>
+				<section>
+					<p>Non tutti gli strumenti si suonano con gli accordi, perché non tutti possono suonare più note
+						contemporaneamente (es. batteria). Invece, il piano e la chitarra sono strumenti che possono essere
+						suonati con gli accordi. </p>
+					<p>A differenza della chitarra però, il pianoforte ha una maggiore libertà. Nel
+						pianoforte possiamo anche eseguire gli <strong>accordi</strong> con la <strong>mano sinistra</strong>
+						come accompagnamento della <strong>mano destra</strong> che intanto esegue la <strong>melodia</strong>.
+					</p>
+					<p>È necessario imparare a suonare insieme tutte le note di ogni accordo di tre, quattro o cinque suoni.</p>
+				</section>
+			</article>
+			<div class="row topic-buttons" style="grid-template-columns: 32% 32% 32%;">
+				<button class="card-horizontal-alt" style="grid-column: 1; grid-row: 1;" onclick="warnIfIncomplete('piano', 'teoria del pianoforte', 'agli accordi del pianoforte', () => { parent.window.history.replaceState(null,null,'?started=true&topic=./accordi-piano.html'); window.location.href='./accordi-piano.html'; });" title="Apri gli accordi del pianoforte (Alt+A P)">
+					<div class="card-stacked">
+						<div class="card-content">
+							<img src="./assets/images/piano11.jpg" />
+						</div>
+						<div class="card-action">
+							<span class="btn-text">Accordi del pianoforte</span>
+						</div>
+					</div>
+				</button>
+				<button class="card-horizontal-alt" style="grid-column: 2; grid-row: 1;" onclick="warnIfIncomplete('chitarra', 'teoria della chitarra', 'agli accordi della chitarra', () => { parent.window.history.replaceState(null,null,'?started=true&topic=./accordi-chitarra.html'); window.location.href='./accordi-chitarra.html'; });" title="Apri gli accordi della chitarra (Alt+A C)">
+					<div class="card-stacked">
+						<div class="card-content">
+							<img src="./assets/images/chitarra11.jpg">
+						</div>
+						<div class="card-action">
+							<span class="btn-text">Accordi della chitarra</span>
+						</div>
+					</div>
+				</button>
 
-				<div class="row topic-buttons" style="grid-template-columns: 32% 32% 32%;">
-					<button class="card-horizontal-alt" style="grid-column: 1; grid-row: 1;" onclick="warnIfIncomplete('piano', 'teoria del pianoforte', 'agli accordi del pianoforte', () => { parent.window.history.replaceState(null,null,'?started=true&topic=./accordi-piano.html'); window.location.href='./accordi-piano.html'; });" title="Apri gli accordi del pianoforte (Alt+A P)">
-						<div class="card-stacked">
-							<div class="card-content">
-								<img src="./assets/images/piano11.jpg" />
-							</div>
-							<div class="card-action">
-								<span class="btn-text">Accordi del pianoforte</span>
-							</div>
+				<button class="card-horizontal-alt" style="grid-column: 3; grid-row: 1;" onclick="warnIfIncomplete('basso', 'teoria del basso', 'agli accordi del basso', () => { parent.window.history.replaceState(null,null,'?started=true&topic=./accordi-basso.html'); window.location.href='./accordi-basso.html'; });" title="Apri gli accordi del basso (Alt+A B)">
+					<div class="card-stacked">
+						<div class="card-content">
+							<img src="./assets/images/basso11.jpg">
 						</div>
-					</button>
-					<button class="card-horizontal-alt" style="grid-column: 2; grid-row: 1;" onclick="warnIfIncomplete('chitarra', 'teoria della chitarra', 'agli accordi della chitarra', () => { parent.window.history.replaceState(null,null,'?started=true&topic=./accordi-chitarra.html'); window.location.href='./accordi-chitarra.html'; });" title="Apri gli accordi della chitarra (Alt+A C)">
-						<div class="card-stacked">
-							<div class="card-content">
-								<img src="./assets/images/chitarra11.jpg">
-							</div>
-							<div class="card-action">
-								<span class="btn-text">Accordi della chitarra</span>
-							</div>
+						<div class="card-action">
+							<span class="btn-text">Accordi del basso</span>
 						</div>
-					</button>
-
-					<button class="card-horizontal-alt" style="grid-column: 3; grid-row: 1;" onclick="warnIfIncomplete('basso', 'teoria del basso', 'agli accordi del basso', () => { parent.window.history.replaceState(null,null,'?started=true&topic=./accordi-basso.html'); window.location.href='./accordi-basso.html'; });" title="Apri gli accordi del basso (Alt+A B)">
-						<div class="card-stacked">
-							<div class="card-content">
-								<img src="./assets/images/basso11.jpg">
-							</div>
-							<div class="card-action">
-								<span class="btn-text">Accordi del basso</span>
-							</div>
-						</div>
-					</button>
-				</div>
-			</section>
+					</div>
+				</button>
+			</div>
 		</div>
 	</div>
 
