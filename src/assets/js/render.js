@@ -23,25 +23,27 @@
 	// code!!
 
 	// npm install lru-cache first
-	const LRU = parent.require('lru-cache');
-	var lru = new LRU({ max: 256, maxAge: 250/*ms*/ });
+	if (typeof parent.require !== 'undefined') {
+		const LRU = parent.require('lru-cache');
+		var lru = new LRU({ max: 256, maxAge: 250/*ms*/ });
 
-	var fs = parent.require('fs');
-	var origLstat = fs.lstatSync.bind(fs);
+		var fs = parent.require('fs');
+		var origLstat = fs.lstatSync.bind(fs);
 
-	// NB: The biggest offender of thrashing lstatSync is the node module system
-	// itself, which we can't get into via any sane means.
-	fs.lstatSync = function (p) {
-		let r = lru.get(p);
-		if (r) return r;
+		// NB: The biggest offender of thrashing lstatSync is the node module system
+		// itself, which we can't get into via any sane means.
+		fs.lstatSync = function (p) {
+			let r = lru.get(p);
+			if (r) return r;
 
-		r = origLstat(p);
-		lru.set(p, r);
-		return r;
-	};
+			r = origLstat(p);
+			lru.set(p, r);
+			return r;
+		};
+	}
 })();
 
-const remote = window.parent.require('electron').remote; // Riferimento a Electron
+const remote = (typeof window.parent.require !== 'undefined') && window.parent.require('electron').remote; // Riferimento a Electron
 
 function openPage(pageToOpen, buttonToSetActiveId) {
 	const path = window.parent.require("path");
@@ -199,7 +201,7 @@ function setUpTitleBar() {
 	setUpTitleBar.updateTitleBarButtons = toggleMaxRestoreButtons;
 }
 
-setUpTitleBar();
+remote && setUpTitleBar();
 
 function updateTitleBarButtons() {
 	setUpTitleBar.updateTitleBarButtons();
@@ -347,7 +349,7 @@ function disableShortcuts() {
 
 function setShortcuts(doc = document) {
 	if (!shortcutDisabled) {
-		const Mousetrap = window.parent.require("mousetrap")(doc);
+		const Mousetrap = (typeof window.parent.require !== 'undefined')? window.parent.require("mousetrap")(doc) : window.parent.parent.require("mousetrap")(doc);
 
 		Mousetrap.bind("alt+h", () => { parent.document.querySelector("#home-nav-link>button").click(); });
 		Mousetrap.bind("alt+t", () => { parent.document.querySelector("#theory-nav-link>button").click(); });

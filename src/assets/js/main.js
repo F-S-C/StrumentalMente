@@ -199,8 +199,7 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 	let openPreviousTopic = (e) => {
 		if (canChangeSlide && pagesName.previousLink) {
 			changeTopic(pagesName.previousLink, baseFolder);
-			if (pagesName.previousLink !== initialPage)
-				returnToLast = true;
+			returnToLast = (pagesName.previousLink !== initialPage);
 		}
 	};
 	let openPreviousSlide = (e) => {
@@ -213,8 +212,10 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 		}
 	};
 	let openNextTopic = (e) => {
-		if (canChangeSlide)
+		if (canChangeSlide) {
+			returnToLast = false;
 			changeTopic(pagesName.nextLink, baseFolder);
+		}
 	};
 
 	previousTopicButton.onclick = openPreviousTopic;
@@ -224,9 +225,9 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 	nextTopicButton.onclick = openNextTopic;
 
 	[
-		parent.require("mousetrap")(iFrame.contentWindow),
-		parent.require("mousetrap")(document),
-		parent.require("mousetrap")(parent.document)
+		(typeof parent.require !== 'undefined') && parent.require("mousetrap")(iFrame.contentWindow),
+		(typeof parent.require !== 'undefined') && parent.require("mousetrap")(document),
+		(typeof parent.require !== 'undefined') && parent.require("mousetrap")(parent.document)
 	].forEach((Mousetrap) => {
 		Mousetrap.unbind("right");
 		Mousetrap.unbind("left");
@@ -265,12 +266,12 @@ function changeTopic(topicName, base = "./") {
 	var iFrame = document.getElementById("topic-frame");
 	currentSection = 0;
 	parent.document.activeElement.blur();
-	const path = parent.require("path");
+	const path = (typeof parent.require !== 'undefined') && parent.require("path");
 	if (!topicName.includes("quiz")) {
 		iFrame.src = `${path.join(base, `${topicName}.html`)}`;
 	}
 	else
-		parent.require("electron").remote.getCurrentWindow().loadFile(base + topicName + ".html");
+		(typeof parent.require !== 'undefined') && parent.require("electron").remote.getCurrentWindow().loadFile(base + topicName + ".html");
 }
 
 /**
