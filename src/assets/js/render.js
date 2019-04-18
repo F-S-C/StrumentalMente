@@ -210,10 +210,12 @@ function updateTitleBarButtons() {
  */
 function showExitDialog() {
 	const path = window.parent.require("path");
-	const Dialog = window.parent.require(path.join(path.resolve("."), "./assets/js/modal-dialog-module"));
+	let currentPageName = (typeof __filename !== 'undefined') ? __filename.split(path.sep).pop() : undefined;
+	let moduleBase = (currentPageName == "quiz.html") ? "../../" : "./";
+	const Dialog = window.parent.require(`${moduleBase}assets/js/modal-dialog-module`);
 	let exitDialog = new Dialog;
 	exitDialog.open({
-		icon: path.join(path.resolve("."), "./assets/icon.ico"),
+		icon: `${moduleBase}assets/icon.ico`,
 		title: 'Sicuro?',
 		content: "<p>Sicuro di voler uscire dall'applicazione?</p>",
 		buttons: {
@@ -239,10 +241,10 @@ function showExitDialog() {
  */
 function showExitFromQuizDialog(toOpen) {
 	const path = window.parent.require("path");
-	const Dialog = window.parent.require(path.join(path.resolve("./"), "./assets/js/modal-dialog-module"));
+	const Dialog = window.parent.require("../../assets/js/modal-dialog-module");
 	let exitQuizDialog = new Dialog;
 	exitQuizDialog.open({
-		icon: path.join(path.resolve("./"), "./assets/icon.ico"),
+		icon: "../../assets/icon.ico",
 		title: 'Sicuro?',
 		content: "Sicuro di voler uscire dal quiz?",
 		buttons: {
@@ -273,10 +275,10 @@ function showQuizDialog(nomeQuiz, score, total, return_link) {
 	const path = window.parent.require("path");
 	const { ipcRenderer } = window.parent.require("electron");
 	ipcRenderer.sendSync("save-quiz", { id: nomeQuiz, passed: (score >= (total / 2)) });
-	const Dialog = window.parent.require(path.join(path.resolve("./"), "./assets/js/modal-dialog-module"));
+	const Dialog = window.parent.require("../../assets/js/modal-dialog-module");
 	let quizDialog = new Dialog;
 	quizDialog.open({
-		icon: path.join(path.resolve("./"), "./assets/icon.ico"),
+		icon: "../../assets/icon.ico",
 		title: 'Quiz - Risultato',
 		content: `<p>Hai ottenuto in punteggio di:</p>
 		<p><strong style="font-size: x-large;"><span id="score">${score}</span> / <span id="total">${total}</span></strong></p>`,
@@ -407,15 +409,18 @@ window.addEventListener("load", onLoadCallback);
 function openModal(content, options = { width: 1400, height: 800 }, windowIcon = "./assets/icon.ico") {
 	const path = window.parent.require("path");
 	var xhr = new XMLHttpRequest();
-	xhr.open('GET', path.join(path.resolve("."), content), true);
+	let currentPageName = (typeof __filename !== 'undefined') ? __filename.split(path.sep).pop() : undefined;
+	let moduleBase = (currentPageName == "quiz.html") ? "../../" : "./";
+	xhr.open('GET', path.join(moduleBase, content), true);
 	xhr.onreadystatechange = function () {
 		if (this.readyState !== 4) return;
 		if (this.status !== 200) return;
-		const Dialog = window.parent.require(path.join(path.resolve("."), "./assets/js/modal-dialog-module"));
-		let exitDialog = new Dialog;
+		const Dialog = window.parent.require(`${moduleBase}assets/js/modal-dialog-module`);
+		let modalDialog = new Dialog;
 		let width = (options.width && options.width <= window.innerWidth - 20) ? options.width : window.innerWidth - 20;
 		let height = (options.height && options.height <= window.innerHeight - 20) ? options.height : window.innerHeight - 20;
-		exitDialog.open({
+		modalDialog.open({
+			icon: `${moduleBase}assets/icon.ico`,
 			title: /<title>(.*?)<\/title>/gi.exec(this.responseText)[1],
 			width: width,
 			height: height,

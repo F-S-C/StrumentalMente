@@ -267,7 +267,7 @@ function changeTopic(topicName, base = "./") {
 	parent.document.activeElement.blur();
 	const path = parent.require("path");
 	if (!topicName.includes("quiz")) {
-		iFrame.src = `file:\\\\\\${path.join(path.resolve("."), base, `${topicName}.html`)}`;
+		iFrame.src = `${path.join(base, `${topicName}.html`)}`;
 	}
 	else
 		parent.require("electron").remote.getCurrentWindow().loadFile(base + topicName + ".html");
