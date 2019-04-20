@@ -27,8 +27,8 @@ def get_substitution(line, base="src/assets/css"):
                 if "@import" in data[i]:
                     data[i] = get_substitution(data[i], "src/assets/css/main")
                     data[i] = removeComments(data[i])
-                if "../../" in data[i]:
-                    data[i] = data[i].replace("../../", "../")
+                data[i] = re.sub(r'"\.\./(.*?)"', r'"./\1"', data[i])
+                data[i] = re.sub(r'"\.\./\.\./(.*?)"', r'"../\1"', data[i])
     return "".join(data)
 
 
@@ -52,7 +52,7 @@ if __name__ == "__main__":
             else:
                 print(line.strip(), end="")
 
-	# FIXME
+        # FIXME
     # for filename in glob.glob("src/*.html"):
     #     process_single_html_file(filename, overwrite=True)
     # for filename in glob.glob("src/helpers/*.html"):
