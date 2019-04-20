@@ -189,7 +189,7 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 		}
 
 		setTimeout(() => {
-			if (iFrameDocument.getElementsByClassName("multiple-figures").length < 1)
+			if (iFrameDocument.getElementsByClassName("multiple-figures").length < 1 && iFrameDocument.getElementsByTagName("section")[currentSection])
 				iFrameDocument.getElementsByTagName("section")[currentSection].className = "show";
 			iFrameDocument.getElementById("current-topic-slide").innerHTML = currentSection + 1;
 			canChangeSlide = true;
