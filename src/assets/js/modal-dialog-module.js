@@ -171,6 +171,7 @@ class Dialog {
 		if (!Dialog.isOpen) {
 			Dialog._isOpen = true;
 			this._setDialog('open', properties);
+			window.document.querySelector("#titlebar #drag-region").style.webkitAppRegion = "no-drag";
 		}
 	}
 
@@ -180,6 +181,7 @@ class Dialog {
 		this._mainDiv.parentNode.removeChild(this._mainDiv);
 		this._overlayDiv.parentNode.removeChild(this._overlayDiv);
 		Dialog._isOpen = false;
+		window.document.querySelector("#titlebar #drag-region").style.webkitAppRegion = "drag";
 	}
 
 	_resize(originalWidth, originalHeight) {
