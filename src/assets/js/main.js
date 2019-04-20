@@ -309,17 +309,21 @@ function initializeQuiz() {
 
 	const Mousetrap = require("mousetrap")(document);
 	Mousetrap.bind("right", () => {
-		if (currentSection === numberOfSections - 1) {
-			if (compare)
-				exitButton.click();
-			else
-				verifyButton.click();
-		} else
-			nextSlideButton.click();
+		if (canChangeSlide) {
+			if (currentSection === numberOfSections - 1) {
+				if (!compare)
+					verifyButton.click();
+				else
+					exitButton.click();
+			} else
+				nextSlideButton.click();
+		}
 	});
 	Mousetrap.bind("left", () => {
-		if (currentSection !== 0)
-			previousSlideButton.click();
+		if (canChangeSlide) {
+			if (currentSection !== 0)
+				previousSlideButton.click();
+		}
 	});
 }
 
@@ -342,7 +346,6 @@ function changeQuizSlide(finalSlide) {
 	sectionsList[currentSection].className = "hide";
 
 	var questionsInNavbar = document.getElementsByClassName("question-link");
-	console.log(questionsInNavbar);
 	questionsInNavbar[currentSection].className = "question-link";
 
 	currentSection = finalSlide;

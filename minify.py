@@ -59,25 +59,25 @@ if __name__ == "__main__":
             else:
                 print(line.strip(), end="")
 
-    files = set(glob.glob("src\\**\\*.html", recursive=True))
-    files -= set(glob.glob("src\\dist\\**\\*.html", recursive=True))
-    files -= set(glob.glob("src\\node_modules\\**\\*.html", recursive=True))
+    # files = set(glob.glob("src\\**\\*.html", recursive=True))
+    # files -= set(glob.glob("src\\dist\\**\\*.html", recursive=True))
+    # files -= set(glob.glob("src\\node_modules\\**\\*.html", recursive=True))
 
-    for filename in files:
-        process_single_html_file(filename)
+    # for filename in files:
+    #     process_single_html_file(filename)
 
-    for currentFile in ["src/app.js",
-                        "src/StrumentalMente.js",
-                        "src/assets/js/main.js",
-                        "src/assets/js/render.js",
-                        "src/assets/js/quiz.js",
-                        "src/assets/js/accordi_basso.js",
-                        "src/assets/js/accordi_chitarra.js",
-                        "src/assets/js/accordi_piano.js",
-                        "src/assets/js/vendor/jquery.maphilight.js"]:
-        copyfile(currentFile, currentFile[:-3] +
-                 "_not-minified" + currentFile[-3:])
-        with open(currentFile, "r") as js_file:
-            minified = jsmin(js_file.read(), quote_chars="'\"`")
-        with open(currentFile, "w") as js_file:
-            js_file.write(minified)
+    # for currentFile in ["src/app.js",
+    #                     "src/StrumentalMente.js",
+    #                     "src/assets/js/main.js",
+    #                     "src/assets/js/render.js",
+    #                     "src/assets/js/quiz.js",
+    #                     "src/assets/js/accordi_basso.js",
+    #                     "src/assets/js/accordi_chitarra.js",
+    #                     "src/assets/js/accordi_piano.js",
+    #                     "src/assets/js/vendor/jquery.maphilight.js"]:
+    #     copyfile(currentFile, currentFile[:-3] +
+    #              "_not-minified" + currentFile[-3:])
+    #     with open(currentFile, "r") as js_file:
+    #         minified = jsmin(js_file.read(), quote_chars="'\"`")
+    #     with open(currentFile, "w") as js_file:
+    #         js_file.write(minified)

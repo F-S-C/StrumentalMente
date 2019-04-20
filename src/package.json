@@ -18,6 +18,9 @@
 		},
 		"mac": {
 			"category": "public.app-category.education"
+		},
+		"nsis": {
+			"oneClick": false
 		}
 	},
 	"repository": "https://github.com/F-S-C/StrumentalMente",

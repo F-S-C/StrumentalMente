@@ -49,10 +49,10 @@ function openPage(pageToOpen, buttonToSetActiveId) {
 	let iFrame = parent.document.getElementById("content-frame");
 	iFrame.focus();
 	var params = (new URL(location.href)).searchParams;
+	document.querySelector("nav.main-navigation>ul li>button.active").classList.remove("active");
+	document.querySelector(`#${buttonToSetActiveId}-nav-link>button`).classList.add("active");
 	if (pageToOpen != params.get("topic")) {
 		iFrame.src = pageToOpen;
-		document.querySelector("nav.main-navigation>ul li>button.active").classList.remove("active");
-		document.querySelector(`#${buttonToSetActiveId}-nav-link>button`).classList.add("active");
 		window.history.replaceState(null, null, `?started=true&topic=${pageToOpen}`);
 	}
 }
