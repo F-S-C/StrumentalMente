@@ -162,6 +162,9 @@ class Dialog {
 
 		maximize = (set == "open") ? true : false;
 
+		let resize = () => this._resize(defaults.width, defaults.height);
+		window.removeEventListener("resize", resize);
+		window.addEventListener("resize", resize);
 	}
 
 	open(properties) {
@@ -177,6 +180,15 @@ class Dialog {
 		this._mainDiv.parentNode.removeChild(this._mainDiv);
 		this._overlayDiv.parentNode.removeChild(this._overlayDiv);
 		Dialog._isOpen = false;
+	}
+
+	_resize(originalWidth, originalHeight) {
+		let finalWidth = window.matchMedia(`(max-width: ${originalWidth}px)`).matches ? window.innerWidth - 20 : originalWidth;
+		let finalHeight = window.matchMedia(`(max-height: ${originalHeight}px)`).matches ? window.innerHeight - 20 : originalHeight;
+		this._mainDiv.style.width = finalWidth + "px";
+		this._mainDiv.style.height = finalHeight + "px";
+		this._mainDiv.style.marginLeft = '-' + finalWidth / 2 + 'px';
+		this._mainDiv.style.marginTop = '-' + finalHeight / 2 + 'px';
 	}
 
 	static get isOpen() {
