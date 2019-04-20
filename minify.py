@@ -3,8 +3,8 @@ import os
 import glob
 import fileinput
 from shutil import copyfile
-from css_html_js_minify import process_single_html_file, process_single_js_file
 from jsmin import jsmin
+from htmlmin import minify
 
 
 def removeComments(content):
@@ -32,6 +32,13 @@ def get_substitution(line, base="src/assets/css"):
     return "".join(data)
 
 
+def process_single_html_file(filename):
+    with open(filename, "r") as js_file:
+        minified = minify(js_file.read(), remove_empty_space=True)
+    with open(filename, "w") as js_file:
+        js_file.write(minified)
+
+
 if __name__ == "__main__":
     copyfile("src/assets/css/style.css",
              "src/assets/css/style_not-minified.css")
@@ -52,17 +59,12 @@ if __name__ == "__main__":
             else:
                 print(line.strip(), end="")
 
-        # FIXME
-    # for filename in glob.glob("src/*.html"):
-    #     process_single_html_file(filename, overwrite=True)
-    # for filename in glob.glob("src/helpers/*.html"):
-    #     process_single_html_file(filename, overwrite=True)
-    # for filename in glob.glob("src/dialogs/*.html"):
-    #     process_single_html_file(filename, overwrite=True)
-    # for filename in glob.glob("src/teoria/base/*.html"):
-    #     process_single_html_file(filename, overwrite=True)
-    # for filename in glob.glob("src/teoria/avanzata/*.html"):
-    #     process_single_html_file(filename, overwrite=True)
+    files = set(glob.glob("src\\**\\*.html", recursive=True))
+    files -= set(glob.glob("src\\dist\\**\\*.html", recursive=True))
+    files -= set(glob.glob("src\\node_modules\\**\\*.html", recursive=True))
+
+    for filename in files:
+        process_single_html_file(filename)
 
     for currentFile in ["src/app.js",
                         "src/StrumentalMente.js",
