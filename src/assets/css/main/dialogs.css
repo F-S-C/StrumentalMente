@@ -1,7 +1,7 @@
 .dialog-box {
 	background-color: white;
 	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
-	position: absolute;
+	position: fixed;
 	z-index: 9999;
 	visibility: hidden;
 	opacity: 0;
