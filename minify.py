@@ -3,7 +3,7 @@ import os
 import glob
 import fileinput
 from shutil import copyfile
-from jsmin import jsmin
+from css_html_js_minify import process_single_html_file, process_single_js_file
 
 
 def removeComments(content):
@@ -31,13 +31,6 @@ def get_substitution(line, base="src/assets/css"):
     return "".join(data)
 
 
-def one_line(filename):
-    with fileinput.FileInput(filename, inplace=True) as file:
-        for line in file:
-            line = line.strip()
-            print(line, end="")
-
-
 if __name__ == "__main__":
     copyfile("src/assets/css/style.css",
              "src/assets/css/style_not-minified.css")
@@ -59,15 +52,15 @@ if __name__ == "__main__":
                 print(line.strip(), end="")
 
     for filename in glob.glob("src/*.html"):
-        one_line(filename)
+        process_single_html_file(filename, overwrite=True)
     for filename in glob.glob("src/helpers/*.html"):
-        one_line(filename)
+        process_single_html_file(filename, overwrite=True)
     for filename in glob.glob("src/dialogs/*.html"):
-        one_line(filename)
+        process_single_html_file(filename, overwrite=True)
     for filename in glob.glob("src/teoria/base/*.html"):
-        one_line(filename)
+        process_single_html_file(filename, overwrite=True)
     for filename in glob.glob("src/teoria/avanzata/*.html"):
-        one_line(filename)
+        process_single_html_file(filename, overwrite=True)
 
     for currentFile in ["src/app.js",
                         "src/StrumentalMente.js",
@@ -76,11 +69,9 @@ if __name__ == "__main__":
                         "src/assets/js/quiz.js",
                         "src/assets/js/accordi_basso.js",
                         "src/assets/js/accordi_chitarra.js",
-						"src/assets/js/accordi_piano.js",
-						"src/assets/js/vendor/jquery.maphilight.js"]:
+                        "src/assets/js/accordi_piano.js",
+                        "src/assets/js/vendor/jquery.maphilight.js"]:
         copyfile(currentFile, currentFile[:-3] +
                  "_not-minified" + currentFile[-3:])
-        with open(currentFile, "r") as js_file:
-            minified = jsmin(js_file.read())
-        with open(currentFile, "w") as js_file:
-            js_file.write(minified)
+        # with open(currentFile, "r") as js_file:
+        process_single_js_file(currentFile, overwrite=True)

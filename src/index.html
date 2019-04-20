@@ -179,8 +179,8 @@
 				.filter(btn => btn.getAttribute("onclick").includes("openPage") && btn.getAttribute("onclick").includes(generalTopic))[0];
 			navbutton && navbutton.click();
 
-			if (!params.has("to-home") || params.get("to-home") == "false")
-				document.getElementById("content-frame").src = params.get("topic");
+			if (!params.has("to-home") || params.get("to-home") == "false"){
+				document.getElementById("content-frame").src = params.get("topic");}
 		}
 
 		function startApp() {
@@ -192,7 +192,7 @@
 		}
 
 		function onMapImageLoad() {
-			let $ = require("jquery")
+			let $ = require("jquery");
 			$('img[usemap]').maphilight();
 		}
 
