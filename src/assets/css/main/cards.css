@@ -1,7 +1,6 @@
 .row {
+	width: 100%;
 	display: grid;
-	grid-row-gap: 8px;
-	grid-column-gap: 16px;
 	margin: 0 auto;
 }
 
@@ -11,6 +10,12 @@
 
 .row.topic-buttons {
 	margin-bottom: 20px;
+}
+
+.row.topic-buttons button {
+	justify-self: center;
+	width: 90%;
+    justify-self: center;
 }
 
 .topic-row {
@@ -152,6 +157,7 @@ button.card-horizontal-alt {
 	position: relative;
 	border-radius: 0 0 2px 2px;
 	padding: 5px 24px;
+	overflow: hidden;
 }
 
 .card-horizontal-alt .card-action {
