@@ -4,6 +4,7 @@ import glob
 import fileinput
 from shutil import copyfile
 from css_html_js_minify import process_single_html_file, process_single_js_file
+from jsmin import jsmin
 
 
 def removeComments(content):
@@ -51,16 +52,17 @@ if __name__ == "__main__":
             else:
                 print(line.strip(), end="")
 
-    for filename in glob.glob("src/*.html"):
-        process_single_html_file(filename, overwrite=True)
-    for filename in glob.glob("src/helpers/*.html"):
-        process_single_html_file(filename, overwrite=True)
-    for filename in glob.glob("src/dialogs/*.html"):
-        process_single_html_file(filename, overwrite=True)
-    for filename in glob.glob("src/teoria/base/*.html"):
-        process_single_html_file(filename, overwrite=True)
-    for filename in glob.glob("src/teoria/avanzata/*.html"):
-        process_single_html_file(filename, overwrite=True)
+	# FIXME
+    # for filename in glob.glob("src/*.html"):
+    #     process_single_html_file(filename, overwrite=True)
+    # for filename in glob.glob("src/helpers/*.html"):
+    #     process_single_html_file(filename, overwrite=True)
+    # for filename in glob.glob("src/dialogs/*.html"):
+    #     process_single_html_file(filename, overwrite=True)
+    # for filename in glob.glob("src/teoria/base/*.html"):
+    #     process_single_html_file(filename, overwrite=True)
+    # for filename in glob.glob("src/teoria/avanzata/*.html"):
+    #     process_single_html_file(filename, overwrite=True)
 
     for currentFile in ["src/app.js",
                         "src/StrumentalMente.js",
@@ -73,5 +75,7 @@ if __name__ == "__main__":
                         "src/assets/js/vendor/jquery.maphilight.js"]:
         copyfile(currentFile, currentFile[:-3] +
                  "_not-minified" + currentFile[-3:])
-        # with open(currentFile, "r") as js_file:
-        process_single_js_file(currentFile, overwrite=True)
+        with open(currentFile, "r") as js_file:
+            minified = jsmin(js_file.read(), quote_chars="'\"`")
+        with open(currentFile, "w") as js_file:
+            js_file.write(minified)
