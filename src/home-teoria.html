@@ -48,6 +48,12 @@
 
 	<script type="text/javascript" src="./assets/js/render.js"></script>
 	<script type="text/javascript" src="./assets/js/main.js"></script>
+	<script>
+		parent.history.replaceState(null, null, "?started=true&topic=./home-teoria.html#index");
+		document.getElementById("topic-frame").addEventListener("load", () => {
+			parent.history.replaceState(null, null, `?started=true&topic=./home-teoria.html${document.getElementById("topic-frame").src.includes("argomenti.html") ? "" : "%23not-index"}`);
+		});
+	</script>
 </body>
 
 </html>

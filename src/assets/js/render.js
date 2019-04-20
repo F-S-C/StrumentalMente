@@ -46,7 +46,6 @@
 const remote = (typeof window.parent.require !== 'undefined') && window.parent.require('electron').remote; // Riferimento a Electron
 
 function openPage(pageToOpen, buttonToSetActiveId) {
-	const path = window.parent.require("path");
 	let iFrame = parent.document.getElementById("content-frame");
 	iFrame.focus();
 	var params = (new URL(location.href)).searchParams;
@@ -349,7 +348,7 @@ function disableShortcuts() {
 
 function setShortcuts(doc = document) {
 	if (!shortcutDisabled) {
-		const Mousetrap = (typeof window.parent.require !== 'undefined')? window.parent.require("mousetrap")(doc) : window.parent.parent.require("mousetrap")(doc);
+		const Mousetrap = (typeof window.parent.require !== 'undefined') ? window.parent.require("mousetrap")(doc) : window.parent.parent.require("mousetrap")(doc);
 
 		Mousetrap.bind("alt+h", () => { parent.document.querySelector("#home-nav-link>button").click(); });
 		Mousetrap.bind("alt+t", () => { parent.document.querySelector("#theory-nav-link>button").click(); });
