@@ -16,16 +16,16 @@ deploy:
 	python minify.py
 	cd src && yarn dist
 	cd src\assets\css && copy /Y style_not-minified.css style.css && del style_not-minified.css
-	cd src\assets\js\vendor && copy /Y jquery.maphilight_not-minified.js jquery.maphilight.js && del jquery.maphilight_not-minified.js
-	cd src\assets\js && copy /Y render_not-minified.js render.js && del render_not-minified.js
-	cd src\assets\js && copy /Y main_not-minified.js main.js && del main_not-minified.js
-	cd src\assets\js && copy /Y quiz_not-minified.js quiz.js && del quiz_not-minified.js
-	cd src\assets\js && copy /Y accordi_piano_not-minified.js accordi_piano.js && del accordi_piano_not-minified.js
-	cd src\assets\js && copy /Y accordi_chitarra_not-minified.js accordi_chitarra.js && del accordi_chitarra_not-minified.js
-	cd src\assets\js && copy /Y accordi_basso_not-minified.js accordi_basso.js && del accordi_basso_not-minified.js
-	cd src && copy /Y StrumentalMente_not-minified.js StrumentalMente.js && del StrumentalMente_not-minified.js
-	cd src && copy /Y app_not-minified.js app.js && del app_not-minified.js
-	git checkout -- "*.html"
+	# cd src\assets\js\vendor && copy /Y jquery.maphilight_not-minified.js jquery.maphilight.js && del jquery.maphilight_not-minified.js
+	# cd src\assets\js && copy /Y render_not-minified.js render.js && del render_not-minified.js
+	# cd src\assets\js && copy /Y main_not-minified.js main.js && del main_not-minified.js
+	# cd src\assets\js && copy /Y quiz_not-minified.js quiz.js && del quiz_not-minified.js
+	# cd src\assets\js && copy /Y accordi_piano_not-minified.js accordi_piano.js && del accordi_piano_not-minified.js
+	# cd src\assets\js && copy /Y accordi_chitarra_not-minified.js accordi_chitarra.js && del accordi_chitarra_not-minified.js
+	# cd src\assets\js && copy /Y accordi_basso_not-minified.js accordi_basso.js && del accordi_basso_not-minified.js
+	# cd src && copy /Y StrumentalMente_not-minified.js StrumentalMente.js && del StrumentalMente_not-minified.js
+	# cd src && copy /Y app_not-minified.js app.js && del app_not-minified.js
+	# git checkout -- "*.html"
 
 docs: jsdoc
 	python generate-documentation.py --src docs\src --dest docs
