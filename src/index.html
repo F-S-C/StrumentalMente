@@ -15,36 +15,9 @@
 	<meta name="keywords" content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
 	<meta name="author" content="FSC" />
 	<meta name="robots" content="index, follow">
-
-	<style>
-		body {
-			background: #000;
-		}
-
-		.slideshow span {
-			box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.65);
-		}
-
-		.site-name {
-			text-align: center;
-			color: white;
-			margin: 20px 0;
-		}
-
-		.site-name h1 {
-			margin: 0 0 0.5em 0;
-			font-size: xx-large;
-		}
-
-		.site-name h2 {
-			margin: 0;
-			color: #ddd;
-			font-size: larger;
-		}
-	</style>
 </head>
 
-<body onload="disableShortcuts();">
+<body>
 	<header>
 		<div id="titlebar">
 			<div id="drag-region">
@@ -70,16 +43,16 @@
 		</div>
 	</header>
 
-	<ul class="slideshow">
-		<li><span></span></li><!-- Image 1 -->
-		<li><span></span></li><!-- Image 2 -->
-		<li><span></span></li><!-- Image 3 -->
-		<li><span></span></li><!-- Image 4 -->
-		<li><span></span></li><!-- Image 5 -->
-		<li><span></span></li><!-- Image 6 -->
-	</ul>
 
-	<div class="main-wrapper">
+	<div id="landing-container">
+		<ul class="slideshow">
+			<li><span></span></li><!-- Image 1 -->
+			<li><span></span></li><!-- Image 2 -->
+			<li><span></span></li><!-- Image 3 -->
+			<li><span></span></li><!-- Image 4 -->
+			<li><span></span></li><!-- Image 5 -->
+			<li><span></span></li><!-- Image 6 -->
+		</ul>
 		<div class="landing-page-wrapper">
 			<header class="site-name">
 				<div style="display: grid;">
@@ -95,16 +68,140 @@
 				<h1>StrumentalMente</h1>
 				<h2>Dove la musica diventa semplice</h2>
 			</header>
-			<a title="Avvia l'app (Invio)" href="./home.html" class="btn start-button">
+			<button type="button" title="Avvia l'app (Invio)" onclick="startApp();" class="btn start-button">
 				Inizia <i class="btn-icon far fa-play-circle"></i>
-			</a>
+			</button>
+		</div>
+	</div>
+	<div class="main-wrapper">
+		<nav class="main-navigation" id="main-nav">
+			<ul>
+				<li class="logo">
+					<button type="button" onclick="openPage('./home.html', 'home');" title="StrumentalMente">
+						<img src="./assets/icon.ico" width="" height="" alt="Logo di StrumentalMente" />
+						<h1>Strumental<wbr /><span>Mente</span></h1>
+					</button>
+				</li>
+				<li id="home-nav-link">
+					<button class="active" type="button" onclick="openPage('./home.html', 'home');" title="Torna alla home (Alt+H)">
+						<i class="fas fa-home"></i> Home
+					</button>
+				</li>
+				<li id="profile-nav-link">
+					<button type="button" onclick="openPage('./profile.html', 'profile');" title="Mostra il profilo dell'utente (Alt+P)">
+						<i class="fas fa-user-circle"></i> Profilo
+					</button>
+				</li>
+				<li id="theory-nav-link">
+					<button type="button" onclick="openPage('./home-teoria.html', 'theory');" title="Apri la lista degli argomenti (Alt+T)">
+						<i class="fas fa-book"></i> Teoria
+					</button>
+				</li>
+				<li id="instruments-nav-link">
+					<button type="button" onclick="openPage('./home-strumenti.html', 'instruments');" title="Apri la lista di strumenti (Alt+S S)">
+						<i class="fas fa-guitar"></i> Strumenti
+					</button>
+				</li>
+				<li id="chords-nav-link">
+					<button type="button" onclick="openPage('./home-accordi.html', 'chords');" title="Apri la lista di strumenti per vederne gli accordi (Alt+A A)">
+						<i class="fas fa-music"></i> Accordi
+					</button>
+				</li>
+				<li id="map-nav-link">
+					<button type="button" onclick="openModal('./map.html');" title="Mostra la mappa (Alt+M)">
+						<i class="fas fa-map"></i> Mappa
+					</button>
+				</li>
+				<li id="help-nav-link">
+					<button type="button" onclick="openModal('./helpers/help-home.html');" title="Mostra l'aiuto (F1)">
+						<i class="fas fa-question"></i> Aiuto
+					</button>
+				</li>
+				<li id="info-nav-link">
+					<button type="button" onclick="openModal('./about.html');" title="Informazioni  (Alt+I)">
+						&nbsp;<i class="fas fa-info"></i> Informazioni
+					</button>
+				</li>
+				<li id="exit-nav-link">
+					<button type="button" onclick="showExitDialog();" title="Esci dall'app (Esc)">
+						<i class="fas fa-sign-out-alt"></i> Esci
+					</button>
+				</li>
+				<li>
+					<button type="button" onclick="window.location.reload();" title="Esci dall'app (Esc)">
+						<i class="fas fa-sync-alt"></i> Ricarica <em>&ndash; Debug</em>
+					</button>
+				</li>
+			</ul>
+
+			<footer>
+				<p>Copyright &copy; 2019, <a class="external" onclick="openInBrowser('https:\/\/f-s-c.github.io\/');" href="javascript:void(0);">FSC</a>.
+					Rilasciato sotto la
+					licenza <a class="external" onclick="openInBrowser('https:\/\/www.apache.org\/licenses\/LICENSE-2.0');" href="javascript:void(0);">Apache
+						2.0</a>.</p>
+				<img src="./assets/images/fsc-logo-svg.svg" />
+			</footer>
+		</nav>
+		<button type="button" id="sidebar-controller" onclick="openMobileNavigation();">
+			<i class="fas fa-bars"></i>
+		</button>
+
+		<div class="content">
+			<iframe id="content-frame" src="./home.html" class="slide-container" onload="setShortcuts(this.contentWindow.document || this.contentDocument);"></iframe>
 		</div>
 	</div>
 
-	<script src="./assets/js/main.js"></script>
 	<script src="./assets/js/render.js"></script>
+	<script src="./assets/js/main.js"></script>
+	<script src="./assets/js/vendor/jquery.maphilight.js"></script>
 	<script>
-		openOnKeyboardShortcut("Enter", "./home.html");
+		let landingContainer = document.getElementById("landing-container");
+
+		var params = (new URL(location.href)).searchParams;
+
+		if (params.get("started")) {
+			landingContainer.parentNode.removeChild(landingContainer);
+		}
+		else
+			require("mousetrap").bind("enter", () => { document.querySelector("#landing-container .start-button").click(); });
+
+		if (params.has("topic")) {
+			let generalTopic = (key => {
+				if (key.match(/teoria\-.*/i) || key.match(/home\-strumenti/i))
+					return "home-strumenti";
+				else if (key.match(/accordi\-.*/i) || key.match(/home\-accordi/i))
+					return "home-accordi";
+				else
+					return "home-teoria";
+			})(params.get("topic"));
+
+			let navbutton = Array.from(document.getElementsByTagName("button"))
+				.filter(btn => btn.getAttribute("onclick").includes("openPage") && btn.getAttribute("onclick").includes(generalTopic))[0];
+			navbutton && navbutton.click();
+
+			if (!params.has("to-home") || params.get("to-home") == "false"){
+				document.getElementById("content-frame").src = params.get("topic");}
+		}
+
+		function startApp() {
+			landingContainer.classList.add("removing");
+			setTimeout(() => {
+				window.history.replaceState(null, null, "?started=true");
+				landingContainer.parentNode.removeChild(landingContainer);
+			}, 400);
+		}
+
+		function onMapImageLoad() {
+			let $ = require("jquery");
+			$('img[usemap]').maphilight();
+		}
+
+		var bibliographyHidden = true;
+		function summaryClicked() {
+			elem = document.getElementById("bibliography").getElementsByTagName("summary")[0];
+			bibliographyHidden = !bibliographyHidden;
+			elem.innerHTML = (bibliographyHidden) ? "Mostra la bibliografia." : "Nascondi la bibliografia.";
+		}
 	</script>
 </body>
 

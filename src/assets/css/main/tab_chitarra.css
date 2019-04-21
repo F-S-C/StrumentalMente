@@ -44,14 +44,12 @@
 	background-image: url("../../images/schemi_base_chitarra/indicatore_pieno_hover.svg");
 }
 
-.check:disabled,
-.check:disabled:hover {
+.check:disabled, .check:disabled:hover {
 	background-image: url("../../images/schemi_base_chitarra/indicatore_vuoto.svg");
 	cursor: default;
 }
 
-.check:disabled:checked,
-.check:disabled:checked:hover {
+.check:disabled:checked, .check:disabled:checked:hover {
 	background-image: url("../../images/schemi_base_chitarra/indicatore_pieno.svg");
 	cursor: default;
 }
@@ -145,11 +143,12 @@ img.quiz-piano-keyboard {
 	left: 0;
 	right: 0;
 }
+
 .diagramma .piano-black {
 	width: 100%;
-    display: grid;
-    grid-template-columns: 9% 8.3% 8.8% 8.3% 16.7% 8% 8.3% 8.1% 8.3% 8.3%;
-    position: absolute;
+	display: grid;
+	grid-template-columns: 9% 8.3% 8.8% 8.3% 16.7% 8% 8.3% 8.1% 8.3% 8.3%;
+	position: absolute;
 	top: 65%;
 	left: 0;
 	right: 0;
@@ -160,11 +159,11 @@ img.quiz-piano-keyboard {
 }
 
 .piano-white input.check.nota {
-    position: initial;
-    margin: 0 15px;
+	position: initial;
+	margin: 0 15px;
 }
 
 .piano-black input.check.nota {
-    position: initial;
-    margin: 0 3px;
+	position: initial;
+	margin: 0 3px;
 }

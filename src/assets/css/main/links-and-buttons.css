@@ -42,7 +42,7 @@ classi aventi i seguenti stili:
 	color: white;
 	text-decoration: none;
 	text-align: center;
-	transition: background-color .3s;
+	transition: background-color 0.3s;
 	font-weight: bold;
 }
 
@@ -61,7 +61,7 @@ classi aventi i seguenti stili:
 	padding-top: 0;
 	border-radius: 100%;
 	/* animazione del click (v. linee guida Material Design) */
-	background-color: rgba(236, 240, 241, .3);
+	background-color: rgba(236, 240, 241, 0.3);
 	-webkit-transform: translate(-50%, -50%);
 	-moz-transform: translate(-50%, -50%);
 	-ms-transform: translate(-50%, -50%);
@@ -72,7 +72,7 @@ classi aventi i seguenti stili:
 .btn:active:before {
 	width: 120%;
 	padding-top: 120%;
-	transition: width .2s ease-out, padding-top .2s ease-out;
+	transition: width 0.2s ease-out, padding-top 0.2s ease-out;
 }
 
 .btn:disabled, .btn:disabled:hover {
@@ -102,7 +102,7 @@ classi aventi i seguenti stili:
 	font-weight: bold;
 	text-decoration: none;
 	text-align: center;
-	transition: background-color .3s;
+	transition: background-color 0.3s;
 }
 
 .btn-text:hover, .btn-text:focus {
@@ -130,7 +130,7 @@ classi aventi i seguenti stili:
 .btn-text:active:before {
 	width: 120%;
 	padding-top: 120%;
-	transition: width .2s ease-out, padding-top .2s ease-out;
+	transition: width 0.2s ease-out, padding-top 0.2s ease-out;
 }
 
 .btn-text:disabled, .btn-text:disabled:hover {
@@ -159,7 +159,7 @@ classi aventi i seguenti stili:
 	font-weight: bold;
 	text-decoration: none;
 	text-align: center;
-	transition: background-color .3s;
+	transition: background-color 0.3s;
 }
 
 .btn-outlined:hover, .btn-outlined:focus {
@@ -187,7 +187,7 @@ classi aventi i seguenti stili:
 .btn-outlined:active:before {
 	width: 120%;
 	padding-top: 120%;
-	transition: width .2s ease-out, padding-top .2s ease-out;
+	transition: width 0.2s ease-out, padding-top 0.2s ease-out;
 }
 
 .btn-outlined:disabled, .btn-outlined:disabled:hover {
@@ -216,11 +216,11 @@ classi aventi i seguenti stili:
 }
 
 .buttons-container {
-    width: calc(100% - 46px);
-    margin: 0 auto;
-    display: grid;
-    padding-bottom: 20px;
-    grid-template-columns: 33.33% 33.33% 33.33%;
+	width: calc(100% - 46px);
+	margin: 0 auto;
+	display: grid;
+	padding-bottom: 20px;
+	grid-template-columns: 33.33% 33.33% 33.33%;
 }
 
 @media only screen and (max-width: 992px) {
@@ -278,7 +278,7 @@ header .blind-audio-buttons .btn-audio {
 	font-weight: bold;
 	text-decoration: none;
 	text-align: center;
-	transition: background-color .3s;
+	transition: background-color 0.3s;
 }
 
 header .blind-audio-buttons .btn-audio.btn-accessibility {
@@ -311,7 +311,7 @@ header .blind-audio-buttons .btn-audio:before {
 header .blind-audio-buttons .btn-audio:active:before {
 	width: 120%;
 	padding-top: 120%;
-	transition: width .2s ease-out, padding-top .2s ease-out;
+	transition: width 0.2s ease-out, padding-top 0.2s ease-out;
 }
 
 header .blind-audio-buttons .btn-audio:disabled, header .blind-audio-buttons .btn-audio:disabled:hover {
@@ -324,7 +324,11 @@ a.external::after {
 	font-family: "Font Awesome 5 Free";
 	font-weight: 600;
 	content: "\f35d";
-	margin-left: .5em;
+	margin-left: 0.5em;
 	font-size: 5pt;
 	vertical-align: super;
+}
+
+.dialog-actions-container button:not(:first-of-type) {
+	margin-left: 2.5em;
 }

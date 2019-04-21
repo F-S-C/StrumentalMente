@@ -3,154 +3,36 @@
 
 <head>
 	<title>Home - StrumentalMente</title>
-	<link rel="icon"
-		  href="./assets/icon.ico" />
+	<link rel="icon" href="./assets/icon.ico" />
 
-	<link href="./assets/css/style.css"
-		  rel="stylesheet" />
+	<link href="./assets/css/style.css" rel="stylesheet" />
 	<!-- FontAwesome -->
-	<link href="./assets/css/fontawesome/css/all.min.css"
-		  rel="stylesheet" />
+	<link href="./assets/css/fontawesome/css/all.min.css" rel="stylesheet" />
 
 	<meta charset="UTF-8" />
-	<meta name="viewport"
-		  content="width=device-width, initial-scale=1.0" />
-	<meta name="description"
-		  content="StrumentalMente - Dove la musica diventa semplice." />
-	<meta name="keywords"
-		  content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
-	<meta name="author"
-		  content="FSC" />
-	<meta name="robots"
-		  content="index, follow">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="StrumentalMente - Dove la musica diventa semplice." />
+	<meta name="keywords" content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
+	<meta name="author" content="FSC" />
+	<meta name="robots" content="index, follow">
 </head>
 
-<body>
-	<header>
-		<div id="titlebar">
-			<div id="drag-region">
-				<div id="window-title">
-					<img id="window-title-image"
-						 src="./assets/icon.ico"
-						 alt="Icona" />
-					<span id="window-title-text">Home - StrumentalMente</span>
-				</div>
-				<div id="window-controls">
-					<div class="button"
-						 id="min-button">
-						<span><i class="fas fa-minus"
-							   style="font-size: 1.2em;"></i></span>
-					</div>
-					<div class="button"
-						 id="max-button">
-						<span><i class="far fa-window-maximize"
-							   style="font-size: 1.2em;"></i></span>
-					</div>
-					<div class="button"
-						 id="restore-button">
-						<span><i class="far fa-window-restore"
-							   style="font-size: 1.2em;"></i></span>
-					</div>
-					<div class="button"
-						 id="close-button">
-						<span><i class="fas fa-times"
-							   style="font-size: 1.2em;"></i></span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
-
-
-	<div class="main-wrapper">
-		<nav class="main-navigation"
-			 id="main-nav">
-			<ul>
-				<li class="logo">
-					<a href="#">
-						<img src="./assets/icon.ico"
-							 width=""
-							 height=""
-							 alt="" />
-						<h1>Strumental<wbr /><span>Mente</span></h1>
-					</a>
-				</li>
-				<li><a class="active"
-					   href="#"><i class="fas fa-home"></i> Home</a></li>
-				<li><a href="./profile.html"
-					   title="Mostra il profilo dell'utente (Alt+P)"><i class="fas fa-user-circle"></i> Profilo</a></li>
-				<li><a href="./home-teoria.html"
-					   title="Apri la lista degli argomenti (Alt+T)"><i class="fas fa-book"></i> Teoria</a></li>
-				<li><a href="./home-strumenti.html"
-					   title="Apri la lista di strumenti (Alt+S S)"><i class="fas fa-guitar"></i> Strumenti</a></li>
-				<li><a title="Apri la lista di strumenti per vederne gli accordi (Alt+A A)"
-					   href="./home-accordi.html"><i class="fas fa-music"></i> Accordi</a></li>
-				<li>
-					<button type="button"
-							onclick="openModal('./map.html');"
-							title="Mostra la mappa (Alt+M)">
-						<i class="fas fa-map"></i> Mappa
-					</button>
-				</li>
-				<li>
-					<button type="button"
-							onclick="openModal('./helpers/help-home.html');"
-							title="Mostra l'aiuto (F1)">
-						<i class="fas fa-question"></i> Aiuto
-					</button>
-				</li>
-				<li>
-					<button type="button"
-							onclick="openModal('./about.html');"
-							title="Informazioni  (Alt+I)">
-						&nbsp;<i class="fas fa-info"></i> Informazioni
-					</button>
-				</li>
-				<li>
-					<button type="button"
-							onclick="showExitDialog();"
-							title="Esci dall'app (Esc)">
-						<i class="fas fa-sign-out-alt"></i> Esci
-					</button>
-				</li>
-			</ul>
-
-			<footer>
-				<p>Copyright &copy; 2019, <a onclick="openInBrowser('https:\/\/f-s-c.github.io\/');"
-					   href="javascript:void(0);">FSC</a>.
-					Rilasciato sotto la
-					licenza <a onclick="openInBrowser('https:\/\/www.apache.org\/licenses\/LICENSE-2.0');"
-					   href="javascript:void(0);">Apache
-						2.0</a>.</p>
-				<img src="./assets/images/fsc-logo-svg.svg" />
-			</footer>
-		</nav>
-		<button type="button"
-				id="sidebar-controller"
-				onclick="openMobileNavigation();">
-			<i class="fas fa-bars"></i>
-		</button>
-
+<body onload="window.parent.setHelper('home');">
+	<div class="topic-wrapper">
 		<div class="content">
-			<article>
+			<article class="fill">
 				<header>
 					<div class="blind-audio-buttons">
-						<button type="button"
-								onclick="playStopAudio('blind-audio', this, 'stop-blind-audio');"
-								class="btn-audio btn-accessibility">
+						<button type="button" onclick="playStopAudio('blind-audio', this, 'stop-blind-audio');" class="btn-audio btn-accessibility">
 							<i class="fas fa-universal-access"></i>
 						</button>
-						<button type="button"
-								id="stop-blind-audio"
-								class="btn-audio audio-reload"
-								style="display: none;">
+						<button type="button" id="stop-blind-audio" class="btn-audio audio-reload" style="display: none;">
 							<i class="fas fa-undo"></i>
 						</button>
 					</div>
 					<h1>Un'introduzione alla musica</h1>
 					<h2>La dolce arte che rallegra i nostri giorni</h2>
-					<audio id="blind-audio"
-						   src="./assets/audios/readings/teoria-base.wav"></audio>
+					<audio id="blind-audio" src="./assets/audios/readings/teoria-base.wav"></audio>
 					<hr />
 				</header>
 				<section>
@@ -173,58 +55,45 @@
 						"facilità o difficoltà" nell'apprendimento. Si seguano solo le proprie passioni, quando si saranno
 						palesate. Ovviamente l'approcciarsi con lo strumento scelto richiede necessariamente, come primo
 						passo, un approccio alla teoria di base della musica.</p>
-					<div class="row topic-buttons"
-						 style="grid-template-columns: calc(33% - 16px) calc(33% - 16px) calc(33% - 16px);">
-						<a class="card-horizontal-alt"
-						   title="Apri la sezione teoria (Alt+T)"
-						   href="./home-teoria.html"
-						   style="grid-column: 1; grid-row: 1;">
-							<div class="card-stacked">
-								<div class="card-content">
-									<img src="./assets/images/note.jpg" />
-								</div>
-								<div class="card-action">
-									<span class="btn-text">La teoria</span>
-								</div>
-							</div>
-						</a>
-						<a class="card-horizontal-alt"
-						   href="./home-strumenti.html"
-						   title="Apri la sezione strumenti (Alt+S S)"
-						   style="grid-column: 2; grid-row: 1;">
-							<div class="card-stacked">
-								<div class="card-content">
-									<img src="./assets/images/guitar.jpg">
-								</div>
-								<div class="card-action">
-									<span class="btn-text">Gli strumenti</span>
-								</div>
-							</div>
-						</a>
-						<a class="card-horizontal-alt"
-						   href="./home-accordi.html"
-						   title="Apri la sezione accordi (Alt+A A)"
-						   style="grid-column: 3; grid-row: 1;">
-							<div class="card-stacked">
-								<div class="card-content">
-									<img src="./assets/images/accordi.jpg">
-								</div>
-								<div class="card-action">
-									<span class="btn-text">Gli accordi</span>
-								</div>
-							</div>
-						</a>
-					</div>
 				</section>
 			</article>
+			<div class="row topic-buttons" style="grid-template-columns: calc(33% - 16px) calc(33% - 16px) calc(33% - 16px);">
+				<button type="button" class="card-horizontal-alt" title="Apri la sezione teoria (Alt+T)" onclick="parent.document.querySelector('#theory-nav-link>button').click();" style="grid-column: 1; grid-row: 1;">
+					<div class="card-stacked">
+						<div class="card-content">
+							<img src="./assets/images/note.jpg" />
+						</div>
+						<div class="card-action">
+							<span class="btn-text">La teoria</span>
+						</div>
+					</div>
+				</button>
+				<button type="button" class="card-horizontal-alt" title="Apri la sezione strumenti (Alt+S S)" onclick="parent.document.querySelector('#instruments-nav-link>button').click();" style="grid-column: 2; grid-row: 1;">
+					<div class="card-stacked">
+						<div class="card-content">
+							<img src="./assets/images/guitar.jpg">
+						</div>
+						<div class="card-action">
+							<span class="btn-text">Gli strumenti</span>
+						</div>
+					</div>
+				</button>
+				<button type="button" class="card-horizontal-alt" title="Apri la sezione accordi (Alt+A A)" onclick="parent.document.querySelector('#chords-nav-link>button').click();" style="grid-column: 3; grid-row: 1;">
+					<div class="card-stacked">
+						<div class="card-content">
+							<img src="./assets/images/accordi.jpg">
+						</div>
+						<div class="card-action">
+							<span class="btn-text">Gli accordi</span>
+						</div>
+					</div>
+				</button>
+			</div>
 		</div>
 	</div>
 
-	<script src="./assets/js/main.js"></script>
 	<script src="./assets/js/render.js"></script>
-	<script>
-		openOnKeyboardShortcut("F1", "./helpers/help-home.html", true);
-	</script>
+	<script src="./assets/js/main.js"></script>
 </body>
 
 </html>

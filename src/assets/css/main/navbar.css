@@ -127,7 +127,7 @@ nav.main-navigation li i.fas {
     display: block;
 }*/
 
-nav.main-navigation .logo a {
+nav.main-navigation .logo button {
 	text-decoration: none;
 	background-color: transparent;
 	display: block;
@@ -155,8 +155,9 @@ nav.main-navigation .logo h1 span {
 }
 
 nav.main-navigation+#sidebar-controller {
-	position: sticky;
-	top: 32px;
+	position: absolute;
+	top: 37px;
+	left: 5px;
 	display: none;
 	background-color: #333;
 	border: none;
@@ -168,6 +169,7 @@ nav.main-navigation+#sidebar-controller {
 	border-radius: 50%;
 	width: 2em;
 	height: 2em;
+	z-index: 5;
 }
 
 nav.main-navigation+#sidebar-controller:hover, nav.main-navigation+#sidebar-controller:active {
