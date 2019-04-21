@@ -1,16 +1,21 @@
 .row {
+	width: 100%;
 	display: grid;
-	grid-row-gap: 8px;
-	grid-column-gap: 16px;
 	margin: 0 auto;
 }
 
+.fill {
+	flex: 1 1 auto;
+}
+
 .row.topic-buttons {
-	position: absolute;
-	bottom: 20px;
-	left: 0;
-	right: 0;
+	margin-bottom: 20px;
+}
+
+.row.topic-buttons button {
+	justify-self: center;
 	width: 90%;
+    justify-self: center;
 }
 
 .topic-row {
@@ -46,9 +51,11 @@
 .topic-level-container .card-topic:not(:first-of-type):not(:last-of-type) {
 	margin: 8px 0 !important;
 }
+
 .topic-level-container .card-topic:first-of-type {
 	margin-bottom: 8px !important;
 }
+
 .topic-level-container .card-topic:last-of-type {
 	margin-top: 8px !important;
 }
@@ -65,7 +72,7 @@
 
 .card-horizontal-alt {
 	border: none;
-    padding: 0;
+	padding: 0;
 	display: flex;
 	position: relative;
 	margin: 0.5rem auto 1rem auto;
@@ -73,10 +80,11 @@
 	transition: box-shadow 0.25s;
 	border-radius: 2px;
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+	width: 100%;
 	max-width: 350px;
 }
 
-button.card-horizontal-alt{
+button.card-horizontal-alt {
 	cursor: pointer;
 }
 
@@ -103,11 +111,15 @@ button.card-horizontal-alt{
 	filter: grayscale(0%);
 }
 
-.card-horizontal .card-stacked {
+.card-horizontal-alt .card-stacked {
 	display: flex;
 	flex-direction: column;
 	flex: 1;
 	position: relative;
+}
+
+.card-horizontal-alt .card-stacked {
+	width: 100%;
 }
 
 .card-horizontal .card-content {
@@ -145,6 +157,7 @@ button.card-horizontal-alt{
 	position: relative;
 	border-radius: 0 0 2px 2px;
 	padding: 5px 24px;
+	overflow: hidden;
 }
 
 .card-horizontal-alt .card-action {
@@ -154,4 +167,11 @@ button.card-horizontal-alt{
 	border-radius: 0 0 2px 2px;
 	padding: 5px 24px;
 	text-align: center;
+}
+
+.card-horizontal-alt .btn-text {
+	line-height: 1.5em;
+	height: 3em;
+	display: inline-flex !important;
+	align-items: center;
 }

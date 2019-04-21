@@ -1,3 +1,12 @@
+video.right {
+	float: right;
+}
+
+video.center {
+	display: block;
+	margin-left: auto;
+}
+
 figure {
 	float: right;
 	width: 30%;
@@ -66,7 +75,7 @@ figure.modal img {
 	width: 80%;
 	background-color: white;
 	max-width: 700px;
-	max-height: 90%;
+	max-height: 80vh;
 	position: absolute;
 	top: calc(50% - 32px);
 	left: 50%;

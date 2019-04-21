@@ -17,119 +17,37 @@
 </head>
 
 <body onload="initialize( 'argomenti' , 'strumenti/chitarra/', 21);">
-	<header>
-		<div id="titlebar">
-			<div id="drag-region">
-				<div id="window-title">
-					<img id="window-title-image" src="./assets/icon.ico" alt="Icona" />
-					<span id="window-title-text">Strumenti - Teoria chitarra</span>
+	<div class="sub-wrapper">
+		<div class="content">
+			<iframe id="topic-frame" src="./strumenti/chitarra/argomenti.html" class="slide-container"></iframe>
+			<div class="buttons-container">
+				<div class="first-column">
+					<button type="button" id="back-topic" class="btn-outlined" style="display: none;">
+						Argomento Precedente <i class="btn-icon left fas fa-arrow-alt-circle-left"></i>
+					</button>
+					<button type="button" id="back" class="btn-outlined" disabled>
+						Indietro <i class="btn-icon left fas fa-arrow-alt-circle-left"></i>
+					</button>
 				</div>
-				<div id="window-controls">
-					<div class="button" id="min-button">
-						<span><i class="fas fa-minus" style="font-size: 1.2em;"></i></span>
-					</div>
-					<div class="button" id="max-button">
-						<span><i class="far fa-window-maximize" style="font-size: 1.2em;"></i></span>
-					</div>
-					<div class="button" id="restore-button">
-						<span><i class="far fa-window-restore" style="font-size: 1.2em;"></i></span>
-					</div>
-					<div class="button" id="close-button">
-						<span><i class="fas fa-times" style="font-size: 1.2em;"></i></span>
-					</div>
+				<div class="second-column">
+					<button type="button" id="back-to-list" title="Torna all'elenco argomenti" class="btn-text" onclick="changeTopic('argomenti', './strumenti/chitarra/')" style="display: none;">
+						Indice
+					</button>
 				</div>
-			</div>
-		</div>
-	</header>
-
-
-	<div class="main-wrapper">
-		<nav class="main-navigation" id="main-nav">
-			<ul>
-				<li class="logo">
-					<a href="./home.html">
-						<img src="./assets/icon.ico" width="" height="" alt="" />
-						<h1>Strumental<wbr /><span>Mente</span></h1>
-					</a>
-				</li>
-				<li><a href="./home.html"><i class="fas fa-home"></i> Home</a></li>
-				<li><a href="./profile.html" title="Mostra il profilo dell'utente (Alt+P)"><i class="fas fa-user-circle"></i> Profilo</a></li>
-				<li><a href="./home-teoria.html" title="Apri la lista degli argomenti (Alt+T)"><i class="fas fa-book"></i> Teoria</a></li>
-				<li><a class="active" href="./home-strumenti.html" title="Apri la lista di srumenti (Alt+S S)"><i class="fas fa-guitar"></i> Strumenti</a></li>
-				<li><a title="Apri la lista di strumenti per vederne gli accordi (Alt+A A)" href="./home-accordi.html"><i class="fas fa-music"></i> Accordi</a></li>
-
-				<li>
-					<button type="button" onclick="openModal('./map.html');" title="Mostra la mappa (Alt+M)">
-						<i class="fas fa-map"></i> Mappa
+				<div class="third-column">
+					<button type="button" id="next" class="btn" style="display: none;">
+						Avanti <i class="btn-icon fas fa-arrow-circle-right"></i>
 					</button>
-				</li>
-				<li>
-					<button type="button" onclick="openModal('./helpers/help-strumenti.html');" title="Mostra l'aiuto (F1)">
-						<i class="fas fa-question"></i> Aiuto
+					<button type="button" id="next-topic" class="btn">
+						Chitarra elettrica e acustica <i class="btn-icon fas fa-arrow-circle-right"></i>
 					</button>
-				</li>
-				<li>
-					<button type="button" onclick="openModal('./about.html');" title="Informazioni (Alt+I)">
-						&nbsp;<i class="fas fa-info"></i> Informazioni
-					</button>
-				</li>
-				<li>
-					<button type="button" onclick="showExitDialog();" title="Esci dall'app (Esc)">
-						<i class="fas fa-sign-out-alt"></i> Esci
-					</button>
-				</li>
-			</ul>
-
-			<footer>
-				<p>Copyright &copy; 2019, <a class="external" onclick="openInBrowser('https:\/\/f-s-c.github.io\/');" href="javascript:void(0);">FSC</a>.
-					Rilasciato sotto la
-					licenza <a class="external" onclick="openInBrowser('https:\/\/www.apache.org\/licenses\/LICENSE-2.0');" href="javascript:void(0);">Apache
-						2.0</a>.</p>
-				<img src="./assets/images/fsc-logo-svg.svg" />
-			</footer>
-		</nav>
-		<button type="button" id="sidebar-controller" onclick="openMobileNavigation();">
-			<i class="fas fa-bars"></i>
-		</button>
-
-		<div class="sub-wrapper">
-
-
-			<div class="content">
-				<iframe id="content-frame" src="./strumenti/chitarra/argomenti.html" class="slide-container"></iframe>
-				<div class="buttons-container">
-					<div class="first-column">
-						<button type="button" id="back-topic" class="btn-outlined" style="display: none;">
-							Argomento Precedente <i class="btn-icon left fas fa-arrow-alt-circle-left"></i>
-						</button>
-						<button type="button" id="back" class="btn-outlined" disabled>
-							Indietro <i class="btn-icon left fas fa-arrow-alt-circle-left"></i>
-						</button>
-					</div>
-					<div class="second-column">
-						<button type="button" id="back-to-list" title="Torna all'elenco argomenti" class="btn-text" onclick="changeTopic('argomenti', './strumenti/chitarra/')" style="display: none;">
-							Torna all'elenco argomenti <i class="btn-icon fas fa-home"></i>
-						</button>
-					</div>
-					<div class="third-column">
-						<button type="button" id="next" class="btn" style="display: none;">
-							Avanti <i class="btn-icon fas fa-arrow-circle-right"></i>
-						</button>
-						<button type="button" id="next-topic" class="btn">
-							Chitarra elettrica e acustica <i class="btn-icon fas fa-arrow-circle-right"></i>
-						</button>
-					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<script type="text/javascript" src="./assets/js/main.js"></script>
 	<script type="text/javascript" src="./assets/js/render.js"></script>
-	<script>
-		openOnKeyboardShortcut("F1", "./helpers/help-teoria.html", true);
-		require("mousetrap").bind("ctrl+backspace", () => document.getElementById("back-to-list").click());
-	</script>
+	<script type="text/javascript" src="./assets/js/main.js"></script>
 </body>
 
 </html>

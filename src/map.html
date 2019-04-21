@@ -3,49 +3,10 @@
 
 <head>
 	<title>StrumentalMente - Mappa dell'applicazione</title>
-	<link rel="icon" href="./assets/icon.ico" />
-
-	<link href="./assets/css/style.css" rel="stylesheet" />
-	<!-- FontAwesome -->
-	<link href="./assets/css/fontawesome/css/all.min.css" rel="stylesheet" />
-
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="description" content="StrumentalMente - Dove la musica diventa semplice." />
-	<meta name="keywords" content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
-	<meta name="author" content="FSC" />
-	<meta name="robots" content="index, follow">
 </head>
 
-<body class="scroll" onload="disableShortcuts();">
-	<header>
-		<div id="titlebar">
-			<div id="drag-region">
-				<div id="window-title">
-					<img id="window-title-image" src="./assets/icon.ico" alt="Icona" />
-					<span id="window-title-text">StrumentalMente - Mappa dell'applicazione</span>
-				</div>
-				<div id="window-controls">
-					<!-- Commentato in quanto finestra modale
-                        <div class="button" id="min-button">
-							<span><i class="fas fa-minus" style="font-size: 1.2em;"></i></span>
-                        </div>
-                    -->
-					<div class="button" id="max-button">
-						<span><i class="far fa-window-maximize" style="font-size: 1.2em;"></i></span>
-					</div>
-					<div class="button" id="restore-button">
-						<span><i class="far fa-window-restore" style="font-size: 1.2em;"></i></span>
-					</div>
-					<div class="button sub-window" id="close-button">
-						<span><i class="fas fa-times" style="font-size: 1.2em;"></i></span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
-
-	<div class="main-wrapper">
+<body>
+	<div class="sub-wrapper">
 		<div class="content">
 			<section>
 				<header>
@@ -53,7 +14,7 @@
 					<hr />
 				</header>
 				<div style="width:100%; text-align: center;">
-					<img id="img_ID" src="./assets/images/StrumentalMente-Sitemap.svg" usemap="#map" alt="" style="position:relative;border:none; height:600px;" />
+					<img onload="onMapImageLoad();" id="img_ID" src="./assets/images/StrumentalMente-Sitemap.svg" usemap="#map" alt="" style="position:relative;border:none; height:600px;" />
 					<map id="map_ID" name="map">
 						<area alt="Teoria del pianoforte" title="Teoria del pianoforte" href="javascript:alert('piano');" shape="rect" coords="139,525,225,589" />
 						<area alt="Teoria della chitarra" title="Teoria della chitarra" href="javascript:alert('chitarra');" shape="rect" coords="139,439,225,503" />
@@ -73,31 +34,6 @@
 			</section>
 		</div>
 	</div>
-
-	<script src="./assets/js/main.js"></script>
-	<script src="./assets/js/render.js"></script>
-	<script src="./assets/js/jquery-3.3.1.min.js"></script>
-	<script src="./assets/js/jquery.maphilight.js"></script>
-	<!-- <script src="./assets/js/jquery.rwdImageMaps.min.js"></script> -->
-	<script>
-		var resizeEvt;
-
-		(function ($) {
-			require('electron').remote.getCurrentWindow().openDevTools();
-			$(document).ready(function () {
-				$('img[usemap]').maphilight();
-				$('img[usemap]').rwdImageMaps();
-			});
-
-			$(window).resize(function () {
-				clearTimeout(resizeEvt);
-				resizeEvt = setTimeout(function () {
-					$('img[usemap]').maphilight();
-				}, 200);
-			});
-
-		})(require('jquery'));
-	</script>
 </body>
 
 </html>

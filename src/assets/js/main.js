@@ -15,10 +15,12 @@ function openMobileNavigation() {
 	if (nav.className === "main-navigation") {
 		nav.className += " responsive";
 		button.innerHTML = "<i class=\"fas fa-times\"></i>";
+		button.setAttribute("title", "Chiudi la sidebar");
 	}
 	else {
 		nav.className = "main-navigation";
 		button.innerHTML = "<i class=\"fas fa-bars\"></i>";
+		button.setAttribute("title", "Apri la sidebar");
 	}
 }
 
@@ -99,9 +101,9 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 	currentSection = 0;
 	audioSourcesList = [];
 
-	var iFrame = document.getElementById("content-frame");
-	var iFrameDocument = iFrame.contentWindow || iFrame.contentDocument;
-
+	var iFrame = document.getElementById("topic-frame");
+	setShortcuts(iFrame.contentWindow);
+	var iFrameDocument = iFrame.contentWindow.document || iFrame.contentDocument;
 	var sections = iFrameDocument.document.getElementsByTagName("section");
 	numberOfSections = sections.length;
 	for (var i = 0; i < numberOfSections; i++) {
@@ -109,13 +111,13 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 		element && audioSourcesList.push(element.src);
 	}
 
-	if (iFrameDocument.document.getElementById("list") == undefined)
-		iFrameDocument.document.getElementsByTagName("section")[0].className = "show";
-	iFrameDocument.document.getElementById("max-topic-slides").innerHTML = numberOfSections;
-	iFrameDocument.document.getElementById("current-topic-slide").innerHTML = currentSection + 1;
-	let updateCurrentSlide = (direction) => {
-		sessionStorage.currentSlide = Number(sessionStorage.currentSlide) + direction;
-		iFrameDocument.document.getElementById("current-slide-number").innerHTML = sessionStorage.currentSlide;
+	if (iFrameDocument.getElementById("list") == undefined)
+		iFrameDocument.getElementsByTagName("section")[0].className = "show";
+	iFrameDocument.getElementById("max-topic-slides").innerHTML = numberOfSections;
+	iFrameDocument.getElementById("current-topic-slide").innerHTML = currentSection + 1;
+	let updateCurrentSlide = (delta) => {
+		sessionStorage.currentSlide = Number(sessionStorage.currentSlide) + delta;
+		iFrameDocument.getElementById("current-slide-number").innerHTML = sessionStorage.currentSlide;
 	};
 	updateCurrentSlide(0);
 
@@ -133,7 +135,7 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 		totalNumberOfSlides = sessionStorage.totalNumberOfSlides;
 	}
 
-	iFrameDocument.document.getElementById("total-slides-number").innerHTML = totalNumberOfSlides;
+	iFrameDocument.getElementById("total-slides-number").innerHTML = totalNumberOfSlides;
 
 	if (iFrame.src.includes(base + initial + ".html")) {
 		numberOfSections = 1;
@@ -148,8 +150,8 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 		returnToListButton.toggleAttribute("disabled", true);
 	}
 	else {
-		if (iFrameDocument.document.getElementById("list") == undefined)
-			iFrameDocument.document.getElementsByTagName("section")[0].className = "show";
+		if (iFrameDocument.getElementById("list") == undefined)
+			iFrameDocument.getElementsByTagName("section")[0].className = "show";
 		previousSlideButton.toggleAttribute("disabled", false);
 		returnToListButton.style.display = "inline-block";
 		returnToListButton.toggleAttribute("disabled", false);
@@ -173,7 +175,7 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 		}
 	}
 
-	if (returnToLast) {
+	if (returnToLast && currentSection != numberOfSections - 1) {
 		changeSlide(numberOfSections - 1);
 		returnToLast = false;
 	}
@@ -182,19 +184,18 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 	nextTopicButton.innerHTML = pagesName.next + " <i class=\"btn-icon fas fa-arrow-circle-right\"></i>";
 
 	/**
-	 * La funzione, in base al valore assunto da slide (true/false) cambia la sezione 
-	 * corrente in quella precedente (in caso di slide = false)
-	 * o in quella successiva (in caso di slide = true). Inoltre si occupa di aggiornare 
-	 * il numero della slide corrente nella memoria temporanea
-	 * del browser. Inoltre, in base al numero di slide, si occupa di rendere
-	 * visibili (o nascondere) i relativi pulsanti di spostamento
-	 * (avanti con id next, indietro con id back e quiz con id quiz).
+	 *  La funzione, in base al valore assunto da slide cambia la sezione corrente in
+	 * quella richiesta. Inoltre si occupa di aggiornare il numero della slide
+	 * corrente nella memoria temporanea del browser. Inoltre, in base al numero di
+	 * slide, si occupa di rendere visibili (o nascondere) i relativi pulsanti di
+	 * spostamento (avanti con id next, indietro con id back e quiz con id quiz).
 	 * 
 	 * @param {numer} slide Il numero della slide da aprire.
 	 */
 	function changeSlide(slide) {
 		updateCurrentSlide(slide - currentSection);
-		iFrameDocument.document.getElementsByTagName("section")[currentSection].className = "hide";
+		if (iFrameDocument.getElementsByClassName("multiple-figures").length < 1)
+			iFrameDocument.getElementsByTagName("section")[currentSection].className = "hide";
 		canChangeSlide = false;
 		if (slide > currentSection) {
 			if (currentSection == 0) {
@@ -216,7 +217,7 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 				nextTopicButton.style.display = "none";
 			}
 			if (currentSection > 0) {
-				if (currentSection - 1 == 0) {
+				if (currentSection - slide == 0) {
 					previousTopicButton.style.display = "inline-block";
 					previousSlideButton.style.display = "none";
 					previousSlideButton.toggleAttribute("disabled", true);
@@ -226,8 +227,9 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 		}
 
 		setTimeout(() => {
-			iFrameDocument.document.getElementsByTagName("section")[currentSection].className = "show";
-			iFrameDocument.document.getElementById("current-topic-slide").innerHTML = currentSection + 1;
+			if (iFrameDocument.getElementsByClassName("multiple-figures").length < 1 && iFrameDocument.getElementsByTagName("section")[currentSection])
+				iFrameDocument.getElementsByTagName("section")[currentSection].className = "show";
+			iFrameDocument.getElementById("current-topic-slide").innerHTML = currentSection + 1;
 			canChangeSlide = true;
 			if (audioSourcesList.length > 0)
 				updateBlindAudio(audioSourcesList[currentSection]);
@@ -235,11 +237,9 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 	}
 
 	let openPreviousTopic = (e) => {
-		if (canChangeSlide) {
+		if (canChangeSlide && pagesName.previousLink) {
 			changeTopic(pagesName.previousLink, baseFolder);
-			if (pagesName.previousLink !== initialPage)
-				returnToLast = true;
-
+			returnToLast = (pagesName.previousLink !== initialPage);
 		}
 	};
 	let openPreviousSlide = (e) => {
@@ -253,19 +253,16 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 	};
 	let openNextTopic = (e) => {
 		if (canChangeSlide) {
+			returnToLast = false;
 			changeTopic(pagesName.nextLink, baseFolder);
 		}
 	};
 
-	previousTopicButton.removeEventListener("click", openPreviousTopic);
-	previousTopicButton.addEventListener("click", openPreviousTopic);
-	previousSlideButton.removeEventListener("click", openPreviousSlide);
-	previousSlideButton.addEventListener("click", openPreviousSlide);
+	previousTopicButton.onclick = openPreviousTopic;
+	previousSlideButton.onclick = openPreviousSlide;
 
-	nextSlideButton.removeEventListener("click", openNextSlide);
-	nextSlideButton.addEventListener("click", openNextSlide);
-	nextTopicButton.removeEventListener("click", openNextTopic);
-	nextTopicButton.addEventListener("click", openNextTopic);
+	nextSlideButton.onclick = openNextSlide;
+	nextTopicButton.onclick = openNextTopic;
 
 	iFrameDocument.document.getElementById("blind-audio").addEventListener("ended", () => {
 		if (currentSection === numberOfSections - 1) {
@@ -280,18 +277,35 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 			nextSlideButton.click();
 	});
 
-	const Mousetrap = require("mousetrap");
-	Mousetrap.bind("right", () => {
-		if (currentSection === numberOfSections - 1)
-			nextTopicButton.click();
-		else
-			nextSlideButton.click();
-	});
-	Mousetrap.bind("left", () => {
-		if (currentSection === 0 && !iFrame.src.includes(base + initial + ".html"))
-			previousTopicButton.click();
-		else if (!document.getElementById("back").hasAttribute("disabled"))
-			previousSlideButton.click();
+	[
+		(typeof parent.require !== 'undefined') && parent.require("mousetrap")(iFrame.contentWindow),
+		(typeof parent.require !== 'undefined') && parent.require("mousetrap")(document),
+		(typeof parent.require !== 'undefined') && parent.require("mousetrap")(parent.document)
+	].forEach((Mousetrap) => {
+		Mousetrap.unbind("right");
+		Mousetrap.unbind("left");
+		Mousetrap.bind("right", () => {
+			if (currentSection === numberOfSections - 1) {
+				nextTopicButton.click();
+			}
+			else {
+				nextSlideButton.click();
+			}
+		});
+		Mousetrap.bind("left", () => {
+			if (currentSection === 0 && !iFrame.src.includes(base + initial + ".html")) {
+				previousTopicButton.click();
+			}
+			else if (document.getElementById("back") && !document.getElementById("back").hasAttribute("disabled")) {
+				previousSlideButton.click();
+			}
+		});
+
+		Mousetrap.bind("ctrl+backspace", () => {
+			if (document.getElementById("back") && !document.getElementById("back").hasAttribute("disabled")) {
+				returnToListButton.click();
+			}
+		});
 	});
 }
 
@@ -302,14 +316,15 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
  * @param {String} [base] La cartella in cui è situato il file dell'argomento
  */
 function changeTopic(topicName, base = "./") {
-	var iFrame = document.getElementById("content-frame");
+	var iFrame = document.getElementById("topic-frame");
 	currentSection = 0;
 	parent.document.activeElement.blur();
+	const path = (typeof parent.require !== 'undefined') && parent.require("path");
 	if (!topicName.includes("quiz")) {
-		iFrame.src = base + topicName + ".html";
+		iFrame.src = `${path.join(base, `${topicName}.html`)}`;
 	}
 	else
-		require("electron").remote.getCurrentWindow().loadFile(base + topicName + ".html");
+		(typeof parent.require !== 'undefined') && parent.require("electron").remote.getCurrentWindow().loadFile(base + topicName + ".html");
 }
 
 /**
@@ -342,24 +357,26 @@ function initializeQuiz() {
 	verifyButton.style.display = "none";
 	previousSlideButton.toggleAttribute("disabled", true);
 
-	previousSlideButton.removeEventListener("click", previousSlide);
-	previousSlideButton.addEventListener("click", previousSlide);
-	nextSlideButton.removeEventListener("click", nextSlide);
-	nextSlideButton.addEventListener("click", nextSlide);
+	previousSlideButton.onclick = previousSlide;
+	nextSlideButton.onclick = nextSlide;
 
-	const Mousetrap = require("mousetrap");
+	const Mousetrap = require("mousetrap")(document);
 	Mousetrap.bind("right", () => {
-		if (currentSection === numberOfSections - 1) {
-			if (compare)
-				exitButton.click();
-			else
-				verifyButton.click();
-		} else
-			nextSlideButton.click();
+		if (canChangeSlide) {
+			if (currentSection === numberOfSections - 1) {
+				if (!compare)
+					verifyButton.click();
+				else
+					exitButton.click();
+			} else
+				nextSlideButton.click();
+		}
 	});
 	Mousetrap.bind("left", () => {
-		if (currentSection !== 0)
-			previousSlideButton.click();
+		if (canChangeSlide) {
+			if (currentSection !== 0)
+				previousSlideButton.click();
+		}
 	});
 }
 
@@ -492,19 +509,6 @@ function showSubButtons(mainButton, containerId) {
 }
 
 /**
- * Corregge alcuni errori nell'ottenimento del focus da parte di un iframe.
- */
-(function () {
-	let a = parent.document.getElementById("content-frame");
-	if (a) {
-		var doc = a.contentWindow.document || a.contentDocument;
-		doc.childNodes.forEach(node => {
-			node.addEventListener("click", () => parent.document.activeElement.blur());
-		})
-	}
-})();
-
-/**
  * Associa a tutte le figure presenti nel documento un evento "click" che
  * consente di visualizzarle in una finestra modale.
  */
@@ -513,7 +517,7 @@ function showSubButtons(mainButton, containerId) {
 
 	figures.forEach(fig => {
 		let showImageModal = () => {
-			let realDocument = (parent.document !== document) ? parent.document : document;
+			let realDocument = (parent.document !== document) ? parent.parent.document : parent.document;
 
 			if (!/.*?modal.*?/i.test(fig.className)) {
 				var backupFig = fig.cloneNode(true);
@@ -545,7 +549,7 @@ function showSubButtons(mainButton, containerId) {
 					realDocument.activeElement.blur();
 				};
 
-				closeButton.addEventListener("click", closeModal);
+				closeButton.onclick = closeModal;
 				fig.className += " modal";
 				fig.removeEventListener("click", showImageModal);
 				fig.addEventListener("click", closeModal);

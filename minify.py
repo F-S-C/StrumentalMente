@@ -4,6 +4,7 @@ import glob
 import fileinput
 from shutil import copyfile
 from jsmin import jsmin
+from htmlmin import minify
 
 
 def removeComments(content):
@@ -26,16 +27,16 @@ def get_substitution(line, base="src/assets/css"):
                 if "@import" in data[i]:
                     data[i] = get_substitution(data[i], "src/assets/css/main")
                     data[i] = removeComments(data[i])
-                if "../../" in data[i]:
-                    data[i] = data[i].replace("../../", "../")
+                data[i] = re.sub(r'"\.\./(.*?)"', r'"./\1"', data[i])
+                data[i] = re.sub(r'"\.\./\.\./(.*?)"', r'"../\1"', data[i])
     return "".join(data)
 
 
-def one_line(filename):
-    with fileinput.FileInput(filename, inplace=True) as file:
-        for line in file:
-            line = line.strip()
-            print(line, end="")
+def process_single_html_file(filename):
+    with open(filename, "r") as js_file:
+        minified = minify(js_file.read(), remove_empty_space=True)
+    with open(filename, "w") as js_file:
+        js_file.write(minified)
 
 
 if __name__ == "__main__":
@@ -58,27 +59,25 @@ if __name__ == "__main__":
             else:
                 print(line.strip(), end="")
 
-    for filename in glob.glob("src/*.html"):
-        one_line(filename)
-    for filename in glob.glob("src/helpers/*.html"):
-        one_line(filename)
-    for filename in glob.glob("src/dialogs/*.html"):
-        one_line(filename)
-    for filename in glob.glob("src/teoria/base/*.html"):
-        one_line(filename)
-    for filename in glob.glob("src/teoria/avanzata/*.html"):
-        one_line(filename)
+    # files = set(glob.glob("src\\**\\*.html", recursive=True))
+    # files -= set(glob.glob("src\\dist\\**\\*.html", recursive=True))
+    # files -= set(glob.glob("src\\node_modules\\**\\*.html", recursive=True))
 
-    for currentFile in ["src/app.js",
-                        "src/assets/js/main.js",
-                        "src/assets/js/render.js",
-                        "src/assets/js/quiz.js",
-                        "src/assets/js/accordi_basso.js",
-                        "src/assets/js/accordi_chitarra.js",
-						"src/assets/js/jquery.maphilight.js"]:
-        copyfile(currentFile, currentFile[:-3] +
-                 "_not-minified" + currentFile[-3:])
-        with open(currentFile, "r") as js_file:
-            minified = jsmin(js_file.read())
-        with open(currentFile, "w") as js_file:
-            js_file.write(minified)
+    # for filename in files:
+    #     process_single_html_file(filename)
+
+    # for currentFile in ["src/app.js",
+    #                     "src/StrumentalMente.js",
+    #                     "src/assets/js/main.js",
+    #                     "src/assets/js/render.js",
+    #                     "src/assets/js/quiz.js",
+    #                     "src/assets/js/accordi_basso.js",
+    #                     "src/assets/js/accordi_chitarra.js",
+    #                     "src/assets/js/accordi_piano.js",
+    #                     "src/assets/js/vendor/jquery.maphilight.js"]:
+    #     copyfile(currentFile, currentFile[:-3] +
+    #              "_not-minified" + currentFile[-3:])
+    #     with open(currentFile, "r") as js_file:
+    #         minified = jsmin(js_file.read(), quote_chars="'\"`")
+    #     with open(currentFile, "w") as js_file:
+    #         js_file.write(minified)

@@ -1,3 +1,16 @@
+#quiz_container {
+	width: 100%;
+	height: calc(90vh - 20px);
+	padding: 0;
+	border: none;
+	display: block;
+	overflow: hidden;
+}
+
+.main-wrapper .content {
+	padding: 0 40px;
+}
+
 section>form {
 	margin-top: 5em;
 	display: grid;

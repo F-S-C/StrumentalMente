@@ -1,7 +1,7 @@
 {
 	"name": "strumentalmente",
 	"version": "1.0.0",
-	"description": "Una applicazione multimediale realizzata seguendo il Modello di Alessi & Trollip",
+	"description": "Un sistema multimediale progettato e realizzato seguendo il Modello di Alessi & Trollip",
 	"main": "app.js",
 	"scripts": {
 		"build": "npx tsc",
@@ -12,12 +12,15 @@
 	"build": {
 		"appId": "com.fsc.strumentalmente",
 		"productName": "StrumentalMente",
-		"copyright": "Copyright © year FSC",
+		"copyright": "Copyright © 2019 FSC",
 		"directories": {
 			"buildResources": "build"
 		},
 		"mac": {
 			"category": "public.app-category.education"
+		},
+		"nsis": {
+			"oneClick": false
 		}
 	},
 	"repository": "https://github.com/F-S-C/StrumentalMente",
@@ -36,8 +39,5 @@
 		"mousetrap": "^1.6.3",
 		"node-localstorage": "^1.3.1"
 	},
-	"files": [
-		"!_include${/}"
-	],
 	"postinstall": "electron-builder install-app-deps"
 }
