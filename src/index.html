@@ -167,9 +167,9 @@
 
 		if (params.has("topic")) {
 			let generalTopic = (key => {
-				if (key.match(/teoria-.*/i))
+				if (key.match(/teoria\-.*/i) || key.match(/home\-strumenti/i))
 					return "home-strumenti";
-				else if (key.match(/accordi-.*/i))
+				else if (key.match(/accordi\-.*/i) || key.match(/home\-accordi/i))
 					return "home-accordi";
 				else
 					return "home-teoria";
