@@ -9,7 +9,6 @@
  * - La chiusura dell'applicazione e le relative peculiarità di alcuni sistemi
  *     operativi (si pensi alla possibilità di ricreare la finestra appena
  *     chiusa su MacOS)
- * - L'apertura di finestre di dialogo
  * - L'apertura di finestra secondarie 
  */
 import { BrowserWindow, ipcMain } from 'electron';
@@ -107,7 +106,10 @@ export default class Main {
 			show: false,
 			icon: "./assets/icon.ico",
 			frame: false,
-			center: true
+			center: true,
+			webPreferences: {
+				nodeIntegration: true
+			}
 		});
 		Main.mainWindow.loadURL('file://' + __dirname + '/index.html');
 		Main.mainWindow.setMenu(null);
@@ -117,7 +119,7 @@ export default class Main {
 				Main.mainWindow.maximize();
 			Main.mainWindow.show();
 		});
-		['resize', 'move', 'close'].forEach((e: any) => {
+		['maximize', 'unmaximize', 'resize', 'move', 'close'].forEach((e: any) => {
 			Main.mainWindow.on(e, () => {
 				// Salvataggio delle impostazioni della finestra
 				Main.windowState.isMaximized = Main.mainWindow.isMaximized();
@@ -128,46 +130,14 @@ export default class Main {
 				Main.nodeStorage.setItem("WindowState", Main.windowState);
 			});
 		});
+
+		Main.mainWindow.on('maximize', () => Main.mainWindow.webContents.executeJavaScript("updateTitleBarButtons();"));
+		Main.mainWindow.on('unmaximize', () => Main.mainWindow.webContents.executeJavaScript("updateTitleBarButtons();"));
 	}
 
 	private static onActivate() {
 		if (Main.mainWindow === null)
 			Main.onReady();
-	}
-
-	static promptOptions;
-	static promptAnswer;
-	static promptWindow = null;
-
-	/**
-	 * Creazione della finestra di dialogo.
-	 * 
-	 * @param {BrowserWindow} parentWindow La finestra "genitore"
-	 * @param {Object} [options] Le opzioni della nuova finestra
-	 * @param {*} callback La funzione da richiamare alla chiusura della finestra
-	 */
-	private static promptModal(parentWindow, options: { width: number, height: number, title: string }, file = "./dialogs/exit-dialog.html", callback) {
-		Main.promptOptions = options;
-		Main.promptWindow = new BrowserWindow({
-			width: options.width || 400,
-			height: options.height || 250,
-			parent: parentWindow,
-			show: false,
-			modal: true,
-			title: options.title,
-			frame: false,
-			autoHideMenuBar: true
-		});
-
-		Main.promptWindow.on("ready-to-show", () => {
-			Main.promptWindow.show();
-		});
-		Main.promptWindow.on('closed', () => {
-			Main.promptWindow = null;
-			callback(Main.promptAnswer);
-		});
-
-		Main.promptWindow.loadFile(file);
 	}
 
 	/**
@@ -177,36 +147,14 @@ export default class Main {
 	 * @param browserWindow Riferimento alla finestra principale
 	 */
 	static main(app: Electron.App, browserWindow: typeof BrowserWindow) {
-		// we pass the Electron.App object and the  
-		// Electron.BrowserWindow into Main function 
-		// so Main class has no dependencies. Main 
-		// makes the code easier to write tests for 
 		Main.BrowserWindow = browserWindow;
 		Main.application = app;
+		Main.application.commandLine.appendSwitch('enable-experimental-web-platform-features');
 		Main.nodeStorage = new JSONStorage(app.getPath('userData'));
 		Main.application.on('window-all-closed', Main.onWindowAllClosed);
 		Main.application.on('ready', Main.onReady);
 		Main.application.on('activate', Main.onActivate);
 
-		/** Chiamata dalla finestra del dialogo per ottenere i suoi parametri */
-		ipcMain.on("openDialog", (event, data) => {
-			event.returnValue = JSON.stringify(Main.promptOptions, null, '');
-		});
-
-		/** Chiamata dalla finestra del dialogo alla sua chiusura */
-		ipcMain.on("closeDialog", (event, data) => {
-			Main.promptAnswer = data;
-		});
-
-		/** Chiamata dall'applicazione per aprire la finestra di dialogo */
-		ipcMain.on("prompt", (event, options) => {
-			if (!Main.promptWindow)
-				Main.promptModal(Main.mainWindow, options, options.file || "./dialogs/exit-dialog.html", (data) => {
-					event.returnValue = data;
-				});
-			else
-				event.returnValue = undefined;
-		});
 
 		/** Salva i/il quiz */
 		ipcMain.on("save-quiz", (event, quiz) => {

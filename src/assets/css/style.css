@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @import url("./main/variables.css");
+@import url("./main/landing.css");
 @import url("./main/navbar.css");
 @import url("./main/links-and-buttons.css");
 @import url("./main/footer.css");
@@ -9,6 +10,8 @@
 @import url("./main/section.css");
 @import url("./main/cards.css");
 @import url("./main/html5-elements.css");
+@import url("./main/dialogs.css");
+@import url("./main/about-page.css");
 /* Regole semplici dell'intera applicazione che non sono classificabili: */
 
 body {
@@ -32,14 +35,6 @@ details {
 	overflow: hidden auto;
 }
 
-.landing-page-wrapper {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	text-align: center;
-	transform: translate(-50%, -60%);
-}
-
 .main-wrapper {
 	padding: 32px 0 0 0;
 	flex: 1 0 auto;
@@ -47,29 +42,40 @@ details {
 	flex-direction: row;
 }
 
-.sub-wrapper {
+.sub-wrapper, .topic-wrapper {
 	padding: 0;
 	flex: 1 0 auto;
 	display: flex;
 	flex-direction: row;
 }
 
-.main-wrapper .content, .sub-wrapper .content {
+.main-wrapper .content, .sub-wrapper .content, .topic-wrapper .content {
 	position: relative;
-	padding: 0 20px 0 20px;
+	padding: 0;
 	flex: 1 1 auto;
 	width: 75vw;
 	display: flex;
 	flex-direction: column;
 }
 
-.slide-container {
-	width: 100%;
-	height: 100%;
-	padding: 0;
-	border: none;
-	display: block;
-	overflow: hidden;
+.topic-wrapper .content {
+	padding: 0 40px;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #555;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #333;
 }
 
 @media only screen and (max-width: 768px) {
@@ -82,13 +88,4 @@ details {
          */
 		width: 15vw;
 	}
-}
-
-#quiz_container {
-	width: 100%;
-	height: 100%;
-	padding: 0;
-	border: none;
-	display: block;
-	overflow: hidden;
 }

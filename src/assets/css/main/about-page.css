@@ -1,0 +1,140 @@
+.team-row {
+	display: grid;
+	grid-template-columns: 20% 20% 20% 20% 20%;
+	grid-template-rows: max-content;
+	margin-bottom: 16px;
+}
+
+.team-row .team-column {
+	padding: 4px;
+	height: 100%;
+}
+
+.team-row :nth-child(1).team-column {
+	grid-column: 1;
+}
+
+.team-row :nth-child(2).team-column {
+	grid-column: 2;
+}
+
+.team-row :nth-child(3).team-column {
+	grid-column: 3;
+}
+
+.team-row :nth-child(4).team-column {
+	grid-column: 4;
+}
+
+.team-row :nth-child(5).team-column {
+	grid-column: 5;
+}
+
+.profile-card {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	background: #ffffff;
+	border-radius: 4px;
+	box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16), 0px 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.profile-card .profile-avatar {
+	display: inline-block;
+	text-align: center;
+	position: relative;
+	margin: 15px;
+}
+
+.profile-card header {
+	width: auto;
+	height: auto;
+	padding: 30px 20px 0 20px;
+	display: block;
+	float: none;
+	border-right: none;
+	background: #ffffff;
+	color: #000000;
+	text-align: center;
+}
+
+.profile-card header img {
+	display: inline-block;
+	text-align: center;
+	position: relative;
+	width: 120px;
+	max-width: 100%;
+	border-radius: 50%;
+	transition: all 0.4s ease-in-out;
+	filter: grayscale(100%);
+	box-shadow: 0px 0px 0px 8px rgba(0, 0, 0, 0.06);
+}
+
+.profile-card:hover header img {
+	box-shadow: 0px 0px 0px 12px rgba(0, 0, 0, 0.1);
+	filter: grayscale(0%);
+}
+
+.profile-card header h3 {
+	color: var(--main-color);
+	font-weight: 500;
+	font-size: 20px;
+	margin: 0px 0px 5px 0px;
+}
+
+.profile-card header h4 {
+	font-weight: 500;
+	font-size: 15px;
+	margin: 0px 0px 5px 0px;
+}
+
+.profile-card .profile-bio {
+	text-align: center;
+	font-size: 13px;
+	padding: 15px 20px;
+	flex: 1 0 auto;
+}
+
+.profile-card .profile-bio>ul {
+	list-style-type: disc;
+	list-style-position: inside;
+	margin: 0;
+	padding-left: 0;
+}
+
+.profile-card .profile-social-links {
+	display: block;
+	float: none;
+	padding: 15px 20px;
+	background: #ffffff;
+	text-align: center;
+	list-style-type: none;
+}
+
+.profile-card .profile-social-links li {
+	list-style: none;
+	margin: -5px 0px 0px 0px;
+	padding: 0px;
+	float: left;
+	width: 25%;
+	text-align: center;
+}
+
+.profile-card .profile-social-links li a {
+	color: var(--main-color);
+}
+
+ol.bibliography {
+	counter-reset: bib-counter;
+	list-style-type: none;
+}
+
+ol.bibliography li {
+	counter-increment: bib-counter;
+}
+
+ol.bibliography li::before {
+	content: "[" counter(bib-counter) "] ";
+}
