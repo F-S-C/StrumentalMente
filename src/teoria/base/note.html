@@ -35,6 +35,10 @@
 			position: relative;
 		}
 
+		th.row {
+			width: initial;
+		}
+
 		div.progression>div:not(.arrow) {
 			display: grid;
 			grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
@@ -189,10 +193,10 @@
 					<hr />
 				</header>
 				<section class="hide">
-					<p>I segni grafici che rappresentano i suoni sono detti <em>note</em>. Le note musicali sono sette;
-						si chiamano <em>do, re, mi, fa, sol, la, si</em>, e formano la scala musicale.
+					<p>I segni grafici che rappresentano i suoni sono detti <em>note</em>. Le note musicali sono sette:
+						si chiamano <em>do, re, mi, fa, sol, la, si</em> e formano la <em>scala musicale</em>.
 						Questa successione di sette note, chiamate anche <em>gradi</em>, che termina con la ripetizione
-						(8a nota) della nota iniziale ma in posizione più acuta o più grave:
+						(8&ordf; nota) della nota iniziale ma in posizione più acuta o più grave:
 					</p>
 					<table class="notes-table highlight cols">
 						<tbody>
@@ -209,14 +213,14 @@
 							</tr>
 							<tr>
 								<th class="row">Grado</th>
-								<td>1</td>
-								<td>2</td>
-								<td>3</td>
-								<td>4</td>
-								<td>5</td>
-								<td>6</td>
-								<td>7</td>
-								<td>8 = 1</td>
+								<td>1&ordm;</td>
+								<td>2&ordm;</td>
+								<td>3&ordm;</td>
+								<td>4&ordm;</td>
+								<td>5&ordm;</td>
+								<td>6&ordm;</td>
+								<td>7&ordm;</td>
+								<td>8&ordm; = 1&ordm;</td>
 							</tr>
 						</tbody>
 					</table>
@@ -224,8 +228,7 @@
 				<section class="hide">
 					<p>
 						La scala musicale può essere <em>ascendente</em> o <em>discendente</em>. È ascendente quando i
-						suoni che la
-						compongono procedono dal grave verso l'acuto; è discendente quando i suoni procedono
+						suoni che la compongono procedono dal grave verso l'acuto; è discendente quando i suoni procedono
 						dall'acuto verso il grave.
 					</p>
 					<p>Esempio di scala naturale:</p>
@@ -248,9 +251,11 @@
 							<div>Do</div>
 						</div>
 						<div class="arrow" style="transform: rotate(-90deg); left: -40px; top: 60px;">
-							Ascendente</div>
+							Ascendente
+						</div>
 						<div class="arrow" style="transform: rotate(90deg);right: -40px; bottom: 100px;">
-							Discendente</div>
+							Discendente
+						</div>
 					</div>
 					<!-- <img src="../../assets/images/scala.jpg" alt="Scala naturale" style="width:70%;float:center;"> -->
 					<p>Il discorso musicale è basato sulla ripetizione e sulla combinazione di queste note che, a
