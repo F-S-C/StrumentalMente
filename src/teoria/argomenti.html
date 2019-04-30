@@ -3,27 +3,18 @@
 
 <head>
 	<title>Teoria musicale</title>
-	<link rel="icon"
-		  href="../assets/icon.ico" />
-	<link href="../assets/css/main/section.css"
-		  rel="stylesheet" />
-	<link href="../assets/css/style.css"
-		  rel="stylesheet" />
+	<link rel="icon" href="../assets/icon.ico" />
+	<link href="../assets/css/main/section.css" rel="stylesheet" />
+	<link href="../assets/css/style.css" rel="stylesheet" />
 	<!-- FontAwesome -->
-	<link href="../assets/css/fontawesome/css/all.min.css"
-		  rel="stylesheet" />
+	<link href="../assets/css/fontawesome/css/all.min.css" rel="stylesheet" />
 
 	<meta charset="UTF-8" />
-	<meta name="viewport"
-		  content="width=device-width, initial-scale=1.0" />
-	<meta name="description"
-		  content="StrumentalMente - Dove la musica diventa semplice." />
-	<meta name="keywords"
-		  content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
-	<meta name="author"
-		  content="FSC" />
-	<meta name="robots"
-		  content="index, follow">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="StrumentalMente - Dove la musica diventa semplice." />
+	<meta name="keywords" content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
+	<meta name="author" content="FSC" />
+	<meta name="robots" content="index, follow">
 </head>
 
 <body onload="window.parent.setLinks(1, { previous: '', previousLink: '', next: 'Il suono', nextLink: 'base/suono' });">
@@ -36,107 +27,68 @@
 						<h2>Tutto ciò che serve per poter poi suonare uno strumento</h2>
 						<div class="breadcrumbs-container">
 							<div class="breadcrumbs">
-								<button type="button"
-										class="breadcrumb"
-										onclick="window.parent.location.href = '../home-teoria.html';">Teoria</button>
+								<button type="button" class="breadcrumb" onclick="window.parent.location.href = '../home-teoria.html';">Teoria</button>
 								<span class="breadcrumb">Indice (pag. <span id="current-topic-slide">1</span> di <span id="max-topic-slides">1</span>)</span>
 							</div>
 							<div class="page-container">
-								Pag. <span id="current-slide-number">1</span> / <span id="total-slides-number">16</span>
+								Pag. <span id="current-slide-number">1</span> / <span id="total-slides-number">25</span>
 							</div>
 						</div>
 						<hr />
 					</header>
-					<div class="topic-row"
-						 style="grid-template-columns: calc(50% - 8px) calc(50% - 8px);">
+					<div class="topic-row" style="grid-template-columns: calc(50% - 8px) calc(50% - 8px);">
 						<div class="topic-level">
-							<button type="button"
-									class="btn-text card-topic"
-									onclick="showSubButtons(this, 'basic');">
+							<button type="button" class="btn-text card-topic" onclick="showSubButtons(this, 'basic');">
 								<h3><span>Teoria base</span></h3>
 							</button>
-							<div class="topic-level-container"
-								 id="basic"
-								 style="display: none;">
-								<button type="button"
-										class="btn-text card-topic"
-										onclick="window.parent.changeTopic('./suono', './teoria/base/');">
+							<div class="topic-level-container" id="basic" style="display: none;">
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./suono', './teoria/base/');">
 									<span>Il suono</span>
 								</button>
-								<button type="button"
-										class="btn-text card-topic"
-										onclick="window.parent.changeTopic('./note', './teoria/base/');">
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./note', './teoria/base/');">
 									<span>Le note</span>
 								</button>
-								<button type="button"
-										class="btn-text card-topic"
-										onclick="window.parent.changeTopic('./rigo', './teoria/base/');">
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./rigo', './teoria/base/');">
 									<span>Il rigo</span>
 								</button>
-								<button type="button"
-										class="btn-text card-topic"
-										onclick="window.parent.changeTopic('./chiavi', './teoria/base/');">
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./chiavi', './teoria/base/');">
 									<span>Le chiavi</span>
 								</button>
-								<button type="button"
-										class="btn-text card-topic"
-										onclick="window.parent.changeTopic('./valori-e-pause', './teoria/base/');">
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./valori-e-pause', './teoria/base/');">
 									<span>Valori e pause</span>
 								</button>
-								<button type="button"
-										class="btn-text card-topic"
-										onclick="window.parent.changeTopic('./ritmo', './teoria/base/');">
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./ritmo', './teoria/base/');">
 									<span>Il ritmo</span>
 								</button>
-								<button type="button"
-										class="btn-text card-topic"
-										onclick="window.parent.changeTopic('./tempo', './teoria/base/');">
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./tempo', './teoria/base/');">
 									<span>Il tempo</span>
 								</button>
 							</div>
 						</div>
 						<div class="topic-level">
-							<button type="button"
-									class="btn-text card-topic"
-									onclick="window.parent.warnIfIncomplete('base', 'teoria base', 'alla teoria avanzata', () => { showSubButtons(this, 'advanced'); });">
+							<button type="button" class="btn-text card-topic" onclick="window.parent.warnIfIncomplete('base', 'teoria base', 'alla teoria avanzata', () => { showSubButtons(this, 'advanced'); });">
 								<h3><span>Teoria avanzata</span></h3>
 							</button>
-							<div class="topic-level-container"
-								 id="advanced"
-								 style="display: none;">
-								<button type="button"
-										class="btn-text card-topic"
-										onclick="window.parent.changeTopic( './tono-e-semitono', './teoria/avanzata/');">
+							<div class="topic-level-container" id="advanced" style="display: none;">
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic( './tono-e-semitono', './teoria/avanzata/');">
 									<span>Tono e semitono</span>
 								</button>
-								<button type="button"
-										class="btn-text card-topic"
-										onclick="window.parent.changeTopic('./alterazioni', './teoria/avanzata/');">
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./alterazioni', './teoria/avanzata/');">
 									<span>Alterazioni</span>
 								</button>
-								<button type="button"
-										class="btn-text card-topic"
-										onclick="window.parent.changeTopic('./do-maggiore-la-minore', './teoria/avanzata/');">
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./do-maggiore-la-minore', './teoria/avanzata/');">
 									<span>Do maggiore e La minore</span>
 								</button>
-								<button type="button"
-										class="btn-text card-topic"
-										onclick="window.parent.changeTopic('./intervalli', './teoria/avanzata/');">
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./intervalli', './teoria/avanzata/');">
 									<span>Intervalli</span>
 								</button>
-								<button type="button"
-										class="btn-text card-topic"
-										onclick="window.parent.changeTopic('./tono-semitono-diatonico-e-cromatico', './teoria/avanzata/');">
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./tono-semitono-diatonico-e-cromatico', './teoria/avanzata/');">
 									<span>Tono-semitono diatonico e cromatico</span>
 								</button>
-								<button type="button"
-										class="btn-text card-topic"
-										onclick="window.parent.changeTopic('./tonalita-e-modo', './teoria/avanzata/');">
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./tonalita-e-modo', './teoria/avanzata/');">
 									<span>La tonalità e il modo</span>
 								</button>
-								<button type="button"
-										class="btn-text card-topic"
-										onclick="window.parent.changeTopic('./accordo-tonale', './teoria/avanzata/');">
+								<button type="button" class="btn-text card-topic" onclick="window.parent.changeTopic('./accordo-tonale', './teoria/avanzata/');">
 									<span>Accordo tonale</span>
 								</button>
 							</div>
@@ -147,10 +99,8 @@
 		</div>
 	</div>
 
-	<script type="text/javascript"
-			src="../assets/js/main.js"></script>
-	<script type="text/javascript"
-			src="../assets/js/render.js"></script>
+	<script type="text/javascript" src="../assets/js/main.js"></script>
+	<script type="text/javascript" src="../assets/js/render.js"></script>
 </body>
 
 </html>
