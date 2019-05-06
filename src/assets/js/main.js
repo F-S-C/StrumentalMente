@@ -104,7 +104,7 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 	var iFrame = document.getElementById("topic-frame");
 	setShortcuts(iFrame.contentWindow);
 	var iFrameDocument = iFrame.contentWindow.document || iFrame.contentDocument;
-	var sections = iFrameDocument.document.getElementsByTagName("section");
+	var sections = iFrameDocument.getElementsByTagName("section");
 	numberOfSections = sections.length;
 	for (var i = 0; i < numberOfSections; i++) {
 		let element = sections[i].getElementsByTagName("audio")[0];
@@ -264,13 +264,13 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 	nextSlideButton.onclick = openNextSlide;
 	nextTopicButton.onclick = openNextTopic;
 
-	iFrameDocument.document.getElementById("blind-audio").addEventListener("ended", () => {
+	iFrameDocument.getElementById("blind-audio") && iFrameDocument.getElementById("blind-audio").addEventListener("ended", () => {
 		if (currentSection === numberOfSections - 1) {
 			nextTopicButton.click();
 			setTimeout(() => {
 				let iFrame2 = parent.document.getElementById("content-frame");
-				let iFrameDocument2 = iFrame2.contentWindow || iFrame2.contentDocument;
-				iFrameDocument2.document.getElementById("play-blind-audio").click();
+				let iFrameDocument2 = iFrame2.contentWindow.document || iFrame2.contentDocument;
+				iFrameDocument2.getElementById("play-blind-audio").click();
 			}, 200);
 		}
 		else
