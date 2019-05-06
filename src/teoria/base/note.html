@@ -17,26 +17,10 @@
 	<meta name="robots" content="index, follow">
 
 	<style>
-		.notes-table {
-			margin: 0px auto;
-		}
-
-		.notes-table td {
-			text-align: center;
-		}
-
-		.notes-table tr {
-			text-align: center;
-		}
-
 		div.progression {
 			margin: 0 auto;
 			width: 70%;
 			position: relative;
-		}
-
-		th.row {
-			width: initial;
 		}
 
 		div.progression>div:not(.arrow) {
@@ -154,21 +138,16 @@
 			border-left: 21px solid var(--main-color);
 			position: absolute;
 			right: -20px;
-			transform: translate(0, -25%);
+			transform: translate(0, -75%);
 		}
 	</style>
 </head>
 
 <body onload="window.parent.setLinks(4, { previous: 'Il suono', previousLink: 'base/suono', next: 'Il rigo', nextLink: 'base/rigo' });">
-
-
-
 	<div class="topic-wrapper">
-
-
 		<div class="content">
 			<article>
-				<header>
+				<header class="show">
 					<div class="blind-audio-buttons">
 						<button type="button" aria-label="Metti in play/pausa l'audio del lettore" id="play-blind-audio" onclick="playStopAudio('blind-audio', this, 'stop-blind-audio');" class="btn-audio btn-accessibility">
 							<i class="fas fa-universal-access"></i>
@@ -187,7 +166,7 @@
 							<span class="breadcrumb">Le note (pag. <span id="current-topic-slide">1</span> di <span id="max-topic-slides">1</span>)</span>
 						</div>
 						<div class="page-container">
-							Pag. <span id="current-slide-number">1</span> / <span id="total-slides-number">19</span>
+							Pag. <span id="current-slide-number">4</span> / <span id="total-slides-number">25</span>
 						</div>
 					</div>
 					<hr />
