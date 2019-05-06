@@ -179,7 +179,7 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 				nextTopicButton.style.display = "none";
 			}
 			if (currentSection > 0) {
-				if (currentSection - slide == 0) {
+				if (slide === 0) {
 					previousTopicButton.style.display = "inline-block";
 					previousSlideButton.style.display = "none";
 					previousSlideButton.toggleAttribute("disabled", true);
