@@ -16,6 +16,14 @@
 	}
 }
 
+img.show {
+	animation: gradually-show .5s linear 0s 1 normal;
+}
+
+img.hide {
+	opacity: 0;
+}
+
 header.show {
 	animation: gradually-show .2s linear 0s 1 normal;
 }
