@@ -106,101 +106,103 @@
 			<i class="fas fa-bars"></i>
 		</button>
 
-		<div class="content">
-			<article id="quiz_container">
-				<header>
-					<h1>Teoria Avanzata</h1>
-					<h2>Domande sulla Teoria Avanzata</h2>
-					<div class="breadcrumbs-container">
-						<div class="breadcrumbs">
-							<button type="button" class="breadcrumb" onclick="showExitFromQuizDialog('./home-teoria.html');">Teoria</button>
-							<span class="breadcrumb">Quiz - Teoria Avanzata</span>
+		<div>
+			<div class="content">
+				<article id="quiz_container">
+					<header>
+						<h1>Teoria Avanzata</h1>
+						<h2>Domande sulla Teoria Avanzata</h2>
+						<div class="breadcrumbs-container">
+							<div class="breadcrumbs">
+								<button type="button" class="breadcrumb" onclick="showExitFromQuizDialog('./home-teoria.html');">Teoria</button>
+								<span class="breadcrumb">Quiz - Teoria Avanzata</span>
+							</div>
 						</div>
+						<hr />
+					</header>
+					<section class="show">
+						<h2>Cosa è la distanza?</h2>
+						<form>
+							<input type="radio" id="d1" style="grid-area: a;" name="domanda1" value="1"></input>
+							<label for="d1" style="grid-area: a;">La diversità di altezza</label>
+							<input type="radio" id="d2" style="grid-area: b;" name="domanda1" value="0"></input>
+							<label for="d2" style="grid-area: b;">La diversità di intensità</label>
+							<input type="radio" id="d3" style="grid-area: c;" name="domanda1" value="0"></input>
+							<label for="d3" style="grid-area: c;">La diversità di durata</label>
+							<input type="radio" id="d4" style="grid-area: d;" name="domanda1" value="0"></input>
+							<label for="d4" style="grid-area: d;">La diversità di timbro</label>
+						</form>
+					</section>
+					<section class="hide">
+						<h2>Da cosa è formato un tono?</h2>
+						<form>
+							<input type="radio" id="d5" style="grid-area: a;" name="domanda2" value="1"></input>
+							<label for="d5" style="grid-area: a;">Da due semitoni</label>
+							<input type="radio" id="d6" style="grid-area: b;" name="domanda2" value="0"></input>
+							<label for="d6" style="grid-area: b;">Da tre semitoni</label>
+							<input type="radio" id="d7" style="grid-area: c;" name="domanda2" value="0"></input>
+							<label for="d7" style="grid-area: c;">Da un semitono e mezzo</label>
+							<input type="radio" id="d8" style="grid-area: d;" name="domanda2" value="0"></input>
+							<label for="d8" style="grid-area: d;">Da quattro semitoni</label>
+						</form>
+					</section>
+					<section class="hide">
+						<h2>Cosa è un semitono?</h2>
+						<form>
+							<input type="radio" id="d9" style="grid-area: a;" name="domanda3" value="1"></input>
+							<label for="d9" style="grid-area: a;">È l'intervallo più piccolo fra due gradi congiunti</label>
+							<input type="radio" id="d10" style="grid-area: b;" name="domanda3" value="0"></input>
+							<label for="d10" style="grid-area: b;">È l'intervallo più piccolo fra tre gradi congiunti</label>
+							<input type="radio" id="d11" style="grid-area: c;" name="domanda3" value="0"></input>
+							<label for="d11" style="grid-area: c;">È l'intervallo fra due gradi congiunti</label>
+							<input type="radio" id="d12" style="grid-area: d;" name="domanda3" value="0"></input>
+							<label for="d12" style="grid-area: d;">È l'intervallo più grande fra due gradi congiunti</label>
+						</form>
+					</section>
+					<section class="hide">
+						<h2>Come si dividono le alterazioni?</h2>
+						<form>
+							<input type="radio" id="d13" style="grid-area: a;" name="domanda4" value="1"></input>
+							<label for="d13" style="grid-area: a;">Alterazioni semplici – Alterazioni doppie</label>
+							<input type="radio" id="d14" style="grid-area: b;" name="domanda4" value="0"></input>
+							<label for="d14" style="grid-area: b;">Diesis – Doppio diesis</label>
+							<input type="radio" id="d15" style="grid-area: c;" name="domanda4" value="0"></input>
+							<label for="d15" style="grid-area: c;">Bemolle - Doppio bemolle</label>
+							<input type="radio" id="d16" style="grid-area: d;" name="domanda4" value="0"></input>
+							<label for="d16" style="grid-area: d;">Diesis, bemolle – Doppio diesis, doppio bemolle</label>
+						</form>
+					</section>
+					<section class="hide">
+						<h2>Quando si dice che un intervallo è melodico?</h2>
+						<form>
+							<input type="radio" id="d17" style="grid-area: a;" name="domanda5" value="1"></input>
+							<label for="d17" style="grid-area: a;">Quando le note che lo compongono sono eseguite successivamente</label>
+							<input type="radio" id="d18" style="grid-area: b;" name="domanda5" value="0"></input>
+							<label for="d18" style="grid-area: b;">Quando le note che lo compongono sono eseguite in modo alternato</label>
+							<input type="radio" id="d19" style="grid-area: c;" name="domanda5" value="0"></input>
+							<label for="d19" style="grid-area: c;">Quando le note che lo compongono sono eseguite simultaneamente</label>
+							<input type="radio" id="d20" style="grid-area: d;" name="domanda5" value="0"></input>
+							<label for="d20" style="grid-area: d;">Quanto le note che lo compongono sono eseguite a due a due</label>
+						</form>
+					</section>
+				</article>
+				<div class="buttons-container">
+					<div class="first-column">
+						<button type="button" id="back" class="btn-outlined" disabled>
+							Indietro <i class="btn-icon left fas fa-arrow-alt-circle-left"></i>
+						</button>
 					</div>
-					<hr />
-				</header>
-				<section class="show">
-					<h2>Cosa è la distanza?</h2>
-					<form>
-						<input type="radio" id="d1" style="grid-area: a;" name="domanda1" value="1"></input>
-						<label for="d1" style="grid-area: a;">La diversità di altezza</label>
-						<input type="radio" id="d2" style="grid-area: b;" name="domanda1" value="0"></input>
-						<label for="d2" style="grid-area: b;">La diversità di intensità</label>
-						<input type="radio" id="d3" style="grid-area: c;" name="domanda1" value="0"></input>
-						<label for="d3" style="grid-area: c;">La diversità di durata</label>
-						<input type="radio" id="d4" style="grid-area: d;" name="domanda1" value="0"></input>
-						<label for="d4" style="grid-area: d;">La diversità di timbro</label>
-					</form>
-				</section>
-				<section class="hide">
-					<h2>Da cosa è formato un tono?</h2>
-					<form>
-						<input type="radio" id="d5" style="grid-area: a;" name="domanda2" value="1"></input>
-						<label for="d5" style="grid-area: a;">Da due semitoni</label>
-						<input type="radio" id="d6" style="grid-area: b;" name="domanda2" value="0"></input>
-						<label for="d6" style="grid-area: b;">Da tre semitoni</label>
-						<input type="radio" id="d7" style="grid-area: c;" name="domanda2" value="0"></input>
-						<label for="d7" style="grid-area: c;">Da un semitono e mezzo</label>
-						<input type="radio" id="d8" style="grid-area: d;" name="domanda2" value="0"></input>
-						<label for="d8" style="grid-area: d;">Da quattro semitoni</label>
-					</form>
-				</section>
-				<section class="hide">
-					<h2>Cosa è un semitono?</h2>
-					<form>
-						<input type="radio" id="d9" style="grid-area: a;" name="domanda3" value="1"></input>
-						<label for="d9" style="grid-area: a;">È l'intervallo più piccolo fra due gradi congiunti</label>
-						<input type="radio" id="d10" style="grid-area: b;" name="domanda3" value="0"></input>
-						<label for="d10" style="grid-area: b;">È l'intervallo più piccolo fra tre gradi congiunti</label>
-						<input type="radio" id="d11" style="grid-area: c;" name="domanda3" value="0"></input>
-						<label for="d11" style="grid-area: c;">È l'intervallo fra due gradi congiunti</label>
-						<input type="radio" id="d12" style="grid-area: d;" name="domanda3" value="0"></input>
-						<label for="d12" style="grid-area: d;">È l'intervallo più grande fra due gradi congiunti</label>
-					</form>
-				</section>
-				<section class="hide">
-					<h2>Come si dividono le alterazioni?</h2>
-					<form>
-						<input type="radio" id="d13" style="grid-area: a;" name="domanda4" value="1"></input>
-						<label for="d13" style="grid-area: a;">Alterazioni semplici – Alterazioni doppie</label>
-						<input type="radio" id="d14" style="grid-area: b;" name="domanda4" value="0"></input>
-						<label for="d14" style="grid-area: b;">Diesis – Doppio diesis</label>
-						<input type="radio" id="d15" style="grid-area: c;" name="domanda4" value="0"></input>
-						<label for="d15" style="grid-area: c;">Bemolle - Doppio bemolle</label>
-						<input type="radio" id="d16" style="grid-area: d;" name="domanda4" value="0"></input>
-						<label for="d16" style="grid-area: d;">Diesis, bemolle – Doppio diesis, doppio bemolle</label>
-					</form>
-				</section>
-				<section class="hide">
-					<h2>Quando si dice che un intervallo è melodico?</h2>
-					<form>
-						<input type="radio" id="d17" style="grid-area: a;" name="domanda5" value="1"></input>
-						<label for="d17" style="grid-area: a;">Quando le note che lo compongono sono eseguite successivamente</label>
-						<input type="radio" id="d18" style="grid-area: b;" name="domanda5" value="0"></input>
-						<label for="d18" style="grid-area: b;">Quando le note che lo compongono sono eseguite in modo alternato</label>
-						<input type="radio" id="d19" style="grid-area: c;" name="domanda5" value="0"></input>
-						<label for="d19" style="grid-area: c;">Quando le note che lo compongono sono eseguite simultaneamente</label>
-						<input type="radio" id="d20" style="grid-area: d;" name="domanda5" value="0"></input>
-						<label for="d20" style="grid-area: d;">Quanto le note che lo compongono sono eseguite a due a due</label>
-					</form>
-				</section>
-			</article>
-			<div class="buttons-container">
-				<div class="first-column">
-					<button type="button" id="back" class="btn-outlined" disabled>
-						Indietro <i class="btn-icon left fas fa-arrow-alt-circle-left"></i>
-					</button>
-				</div>
-				<div class="third-column">
-					<button type="button" id="next" class="btn">
-						Avanti <i class="btn-icon fas fa-arrow-circle-right"></i>
-					</button>
-					<button type="button" id="end" class="btn" onclick="quizVerify('home-teoria');" style="display: none;">
-						Verifica <i class="fas fa-check-circle"></i>
-					</button>
-					<button type="button" id="exit" class="btn" onclick="window.location.href='../../index.html?started=true&topic=home-teoria&to-home=true'" style="display: none;">
-						Esci <i class="btn-icon fas fa-running"></i>
-					</button>
+					<div class="third-column">
+						<button type="button" id="next" class="btn">
+							Avanti <i class="btn-icon fas fa-arrow-circle-right"></i>
+						</button>
+						<button type="button" id="end" class="btn" onclick="quizVerify('home-teoria');" style="display: none;">
+							Verifica <i class="fas fa-check-circle"></i>
+						</button>
+						<button type="button" id="exit" class="btn" onclick="window.location.href='../../index.html?started=true&topic=home-teoria&to-home=true'" style="display: none;">
+							Esci <i class="btn-icon fas fa-running"></i>
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>

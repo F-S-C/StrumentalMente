@@ -13,7 +13,7 @@ class Dialog {
 										<div id="dialog-titlebar">
 											<div id="dialog-drag-region">
 												<div id="dialog-title">
-													<img id="dialog-title-image" src="./assets/icon.ico" alt="Icona" />
+													<img class="hide" onload="this.className = 'show';" id="dialog-title-image" src="./assets/icon.ico" alt="Icona" />
 													<span id="dialog-title-text" class="dialog-title">Titolo</span>
 												</div>
 												<div id="dialog-controls">

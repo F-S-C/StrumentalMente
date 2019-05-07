@@ -21,3 +21,11 @@ video.center {
 	float: none;
 	margin: 0 auto;
 }
+
+video::-webkit-media-controls-overlay-play-button {
+	filter: invert(1) opacity(0.5);
+}
+
+iframe {
+	display: block;
+}

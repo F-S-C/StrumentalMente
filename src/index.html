@@ -17,12 +17,12 @@
 	<meta name="robots" content="index, follow">
 </head>
 
-<body>
+<body class="hide">
 	<header>
 		<div id="titlebar">
 			<div id="drag-region">
 				<div id="window-title">
-					<img id="window-title-image" src="./assets/icon.ico" alt="Icona" />
+					<img class="hide" onload="this.className = 'show';" id="window-title-image" src="./assets/icon.ico" alt="Icona" />
 					<span id="window-title-text">StrumentalMente</span>
 				</div>
 				<div id="window-controls">
@@ -139,7 +139,7 @@
 					Rilasciato sotto la
 					licenza <a class="external" onclick="openInBrowser('https:\/\/www.apache.org\/licenses\/LICENSE-2.0');" href="javascript:void(0);">Apache
 						2.0</a>.</p>
-				<img src="./assets/images/fsc-logo-svg.svg" />
+				<img class="hide" onload="this.className = 'show';" src="./assets/images/fsc-logo-svg.svg" />
 			</footer>
 		</nav>
 		<button type="button" id="sidebar-controller" onclick="openMobileNavigation();">
@@ -155,6 +155,10 @@
 	<script src="./assets/js/main.js"></script>
 	<script src="./assets/js/vendor/jquery.maphilight.js"></script>
 	<script>
+		document.body.onload = () => {
+			document.body.className = 'show';
+		};
+
 		let landingContainer = document.getElementById("landing-container");
 
 		var params = (new URL(location.href)).searchParams;
@@ -179,8 +183,9 @@
 				.filter(btn => btn.getAttribute("onclick").includes("openPage") && btn.getAttribute("onclick").includes(generalTopic))[0];
 			navbutton && navbutton.click();
 
-			if (!params.has("to-home") || params.get("to-home") == "false"){
-				document.getElementById("content-frame").src = params.get("topic");}
+			if (!params.has("to-home") || params.get("to-home") == "false") {
+				document.getElementById("content-frame").src = params.get("topic");
+			}
 		}
 
 		function startApp() {
