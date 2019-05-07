@@ -106,102 +106,104 @@
 			<i class="fas fa-bars"></i>
 		</button>
 
-		<div class="content">
-			<article id="quiz_container">
-				<header>
-					<h1>Batteria</h1>
-					<h2>Domande sulla batteria</h2>
-					<div class="breadcrumbs-container">
-						<div class="breadcrumbs">
-							<button type="button" class="breadcrumb" onclick="showExitFromQuizDialog('./home-strumenti.html');">Strumenti</button>
-							<button type="button" class="breadcrumb" onclick="showExitFromQuizDialog('./teoria-batteria.html');">Batteria</button>
-							<span class="breadcrumb">Quiz</span>
+		<div>
+			<div class="content">
+				<article id="quiz_container">
+					<header>
+						<h1>Batteria</h1>
+						<h2>Domande sulla batteria</h2>
+						<div class="breadcrumbs-container">
+							<div class="breadcrumbs">
+								<button type="button" class="breadcrumb" onclick="showExitFromQuizDialog('./home-strumenti.html');">Strumenti</button>
+								<button type="button" class="breadcrumb" onclick="showExitFromQuizDialog('./teoria-batteria.html');">Batteria</button>
+								<span class="breadcrumb">Quiz</span>
+							</div>
 						</div>
+						<hr />
+					</header>
+					<section class="show">
+						<h2>Che tipo di strumento musicale è la batteria?</h2>
+						<form>
+							<input type="radio" id="d1" style="grid-area: a;" name="domanda1" value="1"></input>
+							<label for="d1" style="grid-area: a;">Membranofono a percussioni e a sfregamento</label>
+							<input type="radio" id="d2" style="grid-area: b;" name="domanda1" value="0"></input>
+							<label for="d2" style="grid-area: b;">Membranofono a percussioni e a corde</label>
+							<input type="radio" id="d3" style="grid-area: c;" name="domanda1" value="0"></input>
+							<label for="d3" style="grid-area: c;">Membranofono a percussioni e a fiato</label>
+							<input type="radio" id="d4" style="grid-area: d;" name="domanda1" value="0"></input>
+							<label for="d4" style="grid-area: d;">Membranofono a corde e a fiato</label>
+						</form>
+					</section>
+					<section class="hide">
+						<h2>Le pelli in quali tipi si distinguono?</h2>
+						<form>
+							<input type="radio" id="d5" style="grid-area: a;" name="domanda2" value="1"></input>
+							<label for="d5" style="grid-area: a;">Battenti e risonanti </label>
+							<input type="radio" id="d6" style="grid-area: b;" name="domanda2" value="0"></input>
+							<label for="d6" style="grid-area: b;">Brillanti e risonanti</label>
+							<input type="radio" id="d7" style="grid-area: c;" name="domanda2" value="0"></input>
+							<label for="d7" style="grid-area: c;">Battenti e non suonanti</label>
+							<input type="radio" id="d8" style="grid-area: d;" name="domanda2" value="0"></input>
+							<label for="d8" style="grid-area: d;">Brillanti e non suonanti</label>
+						</form>
+					</section>
+					<section class="hide">
+						<h2>Quali sono i due aspetti fondamentali per il controllo delle bacchette?</h2>
+						<form>
+							<input type="radio" id="d9" style="grid-area: a;" name="domanda3" value="1"></input>
+							<label for="d9" style="grid-area: a;">Velocità e controllo dinamico</label>
+							<input type="radio" id="d10" style="grid-area: b;" name="domanda3" value="0"></input>
+							<label for="d10" style="grid-area: b;">Lentezza e tempo</label>
+							<input type="radio" id="d11" style="grid-area: c;" name="domanda3" value="0"></input>
+							<label for="d11" style="grid-area: c;">Velocità e tempo</label>
+							<input type="radio" id="d12" style="grid-area: d;" name="domanda3" value="0"></input>
+							<label for="d12" style="grid-area: d;">Lentezza e controllo dinamico</label>
+						</form>
+					</section>
+					<section class="hide">
+						<h2>Nell&rsquo;approccio ai rudimenti, cosa porta la mano destra?</h2>
+						<form>
+							<input type="radio" id="d13" style="grid-area: a;" name="domanda4" value="1"></input>
+							<label for="d13" style="grid-area: a;">Drive</label>
+							<input type="radio" id="d14" style="grid-area: b;" name="domanda4" value="0"></input>
+							<label for="d14" style="grid-area: b;">Fat-bit</label>
+							<input type="radio" id="d15" style="grid-area: c;" name="domanda4" value="0"></input>
+							<label for="d15" style="grid-area: c;">Back-bit</label>
+							<input type="radio" id="d16" style="grid-area: d;" name="domanda4" value="0"></input>
+							<label for="d16" style="grid-area: d;">Hit-Hat</label>
+						</form>
+					</section>
+					<section class="hide">
+						<h2>Qual è la combinazione corretta del paraddidle?</h2>
+						<form>
+							<input type="radio" id="d17" style="grid-area: a;" name="domanda5" value="1"></input>
+							<label for="d17" style="grid-area: a;">Due colpi singoli, una coppia di colpi doppi e un accento</label>
+							<input type="radio" id="d18" style="grid-area: b;" name="domanda5" value="0"></input>
+							<label for="d18" style="grid-area: b;">Tre colpi singoli, un colpo doppio e un accento</label>
+							<input type="radio" id="d19" style="grid-area: c;" name="domanda5" value="0"></input>
+							<label for="d19" style="grid-area: c;">Un colpo singolo, tre coppie di colpi doppi e un accento</label>
+							<input type="radio" id="d20" style="grid-area: d;" name="domanda5" value="0"></input>
+							<label for="d20" style="grid-area: d;">Un colpo singolo, uno colpo doppio e due accenti</label>
+						</form>
+					</section>
+				</article>
+				<div class="buttons-container">
+					<div class="first-column">
+						<button type="button" id="back" class="btn-outlined" disabled>
+							Indietro <i class="btn-icon left fas fa-arrow-alt-circle-left"></i>
+						</button>
 					</div>
-					<hr />
-				</header>
-				<section class="show">
-					<h2>Che tipo di strumento musicale è la batteria?</h2>
-					<form>
-						<input type="radio" id="d1" style="grid-area: a;" name="domanda1" value="1"></input>
-						<label for="d1" style="grid-area: a;">Membranofono a percussioni e a sfregamento</label>
-						<input type="radio" id="d2" style="grid-area: b;" name="domanda1" value="0"></input>
-						<label for="d2" style="grid-area: b;">Membranofono a percussioni e a corde</label>
-						<input type="radio" id="d3" style="grid-area: c;" name="domanda1" value="0"></input>
-						<label for="d3" style="grid-area: c;">Membranofono a percussioni e a fiato</label>
-						<input type="radio" id="d4" style="grid-area: d;" name="domanda1" value="0"></input>
-						<label for="d4" style="grid-area: d;">Membranofono a corde e a fiato</label>
-					</form>
-				</section>
-				<section class="hide">
-					<h2>Le pelli in quali tipi si distinguono?</h2>
-					<form>
-						<input type="radio" id="d5" style="grid-area: a;" name="domanda2" value="1"></input>
-						<label for="d5" style="grid-area: a;">Battenti e risonanti </label>
-						<input type="radio" id="d6" style="grid-area: b;" name="domanda2" value="0"></input>
-						<label for="d6" style="grid-area: b;">Brillanti e risonanti</label>
-						<input type="radio" id="d7" style="grid-area: c;" name="domanda2" value="0"></input>
-						<label for="d7" style="grid-area: c;">Battenti e non suonanti</label>
-						<input type="radio" id="d8" style="grid-area: d;" name="domanda2" value="0"></input>
-						<label for="d8" style="grid-area: d;">Brillanti e non suonanti</label>
-					</form>
-				</section>
-				<section class="hide">
-					<h2>Quali sono i due aspetti fondamentali per il controllo delle bacchette?</h2>
-					<form>
-						<input type="radio" id="d9" style="grid-area: a;" name="domanda3" value="1"></input>
-						<label for="d9" style="grid-area: a;">Velocità e controllo dinamico</label>
-						<input type="radio" id="d10" style="grid-area: b;" name="domanda3" value="0"></input>
-						<label for="d10" style="grid-area: b;">Lentezza e tempo</label>
-						<input type="radio" id="d11" style="grid-area: c;" name="domanda3" value="0"></input>
-						<label for="d11" style="grid-area: c;">Velocità e tempo</label>
-						<input type="radio" id="d12" style="grid-area: d;" name="domanda3" value="0"></input>
-						<label for="d12" style="grid-area: d;">Lentezza e controllo dinamico</label>
-					</form>
-				</section>
-				<section class="hide">
-					<h2>Nell&rsquo;approccio ai rudimenti, cosa porta la mano destra?</h2>
-					<form>
-						<input type="radio" id="d13" style="grid-area: a;" name="domanda4" value="1"></input>
-						<label for="d13" style="grid-area: a;">Drive</label>
-						<input type="radio" id="d14" style="grid-area: b;" name="domanda4" value="0"></input>
-						<label for="d14" style="grid-area: b;">Fat-bit</label>
-						<input type="radio" id="d15" style="grid-area: c;" name="domanda4" value="0"></input>
-						<label for="d15" style="grid-area: c;">Back-bit</label>
-						<input type="radio" id="d16" style="grid-area: d;" name="domanda4" value="0"></input>
-						<label for="d16" style="grid-area: d;">Hit-Hat</label>
-					</form>
-				</section>
-				<section class="hide">
-					<h2>Qual è la combinazione corretta del paraddidle?</h2>
-					<form>
-						<input type="radio" id="d17" style="grid-area: a;" name="domanda5" value="1"></input>
-						<label for="d17" style="grid-area: a;">Due colpi singoli, una coppia di colpi doppi e un accento</label>
-						<input type="radio" id="d18" style="grid-area: b;" name="domanda5" value="0"></input>
-						<label for="d18" style="grid-area: b;">Tre colpi singoli, un colpo doppio e un accento</label>
-						<input type="radio" id="d19" style="grid-area: c;" name="domanda5" value="0"></input>
-						<label for="d19" style="grid-area: c;">Un colpo singolo, tre coppie di colpi doppi e un accento</label>
-						<input type="radio" id="d20" style="grid-area: d;" name="domanda5" value="0"></input>
-						<label for="d20" style="grid-area: d;">Un colpo singolo, uno colpo doppio e due accenti</label>
-					</form>
-				</section>
-			</article>
-			<div class="buttons-container">
-				<div class="first-column">
-					<button type="button" id="back" class="btn-outlined" disabled>
-						Indietro <i class="btn-icon left fas fa-arrow-alt-circle-left"></i>
-					</button>
-				</div>
-				<div class="third-column">
-					<button type="button" id="next" class="btn">
-						Avanti <i class="btn-icon fas fa-arrow-circle-right"></i>
-					</button>
-					<button type="button" id="end" class="btn" onclick="quizVerify('teoria-batteria');" style="display: none;">
-						Verifica <i class="fas fa-check-circle"></i>
-					</button>
-					<button type="button" id="exit" class="btn" onclick="window.location.href='../../index.html?started=true&topic=teoria-batteria&to-home=true'" style="display: none;">
-						Esci <i class="btn-icon fas fa-running"></i>
-					</button>
+					<div class="third-column">
+						<button type="button" id="next" class="btn">
+							Avanti <i class="btn-icon fas fa-arrow-circle-right"></i>
+						</button>
+						<button type="button" id="end" class="btn" onclick="quizVerify('teoria-batteria');" style="display: none;">
+							Verifica <i class="fas fa-check-circle"></i>
+						</button>
+						<button type="button" id="exit" class="btn" onclick="window.location.href='../../index.html?started=true&topic=teoria-batteria&to-home=true'" style="display: none;">
+							Esci <i class="btn-icon fas fa-running"></i>
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -25,3 +25,7 @@ video.center {
 video::-webkit-media-controls-overlay-play-button {
 	filter: invert(1) opacity(0.5);
 }
+
+iframe {
+	display: block;
+}
