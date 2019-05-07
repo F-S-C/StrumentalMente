@@ -20,11 +20,11 @@ img.show {
 	animation: gradually-show .5s linear 0s 1 normal;
 }
 
-img.hide {
+img.hide, body.hide {
 	opacity: 0;
 }
 
-header.show {
+header.show, body.show {
 	animation: gradually-show .2s linear 0s 1 normal;
 }
 
