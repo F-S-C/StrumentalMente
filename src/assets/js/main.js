@@ -74,7 +74,7 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 	numberOfSections = iFrameDocument.getElementsByTagName("section").length;
 
 	if (iFrameDocument.getElementById("list") == undefined)
-		iFrameDocument.getElementsByTagName("section")[0].className = "show";
+		iFrameDocument.getElementsByTagName("section")[0].className = "";
 	iFrameDocument.getElementById("max-topic-slides").innerHTML = numberOfSections;
 	iFrameDocument.getElementById("current-topic-slide").innerHTML = currentSection + 1;
 	let updateCurrentSlide = (delta) => {
@@ -113,7 +113,7 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 	}
 	else {
 		if (iFrameDocument.getElementById("list") == undefined)
-			iFrameDocument.getElementsByTagName("section")[0].className = "show";
+			iFrameDocument.getElementsByTagName("section")[0].className = "";
 		previousSlideButton.toggleAttribute("disabled", false);
 		returnToListButton.style.display = "inline-block";
 		returnToListButton.toggleAttribute("disabled", false);
@@ -190,7 +190,7 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 
 		setTimeout(() => {
 			if (iFrameDocument.getElementsByClassName("multiple-figures").length < 1 && iFrameDocument.getElementsByTagName("section")[currentSection])
-				iFrameDocument.getElementsByTagName("section")[currentSection].className = "show";
+				iFrameDocument.getElementsByTagName("section")[currentSection].className = "";
 			iFrameDocument.getElementById("current-topic-slide").innerHTML = currentSection + 1;
 			canChangeSlide = true;
 		}, 100);
@@ -284,7 +284,7 @@ function initializeQuiz() {
 	currentSection = 0;
 	canChangeSlide = true;
 
-	sectionsList[currentSection].className = "show";
+	sectionsList[currentSection].className = "";
 
 	var previousSlideButton = document.getElementById("back");
 	var nextSlideButton = document.getElementById("next");
@@ -373,7 +373,7 @@ function changeQuizSlide(finalSlide) {
 	}
 
 	setTimeout(() => {
-		sectionsList[currentSection].className = "show";
+		sectionsList[currentSection].className = "";
 		questionsInNavbar[finalSlide].className = "question-link active";
 		canChangeSlide = true;
 	}, 100);
