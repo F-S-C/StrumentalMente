@@ -48,6 +48,11 @@ e di nascondere tutti i tag section successivi al primo.</p>
 non è stato completato. Se l&#39;utente conferma di voler proseguire, viene
 effettuata l&#39;azione richiesta, altrimenti non si attua alcuna azione.</p>
 </dd>
+<dt><a href="#setUpTitleBar">setUpTitleBar()</a></dt>
+<dd><p>Gestisce gli eventi della titlebar.</p>
+<p>Questa funzione gestisce gli eventi (riduci a icona, massimizza/minimizza,
+chiudi) che sono acessibili tramite la titlebar.</p>
+</dd>
 <dt><a href="#showExitDialog">showExitDialog()</a></dt>
 <dd><p>Mostra il dialogo di richiesta di conferma di uscita.</p>
 </dd>
@@ -347,6 +352,29 @@ Mostra un messaggio all'utente se il quiz propedeutico all'argomento sceltonon 
 | topicToOpenName | <code>String</code> | Il nome dell'argomento che si vuole aprire |
 | callback | <code>\*</code> | La funzione da eseguire se l'utente accetta di proseguire. |
 
+<a name="setUpTitleBar"></a>
+
+# setUpTitleBar()
+Gestisce gli eventi della titlebar.Questa funzione gestisce gli eventi (riduci a icona, massimizza/minimizza,chiudi) che sono acessibili tramite la titlebar.
+
+**Kind**: global function  
+
+* [setUpTitleBar()](#setUpTitleBar)
+    * [~init()](#setUpTitleBar..init)
+    * [~toggleMaxRestoreButtons()](#setUpTitleBar..toggleMaxRestoreButtons)
+
+<a name="setUpTitleBar..init"></a>
+
+## setUpTitleBar~init()
+Inizializza la titlebar.
+
+**Kind**: inner method of [<code>setUpTitleBar</code>](#setUpTitleBar)  
+<a name="setUpTitleBar..toggleMaxRestoreButtons"></a>
+
+## setUpTitleBar~toggleMaxRestoreButtons()
+Cicla tra i bottoni di massimizzazione e diminimizzazione della finestra alternativamente
+
+**Kind**: inner method of [<code>setUpTitleBar</code>](#setUpTitleBar)  
 <a name="showExitDialog"></a>
 
 # showExitDialog()
