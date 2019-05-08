@@ -48,6 +48,11 @@ Mostra un messaggio all'utente se il quiz propedeutico all'argomento
 scelto non è stato completato. Se l'utente conferma di voler proseguire,
 viene effettuata l'azione richiesta, altrimenti non si attua alcuna
 azione.
+\item[{ \protect\hyperlink{setUpTitleBar}{setUpTitleBar()} }]
+Gestisce gli eventi della titlebar.
+
+Questa funzione gestisce gli eventi (riduci a icona,
+massimizza/minimizza, chiudi) che sono acessibili tramite la titlebar.
 \item[{ \protect\hyperlink{showExitDialog}{showExitDialog()} }]
 Mostra il dialogo di richiesta di conferma di uscita.
 \item[{
@@ -875,6 +880,50 @@ proseguire.\tabularnewline
 \bottomrule
 \end{tabularx}
 
+\protect\hypertarget{setUpTitleBar}{}{}
+
+\hypertarget{setuptitlebar}{%
+\subsection{setUpTitleBar()}\label{setuptitlebar}}
+
+Gestisce gli eventi della titlebar.Questa funzione gestisce gli eventi
+(riduci a icona, massimizza/minimizza,chiudi) che sono acessibili
+tramite la titlebar.
+
+\textbf{Kind}: global function
+
+\begin{itemize}
+\tightlist
+\item
+  \protect\hyperlink{setUpTitleBar}{setUpTitleBar()}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \protect\hyperlink{setUpTitleBar..init}{\textasciitilde{}init()}
+  \item
+    \protect\hyperlink{setUpTitleBar..toggleMaxRestoreButtons}{\textasciitilde{}toggleMaxRestoreButtons()}
+  \end{itemize}
+\end{itemize}
+
+\protect\hypertarget{setUpTitleBar..init}{}{}
+
+\hypertarget{setuptitlebarinit}{%
+\subsubsection{setUpTitleBar\textasciitilde{}init()}\label{setuptitlebarinit}}
+
+Inizializza la titlebar.
+
+\textbf{Kind}: inner method of
+\protect\hyperlink{setUpTitleBar}{\texttt{setUpTitleBar}}\\
+\protect\hypertarget{setUpTitleBar..toggleMaxRestoreButtons}{}{}
+
+\hypertarget{setuptitlebartogglemaxrestorebuttons}{%
+\subsubsection{setUpTitleBar\textasciitilde{}toggleMaxRestoreButtons()}\label{setuptitlebartogglemaxrestorebuttons}}
+
+Cicla tra i bottoni di massimizzazione e diminimizzazione della finestra
+alternativamente
+
+\textbf{Kind}: inner method of
+\protect\hyperlink{setUpTitleBar}{\texttt{setUpTitleBar}}\\
 \protect\hypertarget{showExitDialog}{}{}
 
 \hypertarget{showexitdialog}{%
