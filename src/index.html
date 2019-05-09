@@ -207,6 +207,55 @@
 			bibliographyHidden = !bibliographyHidden;
 			elem.innerHTML = (bibliographyHidden) ? "Mostra la bibliografia." : "Nascondi la bibliografia.";
 		}
+
+		function openFromMap(target) {
+			document.getElementById("dialog-close-button").click();
+			switch (target) {
+				case "index":
+					parent.document.querySelector("#home-nav-link>button").click();
+					break;
+				case "teoria":
+					parent.document.querySelector("#theory-nav-link>button").click();
+					break;
+				case "strumenti":
+					parent.document.querySelector("#instruments-nav-link>button").click();
+					break;
+				case "chitarra":
+					warnIfIncomplete('base', 'teoria base', 'agli strumenti', () => { parent.window.location.href = "./index.html?started=true&topic=./teoria-chitarra.html&to-home=false"; });
+					break;
+				case "basso":
+					warnIfIncomplete('base', 'teoria base', 'agli strumenti', () => { parent.window.location.href = "./index.html?started=true&topic=./teoria-basso.html&to-home=false"; });
+					break;
+				case "batteria":
+					warnIfIncomplete('base', 'teoria base', 'agli strumenti', () => { parent.window.location.href = "./index.html?started=true&topic=./teoria-batteria.html&to-home=false"; });
+					break;
+				case "piano":
+					warnIfIncomplete('base', 'teoria base', 'agli strumenti', () => { parent.window.location.href = "./index.html?started=true&topic=./teoria-piano.html&to-home=false"; });
+					break;
+				case "accordi":
+					parent.document.querySelector("#chords-nav-link>button").click();
+					break;
+				case "accordi-chitarra":
+					warnIfIncomplete('chitarra', 'teoria della chitarra', 'agli accordi della chitarra', () => { parent.window.location.href = "./index.html?started=true&topic=./accordi-chitarra.html&to-home=false"; });
+					break;
+				case "accordi-basso":
+					warnIfIncomplete('basso', 'teoria del basso', 'agli accordi del basso', () => { parent.window.location.href = "./index.html?started=true&topic=./accordi-basso.html&to-home=false"; });
+					break;
+				case "accordi-piano":
+					warnIfIncomplete('piano', 'teoria del pianoforte', 'agli accordi del pianoforte', () => { parent.window.location.href = "./index.html?started=true&topic=./accordi-piano.html&to-home=false"; });
+					break;
+				case "profilo":
+					parent.document.querySelector("#profile-nav-link>button").click();
+					break;
+				case "about":
+					openModal("./about.html");
+					break;
+
+				default:
+					console.error("Impossibile trovare l'argomento selezionato");
+					break;
+			}
+		}
 	</script>
 </body>
 
