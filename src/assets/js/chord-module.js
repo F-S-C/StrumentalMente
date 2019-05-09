@@ -8,9 +8,13 @@
  * @param {number} tasto_iniziale Indica il numero del capotasto iniziale dell'accordo
  */
 class Chord {
-	constructor(nome, dita) {
+	constructor(nome, dita, tasto_iniziale) {
 		this.nome = nome;
 		this.dita = dita;
+		if (tasto_iniziale != undefined)
+			this.tasto_iniziale = tasto_iniziale;
+		else
+			this.tasto_iniziale = 0;
 	}
 }
 
