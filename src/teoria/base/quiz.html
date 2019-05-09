@@ -106,101 +106,103 @@
 			<i class="fas fa-bars"></i>
 		</button>
 
-		<div class="content">
-			<article id="quiz_container">
-				<header>
-					<h1>Teoria Base</h1>
-					<h2>Domande sulla Teoria Base</h2>
-					<div class="breadcrumbs-container">
-						<div class="breadcrumbs">
-							<button type="button" class="breadcrumb" onclick="showExitFromQuizDialog('./home-teoria.html');">Teoria</button>
-							<span class="breadcrumb">Quiz - Teoria Base</span>
+		<div>
+			<div class="content">
+				<article id="quiz_container">
+					<header>
+						<h1>Teoria Base</h1>
+						<h2>Domande sulla Teoria Base</h2>
+						<div class="breadcrumbs-container">
+							<div class="breadcrumbs">
+								<button type="button" class="breadcrumb" onclick="showExitFromQuizDialog('./home-teoria.html');">Teoria</button>
+								<span class="breadcrumb">Quiz - Teoria Base</span>
+							</div>
 						</div>
+						<hr />
+					</header>
+					<section>
+						<h2>Quali sono le proprietà del suono?</h2>
+						<form>
+							<input type="radio" id="d1" style="grid-area: a;" name="domanda1" value="1"></input>
+							<label for="d1" style="grid-area: a;">Timbro - Intensità - Altezza</label>
+							<input type="radio" id="d2" style="grid-area: b;" name="domanda1" value="0"></input>
+							<label for="d2" style="grid-area: b;">Note - Aria - Strumento</label>
+							<input type="radio" id="d3" style="grid-area: c;" name="domanda1" value="0"></input>
+							<label for="d3" style="grid-area: c;">Timbro - Note - Aria</label>
+							<input type="radio" id="d4" style="grid-area: d;" name="domanda1" value="0"></input>
+							<label for="d4" style="grid-area: d;">Intensità - Altezza - Strumento</label>
+						</form>
+					</section>
+					<section class="hide">
+						<h2>Cos'è l'altezza del suono?</h2>
+						<form>
+							<input type="radio" id="d5" style="grid-area: a;" name="domanda2" value="1"></input>
+							<label for="d5" style="grid-area: a;">Qualità che permette di distinguere suoni acuti e suoni gravi</label>
+							<input type="radio" id="d6" style="grid-area: b;" name="domanda2" value="0"></input>
+							<label for="d6" style="grid-area: b;">Qualità che permette di capire da quale strumento proviene</label>
+							<input type="radio" id="d7" style="grid-area: c;" name="domanda2" value="0"></input>
+							<label for="d7" style="grid-area: c;">Strumento che permette di misurare il suono</label>
+							<input type="radio" id="d8" style="grid-area: d;" name="domanda2" value="0"></input>
+							<label for="d8" style="grid-area: d;">Qualità che permette di distinguere suoni non precisi</label>
+						</form>
+					</section>
+					<section class="hide">
+						<h2>Cosa è l'intensità del suono?</h2>
+						<form>
+							<input type="radio" id="d9" style="grid-area: a;" name="domanda3" value="1"></input>
+							<label for="d9" style="grid-area: a;">Qualità che permette di distinguere suoni forti e suoni deboli</label>
+							<input type="radio" id="d10" style="grid-area: b;" name="domanda3" value="0"></input>
+							<label for="d10" style="grid-area: b;">Qualità che specifica la forza</label>
+							<input type="radio" id="d11" style="grid-area: c;" name="domanda3" value="0"></input>
+							<label for="d11" style="grid-area: c;">Qualità che viene chiamata anche volume</label>
+							<input type="radio" id="d12" style="grid-area: d;" name="domanda3" value="0"></input>
+							<label for="d12" style="grid-area: d;">Qualità che permettere di distinguere suoni alternati e suoni continui</label>
+						</form>
+					</section>
+					<section class="hide">
+						<h2>Cosa è il timbro del suono?</h2>
+						<form>
+							<input type="radio" id="d13" style="grid-area: a;" name="domanda4" value="1"></input>
+							<label for="d13" style="grid-area: a;">Qualità che permette di distingue la fonte da cui proviene un suono</label>
+							<input type="radio" id="d14" style="grid-area: b;" name="domanda4" value="0"></input>
+							<label for="d14" style="grid-area: b;">Qualità che permette di cambiare forma delle note</label>
+							<input type="radio" id="d15" style="grid-area: c;" name="domanda4" value="0"></input>
+							<label for="d15" style="grid-area: c;">Qualità che coincide con l'altezza</label>
+							<input type="radio" id="d16" style="grid-area: d;" name="domanda4" value="0"></input>
+							<label for="d16" style="grid-area: d;">Il timbro determina la qualità del suono</label>
+						</form>
+					</section>
+					<section class="hide">
+						<h2>Quanto vale il punto di valore?</h2>
+						<form>
+							<input type="radio" id="d17" style="grid-area: a;" name="domanda5" value="1"></input>
+							<label for="d17" style="grid-area: a;">Metà del valore della nota che lo precede</label>
+							<input type="radio" id="d18" style="grid-area: b;" name="domanda5" value="0"></input>
+							<label for="d18" style="grid-area: b;">Metà del valore della nota che lo succede</label>
+							<input type="radio" id="d19" style="grid-area: c;" name="domanda5" value="0"></input>
+							<label for="d19" style="grid-area: c;">Un terzo del valore della nota che lo precede</label>
+							<input type="radio" id="d20" style="grid-area: d;" name="domanda5" value="0"></input>
+							<label for="d20" style="grid-area: d;">Il doppio del valore della nota che lo precede</label>
+						</form>
+					</section>
+				</article>
+				<div class="buttons-container">
+					<div class="first-column">
+						<button type="button" id="back" class="btn-outlined" disabled>
+							Indietro <i class="btn-icon left fas fa-arrow-alt-circle-left"></i>
+						</button>
 					</div>
-					<hr />
-				</header>
-				<section class="show">
-					<h2>Quali sono le proprietà del suono?</h2>
-					<form>
-						<input type="radio" id="d1" style="grid-area: a;" name="domanda1" value="1"></input>
-						<label for="d1" style="grid-area: a;">Timbro - Intensità - Altezza</label>
-						<input type="radio" id="d2" style="grid-area: b;" name="domanda1" value="0"></input>
-						<label for="d2" style="grid-area: b;">Note - Aria - Strumento</label>
-						<input type="radio" id="d3" style="grid-area: c;" name="domanda1" value="0"></input>
-						<label for="d3" style="grid-area: c;">Timbro - Note - Aria</label>
-						<input type="radio" id="d4" style="grid-area: d;" name="domanda1" value="0"></input>
-						<label for="d4" style="grid-area: d;">Intensità - Altezza - Strumento</label>
-					</form>
-				</section>
-				<section class="hide">
-					<h2>Cos'è l'altezza del suono?</h2>
-					<form>
-						<input type="radio" id="d5" style="grid-area: a;" name="domanda2" value="1"></input>
-						<label for="d5" style="grid-area: a;">Qualità che permette di distinguere suoni acuti e suoni gravi</label>
-						<input type="radio" id="d6" style="grid-area: b;" name="domanda2" value="0"></input>
-						<label for="d6" style="grid-area: b;">Qualità che permette di capire da quale strumento proviene</label>
-						<input type="radio" id="d7" style="grid-area: c;" name="domanda2" value="0"></input>
-						<label for="d7" style="grid-area: c;">Strumento che permette di misurare il suono</label>
-						<input type="radio" id="d8" style="grid-area: d;" name="domanda2" value="0"></input>
-						<label for="d8" style="grid-area: d;">Qualità che permette di distinguere suoni non precisi</label>
-					</form>
-				</section>
-				<section class="hide">
-					<h2>Cosa è l'intensità del suono?</h2>
-					<form>
-						<input type="radio" id="d9" style="grid-area: a;" name="domanda3" value="1"></input>
-						<label for="d9" style="grid-area: a;">Qualità che permette di distinguere suoni forti e suoni deboli</label>
-						<input type="radio" id="d10" style="grid-area: b;" name="domanda3" value="0"></input>
-						<label for="d10" style="grid-area: b;">Qualità che specifica la forza</label>
-						<input type="radio" id="d11" style="grid-area: c;" name="domanda3" value="0"></input>
-						<label for="d11" style="grid-area: c;">Qualità che viene chiamata anche volume</label>
-						<input type="radio" id="d12" style="grid-area: d;" name="domanda3" value="0"></input>
-						<label for="d12" style="grid-area: d;">Qualità che permettere di distinguere suoni alternati e suoni continui</label>
-					</form>
-				</section>
-				<section class="hide">
-					<h2>Cosa è il timbro del suono?</h2>
-					<form>
-						<input type="radio" id="d13" style="grid-area: a;" name="domanda4" value="1"></input>
-						<label for="d13" style="grid-area: a;">Qualità che permette di distingue la fonte da cui proviene un suono</label>
-						<input type="radio" id="d14" style="grid-area: b;" name="domanda4" value="0"></input>
-						<label for="d14" style="grid-area: b;">Qualità che permette di cambiare forma delle note</label>
-						<input type="radio" id="d15" style="grid-area: c;" name="domanda4" value="0"></input>
-						<label for="d15" style="grid-area: c;">Qualità che coincide con l'altezza</label>
-						<input type="radio" id="d16" style="grid-area: d;" name="domanda4" value="0"></input>
-						<label for="d16" style="grid-area: d;">Il timbro determina la qualità del suono</label>
-					</form>
-				</section>
-				<section class="hide">
-					<h2>Quanto vale il punto di valore?</h2>
-					<form>
-						<input type="radio" id="d17" style="grid-area: a;" name="domanda5" value="1"></input>
-						<label for="d17" style="grid-area: a;">Metà del valore della nota che lo precede</label>
-						<input type="radio" id="d18" style="grid-area: b;" name="domanda5" value="0"></input>
-						<label for="d18" style="grid-area: b;">Metà del valore della nota che lo succede</label>
-						<input type="radio" id="d19" style="grid-area: c;" name="domanda5" value="0"></input>
-						<label for="d19" style="grid-area: c;">Un terzo del valore della nota che lo precede</label>
-						<input type="radio" id="d20" style="grid-area: d;" name="domanda5" value="0"></input>
-						<label for="d20" style="grid-area: d;">Il doppio del valore della nota che lo precede</label>
-					</form>
-				</section>
-			</article>
-			<div class="buttons-container">
-				<div class="first-column">
-					<button type="button" id="back" class="btn-outlined" disabled>
-						Indietro <i class="btn-icon left fas fa-arrow-alt-circle-left"></i>
-					</button>
-				</div>
-				<div class="third-column">
-					<button type="button" id="next" class="btn">
-						Avanti <i class="btn-icon fas fa-arrow-circle-right"></i>
-					</button>
-					<button type="button" id="end" class="btn" onclick="quizVerify('home-teoria');" style="display: none;">
-						Verifica <i class="fas fa-check-circle"></i>
-					</button>
-					<button type="button" id="exit" class="btn" onclick="window.location.href='../../index.html?started=true&topic=home-teoria&to-home=true'" style="display: none;">
-						Esci <i class="btn-icon fas fa-running"></i>
-					</button>
+					<div class="third-column">
+						<button type="button" id="next" class="btn">
+							Avanti <i class="btn-icon fas fa-arrow-circle-right"></i>
+						</button>
+						<button type="button" id="end" class="btn" onclick="quizVerify('home-teoria');" style="display: none;">
+							Verifica <i class="fas fa-check-circle"></i>
+						</button>
+						<button type="button" id="exit" class="btn" onclick="window.location.href='../../index.html?started=true&topic=home-teoria&to-home=true'" style="display: none;">
+							Esci <i class="btn-icon fas fa-running"></i>
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>

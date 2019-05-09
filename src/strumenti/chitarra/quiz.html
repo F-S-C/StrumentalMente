@@ -107,109 +107,111 @@
 			<i class="fas fa-bars"></i>
 		</button>
 
-		<div class="content">
-			<article id="quiz_container">
-				<header>
-					<h1>Chitarra</h1>
-					<h2>Domande sulla chitarra</h2>
-					<div class="breadcrumbs-container">
-						<div class="breadcrumbs">
-							<button type="button" class="breadcrumb" onclick="showExitFromQuizDialog('./home-strumenti.html');">Strumenti</button>
-							<button type="button" class="breadcrumb" onclick="showExitFromQuizDialog('./teoria-chitarra.html');">Chitarra</button>
-							<span class="breadcrumb">Quiz</span>
+		<div>
+			<div class="content">
+				<article id="quiz_container">
+					<header>
+						<h1>Chitarra</h1>
+						<h2>Domande sulla chitarra</h2>
+						<div class="breadcrumbs-container">
+							<div class="breadcrumbs">
+								<button type="button" class="breadcrumb" onclick="showExitFromQuizDialog('./home-strumenti.html');">Strumenti</button>
+								<button type="button" class="breadcrumb" onclick="showExitFromQuizDialog('./teoria-chitarra.html');">Chitarra</button>
+								<span class="breadcrumb">Quiz</span>
+							</div>
 						</div>
+						<hr />
+					</header>
+					<section>
+						<h2>Quali sono i sistemi utili al funzionamento di una chitarra?</h2>
+						<form>
+							<input type="radio" id="d1" style="grid-area: a;" name="domanda1" value="1"></input>
+							<label for="d1" style="grid-area: a;">Sistema di amplificazione e produzione e
+								sistema di sostegno</label>
+							<input type="radio" id="d2" style="grid-area: b;" name="domanda1" value="0"></input>
+							<label for="d2" style="grid-area: b;">Sistema di amplificazione e
+								sistema di
+								produzione</label>
+							<input type="radio" id="d3" style="grid-area: c;" name="domanda1" value="0"></input>
+							<label for="d3" style="grid-area: c;">Sistema di produzione e sistema di sostegno</label>
+							<input type="radio" id="d4" style="grid-area: d;" name="domanda1" value="0"></input>
+							<label for="d4" style="grid-area: d;">Sistema di amplificazione e sistema di sostegno</label>
+						</form>
+					</section>
+					<section class="hide">
+						<h2>In cosa si differenziano la chitarra classica e la chitarra elettrica?</h2>
+						<form>
+							<input type="radio" id="d5" style="grid-area: a;" name="domanda2" value="1"></input>
+							<label for="d5" style="grid-area: a;">Forma – prezzo – suono </label>
+							<input type="radio" id="d6" style="grid-area: b;" name="domanda2" value="0"></input>
+							<label for="d6" style="grid-area: b;">Prezzo – materiale – manico</label>
+							<input type="radio" id="d7" style="grid-area: c;" name="domanda2" value="0"></input>
+							<label for="d7" style="grid-area: c;">Forma – paletta – suono</label>
+							<input type="radio" id="d8" style="grid-area: d;" name="domanda2" value="0"></input>
+							<label for="d8" style="grid-area: d;">Materiale – paletta – piroli</label>
+						</form>
+					</section>
+					<section class="hide">
+						<h2>Nel mondo classico, quale dito della mano destra non è utilizzato?</h2>
+						<form>
+							<input type="radio" id="d9" style="grid-area: a;" name="domanda3" value="1"></input>
+							<label for="d9" style="grid-area: a;">Mignolo</label>
+							<input type="radio" id="d10" style="grid-area: b;" name="domanda3" value="0"></input>
+							<label for="d10" style="grid-area: b;">Pollice</label>
+							<input type="radio" id="d11" style="grid-area: c;" name="domanda3" value="0"></input>
+							<label for="d11" style="grid-area: c;">Indice</label>
+							<input type="radio" id="d12" style="grid-area: d;" name="domanda3" value="0"></input>
+							<label for="d12" style="grid-area: d;">Medio</label>
+						</form>
+					</section>
+					<section class="hide">
+						<h2>Cosa indica il numero cerchiato in basso alla nota nel metodo Sagreras?</h2>
+						<form>
+							<input type="radio" id="d13" style="grid-area: a;" name="domanda4" value="1"></input>
+							<label for="d13" style="grid-area: a;">Il numero della corda da suonare</label>
+							<input type="radio" id="d14" style="grid-area: b;" name="domanda4" value="0"></input>
+							<label for="d14" style="grid-area: b;">Il numero del dito della mano destra</label>
+							<input type="radio" id="d15" style="grid-area: c;" name="domanda4" value="0"></input>
+							<label for="d15" style="grid-area: c;">Il numero del dito della mano sinistra</label>
+							<input type="radio" id="d16" style="grid-area: d;" name="domanda4" value="0"></input>
+							<label for="d16" style="grid-area: d;">Il numero del tasto da premere</label>
+						</form>
+					</section>
+					<section class="hide">
+						<h2>Da cosa è composto il giro armonico?</h2>
+						<form>
+							<input type="radio" id="d17" style="grid-area: a;" name="domanda5" value="1"></input>
+							<label for="d17" style="grid-area: a;">Quattro accordi costruiti su quattro gradi della scala
+								maggiore</label>
+							<input type="radio" id="d18" style="grid-area: b;" name="domanda5" value="0"></input>
+							<label for="d18" style="grid-area: b;">Cinque accordi costruiti su quattro gradi della scala
+								maggiore</label>
+							<input type="radio" id="d19" style="grid-area: c;" name="domanda5" value="0"></input>
+							<label for="d19" style="grid-area: c;">Sei accordi costruiti su sei gradi della scala
+								maggiore</label>
+							<input type="radio" id="d20" style="grid-area: d;" name="domanda5" value="0"></input>
+							<label for="d20" style="grid-area: d;">Quattro accordi costruiti su cinque gradi della scala
+								maggiore</label>
+						</form>
+					</section>
+				</article>
+				<div class="buttons-container">
+					<div class="first-column">
+						<button type="button" id="back" class="btn-outlined" disabled>
+							Indietro <i class="btn-icon left fas fa-arrow-alt-circle-left"></i>
+						</button>
 					</div>
-					<hr />
-				</header>
-				<section class="show">
-					<h2>Quali sono i sistemi utili al funzionamento di una chitarra?</h2>
-					<form>
-						<input type="radio" id="d1" style="grid-area: a;" name="domanda1" value="1"></input>
-						<label for="d1" style="grid-area: a;">Sistema di amplificazione e produzione e
-							sistema di sostegno</label>
-						<input type="radio" id="d2" style="grid-area: b;" name="domanda1" value="0"></input>
-						<label for="d2" style="grid-area: b;">Sistema di amplificazione e
-							sistema di
-							produzione</label>
-						<input type="radio" id="d3" style="grid-area: c;" name="domanda1" value="0"></input>
-						<label for="d3" style="grid-area: c;">Sistema di produzione e sistema di sostegno</label>
-						<input type="radio" id="d4" style="grid-area: d;" name="domanda1" value="0"></input>
-						<label for="d4" style="grid-area: d;">Sistema di amplificazione e sistema di sostegno</label>
-					</form>
-				</section>
-				<section class="hide">
-					<h2>In cosa si differenziano la chitarra classica e la chitarra elettrica?</h2>
-					<form>
-						<input type="radio" id="d5" style="grid-area: a;" name="domanda2" value="1"></input>
-						<label for="d5" style="grid-area: a;">Forma – prezzo – suono </label>
-						<input type="radio" id="d6" style="grid-area: b;" name="domanda2" value="0"></input>
-						<label for="d6" style="grid-area: b;">Prezzo – materiale – manico</label>
-						<input type="radio" id="d7" style="grid-area: c;" name="domanda2" value="0"></input>
-						<label for="d7" style="grid-area: c;">Forma – paletta – suono</label>
-						<input type="radio" id="d8" style="grid-area: d;" name="domanda2" value="0"></input>
-						<label for="d8" style="grid-area: d;">Materiale – paletta – piroli</label>
-					</form>
-				</section>
-				<section class="hide">
-					<h2>Nel mondo classico, quale dito della mano destra non è utilizzato?</h2>
-					<form>
-						<input type="radio" id="d9" style="grid-area: a;" name="domanda3" value="1"></input>
-						<label for="d9" style="grid-area: a;">Mignolo</label>
-						<input type="radio" id="d10" style="grid-area: b;" name="domanda3" value="0"></input>
-						<label for="d10" style="grid-area: b;">Pollice</label>
-						<input type="radio" id="d11" style="grid-area: c;" name="domanda3" value="0"></input>
-						<label for="d11" style="grid-area: c;">Indice</label>
-						<input type="radio" id="d12" style="grid-area: d;" name="domanda3" value="0"></input>
-						<label for="d12" style="grid-area: d;">Medio</label>
-					</form>
-				</section>
-				<section class="hide">
-					<h2>Cosa indica il numero cerchiato in basso alla nota nel metodo Sagreras?</h2>
-					<form>
-						<input type="radio" id="d13" style="grid-area: a;" name="domanda4" value="1"></input>
-						<label for="d13" style="grid-area: a;">Il numero della corda da suonare</label>
-						<input type="radio" id="d14" style="grid-area: b;" name="domanda4" value="0"></input>
-						<label for="d14" style="grid-area: b;">Il numero del dito della mano destra</label>
-						<input type="radio" id="d15" style="grid-area: c;" name="domanda4" value="0"></input>
-						<label for="d15" style="grid-area: c;">Il numero del dito della mano sinistra</label>
-						<input type="radio" id="d16" style="grid-area: d;" name="domanda4" value="0"></input>
-						<label for="d16" style="grid-area: d;">Il numero del tasto da premere</label>
-					</form>
-				</section>
-				<section class="hide">
-					<h2>Da cosa è composto il giro armonico?</h2>
-					<form>
-						<input type="radio" id="d17" style="grid-area: a;" name="domanda5" value="1"></input>
-						<label for="d17" style="grid-area: a;">Quattro accordi costruiti su quattro gradi della scala
-							maggiore</label>
-						<input type="radio" id="d18" style="grid-area: b;" name="domanda5" value="0"></input>
-						<label for="d18" style="grid-area: b;">Cinque accordi costruiti su quattro gradi della scala
-							maggiore</label>
-						<input type="radio" id="d19" style="grid-area: c;" name="domanda5" value="0"></input>
-						<label for="d19" style="grid-area: c;">Sei accordi costruiti su sei gradi della scala
-							maggiore</label>
-						<input type="radio" id="d20" style="grid-area: d;" name="domanda5" value="0"></input>
-						<label for="d20" style="grid-area: d;">Quattro accordi costruiti su cinque gradi della scala
-							maggiore</label>
-					</form>
-				</section>
-			</article>
-			<div class="buttons-container">
-				<div class="first-column">
-					<button type="button" id="back" class="btn-outlined" disabled>
-						Indietro <i class="btn-icon left fas fa-arrow-alt-circle-left"></i>
-					</button>
-				</div>
-				<div class="third-column">
-					<button type="button" id="next" class="btn">
-						Avanti <i class="btn-icon fas fa-arrow-circle-right"></i>
-					</button>
-					<button type="button" id="end" class="btn" onclick="quizVerify('teoria-chitarra');" style="display: none;">
-						Verifica <i class="fas fa-check-circle"></i>
-					</button>
-					<button type="button" id="exit" class="btn" onclick="window.location.href='../../index.html?started=true&topic=teoria-chitarra&to-home=true'" style="display: none;">
-						Esci <i class="btn-icon fas fa-running"></i>
-					</button>
+					<div class="third-column">
+						<button type="button" id="next" class="btn">
+							Avanti <i class="btn-icon fas fa-arrow-circle-right"></i>
+						</button>
+						<button type="button" id="end" class="btn" onclick="quizVerify('teoria-chitarra');" style="display: none;">
+							Verifica <i class="fas fa-check-circle"></i>
+						</button>
+						<button type="button" id="exit" class="btn" onclick="window.location.href='../../index.html?started=true&topic=teoria-chitarra&to-home=true'" style="display: none;">
+							Esci <i class="btn-icon fas fa-running"></i>
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>

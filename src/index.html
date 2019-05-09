@@ -17,12 +17,12 @@
 	<meta name="robots" content="index, follow">
 </head>
 
-<body>
+<body class="hide">
 	<header>
 		<div id="titlebar">
 			<div id="drag-region">
 				<div id="window-title">
-					<img id="window-title-image" src="./assets/icon.ico" alt="Icona" />
+					<img class="hide" onload="this.className = 'show';" id="window-title-image" src="./assets/icon.ico" alt="Icona" />
 					<span id="window-title-text">StrumentalMente</span>
 				</div>
 				<div id="window-controls">
@@ -139,7 +139,7 @@
 					Rilasciato sotto la
 					licenza <a class="external" onclick="openInBrowser('https:\/\/www.apache.org\/licenses\/LICENSE-2.0');" href="javascript:void(0);">Apache
 						2.0</a>.</p>
-				<img src="./assets/images/fsc-logo-svg.svg" />
+				<img class="hide" onload="this.className = 'show';" src="./assets/images/fsc-logo-svg.svg" />
 			</footer>
 		</nav>
 		<button type="button" id="sidebar-controller" onclick="openMobileNavigation();">
@@ -155,6 +155,10 @@
 	<script src="./assets/js/main.js"></script>
 	<script src="./assets/js/vendor/jquery.maphilight.js"></script>
 	<script>
+		document.body.onload = () => {
+			document.body.className = 'show';
+		};
+
 		let landingContainer = document.getElementById("landing-container");
 
 		var params = (new URL(location.href)).searchParams;
@@ -179,8 +183,9 @@
 				.filter(btn => btn.getAttribute("onclick").includes("openPage") && btn.getAttribute("onclick").includes(generalTopic))[0];
 			navbutton && navbutton.click();
 
-			if (!params.has("to-home") || params.get("to-home") == "false"){
-				document.getElementById("content-frame").src = params.get("topic");}
+			if (!params.has("to-home") || params.get("to-home") == "false") {
+				document.getElementById("content-frame").src = params.get("topic");
+			}
 		}
 
 		function startApp() {
@@ -201,6 +206,55 @@
 			elem = document.getElementById("bibliography").getElementsByTagName("summary")[0];
 			bibliographyHidden = !bibliographyHidden;
 			elem.innerHTML = (bibliographyHidden) ? "Mostra la bibliografia." : "Nascondi la bibliografia.";
+		}
+
+		function openFromMap(target) {
+			document.getElementById("dialog-close-button").click();
+			switch (target) {
+				case "index":
+					parent.document.querySelector("#home-nav-link>button").click();
+					break;
+				case "teoria":
+					parent.document.querySelector("#theory-nav-link>button").click();
+					break;
+				case "strumenti":
+					parent.document.querySelector("#instruments-nav-link>button").click();
+					break;
+				case "chitarra":
+					warnIfIncomplete('base', 'teoria base', 'agli strumenti', () => { parent.window.location.href = "./index.html?started=true&topic=./teoria-chitarra.html&to-home=false"; });
+					break;
+				case "basso":
+					warnIfIncomplete('base', 'teoria base', 'agli strumenti', () => { parent.window.location.href = "./index.html?started=true&topic=./teoria-basso.html&to-home=false"; });
+					break;
+				case "batteria":
+					warnIfIncomplete('base', 'teoria base', 'agli strumenti', () => { parent.window.location.href = "./index.html?started=true&topic=./teoria-batteria.html&to-home=false"; });
+					break;
+				case "piano":
+					warnIfIncomplete('base', 'teoria base', 'agli strumenti', () => { parent.window.location.href = "./index.html?started=true&topic=./teoria-piano.html&to-home=false"; });
+					break;
+				case "accordi":
+					parent.document.querySelector("#chords-nav-link>button").click();
+					break;
+				case "accordi-chitarra":
+					warnIfIncomplete('chitarra', 'teoria della chitarra', 'agli accordi della chitarra', () => { parent.window.location.href = "./index.html?started=true&topic=./accordi-chitarra.html&to-home=false"; });
+					break;
+				case "accordi-basso":
+					warnIfIncomplete('basso', 'teoria del basso', 'agli accordi del basso', () => { parent.window.location.href = "./index.html?started=true&topic=./accordi-basso.html&to-home=false"; });
+					break;
+				case "accordi-piano":
+					warnIfIncomplete('piano', 'teoria del pianoforte', 'agli accordi del pianoforte', () => { parent.window.location.href = "./index.html?started=true&topic=./accordi-piano.html&to-home=false"; });
+					break;
+				case "profilo":
+					parent.document.querySelector("#profile-nav-link>button").click();
+					break;
+				case "about":
+					openModal("./about.html");
+					break;
+
+				default:
+					console.error("Impossibile trovare l'argomento selezionato");
+					break;
+			}
 		}
 	</script>
 </body>

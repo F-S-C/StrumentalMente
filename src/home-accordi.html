@@ -20,7 +20,7 @@
 	<div class="topic-wrapper">
 		<div class="content">
 			<article class="fill">
-				<header>
+				<header class="show">
 					<h1>Accordi</h1>
 					<h2>Come si suonano gli accordi</h2>
 					<hr />
@@ -44,7 +44,7 @@
 				<button class="card-horizontal-alt" style="grid-column: 1; grid-row: 1;" onclick="warnIfIncomplete('piano', 'teoria del pianoforte', 'agli accordi del pianoforte', () => { parent.window.history.replaceState(null,null,'?started=true&topic=./accordi-piano.html'); window.location.href='./accordi-piano.html'; });" title="Apri gli accordi del pianoforte (Alt+A P)">
 					<div class="card-stacked">
 						<div class="card-content">
-							<img src="./assets/images/piano11.jpg" />
+							<img class="hide" onload="this.className = 'show';" src="./assets/images/piano11.jpg" />
 						</div>
 						<div class="card-action">
 							<span class="btn-text">Accordi del pianoforte</span>
@@ -54,7 +54,7 @@
 				<button class="card-horizontal-alt" style="grid-column: 2; grid-row: 1;" onclick="warnIfIncomplete('chitarra', 'teoria della chitarra', 'agli accordi della chitarra', () => { parent.window.history.replaceState(null,null,'?started=true&topic=./accordi-chitarra.html'); window.location.href='./accordi-chitarra.html'; });" title="Apri gli accordi della chitarra (Alt+A C)">
 					<div class="card-stacked">
 						<div class="card-content">
-							<img src="./assets/images/chitarra11.jpg">
+							<img class="hide" onload="this.className = 'show';" src="./assets/images/chitarra11.jpg">
 						</div>
 						<div class="card-action">
 							<span class="btn-text">Accordi della chitarra</span>
@@ -65,7 +65,7 @@
 				<button class="card-horizontal-alt" style="grid-column: 3; grid-row: 1;" onclick="warnIfIncomplete('basso', 'teoria del basso', 'agli accordi del basso', () => { parent.window.history.replaceState(null,null,'?started=true&topic=./accordi-basso.html'); window.location.href='./accordi-basso.html'; });" title="Apri gli accordi del basso (Alt+A B)">
 					<div class="card-stacked">
 						<div class="card-content">
-							<img src="./assets/images/basso11.jpg">
+							<img class="hide" onload="this.className = 'show';" src="./assets/images/basso11.jpg">
 						</div>
 						<div class="card-action">
 							<span class="btn-text">Accordi del basso</span>
