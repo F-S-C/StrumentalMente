@@ -68,8 +68,10 @@ let isBlindAudioEnded = false;
  */
 function updateBlindAudio(newSource) {
 	let iFrame = parent.document.getElementById("content-frame");
-	let iFrameDocument = iFrame.contentWindow || iFrame.contentDocument;
-	let audio = iFrameDocument.document.getElementById("blind-audio");
+	let iFrameDocument = iFrame.contentWindow.document || iFrame.contentDocument;
+	iFrame = iFrameDocument.getElementById("topic-frame");
+	iFrameDocument = iFrame.contentWindow.document || iFrame.contentDocument;
+	let audio = iFrameDocument.getElementById("blind-audio");
 	let paused = audio.paused && !audio.ended;
 	audio.pause();
 	audio.src = newSource ? newSource : audio.src;
