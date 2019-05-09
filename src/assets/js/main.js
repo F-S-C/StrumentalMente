@@ -113,8 +113,10 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
 		element && audioSourcesList.push(element.src);
 	}
 
-	if (iFrameDocument.getElementById("list") == undefined)
+	if (iFrameDocument.getElementById("list") == undefined) {
 		iFrameDocument.getElementsByTagName("section")[0].className = "";
+		updateBlindAudio(audioSourcesList[0]);
+	}
 	iFrameDocument.getElementById("max-topic-slides").innerHTML = numberOfSections;
 	iFrameDocument.getElementById("current-topic-slide").innerHTML = currentSection + 1;
 	let updateCurrentSlide = (delta) => {
@@ -318,6 +320,21 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
  * @param {String} [base] La cartella in cui è situato il file dell'argomento
  */
 function changeTopic(topicName, base = "./") {
+	let iFrame2 = document.getElementById("topic-frame");;
+	let iFrameDocument = iFrame2.contentWindow.document || iFrame2.contentDocument;
+	let audio = iFrameDocument.getElementById("blind-audio");
+	if (audio) {
+		let paused = audio.paused && !audio.ended;
+		setTimeout(() => {
+			let iFrame2 = document.getElementById("topic-frame");;
+			let iFrameDocument = iFrame2.contentWindow.document || iFrame2.contentDocument;
+			if (!paused || isBlindAudioEnded) {
+				let btn = iFrameDocument.getElementById("play-blind-audio");
+				btn && btn.click();
+			}
+		}, 300);
+	}
+
 	var iFrame = document.getElementById("topic-frame");
 	currentSection = 0;
 	parent.document.activeElement.blur();
