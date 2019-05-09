@@ -11,10 +11,7 @@ class Chord {
 	constructor(nome, dita, tasto_iniziale) {
 		this.nome = nome;
 		this.dita = dita;
-		if (tasto_iniziale != undefined)
-			this.tasto_iniziale = tasto_iniziale;
-		else
-			this.tasto_iniziale = 0;
+		this.tasto_iniziale = tasto_iniziale || 0;
 	}
 }
 
