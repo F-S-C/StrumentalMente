@@ -208,5 +208,25 @@ function correct_chord() {
 			}
 		} else
 			document.getElementsByName("errato")[j].innerHTML = "Corretto";
+		document.getElementsByName("barre")[j].style.display = "none";
+	}
+}
+
+/**
+ * Seleziona (o deseleziona) tutte le checkbox della prima colonna nell'accordo j-esimo (passato come 
+ * parametro) in base al valore della prima checkbox dell'accordo j-esimo, ovvero: se il valore della
+ * prima checkbox è true (selezionato) deseleziona tutta la colonna, se è false la seleziona.
+ */
+function selectFirstColumn(j) {
+	box = document.getElementsByName("chord")[j];
+	b = !box.getElementsByTagName("input")[0].checked;
+	if (!b)
+		document.getElementsByName("barre")[j].innerHTML = "Applica il Barrè";
+	else
+		document.getElementsByName("barre")[j].innerHTML = "Rimuovi il Barrè";
+
+	for (i = 0; i < 21; i++) {
+		if (i % 4 == 0)
+			box.getElementsByTagName("input")[i].checked = b;
 	}
 }
