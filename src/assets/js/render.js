@@ -394,8 +394,11 @@ function setShortcuts(doc = document) {
 			let btn = document.getElementById("play-blind-audio");
 			if (!btn) {
 				let iFrame = document.getElementById("content-frame");
-				let iFrameDocument = iFrame.contentWindow || iFrame.contentDocument;
-				btn = iFrameDocument.document.getElementById("play-blind-audio");
+				let iFrameDocument = iFrame && (iFrame.contentWindow.document || iFrame.contentDocument);
+				iFrame && (iFrame = iFrameDocument.getElementById("topic-frame"));
+				iFrame && (iFrameDocument = iFrame.contentWindow.document || iFrame.contentDocument);
+
+				iFrame && (btn = iFrameDocument.getElementById("play-blind-audio"));
 			}
 			btn && btn.click();
 		});
