@@ -12,23 +12,39 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="description" content="StrumentalMente - Dove la musica diventa semplice." />
-	<meta name="keywords" content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
+	<meta name="keywords"
+		  content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
 	<meta name="author" content="FSC" />
 	<meta name="robots" content="index, follow">
 </head>
 
-<body onload="window.parent.setLinks(20, { previous: 'Alterazioni', previousLink: 'avanzata/alterazioni', next: 'Gli intervalli', nextLink: 'avanzata/intervalli' });">
+<body
+	  onload="window.parent.setLinks(20, { previous: 'Alterazioni', previousLink: 'avanzata/alterazioni', next: 'Gli intervalli', nextLink: 'avanzata/intervalli' });">
 	<div class="topic-wrapper">
 		<div class="content">
 			<article>
 				<header class="show">
+					<div class="blind-audio-buttons">
+						<button type="button" aria-label="Metti in play/pausa l'audio del lettore" id="play-blind-audio"
+								onclick="playStopAudio('blind-audio', this, 'stop-blind-audio');"
+								class="btn-audio btn-accessibility">
+							<i class="fas fa-universal-access"></i>
+						</button>
+						<button type="button" id="stop-blind-audio" class="btn-audio audio-reload"
+								style="display: none;">
+							<i class="fas fa-undo"></i>
+						</button>
+					</div>
 					<h1>Do maggiore e La minore</h1>
 					<h2>Le scale modello di Do maggiore e La minore</h2>
+					<audio id="blind-audio" src="../../assets/audios/vocals/teoria/avanzata/domagg-lamin.wav"></audio>
 					<div class="breadcrumbs-container">
 						<div class="breadcrumbs">
-							<button type="button" class="breadcrumb" onclick="window.parent.location.href = '../../home-teoria.html';">Teoria</button>
+							<button type="button" class="breadcrumb"
+									onclick="window.parent.location.href = '../../home-teoria.html';">Teoria</button>
 							<span class="breadcrumb">Avanzata</span>
-							<span class="breadcrumb">Do maggiore e La minore (pag. <span id="current-topic-slide">1</span> di <span id="max-topic-slides">1</span>)</span>
+							<span class="breadcrumb">Do maggiore e La minore (pag. <span
+									  id="current-topic-slide">1</span> di <span id="max-topic-slides">1</span>)</span>
 						</div>
 						<div class="page-container">
 							Pag. <span id="current-slide-number">20</span> / <span id="total-slides-number">25</span>
@@ -37,6 +53,7 @@
 					<hr />
 				</header>
 				<section class="hide">
+					<audio id="blind-audio" src="../../assets/audios/vocals/teoria/avanzata/domagg-lamin.wav"></audio>
 					<p>Come è già stato detto, la scala musicale è una
 						successione di sette note (chiamate gradi) comprese tra il
 						suono iniziale e l’ottavo suono, che altro non è che

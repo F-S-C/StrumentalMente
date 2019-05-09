@@ -12,23 +12,39 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="description" content="StrumentalMente - Dove la musica diventa semplice." />
-	<meta name="keywords" content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
+	<meta name="keywords"
+		  content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
 	<meta name="author" content="FSC" />
 	<meta name="robots" content="index, follow">
 </head>
 
-<body onload="window.parent.setLinks(17, { previous: 'Lista degli argomenti', previousLink: 'argomenti', next: 'Alterazioni', nextLink: 'avanzata/alterazioni' });">
+<body
+	  onload="window.parent.setLinks(17, { previous: 'Lista degli argomenti', previousLink: 'argomenti', next: 'Alterazioni', nextLink: 'avanzata/alterazioni' });">
 	<div class="topic-wrapper">
 		<div class="content">
 			<article>
 				<header class="show">
+					<div class="blind-audio-buttons">
+						<button type="button" aria-label="Metti in play/pausa l'audio del lettore" id="play-blind-audio"
+								onclick="playStopAudio('blind-audio', this, 'stop-blind-audio');"
+								class="btn-audio btn-accessibility">
+							<i class="fas fa-universal-access"></i>
+						</button>
+						<button type="button" id="stop-blind-audio" class="btn-audio audio-reload"
+								style="display: none;">
+							<i class="fas fa-undo"></i>
+						</button>
+					</div>
 					<h1>Tono e semitono</h1>
 					<h2>Intervallo musicale: tono e semitono</h2>
+					<audio id="blind-audio" src="../../assets/audios/vocals/teoria/avanzata/tono-semitono.wav"></audio>
 					<div class="breadcrumbs-container">
 						<div class="breadcrumbs">
-							<button type="button" class="breadcrumb" onclick="window.parent.location.href = '../../home-teoria.html';">Teoria</button>
+							<button type="button" class="breadcrumb"
+									onclick="window.parent.location.href = '../../home-teoria.html';">Teoria</button>
 							<span class="breadcrumb">Avanzata</span>
-							<span class="breadcrumb">Tono e semitono (pag. <span id="current-topic-slide">1</span> di <span id="max-topic-slides">1</span>)</span>
+							<span class="breadcrumb">Tono e semitono (pag. <span id="current-topic-slide">1</span> di
+								<span id="max-topic-slides">1</span>)</span>
 						</div>
 						<div class="page-container">
 							Pag. <span id="current-slide-number">17</span> / <span id="total-slides-number">25</span>
@@ -37,6 +53,7 @@
 					<hr />
 				</header>
 				<section class="hide">
+					<audio id="blind-audio" src="../../assets/audios/vocals/teoria/avanzata/tono-semitono.wav"></audio>
 					<p>Come già detto, la scala musicale è formata da una
 						successione di sette note (dette anche gradi) che
 						procedono per gradi congiunti.</p>

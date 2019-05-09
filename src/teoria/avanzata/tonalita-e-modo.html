@@ -12,23 +12,40 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="description" content="StrumentalMente - Dove la musica diventa semplice." />
-	<meta name="keywords" content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
+	<meta name="keywords"
+		  content="StrumentalMente, strumentale, musica, mente, strumenti, imparare, alessi, trollip, multimedia" />
 	<meta name="author" content="FSC" />
 	<meta name="robots" content="index, follow">
 </head>
 
-<body onload="window.parent.setLinks(23, { previous: 'Diatonico e Cromatico', previousLink: 'avanzata/tono-semitono-diatonico-e-cromatico', next: 'L\'accordo tonale', nextLink: 'avanzata/accordo-tonale' });">
+<body
+	  onload="window.parent.setLinks(23, { previous: 'Diatonico e Cromatico', previousLink: 'avanzata/tono-semitono-diatonico-e-cromatico', next: 'L\'accordo tonale', nextLink: 'avanzata/accordo-tonale' });">
 	<div class="topic-wrapper">
 		<div class="content">
 			<article>
 				<header class="show">
+					<div class="blind-audio-buttons">
+						<button type="button" aria-label="Metti in play/pausa l'audio del lettore" id="play-blind-audio"
+								onclick="playStopAudio('blind-audio', this, 'stop-blind-audio');"
+								class="btn-audio btn-accessibility">
+							<i class="fas fa-universal-access"></i>
+						</button>
+						<button type="button" id="stop-blind-audio" class="btn-audio audio-reload"
+								style="display: none;">
+							<i class="fas fa-undo"></i>
+						</button>
+					</div>
 					<h1>Tonalità e modo</h1>
 					<h2>Cos’è la tonalità</h2>
+					<audio id="blind-audio"
+						   src="../../assets/audios/vocals/teoria/avanzata/tonalita-modo-1.wav"></audio>
 					<div class="breadcrumbs-container">
 						<div class="breadcrumbs">
-							<button type="button" class="breadcrumb" onclick="window.parent.location.href = '../../home-teoria.html';">Teoria</button>
+							<button type="button" class="breadcrumb"
+									onclick="window.parent.location.href = '../../home-teoria.html';">Teoria</button>
 							<span class="breadcrumb">Avanzata</span>
-							<span class="breadcrumb">Tonalità e modo (pag. <span id="current-topic-slide">1</span> di <span id="max-topic-slides">1</span>)</span>
+							<span class="breadcrumb">Tonalità e modo (pag. <span id="current-topic-slide">1</span> di
+								<span id="max-topic-slides">1</span>)</span>
 						</div>
 						<div class="page-container">
 							Pag. <span id="current-slide-number">23</span> / <span id="total-slides-number">25</span>
@@ -37,16 +54,19 @@
 					<hr />
 				</header>
 				<section class="hide">
+					<audio id="blind-audio" src="../../assets/audios/vocals/teoria/avanzata/tonalita-modo-1.wav"></audio>
 					<p>Qualsiasi brano musicale, pur nella libertà assoluta,
 						tende a gravitare e ad appoggiarsi, durante lo svolgimento,
 						su un particolare suono che viene chiamato
 						<strong>tonica</strong>, nota su cui il brano stesso si
 						conclude.</p>
 					<figure class="center" style="width:50%">
-						<img class="hide" onload="this.className = 'show';" src="../../assets/images/tonalità.jpg" alt="Tonalità">
+						<img class="hide" onload="this.className = 'show';" src="../../assets/images/tonalità.jpg"
+							 alt="Tonalità">
 					</figure>
 				</section>
 				<section class="hide">
+					<audio id="blind-audio" src="../../assets/audios/vocals/teoria/avanzata/tonalita-modo-2.wav"></audio>
 					<p>Per <strong>tonalità</strong> si intende
 						l’atteggiarsi dei suoni in rapporto al suono
 						fondamentale, cioè la tonica, che, oltre ad essere al centro
