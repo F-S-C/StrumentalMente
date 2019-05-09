@@ -53,7 +53,7 @@ function quizVerify(return_link) {
 
 function quizCompare() {
 	document.getElementsByTagName("section")[document.getElementsByTagName("section").length - 1].className = "hide";
-	document.getElementsByTagName("section")[0].className = "show";
+	document.getElementsByTagName("section")[0].className = "";
 	document.getElementById("next").style.display = "inline-block";
 	document.getElementsByClassName("question-link")[document.getElementsByClassName("question-link").length - 1].className = "question-link";
 	document.getElementsByClassName("question-link")[0].className = "question-link active";
