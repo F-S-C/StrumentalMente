@@ -322,8 +322,8 @@ function initialize(initial, base = "./", totalNumberOfSlides = undefined) {
  * @param {String} [base] La cartella in cui è situato il file dell'argomento
  */
 function changeTopic(topicName, base = "./") {
-	let iFrame2 = document.getElementById("topic-frame");;
-	let iFrameDocument = iFrame2.contentWindow.document || iFrame2.contentDocument;
+	let iFrame = document.getElementById("topic-frame");
+	let iFrameDocument = iFrame.contentWindow.document || iFrame.contentDocument;
 	let audio = iFrameDocument.getElementById("blind-audio");
 	if (audio) {
 		let paused = audio.paused && !audio.ended;
@@ -332,12 +332,19 @@ function changeTopic(topicName, base = "./") {
 			let iFrameDocument = iFrame2.contentWindow.document || iFrame2.contentDocument;
 			if (!paused || isBlindAudioEnded) {
 				let btn = iFrameDocument.getElementById("play-blind-audio");
-				btn && btn.click();
+
+				// Se l'audio della nuova pagina risulta in pausa, deve essere
+				// attivato. Questa controllo è effettuato per evitare che
+				// l'audio si blocchi inaspettatamente. È effettuato inoltre un
+				// controllo aggiuntivo per evitare di eseguire l'operazione se
+				// la nuova pagina non prevede un audio per non vedenti.
+				let newAudio = iFrameDocument.getElementById("blind-audio");
+				if (newAudio && newAudio.paused) // se il nuovo audio risulta in pausa...
+					btn && btn.click(); // ...attivalo premendo il bottone "play"
 			}
 		}, 300);
 	}
 
-	var iFrame = document.getElementById("topic-frame");
 	currentSection = 0;
 	parent.document.activeElement.blur();
 	const path = (typeof parent.require !== 'undefined') && parent.require("path");
