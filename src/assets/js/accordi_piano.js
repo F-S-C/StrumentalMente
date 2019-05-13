@@ -1,18 +1,7 @@
 var selezionato = new Array();
 var corretto = new Array(5);
-/**
- * Classe accordo.
- * @param {String} nome Stringa che indica il nome dell'accordo
- * @param {Boolean} dita Sequenza di valori logici che indicano se la checkbox corrispondente è
- * stata selezionata o meno
- * @param {number} tasto_iniziale Indica il numero del capotasto iniziale dell'accordo
- */
-class accordo {
-	constructor(nome, dita) {
-		this.nome = nome;
-		this.dita = dita;
-	}
-}
+
+const accordo = window.parent.require("../../assets/js/chord-module");
 
 var accordi = [
 	new accordo("Do", [true, false, true, false, true, false, false,
@@ -29,39 +18,39 @@ var accordi = [
 		false, false, false, false, false]),
 	new accordo("Re#", [false, false, false, false, true, false, false,
 		false, true, false, false, true]),
-	new accordo("Re#m", [false, false, false, false, false, false, false,
+	new accordo("Re#-", [false, false, false, false, false, false, false,
 		false, true, true, false, true]),
 	new accordo("Mi", [false, false, true, false, false, false, true,
 		false, false, false, true, false]),
-	new accordo("Mim", [false, false, true, false, true, false, true,
+	new accordo("Mi-", [false, false, true, false, true, false, true,
 		false, false, false, false, false]),
 	new accordo("Fa", [true, false, false, true, false, true, false,
 		false, false, false, false, false]),
-	new accordo("Fam", [true, false, false, true, false, false, false,
+	new accordo("Fa-", [true, false, false, true, false, false, false,
 		false, false, false, true, false]),
 	new accordo("Fa#", [false, false, false, false, false, false, false,
 		true, false, true, false, true]),
-	new accordo("Fa#m", [false, false, false, false, false, true, false,
+	new accordo("Fa#-", [false, false, false, false, false, true, false,
 		true, false, true, false, false]),
 	new accordo("Sol", [false, true, false, false, true, false, true,
 		false, false, false, false, false]),
-	new accordo("Solm", [false, true, false, false, true, false, false,
+	new accordo("Sol-", [false, true, false, false, true, false, false,
 		false, false, false, false, true]),
 	new accordo("Sol#", [true, false, false, false, false, false, false,
 		false, true, false, true, false]),
-	new accordo("Sol#m", [false, false, false, false, false, false, true,
+	new accordo("Sol#-", [false, false, false, false, false, false, true,
 		false, true, false, true, false]),
 	new accordo("La", [false, false, true, false, false, true, false,
 		true, false, false, false, false]),
-	new accordo("Lam", [true, false, true, false, false, true, false,
+	new accordo("La-", [true, false, true, false, false, true, false,
 		false, false, false, false, false]),
 	new accordo("La#", [false, true, false, true, false, false, false,
 		false, false, false, false, true]),
-	new accordo("La#m", [false, false, false, true, false, false, false,
+	new accordo("La#-", [false, false, false, true, false, false, false,
 		true, false, false, false, true]),
 	new accordo("Si", [false, false, false, false, false, false, true,
 		false, true, true, false, false]),
-	new accordo("Sim", [false, true, false, false, false, false, true,
+	new accordo("Si-", [false, true, false, false, false, false, true,
 		false, false, true, false, false]),
 ];
 

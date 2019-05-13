@@ -1,19 +1,7 @@
 var selezionato = new Array();
 var corretto = new Array(5);
-/**
- * Classe accordo.
- * @param {String} nome Stringa che indica il nome dell'accordo
- * @param {Boolean} dita Sequenza di valori logici che indicano se la checkbox corrispondente è
- * stata selezionata o meno
- * @param {number} tasto_iniziale Indica il numero del capotasto iniziale dell'accordo
- */
-class accordo {
-	constructor(nome, dita, tasto_iniziale) {
-		this.nome = nome;
-		this.dita = dita;
-		this.tasto_iniziale = tasto_iniziale;
-	}
-}
+
+const accordo = window.parent.require("../../assets/js/chord-module");
 
 var accordi = [
 	new accordo("Do", [true, false, false, false,
