@@ -216,6 +216,7 @@ function correct_chord() {
  * Seleziona (o deseleziona) tutte le checkbox della prima colonna nell'accordo j-esimo (passato come 
  * parametro) in base al valore della prima checkbox dell'accordo j-esimo, ovvero: se il valore della
  * prima checkbox è true (selezionato) deseleziona tutta la colonna, se è false la seleziona.
+ * @param {number} j Indica il numero di slide su cui la funzione deve operare.
  */
 function selectFirstColumn(j) {
 	box = document.getElementsByName("chord")[j];
@@ -236,6 +237,11 @@ function selectFirstColumn(j) {
 	}
 }
 
+/**
+ * Modifica il nome del bottone che permette all'utente di applicare o rimuovere il barrè nei quiz
+ * in modo da renderlo coerente con lo stato delle checkbox.
+ * @param {number} j Indica il numero di slide su cui la funzione deve operare.
+ */
 function controlFirstColumn(j) {
 	box = document.getElementsByName("chord")[j];
 	b = box.getElementsByTagName("input")[0].checked &&
