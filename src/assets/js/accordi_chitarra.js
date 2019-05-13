@@ -219,7 +219,12 @@ function correct_chord() {
  */
 function selectFirstColumn(j) {
 	box = document.getElementsByName("chord")[j];
-	b = !box.getElementsByTagName("input")[0].checked;
+	b = !(box.getElementsByTagName("input")[0].checked &&
+		box.getElementsByTagName("input")[4].checked &&
+		box.getElementsByTagName("input")[8].checked &&
+		box.getElementsByTagName("input")[12].checked &&
+		box.getElementsByTagName("input")[16].checked &&
+		box.getElementsByTagName("input")[20].checked);
 	if (!b)
 		document.getElementsByName("barre")[j].innerHTML = "Applica il Barrè";
 	else
@@ -229,4 +234,18 @@ function selectFirstColumn(j) {
 		if (i % 4 == 0)
 			box.getElementsByTagName("input")[i].checked = b;
 	}
+}
+
+function controlFirstColumn(j) {
+	box = document.getElementsByName("chord")[j];
+	b = box.getElementsByTagName("input")[0].checked &&
+		box.getElementsByTagName("input")[4].checked &&
+		box.getElementsByTagName("input")[8].checked &&
+		box.getElementsByTagName("input")[12].checked &&
+		box.getElementsByTagName("input")[16].checked &&
+		box.getElementsByTagName("input")[20].checked;
+	if (!b)
+		document.getElementsByName("barre")[j].innerHTML = "Applica il Barrè";
+	else
+		document.getElementsByName("barre")[j].innerHTML = "Rimuovi il Barrè";
 }
