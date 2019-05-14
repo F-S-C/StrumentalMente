@@ -104,7 +104,9 @@ var accordi = [
 ];
 
 /**
- * Seleziona un numero casuale compreso tra 1 e 7 e ne imposta l'accordo da richiedere all'utente.
+ * Seleziona un numero casuale compreso tra 1 e 24 e ne sceglie il relativo accordo dall'array degli accordi,
+ * lo imposta come domanda nel quiz e lo inserisce in un altro array che contiene gli accordi "pescati", ripetendo
+ * il procedimento per le 5 domande totali richieste nel quiz.
  */
 function script_load() {
 	for (var i = 0; i < document.getElementsByName("chord").length; i++) {
@@ -123,8 +125,8 @@ function script_load() {
 
 /**
  * Verifica che le selezioni effettuate dall'utente siano corrette in base all'accordo presentatogli e
- * memorizza: se la selezione è corretta (1) o non corretta (0), le checkbox selezionate (e non) e 
- * l'accordo che l'utente doveva riprodurre.
+ * memorizza in un array se la selezione è corretta (1) o non corretta (0), disabilita le checkbox analizzate
+ * e aumenta il punteggio (in caso di accordo corretto).
  */
 function verify_and_store() {
 	for (var j = 0; j < document.getElementsByName("chord").length; j++) {
@@ -144,7 +146,7 @@ function verify_and_store() {
 
 /**
  * In base al numero di accordo che l'utente doveva riprodurre, ripristina la sequenza di selezioni
- * corretta nello schema.
+ * corretta negli schemi e ne blocca le modifiche.
  */
 function correct_chord() {
 	for (var j = 0; j < document.getElementsByName("chord").length; j++) {

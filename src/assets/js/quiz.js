@@ -1,6 +1,12 @@
 var quiz_id = "NULL";
 var compare = false;
 
+/**
+ * La funzione genera una permutazione casuale dei numeri naturali
+ * nell'intervallo [0,3]. Ogni numero è utilizato per indicizzare il vettore
+ * delle risposte (di ogni domanda), quindi la permutazione corrisponde alla
+ * permutazione delle risposte a ogni domanda.
+ */
 function generateRandomQuestions() {
 	var temp, trovato, v = [0, 0, 0, 0];
 	for (var k = 0; k < document.getElementsByTagName("section").length; k++) {
@@ -34,6 +40,13 @@ function generateRandomQuestions() {
 	}
 }
 
+/**
+* Funzione di caricamento dei quiz che inizializza il punteggio dell'utente, il punteggio massimo del
+* quiz e richiama la funzione inizializeQuiz. 
+* In caso di quiz che riguardano gli accordi, richiama la funzione di caricamento degli stessi.
+* @param {String} id Indica quale quiz si sta svolgendo per permettere al programma di 
+* memorizzarne l' esito.
+*/
 function quizLoad(id) {
 	quiz_id = id;
 	generateRandomQuestions();
@@ -44,6 +57,13 @@ function quizLoad(id) {
 	initializeQuiz();
 }
 
+/**
+* Richiama la funzione di Check delle risposte inoltre, se si tratta di un quiz che riguarda gli
+* accordi, richiama anche la funzione verify_and_store(). Infine visualizza la finestra di dialogo 
+* che mostra il punteggio ottenuto dall'utente su quello massimo del quiz e richiede se uscire dal
+* quiz o verificare le risposte date.
+* @param {String} return_link Indica in quale pagina si deve ritornare al completamento dei quiz.
+*/
 function quizVerify(return_link) {
 	answersCheck();
 	if (document.getElementsByName("chord")[0] != undefined)
@@ -51,6 +71,10 @@ function quizVerify(return_link) {
 	showQuizDialog(quiz_id, sessionStorage.getItem('score'), sessionStorage.getItem('score_max'), return_link);
 }
 
+/**
+ * Mostra gli eventuali errori commessi dall'utente mostrando le risposte corrette e le eventuali risposte sbagliate.
+ * Nel caso di un quiz sugli accordi, mostra l'accordo corretto al fianco di quello errato.
+ */
 function quizCompare() {
 	document.getElementsByTagName("section")[document.getElementsByTagName("section").length - 1].className = "hide";
 	document.getElementsByTagName("section")[0].className = "";
@@ -81,6 +105,10 @@ function quizCompare() {
 	}
 }
 
+/*
+* Verifica le risposte selezionate dall'utente con quelle corrette. In caso di risposta corretta
+* aumenta di 1 il punteggio ottenuto dall'utente.
+*/
 function answersCheck() {
 	var points = 0;
 	for (var i = 0; i < document.getElementsByTagName("form").length; i++) {
