@@ -3,15 +3,6 @@
 <dl>
 <dt><a href="#Main">Main</a></dt>
 <dd></dd>
-<dt><a href="#accordo">accordo</a></dt>
-<dd><p>Classe accordo.</p>
-</dd>
-<dt><a href="#accordo">accordo</a></dt>
-<dd><p>Classe accordo.</p>
-</dd>
-<dt><a href="#accordo">accordo</a></dt>
-<dd><p>Classe accordo.</p>
-</dd>
 </dl>
 
 # Functions
@@ -77,41 +68,77 @@ chiudi) che sono acessibili tramite la titlebar.</p>
 <dt><a href="#openModal">openModal(content, [options], [windowIcon])</a></dt>
 <dd><p>Apre una finestra modale mostrante il contenuto richiesto.</p>
 </dd>
+<dt><a href="#generateRandomQuestions">generateRandomQuestions()</a></dt>
+<dd><p>La funzione genera una permutazione casuale dei numeri naturali
+nell&#39;intervallo [0,3]. Ogni numero è utilizato per indicizzare il vettore
+delle risposte (di ogni domanda), quindi la permutazione corrisponde alla
+permutazione delle risposte a ogni domanda.</p>
+</dd>
+<dt><a href="#quizLoad">quizLoad(id)</a></dt>
+<dd><p>Funzione di caricamento dei quiz che inizializza il punteggio dell&#39;utente, il punteggio massimo del
+quiz e richiama la funzione inizializeQuiz. 
+In caso di quiz che riguardano gli accordi, richiama la funzione di caricamento degli stessi.</p>
+</dd>
+<dt><a href="#quizVerify">quizVerify(return_link)</a></dt>
+<dd><p>Richiama la funzione di Check delle risposte inoltre, se si tratta di un quiz che riguarda gli
+accordi, richiama anche la funzione verify_and_store(). Infine visualizza la finestra di dialogo 
+che mostra il punteggio ottenuto dall&#39;utente su quello massimo del quiz e richiede se uscire dal
+quiz o verificare le risposte date.</p>
+</dd>
+<dt><a href="#quizCompare">quizCompare()</a></dt>
+<dd><p>Mostra gli eventuali errori commessi dall&#39;utente mostrando le risposte corrette e le eventuali risposte sbagliate.
+Nel caso di un quiz sugli accordi, mostra l&#39;accordo corretto al fianco di quello errato.</p>
+</dd>
 <dt><a href="#script_load">script_load()</a></dt>
-<dd><p>Seleziona un numero casuale compreso tra 1 e 7 e ne imposta l&#39;accordo da richiedere all&#39;utente.</p>
+<dd><p>Seleziona un numero casuale compreso tra 1 e 24 e ne sceglie il relativo accordo dall&#39;array degli accordi,
+lo imposta come domanda nel quiz e lo inserisce in un altro array che contiene gli accordi &quot;pescati&quot;, ripetendo
+il procedimento per le 5 domande totali richieste nel quiz.</p>
 </dd>
 <dt><a href="#verify_and_store">verify_and_store()</a></dt>
 <dd><p>Verifica che le selezioni effettuate dall&#39;utente siano corrette in base all&#39;accordo presentatogli e
-memorizza: se la selezione è corretta (1) o non corretta (0), le checkbox selezionate (e non) e 
-l&#39;accordo che l&#39;utente doveva riprodurre.</p>
+memorizza in un array se la selezione è corretta (1) o non corretta (0), disabilita le checkbox analizzate
+e aumenta il punteggio (in caso di accordo corretto).</p>
 </dd>
 <dt><a href="#correct_chord">correct_chord()</a></dt>
 <dd><p>In base al numero di accordo che l&#39;utente doveva riprodurre, ripristina la sequenza di selezioni
-corretta nello schema.</p>
+corretta negli schemi e ne blocca le modifiche.</p>
 </dd>
 <dt><a href="#script_load">script_load()</a></dt>
-<dd><p>Seleziona un numero casuale compreso tra 1 e 7 e ne imposta l&#39;accordo da richiedere all&#39;utente.</p>
+<dd><p>Seleziona un numero casuale compreso tra 1 e 24 e ne sceglie il relativo accordo dall&#39;array degli accordi,
+lo imposta come domanda nel quiz e lo inserisce in un altro array che contiene gli accordi &quot;pescati&quot;, ripetendo
+il procedimento per le 5 domande totali richieste nel quiz.</p>
 </dd>
 <dt><a href="#verify_and_store">verify_and_store()</a></dt>
 <dd><p>Verifica che le selezioni effettuate dall&#39;utente siano corrette in base all&#39;accordo presentatogli e
-memorizza: se la selezione è corretta (1) o non corretta (0), le checkbox selezionate (e non) e 
-l&#39;accordo che l&#39;utente doveva riprodurre.</p>
+memorizza in un array se la selezione è corretta (1) o non corretta (0), disabilita le checkbox analizzate
+e aumenta il punteggio (in caso di accordo corretto).</p>
 </dd>
 <dt><a href="#correct_chord">correct_chord()</a></dt>
 <dd><p>In base al numero di accordo che l&#39;utente doveva riprodurre, ripristina la sequenza di selezioni
-corretta nello schema.</p>
+corretta negli schemi e ne blocca le modifiche.</p>
 </dd>
 <dt><a href="#script_load">script_load()</a></dt>
-<dd><p>Seleziona un numero casuale compreso tra 1 e 7 e ne imposta l&#39;accordo da richiedere all&#39;utente.</p>
+<dd><p>Seleziona un numero casuale compreso tra 1 e 24 e ne sceglie il relativo accordo dall&#39;array degli accordi,
+lo imposta come domanda nel quiz e lo inserisce in un altro array che contiene gli accordi &quot;pescati&quot;, ripetendo
+il procedimento per le 5 domande totali richieste nel quiz.</p>
 </dd>
 <dt><a href="#verify_and_store">verify_and_store()</a></dt>
 <dd><p>Verifica che le selezioni effettuate dall&#39;utente siano corrette in base all&#39;accordo presentatogli e
-memorizza: se la selezione è corretta (1) o non corretta (0), le checkbox selezionate (e non) e 
-l&#39;accordo che l&#39;utente doveva riprodurre.</p>
+memorizza in un array se la selezione è corretta (1) o non corretta (0), disabilita le checkbox analizzate
+e aumenta il punteggio (in caso di accordo corretto).</p>
 </dd>
 <dt><a href="#correct_chord">correct_chord()</a></dt>
 <dd><p>In base al numero di accordo che l&#39;utente doveva riprodurre, ripristina la sequenza di selezioni
-corretta nello schema.</p>
+corretta negli schemi e ne blocca le modifiche.</p>
+</dd>
+<dt><a href="#selectFirstColumn">selectFirstColumn(j)</a></dt>
+<dd><p>Seleziona (o deseleziona) tutte le checkbox della prima colonna nell&#39;accordo j-esimo (passato come 
+parametro) in base al valore della prima checkbox dell&#39;accordo j-esimo, ovvero: se il valore della
+prima checkbox è true (selezionato) deseleziona tutta la colonna, se è false la seleziona.</p>
+</dd>
+<dt><a href="#controlFirstColumn">controlFirstColumn(j)</a></dt>
+<dd><p>Modifica il nome del bottone che permette all&#39;utente di applicare o rimuovere il barrè nei quiz
+in modo da renderlo coerente con lo stato delle checkbox.</p>
 </dd>
 </dl>
 
@@ -123,132 +150,6 @@ corretta nello schema.</p>
 
 ## new Main()
 La classe contenente la logica principale dell'applicazione.
-
-<a name="accordo"></a>
-
-# accordo
-Classe accordo.
-
-**Kind**: global class  
-
-* [accordo](#accordo)
-    * [new accordo(nome, dita, tasto_iniziale)](#new_accordo_new)
-    * [new accordo(nome, dita, tasto_iniziale)](#new_accordo_new)
-    * [new accordo(nome, dita, tasto_iniziale)](#new_accordo_new)
-
-<a name="new_accordo_new"></a>
-
-## new accordo(nome, dita, tasto_iniziale)
-
-| Param | Type | Description |
-| --- | --- | --- |
-| nome | <code>String</code> | Stringa che indica il nome dell'accordo |
-| dita | <code>Boolean</code> | Sequenza di valori logici che indicano se la checkbox corrispondente è stata selezionata o meno |
-| tasto_iniziale | <code>number</code> | Indica il numero del capotasto iniziale dell'accordo |
-
-<a name="new_accordo_new"></a>
-
-## new accordo(nome, dita, tasto_iniziale)
-
-| Param | Type | Description |
-| --- | --- | --- |
-| nome | <code>String</code> | Stringa che indica il nome dell'accordo |
-| dita | <code>Boolean</code> | Sequenza di valori logici che indicano se la checkbox corrispondente è stata selezionata o meno |
-| tasto_iniziale | <code>number</code> | Indica il numero del capotasto iniziale dell'accordo |
-
-<a name="new_accordo_new"></a>
-
-## new accordo(nome, dita, tasto_iniziale)
-
-| Param | Type | Description |
-| --- | --- | --- |
-| nome | <code>String</code> | Stringa che indica il nome dell'accordo |
-| dita | <code>Boolean</code> | Sequenza di valori logici che indicano se la checkbox corrispondente è stata selezionata o meno |
-| tasto_iniziale | <code>number</code> | Indica il numero del capotasto iniziale dell'accordo |
-
-<a name="accordo"></a>
-
-# accordo
-Classe accordo.
-
-**Kind**: global class  
-
-* [accordo](#accordo)
-    * [new accordo(nome, dita, tasto_iniziale)](#new_accordo_new)
-    * [new accordo(nome, dita, tasto_iniziale)](#new_accordo_new)
-    * [new accordo(nome, dita, tasto_iniziale)](#new_accordo_new)
-
-<a name="new_accordo_new"></a>
-
-## new accordo(nome, dita, tasto_iniziale)
-
-| Param | Type | Description |
-| --- | --- | --- |
-| nome | <code>String</code> | Stringa che indica il nome dell'accordo |
-| dita | <code>Boolean</code> | Sequenza di valori logici che indicano se la checkbox corrispondente è stata selezionata o meno |
-| tasto_iniziale | <code>number</code> | Indica il numero del capotasto iniziale dell'accordo |
-
-<a name="new_accordo_new"></a>
-
-## new accordo(nome, dita, tasto_iniziale)
-
-| Param | Type | Description |
-| --- | --- | --- |
-| nome | <code>String</code> | Stringa che indica il nome dell'accordo |
-| dita | <code>Boolean</code> | Sequenza di valori logici che indicano se la checkbox corrispondente è stata selezionata o meno |
-| tasto_iniziale | <code>number</code> | Indica il numero del capotasto iniziale dell'accordo |
-
-<a name="new_accordo_new"></a>
-
-## new accordo(nome, dita, tasto_iniziale)
-
-| Param | Type | Description |
-| --- | --- | --- |
-| nome | <code>String</code> | Stringa che indica il nome dell'accordo |
-| dita | <code>Boolean</code> | Sequenza di valori logici che indicano se la checkbox corrispondente è stata selezionata o meno |
-| tasto_iniziale | <code>number</code> | Indica il numero del capotasto iniziale dell'accordo |
-
-<a name="accordo"></a>
-
-# accordo
-Classe accordo.
-
-**Kind**: global class  
-
-* [accordo](#accordo)
-    * [new accordo(nome, dita, tasto_iniziale)](#new_accordo_new)
-    * [new accordo(nome, dita, tasto_iniziale)](#new_accordo_new)
-    * [new accordo(nome, dita, tasto_iniziale)](#new_accordo_new)
-
-<a name="new_accordo_new"></a>
-
-## new accordo(nome, dita, tasto_iniziale)
-
-| Param | Type | Description |
-| --- | --- | --- |
-| nome | <code>String</code> | Stringa che indica il nome dell'accordo |
-| dita | <code>Boolean</code> | Sequenza di valori logici che indicano se la checkbox corrispondente è stata selezionata o meno |
-| tasto_iniziale | <code>number</code> | Indica il numero del capotasto iniziale dell'accordo |
-
-<a name="new_accordo_new"></a>
-
-## new accordo(nome, dita, tasto_iniziale)
-
-| Param | Type | Description |
-| --- | --- | --- |
-| nome | <code>String</code> | Stringa che indica il nome dell'accordo |
-| dita | <code>Boolean</code> | Sequenza di valori logici che indicano se la checkbox corrispondente è stata selezionata o meno |
-| tasto_iniziale | <code>number</code> | Indica il numero del capotasto iniziale dell'accordo |
-
-<a name="new_accordo_new"></a>
-
-## new accordo(nome, dita, tasto_iniziale)
-
-| Param | Type | Description |
-| --- | --- | --- |
-| nome | <code>String</code> | Stringa che indica il nome dell'accordo |
-| dita | <code>Boolean</code> | Sequenza di valori logici che indicano se la checkbox corrispondente è stata selezionata o meno |
-| tasto_iniziale | <code>number</code> | Indica il numero del capotasto iniziale dell'accordo |
 
 <a name="openMobileNavigation"></a>
 
@@ -458,57 +359,113 @@ Apre una finestra modale mostrante il contenuto richiesto.
 | [options] | <code>Object</code> |  | Le opzioni della nuova finestra |
 | [windowIcon] | <code>String</code> | <code>./assets/icon.ico</code> | L'icona della finestra modale |
 
-<a name="script_load"></a>
+<a name="generateRandomQuestions"></a>
 
-# script\_load()
-Seleziona un numero casuale compreso tra 1 e 7 e ne imposta l'accordo da richiedere all'utente.
-
-**Kind**: global function  
-<a name="verify_and_store"></a>
-
-# verify\_and\_store()
-Verifica che le selezioni effettuate dall'utente siano corrette in base all'accordo presentatogli ememorizza: se la selezione è corretta (1) o non corretta (0), le checkbox selezionate (e non) e l'accordo che l'utente doveva riprodurre.
+# generateRandomQuestions()
+La funzione genera una permutazione casuale dei numeri naturalinell'intervallo [0,3]. Ogni numero è utilizato per indicizzare il vettoredelle risposte (di ogni domanda), quindi la permutazione corrisponde allapermutazione delle risposte a ogni domanda.
 
 **Kind**: global function  
-<a name="correct_chord"></a>
+<a name="quizLoad"></a>
 
-# correct\_chord()
-In base al numero di accordo che l'utente doveva riprodurre, ripristina la sequenza di selezionicorretta nello schema.
-
-**Kind**: global function  
-<a name="script_load"></a>
-
-# script\_load()
-Seleziona un numero casuale compreso tra 1 e 7 e ne imposta l'accordo da richiedere all'utente.
+# quizLoad(id)
+Funzione di caricamento dei quiz che inizializza il punteggio dell'utente, il punteggio massimo delquiz e richiama la funzione inizializeQuiz. In caso di quiz che riguardano gli accordi, richiama la funzione di caricamento degli stessi.
 
 **Kind**: global function  
-<a name="verify_and_store"></a>
 
-# verify\_and\_store()
-Verifica che le selezioni effettuate dall'utente siano corrette in base all'accordo presentatogli ememorizza: se la selezione è corretta (1) o non corretta (0), le checkbox selezionate (e non) e l'accordo che l'utente doveva riprodurre.
+| Param | Type | Description |
+| --- | --- | --- |
+| id | <code>String</code> | Indica quale quiz si sta svolgendo per permettere al programma di  memorizzarne l' esito. |
+
+<a name="quizVerify"></a>
+
+# quizVerify(return_link)
+Richiama la funzione di Check delle risposte inoltre, se si tratta di un quiz che riguarda gliaccordi, richiama anche la funzione verify_and_store(). Infine visualizza la finestra di dialogo che mostra il punteggio ottenuto dall'utente su quello massimo del quiz e richiede se uscire dalquiz o verificare le risposte date.
 
 **Kind**: global function  
-<a name="correct_chord"></a>
 
-# correct\_chord()
-In base al numero di accordo che l'utente doveva riprodurre, ripristina la sequenza di selezionicorretta nello schema.
+| Param | Type | Description |
+| --- | --- | --- |
+| return_link | <code>String</code> | Indica in quale pagina si deve ritornare al completamento dei quiz. |
+
+<a name="quizCompare"></a>
+
+# quizCompare()
+Mostra gli eventuali errori commessi dall'utente mostrando le risposte corrette e le eventuali risposte sbagliate.Nel caso di un quiz sugli accordi, mostra l'accordo corretto al fianco di quello errato.
 
 **Kind**: global function  
 <a name="script_load"></a>
 
 # script\_load()
-Seleziona un numero casuale compreso tra 1 e 7 e ne imposta l'accordo da richiedere all'utente.
+Seleziona un numero casuale compreso tra 1 e 24 e ne sceglie il relativo accordo dall'array degli accordi,lo imposta come domanda nel quiz e lo inserisce in un altro array che contiene gli accordi "pescati", ripetendoil procedimento per le 5 domande totali richieste nel quiz.
 
 **Kind**: global function  
 <a name="verify_and_store"></a>
 
 # verify\_and\_store()
-Verifica che le selezioni effettuate dall'utente siano corrette in base all'accordo presentatogli ememorizza: se la selezione è corretta (1) o non corretta (0), le checkbox selezionate (e non) e l'accordo che l'utente doveva riprodurre.
+Verifica che le selezioni effettuate dall'utente siano corrette in base all'accordo presentatogli ememorizza in un array se la selezione è corretta (1) o non corretta (0), disabilita le checkbox analizzatee aumenta il punteggio (in caso di accordo corretto).
 
 **Kind**: global function  
 <a name="correct_chord"></a>
 
 # correct\_chord()
-In base al numero di accordo che l'utente doveva riprodurre, ripristina la sequenza di selezionicorretta nello schema.
+In base al numero di accordo che l'utente doveva riprodurre, ripristina la sequenza di selezionicorretta negli schemi e ne blocca le modifiche.
 
 **Kind**: global function  
+<a name="script_load"></a>
+
+# script\_load()
+Seleziona un numero casuale compreso tra 1 e 24 e ne sceglie il relativo accordo dall'array degli accordi,lo imposta come domanda nel quiz e lo inserisce in un altro array che contiene gli accordi "pescati", ripetendoil procedimento per le 5 domande totali richieste nel quiz.
+
+**Kind**: global function  
+<a name="verify_and_store"></a>
+
+# verify\_and\_store()
+Verifica che le selezioni effettuate dall'utente siano corrette in base all'accordo presentatogli ememorizza in un array se la selezione è corretta (1) o non corretta (0), disabilita le checkbox analizzatee aumenta il punteggio (in caso di accordo corretto).
+
+**Kind**: global function  
+<a name="correct_chord"></a>
+
+# correct\_chord()
+In base al numero di accordo che l'utente doveva riprodurre, ripristina la sequenza di selezionicorretta negli schemi e ne blocca le modifiche.
+
+**Kind**: global function  
+<a name="script_load"></a>
+
+# script\_load()
+Seleziona un numero casuale compreso tra 1 e 24 e ne sceglie il relativo accordo dall'array degli accordi,lo imposta come domanda nel quiz e lo inserisce in un altro array che contiene gli accordi "pescati", ripetendoil procedimento per le 5 domande totali richieste nel quiz.
+
+**Kind**: global function  
+<a name="verify_and_store"></a>
+
+# verify\_and\_store()
+Verifica che le selezioni effettuate dall'utente siano corrette in base all'accordo presentatogli ememorizza in un array se la selezione è corretta (1) o non corretta (0), disabilita le checkbox analizzatee aumenta il punteggio (in caso di accordo corretto).
+
+**Kind**: global function  
+<a name="correct_chord"></a>
+
+# correct\_chord()
+In base al numero di accordo che l'utente doveva riprodurre, ripristina la sequenza di selezionicorretta negli schemi e ne blocca le modifiche.
+
+**Kind**: global function  
+<a name="selectFirstColumn"></a>
+
+# selectFirstColumn(j)
+Seleziona (o deseleziona) tutte le checkbox della prima colonna nell'accordo j-esimo (passato come parametro) in base al valore della prima checkbox dell'accordo j-esimo, ovvero: se il valore dellaprima checkbox è true (selezionato) deseleziona tutta la colonna, se è false la seleziona.
+
+**Kind**: global function  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| j | <code>number</code> | Indica il numero di slide su cui la funzione deve operare. |
+
+<a name="controlFirstColumn"></a>
+
+# controlFirstColumn(j)
+Modifica il nome del bottone che permette all'utente di applicare o rimuovere il barrè nei quizin modo da renderlo coerente con lo stato delle checkbox.
+
+**Kind**: global function  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| j | <code>number</code> | Indica il numero di slide su cui la funzione deve operare. |
+

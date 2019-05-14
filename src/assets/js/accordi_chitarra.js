@@ -1,19 +1,7 @@
 var selezionato = new Array();
 var corretto = new Array(5);
-/**
- * Classe accordo.
- * @param {String} nome Stringa che indica il nome dell'accordo
- * @param {Boolean} dita Sequenza di valori logici che indicano se la checkbox corrispondente è
- * stata selezionata o meno
- * @param {number} tasto_iniziale Indica il numero del capotasto iniziale dell'accordo
- */
-class accordo {
-	constructor(nome, dita, tasto_iniziale) {
-		this.nome = nome;
-		this.dita = dita;
-		this.tasto_iniziale = tasto_iniziale;
-	}
-}
+
+const accordo = window.parent.require("../../assets/js/chord-module");
 
 var accordi = [
 	new accordo("Do", [false, false, false, false,
@@ -163,7 +151,9 @@ var accordi = [
 ];
 
 /**
- * Seleziona un numero casuale compreso tra 1 e 7 e ne imposta l'accordo da richiedere all'utente.
+ * Seleziona un numero casuale compreso tra 1 e 24 e ne sceglie il relativo accordo dall'array degli accordi,
+ * lo imposta come domanda nel quiz e lo inserisce in un altro array che contiene gli accordi "pescati", ripetendo
+ * il procedimento per le 5 domande totali richieste nel quiz.
  */
 function script_load() {
 	for (var i = 0; i < document.getElementsByName("chord").length; i++) {
@@ -182,8 +172,8 @@ function script_load() {
 
 /**
  * Verifica che le selezioni effettuate dall'utente siano corrette in base all'accordo presentatogli e
- * memorizza: se la selezione è corretta (1) o non corretta (0), le checkbox selezionate (e non) e 
- * l'accordo che l'utente doveva riprodurre.
+ * memorizza in un array se la selezione è corretta (1) o non corretta (0), disabilita le checkbox analizzate
+ * e aumenta il punteggio (in caso di accordo corretto).
  */
 function verify_and_store() {
 	for (var j = 0; j < document.getElementsByName("chord").length; j++) {
@@ -203,7 +193,7 @@ function verify_and_store() {
 
 /**
  * In base al numero di accordo che l'utente doveva riprodurre, ripristina la sequenza di selezioni
- * corretta nello schema.
+ * corretta negli schemi e ne blocca le modifiche.
  */
 function correct_chord() {
 	for (var j = 0; j < document.getElementsByName("chord").length; j++) {
@@ -220,5 +210,50 @@ function correct_chord() {
 			}
 		} else
 			document.getElementsByName("errato")[j].innerHTML = "Corretto";
+		document.getElementsByName("barre")[j].style.display = "none";
 	}
+}
+
+/**
+ * Seleziona (o deseleziona) tutte le checkbox della prima colonna nell'accordo j-esimo (passato come 
+ * parametro) in base al valore della prima checkbox dell'accordo j-esimo, ovvero: se il valore della
+ * prima checkbox è true (selezionato) deseleziona tutta la colonna, se è false la seleziona.
+ * @param {number} j Indica il numero di slide su cui la funzione deve operare.
+ */
+function selectFirstColumn(j) {
+	box = document.getElementsByName("chord")[j];
+	b = !(box.getElementsByTagName("input")[0].checked &&
+		box.getElementsByTagName("input")[4].checked &&
+		box.getElementsByTagName("input")[8].checked &&
+		box.getElementsByTagName("input")[12].checked &&
+		box.getElementsByTagName("input")[16].checked &&
+		box.getElementsByTagName("input")[20].checked);
+	if (!b)
+		document.getElementsByName("barre")[j].innerHTML = "Applica il Barrè";
+	else
+		document.getElementsByName("barre")[j].innerHTML = "Rimuovi il Barrè";
+
+	for (i = 0; i < 21; i++) {
+		if (i % 4 == 0)
+			box.getElementsByTagName("input")[i].checked = b;
+	}
+}
+
+/**
+ * Modifica il nome del bottone che permette all'utente di applicare o rimuovere il barrè nei quiz
+ * in modo da renderlo coerente con lo stato delle checkbox.
+ * @param {number} j Indica il numero di slide su cui la funzione deve operare.
+ */
+function controlFirstColumn(j) {
+	box = document.getElementsByName("chord")[j];
+	b = box.getElementsByTagName("input")[0].checked &&
+		box.getElementsByTagName("input")[4].checked &&
+		box.getElementsByTagName("input")[8].checked &&
+		box.getElementsByTagName("input")[12].checked &&
+		box.getElementsByTagName("input")[16].checked &&
+		box.getElementsByTagName("input")[20].checked;
+	if (!b)
+		document.getElementsByName("barre")[j].innerHTML = "Applica il Barrè";
+	else
+		document.getElementsByName("barre")[j].innerHTML = "Rimuovi il Barrè";
 }
