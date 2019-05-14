@@ -3,12 +3,6 @@
 
 \begin{description}
 \item[{ \protect\hyperlink{Main}{Main} }]
-\item[{ \protect\hyperlink{accordo}{accordo} }]
-Classe accordo.
-\item[{ \protect\hyperlink{accordo}{accordo} }]
-Classe accordo.
-\item[{ \protect\hyperlink{accordo}{accordo} }]
-Classe accordo.
 \end{description}
 
 \hypertarget{functions}{%
@@ -73,39 +67,77 @@ Ottiene il risultato del quiz scelto
 \item[{ \protect\hyperlink{openModal}{openModal(content, {[}options{]},
 {[}windowIcon{]})} }]
 Apre una finestra modale mostrante il contenuto richiesto.
+\item[{
+\protect\hyperlink{generateRandomQuestions}{generateRandomQuestions()}
+}]
+La funzione genera una permutazione casuale dei numeri naturali
+nell'intervallo {[}0,3{]}. Ogni numero è utilizato per indicizzare il
+vettore delle risposte (di ogni domanda), quindi la permutazione
+corrisponde alla permutazione delle risposte a ogni domanda.
+\item[{ \protect\hyperlink{quizLoad}{quizLoad(id)} }]
+Funzione di caricamento dei quiz che inizializza il punteggio
+dell'utente, il punteggio massimo del quiz e richiama la funzione
+inizializeQuiz. In caso di quiz che riguardano gli accordi, richiama la
+funzione di caricamento degli stessi.
+\item[{ \protect\hyperlink{quizVerify}{quizVerify(return\_link)} }]
+Richiama la funzione di Check delle risposte inoltre, se si tratta di un
+quiz che riguarda gli accordi, richiama anche la funzione
+verify\_and\_store(). Infine visualizza la finestra di dialogo che
+mostra il punteggio ottenuto dall'utente su quello massimo del quiz e
+richiede se uscire dal quiz o verificare le risposte date.
+\item[{ \protect\hyperlink{quizCompare}{quizCompare()} }]
+Mostra gli eventuali errori commessi dall'utente mostrando le risposte
+corrette e le eventuali risposte sbagliate. Nel caso di un quiz sugli
+accordi, mostra l'accordo corretto al fianco di quello errato.
 \item[{ \protect\hyperlink{script_load}{script\_load()} }]
-Seleziona un numero casuale compreso tra 1 e 7 e ne imposta l'accordo da
-richiedere all'utente.
+Seleziona un numero casuale compreso tra 1 e 24 e ne sceglie il relativo
+accordo dall'array degli accordi, lo imposta come domanda nel quiz e lo
+inserisce in un altro array che contiene gli accordi ``pescati'',
+ripetendo il procedimento per le 5 domande totali richieste nel quiz.
 \item[{ \protect\hyperlink{verify_and_store}{verify\_and\_store()} }]
 Verifica che le selezioni effettuate dall'utente siano corrette in base
-all'accordo presentatogli e memorizza: se la selezione è corretta (1) o
-non corretta (0), le checkbox selezionate (e non) e l'accordo che
-l'utente doveva riprodurre.
+all'accordo presentatogli e memorizza in un array se la selezione è
+corretta (1) o non corretta (0), disabilita le checkbox analizzate e
+aumenta il punteggio (in caso di accordo corretto).
 \item[{ \protect\hyperlink{correct_chord}{correct\_chord()} }]
 In base al numero di accordo che l'utente doveva riprodurre, ripristina
-la sequenza di selezioni corretta nello schema.
+la sequenza di selezioni corretta negli schemi e ne blocca le modifiche.
 \item[{ \protect\hyperlink{script_load}{script\_load()} }]
-Seleziona un numero casuale compreso tra 1 e 7 e ne imposta l'accordo da
-richiedere all'utente.
+Seleziona un numero casuale compreso tra 1 e 24 e ne sceglie il relativo
+accordo dall'array degli accordi, lo imposta come domanda nel quiz e lo
+inserisce in un altro array che contiene gli accordi ``pescati'',
+ripetendo il procedimento per le 5 domande totali richieste nel quiz.
 \item[{ \protect\hyperlink{verify_and_store}{verify\_and\_store()} }]
 Verifica che le selezioni effettuate dall'utente siano corrette in base
-all'accordo presentatogli e memorizza: se la selezione è corretta (1) o
-non corretta (0), le checkbox selezionate (e non) e l'accordo che
-l'utente doveva riprodurre.
+all'accordo presentatogli e memorizza in un array se la selezione è
+corretta (1) o non corretta (0), disabilita le checkbox analizzate e
+aumenta il punteggio (in caso di accordo corretto).
 \item[{ \protect\hyperlink{correct_chord}{correct\_chord()} }]
 In base al numero di accordo che l'utente doveva riprodurre, ripristina
-la sequenza di selezioni corretta nello schema.
+la sequenza di selezioni corretta negli schemi e ne blocca le modifiche.
 \item[{ \protect\hyperlink{script_load}{script\_load()} }]
-Seleziona un numero casuale compreso tra 1 e 7 e ne imposta l'accordo da
-richiedere all'utente.
+Seleziona un numero casuale compreso tra 1 e 24 e ne sceglie il relativo
+accordo dall'array degli accordi, lo imposta come domanda nel quiz e lo
+inserisce in un altro array che contiene gli accordi ``pescati'',
+ripetendo il procedimento per le 5 domande totali richieste nel quiz.
 \item[{ \protect\hyperlink{verify_and_store}{verify\_and\_store()} }]
 Verifica che le selezioni effettuate dall'utente siano corrette in base
-all'accordo presentatogli e memorizza: se la selezione è corretta (1) o
-non corretta (0), le checkbox selezionate (e non) e l'accordo che
-l'utente doveva riprodurre.
+all'accordo presentatogli e memorizza in un array se la selezione è
+corretta (1) o non corretta (0), disabilita le checkbox analizzate e
+aumenta il punteggio (in caso di accordo corretto).
 \item[{ \protect\hyperlink{correct_chord}{correct\_chord()} }]
 In base al numero di accordo che l'utente doveva riprodurre, ripristina
-la sequenza di selezioni corretta nello schema.
+la sequenza di selezioni corretta negli schemi e ne blocca le modifiche.
+\item[{ \protect\hyperlink{selectFirstColumn}{selectFirstColumn(j)} }]
+Seleziona (o deseleziona) tutte le checkbox della prima colonna
+nell'accordo j-esimo (passato come parametro) in base al valore della
+prima checkbox dell'accordo j-esimo, ovvero: se il valore della prima
+checkbox è true (selezionato) deseleziona tutta la colonna, se è false
+la seleziona.
+\item[{ \protect\hyperlink{controlFirstColumn}{controlFirstColumn(j)} }]
+Modifica il nome del bottone che permette all'utente di applicare o
+rimuovere il barrè nei quiz in modo da renderlo coerente con lo stato
+delle checkbox.
 \end{description}
 
 \protect\hypertarget{Main}{}{}
@@ -120,468 +152,6 @@ la sequenza di selezioni corretta nello schema.
 \subsubsection{new Main()}\label{new-main}}
 
 La classe contenente la logica principale dell'applicazione.
-
-\protect\hypertarget{accordo}{}{}
-
-\hypertarget{accordo}{%
-\subsection{accordo}\label{accordo}}
-
-Classe accordo.
-
-\textbf{Kind}: global class
-
-\begin{itemize}
-\tightlist
-\item
-  \protect\hyperlink{accordo}{accordo}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \protect\hyperlink{new_accordo_new}{new accordo(nome, dita,
-    tasto\_iniziale)}
-  \item
-    \protect\hyperlink{new_accordo_new}{new accordo(nome, dita,
-    tasto\_iniziale)}
-  \item
-    \protect\hyperlink{new_accordo_new}{new accordo(nome, dita,
-    tasto\_iniziale)}
-  \end{itemize}
-\end{itemize}
-
-\protect\hypertarget{new_accordo_new}{}{}
-
-\hypertarget{new-accordonome-dita-tasto_iniziale}{%
-\subsubsection{new accordo(nome, dita,
-tasto\_iniziale)}\label{new-accordonome-dita-tasto_iniziale}}
-
-\begin{tabularx}{\textwidth}{XXX}
-\toprule
-\begin{minipage}[b]{0.30\columnwidth}\raggedright
-Param\strut
-\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
-Type\strut
-\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
-Description\strut
-\end{minipage}\tabularnewline
-\midrule
-\endhead
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-nome\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-\texttt{String}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Stringa che indica il nome dell'accordo\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-dita\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-\texttt{Boolean}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Sequenza di valori logici che indicano se la checkbox corrispondente è
-stata selezionata o meno\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-tasto\_iniziale\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-\texttt{number}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Indica il numero del capotasto iniziale dell'accordo\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{tabularx}
-
-\protect\hypertarget{new_accordo_new}{}{}
-
-\hypertarget{new-accordonome-dita-tasto_iniziale-1}{%
-\subsubsection{new accordo(nome, dita,
-tasto\_iniziale)}\label{new-accordonome-dita-tasto_iniziale-1}}
-
-\begin{tabularx}{\textwidth}{XXX}
-\toprule
-\begin{minipage}[b]{0.30\columnwidth}\raggedright
-Param\strut
-\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
-Type\strut
-\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
-Description\strut
-\end{minipage}\tabularnewline
-\midrule
-\endhead
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-nome\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-\texttt{String}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Stringa che indica il nome dell'accordo\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-dita\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-\texttt{Boolean}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Sequenza di valori logici che indicano se la checkbox corrispondente è
-stata selezionata o meno\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-tasto\_iniziale\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-\texttt{number}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Indica il numero del capotasto iniziale dell'accordo\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{tabularx}
-
-\protect\hypertarget{new_accordo_new}{}{}
-
-\hypertarget{new-accordonome-dita-tasto_iniziale-2}{%
-\subsubsection{new accordo(nome, dita,
-tasto\_iniziale)}\label{new-accordonome-dita-tasto_iniziale-2}}
-
-\begin{tabularx}{\textwidth}{XXX}
-\toprule
-\begin{minipage}[b]{0.30\columnwidth}\raggedright
-Param\strut
-\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
-Type\strut
-\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
-Description\strut
-\end{minipage}\tabularnewline
-\midrule
-\endhead
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-nome\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-\texttt{String}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Stringa che indica il nome dell'accordo\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-dita\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-\texttt{Boolean}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Sequenza di valori logici che indicano se la checkbox corrispondente è
-stata selezionata o meno\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-tasto\_iniziale\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-\texttt{number}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Indica il numero del capotasto iniziale dell'accordo\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{tabularx}
-
-\protect\hypertarget{accordo}{}{}
-
-\hypertarget{accordo-1}{%
-\subsection{accordo}\label{accordo-1}}
-
-Classe accordo.
-
-\textbf{Kind}: global class
-
-\begin{itemize}
-\tightlist
-\item
-  \protect\hyperlink{accordo}{accordo}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \protect\hyperlink{new_accordo_new}{new accordo(nome, dita,
-    tasto\_iniziale)}
-  \item
-    \protect\hyperlink{new_accordo_new}{new accordo(nome, dita,
-    tasto\_iniziale)}
-  \item
-    \protect\hyperlink{new_accordo_new}{new accordo(nome, dita,
-    tasto\_iniziale)}
-  \end{itemize}
-\end{itemize}
-
-\protect\hypertarget{new_accordo_new}{}{}
-
-\hypertarget{new-accordonome-dita-tasto_iniziale-3}{%
-\subsubsection{new accordo(nome, dita,
-tasto\_iniziale)}\label{new-accordonome-dita-tasto_iniziale-3}}
-
-\begin{tabularx}{\textwidth}{XXX}
-\toprule
-\begin{minipage}[b]{0.30\columnwidth}\raggedright
-Param\strut
-\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
-Type\strut
-\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
-Description\strut
-\end{minipage}\tabularnewline
-\midrule
-\endhead
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-nome\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-\texttt{String}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Stringa che indica il nome dell'accordo\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-dita\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-\texttt{Boolean}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Sequenza di valori logici che indicano se la checkbox corrispondente è
-stata selezionata o meno\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-tasto\_iniziale\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-\texttt{number}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Indica il numero del capotasto iniziale dell'accordo\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{tabularx}
-
-\protect\hypertarget{new_accordo_new}{}{}
-
-\hypertarget{new-accordonome-dita-tasto_iniziale-4}{%
-\subsubsection{new accordo(nome, dita,
-tasto\_iniziale)}\label{new-accordonome-dita-tasto_iniziale-4}}
-
-\begin{tabularx}{\textwidth}{XXX}
-\toprule
-\begin{minipage}[b]{0.30\columnwidth}\raggedright
-Param\strut
-\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
-Type\strut
-\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
-Description\strut
-\end{minipage}\tabularnewline
-\midrule
-\endhead
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-nome\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-\texttt{String}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Stringa che indica il nome dell'accordo\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-dita\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-\texttt{Boolean}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Sequenza di valori logici che indicano se la checkbox corrispondente è
-stata selezionata o meno\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-tasto\_iniziale\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-\texttt{number}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Indica il numero del capotasto iniziale dell'accordo\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{tabularx}
-
-\protect\hypertarget{new_accordo_new}{}{}
-
-\hypertarget{new-accordonome-dita-tasto_iniziale-5}{%
-\subsubsection{new accordo(nome, dita,
-tasto\_iniziale)}\label{new-accordonome-dita-tasto_iniziale-5}}
-
-\begin{tabularx}{\textwidth}{XXX}
-\toprule
-\begin{minipage}[b]{0.30\columnwidth}\raggedright
-Param\strut
-\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
-Type\strut
-\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
-Description\strut
-\end{minipage}\tabularnewline
-\midrule
-\endhead
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-nome\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-\texttt{String}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Stringa che indica il nome dell'accordo\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-dita\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-\texttt{Boolean}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Sequenza di valori logici che indicano se la checkbox corrispondente è
-stata selezionata o meno\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-tasto\_iniziale\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-\texttt{number}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Indica il numero del capotasto iniziale dell'accordo\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{tabularx}
-
-\protect\hypertarget{accordo}{}{}
-
-\hypertarget{accordo-2}{%
-\subsection{accordo}\label{accordo-2}}
-
-Classe accordo.
-
-\textbf{Kind}: global class
-
-\begin{itemize}
-\tightlist
-\item
-  \protect\hyperlink{accordo}{accordo}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \protect\hyperlink{new_accordo_new}{new accordo(nome, dita,
-    tasto\_iniziale)}
-  \item
-    \protect\hyperlink{new_accordo_new}{new accordo(nome, dita,
-    tasto\_iniziale)}
-  \item
-    \protect\hyperlink{new_accordo_new}{new accordo(nome, dita,
-    tasto\_iniziale)}
-  \end{itemize}
-\end{itemize}
-
-\protect\hypertarget{new_accordo_new}{}{}
-
-\hypertarget{new-accordonome-dita-tasto_iniziale-6}{%
-\subsubsection{new accordo(nome, dita,
-tasto\_iniziale)}\label{new-accordonome-dita-tasto_iniziale-6}}
-
-\begin{tabularx}{\textwidth}{XXX}
-\toprule
-\begin{minipage}[b]{0.30\columnwidth}\raggedright
-Param\strut
-\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
-Type\strut
-\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
-Description\strut
-\end{minipage}\tabularnewline
-\midrule
-\endhead
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-nome\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-\texttt{String}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Stringa che indica il nome dell'accordo\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-dita\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-\texttt{Boolean}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Sequenza di valori logici che indicano se la checkbox corrispondente è
-stata selezionata o meno\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-tasto\_iniziale\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-\texttt{number}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Indica il numero del capotasto iniziale dell'accordo\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{tabularx}
-
-\protect\hypertarget{new_accordo_new}{}{}
-
-\hypertarget{new-accordonome-dita-tasto_iniziale-7}{%
-\subsubsection{new accordo(nome, dita,
-tasto\_iniziale)}\label{new-accordonome-dita-tasto_iniziale-7}}
-
-\begin{tabularx}{\textwidth}{XXX}
-\toprule
-\begin{minipage}[b]{0.30\columnwidth}\raggedright
-Param\strut
-\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
-Type\strut
-\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
-Description\strut
-\end{minipage}\tabularnewline
-\midrule
-\endhead
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-nome\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-\texttt{String}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Stringa che indica il nome dell'accordo\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-dita\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-\texttt{Boolean}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Sequenza di valori logici che indicano se la checkbox corrispondente è
-stata selezionata o meno\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-tasto\_iniziale\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-\texttt{number}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Indica il numero del capotasto iniziale dell'accordo\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{tabularx}
-
-\protect\hypertarget{new_accordo_new}{}{}
-
-\hypertarget{new-accordonome-dita-tasto_iniziale-8}{%
-\subsubsection{new accordo(nome, dita,
-tasto\_iniziale)}\label{new-accordonome-dita-tasto_iniziale-8}}
-
-\begin{tabularx}{\textwidth}{XXX}
-\toprule
-\begin{minipage}[b]{0.30\columnwidth}\raggedright
-Param\strut
-\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
-Type\strut
-\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
-Description\strut
-\end{minipage}\tabularnewline
-\midrule
-\endhead
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-nome\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-\texttt{String}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Stringa che indica il nome dell'accordo\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-dita\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-\texttt{Boolean}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Sequenza di valori logici che indicano se la checkbox corrispondente è
-stata selezionata o meno\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-tasto\_iniziale\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-\texttt{number}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Indica il numero del capotasto iniziale dell'accordo\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{tabularx}
 
 \protect\hypertarget{openMobileNavigation}{}{}
 
@@ -722,7 +292,7 @@ Il numero totale di pagine per la sezione.\strut
 \protect\hypertarget{initialize..changeSlide}{}{}
 
 \hypertarget{initializechangeslideslide}{%
-\subsubsection{initialize\textasciitilde{}changeSlide(slide)}\label{initializechangeslideslide}}
+\subsubsection{initialize\textasciitilde changeSlide(slide)}\label{initializechangeslideslide}}
 
 La funzione, in base al valore assunto da slide cambia la sezione
 corrente inquella richiesta. Inoltre si occupa di aggiornare il numero
@@ -899,16 +469,16 @@ tramite la titlebar.
   \begin{itemize}
   \tightlist
   \item
-    \protect\hyperlink{setUpTitleBar..init}{\textasciitilde{}init()}
+    \protect\hyperlink{setUpTitleBar..init}{\textasciitilde init()}
   \item
-    \protect\hyperlink{setUpTitleBar..toggleMaxRestoreButtons}{\textasciitilde{}toggleMaxRestoreButtons()}
+    \protect\hyperlink{setUpTitleBar..toggleMaxRestoreButtons}{\textasciitilde toggleMaxRestoreButtons()}
   \end{itemize}
 \end{itemize}
 
 \protect\hypertarget{setUpTitleBar..init}{}{}
 
 \hypertarget{setuptitlebarinit}{%
-\subsubsection{setUpTitleBar\textasciitilde{}init()}\label{setuptitlebarinit}}
+\subsubsection{setUpTitleBar\textasciitilde init()}\label{setuptitlebarinit}}
 
 Inizializza la titlebar.
 
@@ -917,7 +487,7 @@ Inizializza la titlebar.
 \protect\hypertarget{setUpTitleBar..toggleMaxRestoreButtons}{}{}
 
 \hypertarget{setuptitlebartogglemaxrestorebuttons}{%
-\subsubsection{setUpTitleBar\textasciitilde{}toggleMaxRestoreButtons()}\label{setuptitlebartogglemaxrestorebuttons}}
+\subsubsection{setUpTitleBar\textasciitilde toggleMaxRestoreButtons()}\label{setuptitlebartogglemaxrestorebuttons}}
 
 Cicla tra i bottoni di massimizzazione e diminimizzazione della finestra
 alternativamente
@@ -1103,13 +673,105 @@ L'icona della finestra modale\tabularnewline
 \bottomrule
 \end{tabularx}
 
+\protect\hypertarget{generateRandomQuestions}{}{}
+
+\hypertarget{generaterandomquestions}{%
+\subsection{generateRandomQuestions()}\label{generaterandomquestions}}
+
+La funzione genera una permutazione casuale dei numeri
+naturalinell'intervallo {[}0,3{]}. Ogni numero è utilizato per
+indicizzare il vettoredelle risposte (di ogni domanda), quindi la
+permutazione corrisponde allapermutazione delle risposte a ogni domanda.
+
+\textbf{Kind}: global function\\
+\protect\hypertarget{quizLoad}{}{}
+
+\hypertarget{quizloadid}{%
+\subsection{quizLoad(id)}\label{quizloadid}}
+
+Funzione di caricamento dei quiz che inizializza il punteggio
+dell'utente, il punteggio massimo delquiz e richiama la funzione
+inizializeQuiz. In caso di quiz che riguardano gli accordi, richiama la
+funzione di caricamento degli stessi.
+
+\textbf{Kind}: global function
+
+\begin{tabularx}{\textwidth}{XXX}
+\toprule
+\begin{minipage}[b]{0.30\columnwidth}\raggedright
+Param\strut
+\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
+Type\strut
+\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
+Description\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.30\columnwidth}\raggedright
+id\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+\texttt{String}\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+Indica quale quiz si sta svolgendo per permettere al programma di
+memorizzarne l' esito.\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{tabularx}
+
+\protect\hypertarget{quizVerify}{}{}
+
+\hypertarget{quizverifyreturn_link}{%
+\subsection{quizVerify(return\_link)}\label{quizverifyreturn_link}}
+
+Richiama la funzione di Check delle risposte inoltre, se si tratta di un
+quiz che riguarda gliaccordi, richiama anche la funzione
+verify\_and\_store(). Infine visualizza la finestra di dialogo che
+mostra il punteggio ottenuto dall'utente su quello massimo del quiz e
+richiede se uscire dalquiz o verificare le risposte date.
+
+\textbf{Kind}: global function
+
+\begin{tabularx}{\textwidth}{XXX}
+\toprule
+\begin{minipage}[b]{0.30\columnwidth}\raggedright
+Param\strut
+\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
+Type\strut
+\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
+Description\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.30\columnwidth}\raggedright
+return\_link\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+\texttt{String}\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+Indica in quale pagina si deve ritornare al completamento dei
+quiz.\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{tabularx}
+
+\protect\hypertarget{quizCompare}{}{}
+
+\hypertarget{quizcompare}{%
+\subsection{quizCompare()}\label{quizcompare}}
+
+Mostra gli eventuali errori commessi dall'utente mostrando le risposte
+corrette e le eventuali risposte sbagliate.Nel caso di un quiz sugli
+accordi, mostra l'accordo corretto al fianco di quello errato.
+
+\textbf{Kind}: global function\\
 \protect\hypertarget{script_load}{}{}
 
 \hypertarget{script_load}{%
 \subsection{script\_load()}\label{script_load}}
 
-Seleziona un numero casuale compreso tra 1 e 7 e ne imposta l'accordo da
-richiedere all'utente.
+Seleziona un numero casuale compreso tra 1 e 24 e ne sceglie il relativo
+accordo dall'array degli accordi,lo imposta come domanda nel quiz e lo
+inserisce in un altro array che contiene gli accordi ``pescati'',
+ripetendoil procedimento per le 5 domande totali richieste nel quiz.
 
 \textbf{Kind}: global function\\
 \protect\hypertarget{verify_and_store}{}{}
@@ -1118,9 +780,9 @@ richiedere all'utente.
 \subsection{verify\_and\_store()}\label{verify_and_store}}
 
 Verifica che le selezioni effettuate dall'utente siano corrette in base
-all'accordo presentatogli ememorizza: se la selezione è corretta (1) o
-non corretta (0), le checkbox selezionate (e non) e l'accordo che
-l'utente doveva riprodurre.
+all'accordo presentatogli ememorizza in un array se la selezione è
+corretta (1) o non corretta (0), disabilita le checkbox analizzatee
+aumenta il punteggio (in caso di accordo corretto).
 
 \textbf{Kind}: global function\\
 \protect\hypertarget{correct_chord}{}{}
@@ -1129,7 +791,7 @@ l'utente doveva riprodurre.
 \subsection{correct\_chord()}\label{correct_chord}}
 
 In base al numero di accordo che l'utente doveva riprodurre, ripristina
-la sequenza di selezionicorretta nello schema.
+la sequenza di selezionicorretta negli schemi e ne blocca le modifiche.
 
 \textbf{Kind}: global function\\
 \protect\hypertarget{script_load}{}{}
@@ -1137,8 +799,10 @@ la sequenza di selezionicorretta nello schema.
 \hypertarget{script_load-1}{%
 \subsection{script\_load()}\label{script_load-1}}
 
-Seleziona un numero casuale compreso tra 1 e 7 e ne imposta l'accordo da
-richiedere all'utente.
+Seleziona un numero casuale compreso tra 1 e 24 e ne sceglie il relativo
+accordo dall'array degli accordi,lo imposta come domanda nel quiz e lo
+inserisce in un altro array che contiene gli accordi ``pescati'',
+ripetendoil procedimento per le 5 domande totali richieste nel quiz.
 
 \textbf{Kind}: global function\\
 \protect\hypertarget{verify_and_store}{}{}
@@ -1147,9 +811,9 @@ richiedere all'utente.
 \subsection{verify\_and\_store()}\label{verify_and_store-1}}
 
 Verifica che le selezioni effettuate dall'utente siano corrette in base
-all'accordo presentatogli ememorizza: se la selezione è corretta (1) o
-non corretta (0), le checkbox selezionate (e non) e l'accordo che
-l'utente doveva riprodurre.
+all'accordo presentatogli ememorizza in un array se la selezione è
+corretta (1) o non corretta (0), disabilita le checkbox analizzatee
+aumenta il punteggio (in caso di accordo corretto).
 
 \textbf{Kind}: global function\\
 \protect\hypertarget{correct_chord}{}{}
@@ -1158,7 +822,7 @@ l'utente doveva riprodurre.
 \subsection{correct\_chord()}\label{correct_chord-1}}
 
 In base al numero di accordo che l'utente doveva riprodurre, ripristina
-la sequenza di selezionicorretta nello schema.
+la sequenza di selezionicorretta negli schemi e ne blocca le modifiche.
 
 \textbf{Kind}: global function\\
 \protect\hypertarget{script_load}{}{}
@@ -1166,8 +830,10 @@ la sequenza di selezionicorretta nello schema.
 \hypertarget{script_load-2}{%
 \subsection{script\_load()}\label{script_load-2}}
 
-Seleziona un numero casuale compreso tra 1 e 7 e ne imposta l'accordo da
-richiedere all'utente.
+Seleziona un numero casuale compreso tra 1 e 24 e ne sceglie il relativo
+accordo dall'array degli accordi,lo imposta come domanda nel quiz e lo
+inserisce in un altro array che contiene gli accordi ``pescati'',
+ripetendoil procedimento per le 5 domande totali richieste nel quiz.
 
 \textbf{Kind}: global function\\
 \protect\hypertarget{verify_and_store}{}{}
@@ -1176,9 +842,9 @@ richiedere all'utente.
 \subsection{verify\_and\_store()}\label{verify_and_store-2}}
 
 Verifica che le selezioni effettuate dall'utente siano corrette in base
-all'accordo presentatogli ememorizza: se la selezione è corretta (1) o
-non corretta (0), le checkbox selezionate (e non) e l'accordo che
-l'utente doveva riprodurre.
+all'accordo presentatogli ememorizza in un array se la selezione è
+corretta (1) o non corretta (0), disabilita le checkbox analizzatee
+aumenta il punteggio (in caso di accordo corretto).
 
 \textbf{Kind}: global function\\
 \protect\hypertarget{correct_chord}{}{}
@@ -1187,6 +853,49 @@ l'utente doveva riprodurre.
 \subsection{correct\_chord()}\label{correct_chord-2}}
 
 In base al numero di accordo che l'utente doveva riprodurre, ripristina
-la sequenza di selezionicorretta nello schema.
+la sequenza di selezionicorretta negli schemi e ne blocca le modifiche.
+
+\textbf{Kind}: global function\\
+\protect\hypertarget{selectFirstColumn}{}{}
+
+\hypertarget{selectfirstcolumnj}{%
+\subsection{selectFirstColumn(j)}\label{selectfirstcolumnj}}
+
+Seleziona (o deseleziona) tutte le checkbox della prima colonna
+nell'accordo j-esimo (passato come parametro) in base al valore della
+prima checkbox dell'accordo j-esimo, ovvero: se il valore dellaprima
+checkbox è true (selezionato) deseleziona tutta la colonna, se è false
+la seleziona.
 
 \textbf{Kind}: global function
+
+\begin{tabularx}{\textwidth}{XXX}
+\toprule
+Param & Type & Description\tabularnewline
+\midrule
+\endhead
+j & \texttt{number} & Indica il numero di slide su cui la funzione deve
+operare.\tabularnewline
+\bottomrule
+\end{tabularx}
+
+\protect\hypertarget{controlFirstColumn}{}{}
+
+\hypertarget{controlfirstcolumnj}{%
+\subsection{controlFirstColumn(j)}\label{controlfirstcolumnj}}
+
+Modifica il nome del bottone che permette all'utente di applicare o
+rimuovere il barrè nei quizin modo da renderlo coerente con lo stato
+delle checkbox.
+
+\textbf{Kind}: global function
+
+\begin{tabularx}{\textwidth}{XXX}
+\toprule
+Param & Type & Description\tabularnewline
+\midrule
+\endhead
+j & \texttt{number} & Indica il numero di slide su cui la funzione deve
+operare.\tabularnewline
+\bottomrule
+\end{tabularx}
